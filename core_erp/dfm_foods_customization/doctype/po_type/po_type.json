@@ -1,0 +1,49 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "field:po_type",
+ "creation": "2022-03-16 18:35:48.313734",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "po_type",
+  "ins"
+ ],
+ "fields": [
+  {
+   "fieldname": "po_type",
+   "fieldtype": "Data",
+   "label": "PO Type",
+   "unique": 1
+  },
+  {
+   "fieldname": "ins",
+   "fieldtype": "Data",
+   "label": "Ins"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-03-22 14:48:07.609264",
+ "modified_by": "Administrator",
+ "module": "DFM Foods Customization",
+ "name": "PO Type",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

@@ -1,0 +1,46 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "PO Type",
+  "ins": "J",
+  "modified": "2022-03-19 15:14:50.851301",
+  "name": "Job Work",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "po_type": "Job Work"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "PO Type",
+  "ins": "S",
+  "modified": "2022-03-19 15:14:51.013183",
+  "name": "Service",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "po_type": "Service"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "PO Type",
+  "ins": "I",
+  "modified": "2022-03-19 15:14:51.030645",
+  "name": "Indirect",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "po_type": "Indirect"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "PO Type",
+  "ins": "N",
+  "modified": "2022-03-19 15:14:51.055454",
+  "name": "Normal",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "po_type": "Normal"
+ }
+]

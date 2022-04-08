@@ -1,0 +1,3542 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:37.991387",
+  "name": "MTR30L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MTR30L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.141957",
+  "name": "SP32L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SP32L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.159606",
+  "name": "NR32L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NR32L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.172550",
+  "name": "MM32L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MM32L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.194865",
+  "name": "MD31L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MD31L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.205827",
+  "name": "LM35L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "LM35L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.216474",
+  "name": "KH35L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KH35L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.231337",
+  "name": "BB32L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BB32L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.244703",
+  "name": "AB32L",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "AB32L"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.255331",
+  "name": "DMB30",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DMB30"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.269913",
+  "name": "TS13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TS13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.287054",
+  "name": "TT13CLR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13CLR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.299014",
+  "name": "SP32",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SP32"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.308699",
+  "name": "NR32",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NR32"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.320046",
+  "name": "MMB32",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MMB32"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.335163",
+  "name": "BB32",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BB32"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.350990",
+  "name": "AB32",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "AB32"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.366047",
+  "name": "CS13BLW",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CS13BLW"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.379986",
+  "name": "TS13BLW",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TS13BLW"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.391119",
+  "name": "MN13BLW",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MN13BLW"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.405514",
+  "name": "TT13BLW",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13BLW"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.418336",
+  "name": "CHE13BLW",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHE13BLW"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.434102",
+  "name": "PCCO31X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCO31X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.448408",
+  "name": "PCTT31X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCTT31X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.461975",
+  "name": "PCSS31X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCSS31X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.476236",
+  "name": "TT53STY",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT53STY"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.496735",
+  "name": "PCCT62",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT62"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.514645",
+  "name": "KH70",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KH70"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.529025",
+  "name": "DMZ60",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DMZ60"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.571538",
+  "name": "MTR60",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MTR60"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.587863",
+  "name": "ABS70",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "ABS70"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.600010",
+  "name": "NRS70",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NRS70"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.614683",
+  "name": "MD62",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MD62"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.633646",
+  "name": "BB70",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BB70"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.646744",
+  "name": "MCK13SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCK13SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.661060",
+  "name": "TT13SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.675028",
+  "name": "CHN53STY",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN53STY"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.688307",
+  "name": "CURM53",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM53"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.700588",
+  "name": "PCCT60",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT60"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.715657",
+  "name": "CBDP37",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP37"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.728579",
+  "name": "CBDP18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.741911",
+  "name": "CBTM18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBTM18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.754589",
+  "name": "FRC37",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC37"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.766580",
+  "name": "CBL18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBL18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.778985",
+  "name": "CURT18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURT18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.795488",
+  "name": "CURSD18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURSD18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.809338",
+  "name": "CURM18P2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM18P2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.823590",
+  "name": "CURM18.0P2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM18.0P2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.837808",
+  "name": "CHN53BKE",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN53BKE"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.853038",
+  "name": "FRC18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.864413",
+  "name": "FRA18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRA18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.874821",
+  "name": "FRMMT18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRMMT18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.894953",
+  "name": "FRN18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRN18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.907294",
+  "name": "CS13PRK",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CS13PRK"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.919312",
+  "name": "CHE13PRK",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHE13PRK"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.931425",
+  "name": "MCK13PRK",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCK13PRK"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.945987",
+  "name": "CURM18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.961346",
+  "name": "CURM21.6",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM21.6"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.979555",
+  "name": "MANIA 243T",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA 243T"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:38.993166",
+  "name": "TT24 3T",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT24 3T"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.008084",
+  "name": "TS13PRK",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TS13PRK"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.021697",
+  "name": "TSC13PRK",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TSC13PRK"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.035875",
+  "name": "CURM18.5SL",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM18.5SL"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.050021",
+  "name": "FRC18.5SL",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC18.5SL"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.065639",
+  "name": "Mixture",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Mixture"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.079896",
+  "name": "MN13PRK",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MN13PRK"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.095841",
+  "name": "TT13PRK",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13PRK"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.109481",
+  "name": "TT243T",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT243T"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.126858",
+  "name": "MANIA243T",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA243T"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.140264",
+  "name": "CHN243T",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN243T"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.153758",
+  "name": "MN13PP",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MN13PP"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.164954",
+  "name": "TT13PP",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13PP"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.177582",
+  "name": "TT13PR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13PR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.192528",
+  "name": "CHN24T3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN24T3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.202702",
+  "name": "MANIA24T3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA24T3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.213190",
+  "name": "TT24T3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT24T3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.227761",
+  "name": "MATAR30",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MATAR30"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.241362",
+  "name": "SP35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SP35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.260952",
+  "name": "NR35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NR35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.276358",
+  "name": "MMB35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MMB35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.293343",
+  "name": "MD31",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MD31"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.305266",
+  "name": "LM35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "LM35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.318581",
+  "name": "KH35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KH35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.333205",
+  "name": "DM30",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DM30"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.344724",
+  "name": "BB35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BB35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.353866",
+  "name": "AB35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "AB35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.364035",
+  "name": "MATARB14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MATARB14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.373753",
+  "name": "SP15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SP15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.390422",
+  "name": "NR15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NR15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.400008",
+  "name": "MM15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MM15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.409373",
+  "name": "MDB14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MDB14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.419449",
+  "name": "DM14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DM14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.432694",
+  "name": "BB15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BB15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.446313",
+  "name": "AB15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "AB15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.459741",
+  "name": "Prank21",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Prank21"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.469756",
+  "name": "MANIA28SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA28SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.480400",
+  "name": "TT28SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT28SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.495007",
+  "name": "CURM22.2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM22.2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.507588",
+  "name": "TT13P40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13P40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.520852",
+  "name": "TT53BKE",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT53BKE"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.533860",
+  "name": "NTM20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NTM20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.545840",
+  "name": "CHE13SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHE13SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.558198",
+  "name": "TS13SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TS13SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.604962",
+  "name": "CS13SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CS13SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.625623",
+  "name": "MN13SPN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MN13SPN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.639981",
+  "name": "TT28CAR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT28CAR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.658727",
+  "name": "TTLI38",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TTLI38"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.678015",
+  "name": "TT13SPR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13SPR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.697365",
+  "name": "PCTT41",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCTT41"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.712857",
+  "name": "PCSS41",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCSS41"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.723797",
+  "name": "PCCO41",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCO41"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.734585",
+  "name": "MTRS89C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MTRS89C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.746089",
+  "name": "NT20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NT20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.760832",
+  "name": "SPB18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SPB18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.774048",
+  "name": "NRB18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NRB18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.786767",
+  "name": "MMB18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MMB18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.797360",
+  "name": "MATARB16",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MATARB16"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.808647",
+  "name": "BBB18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BBB18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.819388",
+  "name": "ABB18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "ABB18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.832994",
+  "name": "SP40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SP40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.852215",
+  "name": "NR40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NR40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.866220",
+  "name": "MM40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MM40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.876784",
+  "name": "MD36",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MD36"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.892887",
+  "name": "LM40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "LM40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.906665",
+  "name": "KH40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KH40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.920260",
+  "name": "BB40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BB40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.934839",
+  "name": "AB40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "AB40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.950187",
+  "name": "NCMM20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NCMM20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.964528",
+  "name": "CBDP20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:39.981104",
+  "name": "PCCT20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.001771",
+  "name": "CURSD20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURSD20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.016955",
+  "name": "CURM46",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM46"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.030911",
+  "name": "CURT20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURT20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.044607",
+  "name": "Simply Salted",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Simply Salted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.057084",
+  "name": "CHN53STB",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN53STB"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.073033",
+  "name": "CHN28WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN28WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.087653",
+  "name": "MANIA28WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA28WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.103312",
+  "name": "TT28WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT28WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.115057",
+  "name": "MCK13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCK13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.129033",
+  "name": "CS13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CS13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.139416",
+  "name": "TSL13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TSL13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.150640",
+  "name": "CHE13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHE13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.164472",
+  "name": "PP13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PP13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.178167",
+  "name": "peas",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "peas"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.193470",
+  "name": "MNL13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MNL13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.207857",
+  "name": "TSL13SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TSL13SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.221351",
+  "name": "TT13WTR",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13WTR"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.231851",
+  "name": "TSL13",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TSL13"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.242822",
+  "name": "MCK13",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCK13"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.256097",
+  "name": "MCK13SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCK13SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.268006",
+  "name": "CS13SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CS13SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.280014",
+  "name": "CHE13SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHE13SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.295720",
+  "name": "PP13SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PP13SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.307139",
+  "name": "MN13SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MN13SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.319233",
+  "name": "TT13SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT13SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.334271",
+  "name": "CHN28SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN28SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.349412",
+  "name": "TT28SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT28SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.365280",
+  "name": "FRC38",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC38"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.381646",
+  "name": "NT40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NT40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.392045",
+  "name": "MANIA28SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA28SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.407989",
+  "name": "PCTT20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCTT20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.421788",
+  "name": "PCSS20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCSS20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.434407",
+  "name": "PCTT10",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCTT10"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.445545",
+  "name": "PCSS10",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCSS10"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.459723",
+  "name": "PCTT20X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCTT20X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.471482",
+  "name": "PCSS20X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCSS20X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.481423",
+  "name": "PCTT10X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCTT10X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.492125",
+  "name": "PCSS10X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCSS10X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.506063",
+  "name": "PCCO20X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCO20X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.519904",
+  "name": "PCCO20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCO20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.534266",
+  "name": "PCCO10X2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCO10X2"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.548932",
+  "name": "PCCO10",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCO10"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.562406",
+  "name": "MANIA24",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA24"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.573011",
+  "name": "TT24",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT24"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.587532",
+  "name": "CHN24",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN24"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.601610",
+  "name": "CBLB20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBLB20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.643881",
+  "name": "MDS79",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MDS79"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.666702",
+  "name": "FRN20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRN20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.710757",
+  "name": "CURM37",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM37"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.723707",
+  "name": "CSL14SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CSL14SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.736515",
+  "name": "PPL14SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PPL14SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.747772",
+  "name": "MNL14SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MNL14SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.759322",
+  "name": "CBDP38",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP38"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.771159",
+  "name": "PCCT66C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT66C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.780994",
+  "name": "PCCT66",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT66"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.790774",
+  "name": "NT72C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NT72C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.804382",
+  "name": "NT72",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NT72"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.821517",
+  "name": "CBDP62C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP62C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.833085",
+  "name": "CBDP62",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP62"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.845583",
+  "name": "TT55C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT55C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.858088",
+  "name": "TTL55",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TTL55"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.871223",
+  "name": "MN55C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MN55C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.892731",
+  "name": "MNL55",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MNL55"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.911104",
+  "name": "CURM66C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM66C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.922387",
+  "name": "CURM66",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM66"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.933987",
+  "name": "FRC66C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC66C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.944657",
+  "name": "FRC66",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC66"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.958249",
+  "name": "DMZS74",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DMZS74"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.972501",
+  "name": "KHS84",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KHS84"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:40.993471",
+  "name": "NRS84",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NRS84"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.005583",
+  "name": "BBS84",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BBS84"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.019587",
+  "name": "ABS84",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "ABS84"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.032594",
+  "name": "MTRS89",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MTRS89"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.047153",
+  "name": "DM35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DM35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.057977",
+  "name": "MATAR35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MATAR35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.069211",
+  "name": "DMB16",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DMB16"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.088602",
+  "name": "MDB16",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MDB16"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.102548",
+  "name": "PCCT64",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT64"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.113494",
+  "name": "TTL14SHT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TTL14SHT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.127939",
+  "name": "CHN53",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN53"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.142214",
+  "name": "Chinees Tadka",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Chinees Tadka"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.154715",
+  "name": "MMLSI40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MMLSI40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.168355",
+  "name": "TTLSI40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TTLSI40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.189975",
+  "name": "NT44",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NT44"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.201780",
+  "name": "FRCLI41C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRCLI41C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.212822",
+  "name": "CURMI41",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURMI41"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.222355",
+  "name": "CURMSI47C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURMSI47C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.232329",
+  "name": "CURMSI41",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURMSI41"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.242129",
+  "name": "CURMSI47",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURMSI47"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.253652",
+  "name": "CURMI47",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURMI47"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.266262",
+  "name": "CBL20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBL20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.292385",
+  "name": "FRCLI41",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRCLI41"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.306328",
+  "name": "FRCI41",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRCI41"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.320967",
+  "name": "SPB17",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SPB17"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.335133",
+  "name": "SP39",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "SP39"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.350049",
+  "name": "NRS85C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NRS85C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.363639",
+  "name": "NRS85",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NRS85"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.375036",
+  "name": "NRB17",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NRB17"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.396373",
+  "name": "NR39",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NR39"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.408679",
+  "name": "MTRS90C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MTRS90C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.422161",
+  "name": "MTRS90",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MTRS90"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.438413",
+  "name": "MMB17",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MMB17"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.452681",
+  "name": "MM39",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MM39"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.466362",
+  "name": "MHJB16",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MHJB16"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.481678",
+  "name": "MDS80C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MDS80C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.496035",
+  "name": "MDS80",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MDS80"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.510727",
+  "name": "MDB15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MDB15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.523593",
+  "name": "MD35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MD35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.537997",
+  "name": "MCB18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCB18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.548730",
+  "name": "MATARB15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MATARB15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.562128",
+  "name": "MATAR34",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MATAR34"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.587811",
+  "name": "LM39",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "LM39"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.602698",
+  "name": "KHS85C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KHS85C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.616132",
+  "name": "KHS85",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KHS85"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.630399",
+  "name": "GPJ40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "GPJ40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.674087",
+  "name": "DMZS75C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DMZS75C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.709898",
+  "name": "DMZS75",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DMZS75"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.726586",
+  "name": "DMB15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DMB15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.741630",
+  "name": "DM34",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "DM34"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.787570",
+  "name": "BBS85C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BBS85C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.811734",
+  "name": "BBS85",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BBS85"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.826333",
+  "name": "BBB17",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BBB17"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.838075",
+  "name": "BB39",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "BB39"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.853128",
+  "name": "ABS85C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "ABS85C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.867151",
+  "name": "ABS85",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "ABS85"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.879714",
+  "name": "ABB17",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "ABB17"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.893048",
+  "name": "AB39",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "AB39"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.905302",
+  "name": "TTLI40C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TTLI40C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.919010",
+  "name": "TTLI40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TTLI40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.934984",
+  "name": "TTL14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TTL14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.949618",
+  "name": "TT53",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT53"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.970954",
+  "name": "TT28",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TT28"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:41.988907",
+  "name": "TSL14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TSL14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.007802",
+  "name": "TSC28",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "TSC28"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.022915",
+  "name": "PPL14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PPL14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.036238",
+  "name": "PPB35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PPB35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.050545",
+  "name": "PCCT70",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT70"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.067186",
+  "name": "PCCT18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "PCCT18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.088998",
+  "name": "NTM22",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NTM22"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.101537",
+  "name": "NT70",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NT70"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.119243",
+  "name": "NT22",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NT22"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.143779",
+  "name": "NCMM18",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "NCMM18"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.157403",
+  "name": "MNL14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MNL14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.169692",
+  "name": "MNB35",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MNB35"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.193565",
+  "name": "MMLI40C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MMLI40C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.206817",
+  "name": "MMLI40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MMLI40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.230200",
+  "name": "MCK53",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCK53"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.249370",
+  "name": "MCK14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MCK14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.265083",
+  "name": "MANIA28",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "MANIA28"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.276084",
+  "name": "KH39",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "KH39"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.290104",
+  "name": "FRN18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRN18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.308853",
+  "name": "FRMMT18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRMMT18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.321075",
+  "name": "FRMM70",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRMM70"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.335859",
+  "name": "FRM40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRM40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.349534",
+  "name": "FRM18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRM18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.363322",
+  "name": "FRC64",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC64"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.389616",
+  "name": "FRC40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.416518",
+  "name": "FRC18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRC18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.445818",
+  "name": "FRA18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "FRA18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.460257",
+  "name": "CURTRs 20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURTRs 20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.473796",
+  "name": "CURT18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURT18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.486396",
+  "name": "CURSD18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURSD18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.499347",
+  "name": "CURM64",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM64"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.513582",
+  "name": "CURM40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.528206",
+  "name": "CURM18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CURM18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.541742",
+  "name": "CSLI40C3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CSLI40C3"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.556432",
+  "name": "CSLI40",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CSLI40"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.569492",
+  "name": "CSL14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CSL14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.582107",
+  "name": "CHN55",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN55"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.595961",
+  "name": "CHN28",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHN28"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.609488",
+  "name": "CHEL14",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHEL14"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.622504",
+  "name": "CHE28",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CHE28"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.636663",
+  "name": "CBTM60",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBTM60"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.654639",
+  "name": "CBTM19",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBTM19"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.671044",
+  "name": "CBL18.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBL18.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.700008",
+  "name": "CBDP60",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP60"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.717621",
+  "name": "CBDP19",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "CBDP19"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.735652",
+  "name": "Bowls",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Bowls"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.761786",
+  "name": "Pallet",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Pallet"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.775532",
+  "name": "Tomato Twist",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Tomato Twist"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.791372",
+  "name": "Salted",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Salted"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.806596",
+  "name": "Potato Chips",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Potato Chips"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.823080",
+  "name": "colour",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "colour"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.835755",
+  "name": "Tomato",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Tomato"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.847715",
+  "name": "Rings",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Rings"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.862404",
+  "name": "Sour Cream Onion",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Sour Cream Onion"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.877488",
+  "name": "Natkhat",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Natkhat"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.892308",
+  "name": "Thai Sweet Chilli",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Thai Sweet Chilli"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.909702",
+  "name": "Salted peanut",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Salted peanut"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.923401",
+  "name": "Pudina Punch",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Pudina Punch"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.934493",
+  "name": "Noodle",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Noodle"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.946414",
+  "name": "Pasta",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Pasta"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.961046",
+  "name": "Crunch",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Crunch"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.976387",
+  "name": "Navrattan",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Navrattan"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:42.990969",
+  "name": "Moong Dal",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Moong Dal"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.005416",
+  "name": "Matar Hing Zeere",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Matar Hing Zeere"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.016670",
+  "name": "Mast Moongfali",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Mast Moongfali"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.027942",
+  "name": "Mast Matar",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Mast Matar"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.041152",
+  "name": "Mast Cheese",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Mast Cheese"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.054222",
+  "name": "Masala Mania",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Masala Mania"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.067110",
+  "name": "Masala Chaska",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Masala Chaska"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.081642",
+  "name": "Lachha Mixture",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Lachha Mixture"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.094716",
+  "name": "Khatta Mettha",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Khatta Mettha"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.110989",
+  "name": "Masala Mix",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Masala Mix"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.127584",
+  "name": "Magic Masala",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Magic Masala"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.153682",
+  "name": "Masala",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Masala"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.169595",
+  "name": "Cream & Onion",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Cream & Onion"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.185202",
+  "name": "Fritts",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Fritts"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.202023",
+  "name": "Double Mazaa",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Double Mazaa"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.216858",
+  "name": "Tomato Treat",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Tomato Treat"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.239178",
+  "name": "Spicy Delight",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Spicy Delight"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.253167",
+  "name": "Combo Pack",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Combo Pack"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.268812",
+  "name": "Chatpata Masala",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Chatpata Masala"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.285439",
+  "name": "Curls",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Curls"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.300360",
+  "name": "Achari",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Achari"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.315055",
+  "name": "Cheese Balls",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Cheese Balls"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.326078",
+  "name": "Tangy Tomato",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Tangy Tomato"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.339743",
+  "name": "Chatpata",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Chatpata"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.352347",
+  "name": "Masala Tikka",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Masala Tikka"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.365652",
+  "name": "Chat Masala",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Chat Masala"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.386397",
+  "name": "Dahi Papdi",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Dahi Papdi"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.398794",
+  "name": "Classic",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Classic"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.410483",
+  "name": "Bikaneri Bhujia",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Bikaneri Bhujia"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Variant",
+  "modified": "2022-03-19 14:32:43.420799",
+  "name": "Aaloo Bhujia",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_variant": "Aaloo Bhujia"
+ }
+]

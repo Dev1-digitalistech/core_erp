@@ -1,0 +1,68 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "Prompt",
+ "creation": "2022-03-19 12:20:30.578975",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "sub_category_id",
+  "category",
+  "category_id",
+  "description"
+ ],
+ "fields": [
+  {
+   "fieldname": "sub_category_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Sub Category ID",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Category",
+   "options": "Issue Type",
+   "reqd": 1
+  },
+  {
+   "fieldname": "category_id",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Category ID",
+   "read_only": 1,
+   "reqd": 1
+  },
+  {
+   "fieldname": "description",
+   "fieldtype": "Data",
+   "label": "Description"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2022-03-19 12:20:30.578975",
+ "modified_by": "Administrator",
+ "module": "DFM Foods Customization",
+ "name": "Sub Category",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC"
+}

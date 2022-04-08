@@ -1,0 +1,602 @@
+[
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.312855",
+  "name": "Microware Wave",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Microware Wave"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.457668",
+  "name": "DINNER SET",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "DINNER SET"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.469324",
+  "name": "LUNCH BOX",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "LUNCH BOX"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.487879",
+  "name": "KITCHEN PRODUCT",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "KITCHEN PRODUCT"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.502229",
+  "name": "ELECTRIC COOLER",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "ELECTRIC COOLER"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.515942",
+  "name": "ELETRIC GEYSER",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "ELETRIC GEYSER"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.533561",
+  "name": "ELECTRIC MIXER",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "ELECTRIC MIXER"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.544733",
+  "name": "ELECTRIC FAN",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "ELECTRIC FAN"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.556162",
+  "name": "Micro Oven",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Micro Oven"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.568708",
+  "name": "Washing Machine",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Washing Machine"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.588831",
+  "name": "Smart TV",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Smart TV"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.600571",
+  "name": "AC Machine",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "AC Machine"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.614712",
+  "name": "Mast moongfali",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Mast moongfali"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.628813",
+  "name": "MoongDal",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "MoongDal"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.643109",
+  "name": "Lachha Mixture",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Lachha Mixture"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.656419",
+  "name": "Khatta Meetha",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Khatta Meetha"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.670563",
+  "name": "Mast Matar",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Mast Matar"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.681803",
+  "name": "NavRattan",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "NavRattan"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.695855",
+  "name": "Double Mazza",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Double Mazza"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.709701",
+  "name": "Salted Peanut",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Salted Peanut"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.721063",
+  "name": "Bikaneri Bhujia",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Bikaneri Bhujia"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.735685",
+  "name": "Aloo Bhujia",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Aloo Bhujia"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.749563",
+  "name": "NAM(Re 60)",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "NAM(Re 60)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.761698",
+  "name": "NAM(Re Rs 20)",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "NAM(Re Rs 20)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.773587",
+  "name": "NAM(Re 5)",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "NAM(Re 5)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.789574",
+  "name": "P.Crunch Rs.Rs 20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "P.Crunch Rs.Rs 20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.800079",
+  "name": "P.Crunch Rs.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "P.Crunch Rs.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.810641",
+  "name": "NTK(Re Rs 20)",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "NTK(Re Rs 20)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.823777",
+  "name": "NTK(Re 5)",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "NTK(Re 5)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.837370",
+  "name": "Noodle Rs.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Noodle Rs.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.847999",
+  "name": "NAM(Re 10)",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "NAM(Re 10)"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.858755",
+  "name": "FRITTS Rs.Rs 20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "FRITTS Rs.Rs 20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.869385",
+  "name": "FRITTS Rs.10",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "FRITTS Rs.10"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.880554",
+  "name": "FRITTS Rs.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "FRITTS Rs.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.896895",
+  "name": "CURL RS.Rs 20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "CURL RS.Rs 20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.911025",
+  "name": "CURL RS.10",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "CURL RS.10"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.923747",
+  "name": "CURL RS.5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "CURL RS.5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.938812",
+  "name": "Rings Rs45",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Rings Rs45"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.953301",
+  "name": "Rings Rs15",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Rings Rs15"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.966496",
+  "name": "Rings RsRs 20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Rings RsRs 20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.978635",
+  "name": "Rings Rs5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Rings Rs5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:17.994004",
+  "name": "Rings Rs10",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Rings Rs10"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.005244",
+  "name": "CBALLS5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "CBALLS5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.015881",
+  "name": "BOWLS RsRs 20",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "BOWLS RsRs 20"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.031779",
+  "name": "BOWLS Rs5",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "BOWLS Rs5"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.047216",
+  "name": "Chips",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Chips"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.061825",
+  "name": "Potato Chips",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Potato Chips"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.074981",
+  "name": "Bread Chips",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Bread Chips"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.088357",
+  "name": "Snacks",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Snacks"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.098682",
+  "name": "Pasta",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Pasta"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.108772",
+  "name": "Noodle",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Noodle"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.118905",
+  "name": "Safety",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Safety"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.130015",
+  "name": "Pallet",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Pallet"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.142157",
+  "name": "Fritts",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Fritts"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.153064",
+  "name": "Bowls",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Bowls"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.165206",
+  "name": "Curls",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Curls"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.180058",
+  "name": "Cheese Balls",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Cheese Balls"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.194149",
+  "name": "Natkhat",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Natkhat"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.207730",
+  "name": "Namkeen",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Namkeen"
+ },
+ {
+  "docstatus": 0,
+  "doctype": "Product Category",
+  "modified": "2022-03-19 14:18:18.219119",
+  "name": "Rings",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "product_category": "Rings"
+ }
+]
