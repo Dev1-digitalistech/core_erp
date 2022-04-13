@@ -1,6 +1,6 @@
 import frappe
 
-
+# TODO: add to daily scheduler
 # for auto-disabling users 
 @frappe.whitelist()
 def auto_disable():
@@ -9,13 +9,13 @@ def auto_disable():
 	print(yesterday)
 	frappe.db.sql("""update `tabUser` set enabled = 0 where last_working_day <= %s and enabled = 1""",yesterday)
 
-
+# TODO: add to doc event for ToDo
 # for todo.py 
 def before_save(self, method=None):
 	frappe.db.set_value('Issue', self.reference_name, 'assign_to', self.owner)
 
 
-# email.py changes for issue
+# EmailAccount email.py changes for issue 
 def create_new_parent(self, communication, email):
 		'''If no parent found, create a new reference document'''
 
