@@ -1,10 +1,10 @@
 from frappe.email.doctype.email_account.email_account import EmailAccount
-from core_erp.overrides.frappe import create_new_parent
+from core_erp.customizations.frappe import create_new_parent
 
 from erpnext.stock.doctype.item.item import Item
-from core_erp.overrides.item import custom_autoname
+from core_erp.customizations.item import custom_autoname
 
-from core_erp.overrides.manufacturing.bom import get_exploded_items
+from core_erp.customizations.bom.bom import get_exploded_items
 from erpnext.manufacturing.doctype.bom.bom import BOM
 
 

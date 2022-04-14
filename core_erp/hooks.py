@@ -8,12 +8,13 @@ app_icon = "octicon octicon-file-directory"
 app_color = "grey"
 app_email = "support@extensionerp.com"
 app_license = "MIT"
+
 doc_events = {
 	"Quality Inspection": {
-		"on_submit": "core_erp.overrides.quality_inspection.custom_on_submit"
+		"on_submit": "core_erp.customizations.quality_inspection.custom_on_submit"
 	},
 	"Purchase Invoice":{
-		"on_submit": "core_erp.overrides.purchase_invoice.custom_on_submit"
+		"on_submit": "core_erp.customizations.purchase_invoice.custom_on_submit"
 	}
 }
 
