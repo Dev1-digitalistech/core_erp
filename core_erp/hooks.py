@@ -25,7 +25,8 @@ scheduler_events = {
 # 		"core_erp.tasks.all"
 # 	],
  	"daily": [
- 		"core_erp.overrides.purchase_order.auto_close"
+ 		"core_erp.customizations.purchase_order.auto_close",
+		"core_erp.customizations.frappe.auto_disable_users"
  	]
 # 	"hourly": [
 # 		"core_erp.tasks.hourly"

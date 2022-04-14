@@ -1,9 +1,8 @@
 import frappe
 
-# TODO: add to daily scheduler
 # for auto-disabling users 
 @frappe.whitelist()
-def auto_disable():
+def auto_disable_users():
 	from datetime import date,timedelta
 	yesterday = date.today()+timedelta(days=-1)
 	print(yesterday)
