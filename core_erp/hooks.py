@@ -51,11 +51,7 @@ scheduler_events = {
 # 	],
  	"daily": [
  		"core_erp.customizations.purchase_order.purchase_order.auto_close",
-<<<<<<< HEAD
-		"core_erp.customizations.frappe.auto_disable_users"
-=======
 		"core_erp.customizations.frappe.frappe.auto_disable_users"
->>>>>>> 99652363777f216d5b7f8c4634d249fa4f67e99c
  	]
 # 	"hourly": [
 # 		"core_erp.tasks.hourly"
