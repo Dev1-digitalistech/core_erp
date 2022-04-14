@@ -11,14 +11,35 @@ app_license = "MIT"
 
 doc_events = {
 	"Quality Inspection": {
-		"on_submit": "core_erp.customizations.quality_inspection.custom_on_submit"
+		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.custom_on_submit"
 	},
 	"Purchase Invoice":{
-		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.on_submit"
+		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.custom_on_submit"
+	},
+	"Workstation": {
+		"autoname": "core_erp.customizations.workstation.workstation.autoname"
+	},
+	"Item": {
+		"autoname": "core_erp.customizations.item.item.custom_autoname"
+	},
+	"Purchase Receipt": {
+		"validate" : "core_erp.customizations.purchase_receipt.purchase_receipt.validate",
+		"on_update" : "core_erp.customizations.purchase_receipt.purchase_receipt.on_update"
 	},
 	"Supplier":{
 		"autoname": "core_erp.customizations.supplier.supplier.autoname"
 	}
+}
+
+doctype_js = {
+    "Workstation": "customizations/workstation/workstation.js",
+	"Work Order": "customizations/work_order/work_order.js",
+	"BOM": "customizations/bom/bom.js"
+}
+
+override_whitelisted_methods = {
+    "erpnext.stock.doctype.material_request.material_request.make_stock_entry": "core_erp.customizations.material_request.material_request.make_stock_entry",
+	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice"
 }
 
 # Scheduled Tasks
@@ -30,7 +51,11 @@ scheduler_events = {
 # 	],
  	"daily": [
  		"core_erp.customizations.purchase_order.purchase_order.auto_close",
+<<<<<<< HEAD
 		"core_erp.customizations.frappe.auto_disable_users"
+=======
+		"core_erp.customizations.frappe.frappe.auto_disable_users"
+>>>>>>> 99652363777f216d5b7f8c4634d249fa4f67e99c
  	]
 # 	"hourly": [
 # 		"core_erp.tasks.hourly"
