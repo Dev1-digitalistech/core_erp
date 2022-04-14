@@ -14,7 +14,10 @@ doc_events = {
 		"on_submit": "core_erp.customizations.quality_inspection.custom_on_submit"
 	},
 	"Purchase Invoice":{
-		"on_submit": "core_erp.customizations.purchase_invoice.custom_on_submit"
+		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.on_submit"
+	},
+	"Supplier":{
+		"autoname": "core_erp.customizations.supplier.supplier.autoname"
 	}
 }
 
@@ -26,7 +29,7 @@ scheduler_events = {
 # 		"core_erp.tasks.all"
 # 	],
  	"daily": [
- 		"core_erp.customizations.purchase_order.auto_close",
+ 		"core_erp.customizations.purchase_order.purchase_order.auto_close",
 		"core_erp.customizations.frappe.auto_disable_users"
  	]
 # 	"hourly": [

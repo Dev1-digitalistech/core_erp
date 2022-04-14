@@ -1,0 +1,41 @@
+{
+ "autoname": "field:product_category",
+ "creation": "2022-04-14 18:40:13.908692",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "product_category"
+ ],
+ "fields": [
+  {
+   "fieldname": "product_category",
+   "fieldtype": "Data",
+   "label": "Product Category",
+   "unique": 1
+  }
+ ],
+ "modified": "2022-04-14 18:42:27.458188",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Product Variants For Ticket",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "quick_entry": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

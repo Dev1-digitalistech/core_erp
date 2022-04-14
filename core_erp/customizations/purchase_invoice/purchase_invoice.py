@@ -1,6 +1,6 @@
 import frappe
 
-def custom_on_submit(self,method):
+def on_submit(self,method):
 	if self.rejected_qty:
 		frappe.db.set_value("Purchase Invoice", self.return_against, "rejected_qty", 1)
 	if self.short_qty:
