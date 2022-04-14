@@ -15,7 +15,19 @@ doc_events = {
 	},
 	"Purchase Invoice":{
 		"on_submit": "core_erp.customizations.purchase_invoice.custom_on_submit"
+	},
+	"Workstation": {
+		"autoname": "core_erp.customizations.workstation.workstation.autoname"
+	},
+	"Item": {
+		"autoname": "core_erp.customizations.item.custom_autoname"
 	}
+}
+
+doctype_js = {
+    "Workstation": "customizations/workstation/workstation.js",
+	"Work Order": "customizations/work_order/work_order.js",
+	"BOM": "customizations/bom/bom.js"
 }
 
 # Scheduled Tasks
