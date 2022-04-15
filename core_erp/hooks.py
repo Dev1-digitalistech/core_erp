@@ -24,17 +24,27 @@ doc_events = {
 	},
 	"Purchase Receipt": {
 		"validate" : "core_erp.customizations.purchase_receipt.purchase_receipt.validate",
-		"on_update" : "core_erp.customizations.purchase_receipt.purchase_receipt.on_update"
+		"on_update" : "core_erp.customizations.purchase_receipt.purchase_receipt.on_update",
+		"autoname" : "core_erp.customizations.purchase_receipt.purchase_receipt.autoname"
 	},
 	"Supplier":{
 		"autoname": "core_erp.customizations.supplier.supplier.autoname"
+	},
+	"Stock Entry": {
+		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
+		"on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
+		"autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
 	}
 }
 
 doctype_js = {
     "Workstation": "customizations/workstation/workstation.js",
 	"Work Order": "customizations/work_order/work_order.js",
-	"BOM": "customizations/bom/bom.js"
+	"BOM": "customizations/bom/bom.js",
+	"Quality Inspection": "customizations/quality_inspection/quality_inspection.js",
+	"Material Request": "customizations/material_request/material_request.js",
+	"Stock Entry": "customizations/stock_entry/stock_entry.js",
+	"Item": "customizations/item/item.js" 
 }
 
 override_whitelisted_methods = {
@@ -42,26 +52,12 @@ override_whitelisted_methods = {
 	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice"
 }
 
-# Scheduled Tasks
-# ---------------
 
 scheduler_events = {
-# 	"all": [
-# 		"core_erp.tasks.all"
-# 	],
  	"daily": [
  		"core_erp.customizations.purchase_order.purchase_order.auto_close",
 		"core_erp.customizations.frappe.frappe.auto_disable_users"
  	]
-# 	"hourly": [
-# 		"core_erp.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"core_erp.tasks.weekly"
-# 	]
-# 	"monthly": [
-# 		"core_erp.tasks.monthly"
-# 	]
 }
 
 user_data_fields = [
