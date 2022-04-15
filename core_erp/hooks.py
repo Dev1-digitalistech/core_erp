@@ -40,9 +40,12 @@ permission_query_conditions = {
 }
 
 doctype_js = {
+	"Budget": "customizations/budget/budget.js",
     "Workstation": "customizations/workstation/workstation.js",
 	"Work Order": "customizations/work_order/work_order.js",
-	"BOM": "customizations/bom/bom.js"
+	"BOM": "customizations/bom/bom.js",
+	"Purchase Order": "customizations/purchase_order/purchase_order.js",
+	"Payment Entry": "customizations/payment_entry/payment_entry.js"
 }
 
 override_whitelisted_methods = {
