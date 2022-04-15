@@ -28,7 +28,15 @@ doc_events = {
 	},
 	"Supplier":{
 		"autoname": "core_erp.customizations.supplier.supplier.autoname"
+	},
+	"Issue":{
+		"validate": "core_erp.customizations.issue.issue.validate"
 	}
+}
+
+# Issue only assign view permissions
+permission_query_conditions = {
+    "Issue":"core_erp.customizations.issue.issue.get_permission_query_condition"
 }
 
 doctype_js = {
