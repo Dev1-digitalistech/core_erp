@@ -3,6 +3,16 @@ from frappe.utils import flt, add_days
 from erpnext.accounts.utils import get_account_currency
 from frappe import _
 from six import iteritems
+from datetime import datetime
+from core_erp.utils import get_fiscal_abbr
+from frappe.model.naming import make_autoname
+
+def autoname(doc, method = None):
+	fiscal_yr_abbr = get_fiscal_abbr(doc.posting_date)
+	if doc.is_return:
+		doc.name = make_autoname("PR/"+doc.abbr+"/"+fiscal_yr_abbr+"/.#####")
+	else:
+		doc.name = make_autoname("MRN/"+doc.abbr+"/"+fiscal_yr_abbr+"/.#####")
 
 def validate(self, method = None):
 	frappe.db.set_value("Gate Entry",self.gate_entry_no,"status","Closed")
