@@ -3,7 +3,7 @@ from erpnext.stock.doctype.item.item import make_variant_item_code
 from frappe.utils import strip
 
 
-def custom_autoname(self):
+def custom_autoname(self, method = None):
     if frappe.db.get_default("item_naming_by") == "Naming Series":
         if self.variant_of:
             if not self.item_code:
