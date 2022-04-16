@@ -14,7 +14,8 @@ doc_events = {
 		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.custom_on_submit"
 	},
 	"Purchase Invoice":{
-		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.custom_on_submit"
+		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.on_submit",
+		"autoname": "core_erp.customizations.purchase_invoice.purchase_invoice.autoname"
 	},
 	"Workstation": {
 		"autoname": "core_erp.customizations.workstation.workstation.autoname"
@@ -45,7 +46,8 @@ doctype_js = {
 	"Work Order": "customizations/work_order/work_order.js",
 	"BOM": "customizations/bom/bom.js",
 	"Purchase Order": "customizations/purchase_order/purchase_order.js",
-	"Payment Entry": "customizations/payment_entry/payment_entry.js"
+	"Payment Entry": "customizations/payment_entry/payment_entry.js",
+	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice.js"
 }
 
 override_whitelisted_methods = {
