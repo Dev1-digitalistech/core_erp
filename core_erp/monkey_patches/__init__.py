@@ -17,6 +17,17 @@ from core_erp.customizations.quality_inspection.quality_inspection import get_it
 from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
 from core_erp.customizations.stock_entry.stock_entry import update_default_batch_in_item, validate_work_order, \
 				set_basic_rate_for_finished_goods
+				
+from erpnext.accounts.doctype.budget.budget import Budget
+from core_erp.customizations.budget.budget import autoname,validate_accounts
+
+from erpnext.controllers.buying_controller import BuyingController
+from core_erp.customizations.controllers.buying_controller import validate_budget
+
+BuyingController.validate_budget = validate_budget
+
+Budget.autoname = autoname
+Budget.validate_accounts = validate_accounts
 
 EmailAccount.create_new_parent = create_new_parent
 
