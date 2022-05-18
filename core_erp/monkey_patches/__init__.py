@@ -24,6 +24,23 @@ from core_erp.customizations.budget.budget import autoname,validate_accounts
 from erpnext.controllers.buying_controller import BuyingController
 from core_erp.customizations.controllers.buying_controller import validate_budget
 
+from erpnext.accounts.doctype.purchase_invoice.purchase_invoice import PurchaseInvoice
+from core_erp.customizations.purchase_invoice.purchase_invoice import pr_required,set_tax_withholding
+
+from erpnext.controllers.accounts_controller import AccountsController
+from core_erp.customizations.controllers.accounts_controller import validate
+
+from erpnext.controllers.taxes_and_totals import calculate_taxes_and_totals
+from core_erp.customizations.controllers.taxes_and_totals import calculate_item_values,get_current_tax_amount
+
+calculate_taxes_and_totals.calculate_item_values = calculate_item_values
+calculate_taxes_and_totals.get_current_tax_amount = get_current_tax_amount
+
+AccountsController.validate = validate
+
+PurchaseInvoice.pr_required = pr_required
+PurchaseInvoice.set_tax_withholding = set_tax_withholding
+
 BuyingController.validate_budget = validate_budget
 
 Budget.autoname = autoname
