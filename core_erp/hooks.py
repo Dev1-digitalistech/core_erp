@@ -11,7 +11,7 @@ app_license = "MIT"
 
 doc_events = {
 	"Quality Inspection": {
-		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.custom_on_submit"
+		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.on_submit"
 	},
 	"Purchase Invoice":{
 		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.on_submit",

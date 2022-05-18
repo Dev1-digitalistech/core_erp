@@ -4,7 +4,7 @@ import json
 from frappe.model.naming import make_autoname
 
 def validate(self,method):
-    if self.to_email_account=="IT Support":
+	if self.to_email_account=="IT Support":
 		self.ticket_type="IT Support"
 
 	elif self.to_email_account=="BIZOM Support":
@@ -46,10 +46,10 @@ def autoname(self):
 
 # assignment permission
 def get_permission_query_condition(user):
-        if "Support Manager" in frappe.get_roles(user):
-                return None
-        else:
-                return """tabIssue.owner={user} or
-                        (tabIssue.name in (select i.name from `tabIssue` i ,tabToDo td where td.reference_type="Issue" and td.owner={user} and
-                        td.reference_name=i.name and td.status="Open"))""".format(user=frappe.db.escape(user))
+	if "Support Manager" in frappe.get_roles(user):
+			return None
+	else:
+			return """tabIssue.owner={user} or
+					(tabIssue.name in (select i.name from `tabIssue` i ,tabToDo td where td.reference_type="Issue" and td.owner={user} and
+					td.reference_name=i.name and td.status="Open"))""".format(user=frappe.db.escape(user))
 
