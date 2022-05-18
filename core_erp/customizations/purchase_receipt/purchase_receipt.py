@@ -108,7 +108,7 @@ def get_gl_entries(self, warehouse_account=None):
 					and warehouse_account.get(self.supplier_warehouse) \
 					and warehouse_account[d.warehouse]["account"] == warehouse_account[self.supplier_warehouse]["account"]:
 						continue
-				if self.transaction_type == "Internal Transfer":
+				if self.transfer_type == "Internal Transfer":
 					stock_rbnb = d.expense_account
 				gl_entries.append(self.get_gl_dict({
 					"account": warehouse_account[d.warehouse]["account"],

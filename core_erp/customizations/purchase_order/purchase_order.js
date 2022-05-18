@@ -1,7 +1,4 @@
 frappe.ui.form.on('Purchase Order', {
-    company_name(frm){
-        cur_frm.set_value("company",frm.doc.company_name)
-    },
     setup(frm) {
         frm.fields_dict.items.grid.get_field('expense_account').get_query = function(doc, cdt, cdn) {
             return {

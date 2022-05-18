@@ -10,12 +10,16 @@ app_email = "support@extensionerp.com"
 app_license = "MIT"
 
 doc_events = {
+	"Purchase Order": {
+		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"
+	},
 	"Quality Inspection": {
 		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.custom_on_submit"
 	},
 	"Purchase Invoice":{
 		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.on_submit",
-		"autoname": "core_erp.customizations.purchase_invoice.purchase_invoice.autoname"
+		"autoname": "core_erp.customizations.purchase_invoice.purchase_invoice.autoname",
+		"validate": "core_erp.customizations.purchase_invoice.purchase_invoice.validate"
 	},
 	"Workstation": {
 		"autoname": "core_erp.customizations.workstation.workstation.autoname"
@@ -57,12 +61,15 @@ doctype_js = {
 	"Item": "customizations/item/item.js",
 	"Purchase Order": "customizations/purchase_order/purchase_order.js",
 	"Payment Entry": "customizations/payment_entry/payment_entry.js",
-	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice.js"
+	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice.js",
+	"Purchase Receipt": "customizations/purchase_receipt/purchase_receipt.js",
+	"Delivery Note": "customizations/delivery_note/delivery_note.js",
 }
 
 override_whitelisted_methods = {
     "erpnext.stock.doctype.material_request.material_request.make_stock_entry": "core_erp.customizations.material_request.material_request.make_stock_entry",
 	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice"
+
 }
 
 

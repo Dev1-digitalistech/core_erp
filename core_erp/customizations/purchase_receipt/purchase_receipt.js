@@ -79,7 +79,7 @@ frappe.ui.form.on("Purchase Receipt", {
 	//     })    
 	// },
 	transaction_type(frm) {
-		if (frm.doc.transaction_type == 'Normal') {
+		if (frm.doc.transfer_type == 'Normal') {
 			frm.set_df_property('gate_entry_no', 'reqd', 1)
 		}
 		else {
@@ -96,7 +96,7 @@ frappe.ui.form.on("Purchase Receipt", {
 				}
 			})
 		})
-		if (frm.doc.transaction_type == 'Normal') {
+		if (frm.doc.transfer_type == 'Normal') {
 			frm.set_df_property('gate_entry_no', 'reqd', 1)
 		}
 		else {
