@@ -1,6 +1,6 @@
 ## DFM Foods Customization
 
-Buying & Manifacturing customization
+Buying & Manufacturing customization
 
 #### License
 
