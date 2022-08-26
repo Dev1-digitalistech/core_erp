@@ -1,0 +1,2666 @@
+[
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2022-08-23 17:20:42.920479",
+  "module": "Core ERP",
+  "name": "DATEV",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "GL Entry",
+  "reference_report": null,
+  "report_name": "DATEV",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "DATEV",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "DATEV",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "DATEV",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Auditor"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM",
+  "modified": "2022-08-24 18:17:23.246749",
+  "module": "Core ERP",
+  "name": "GIN Register",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select `tabPurchase Receipt`.`gate_entry_no` as \"GateEntryNo:Data:120\",\n`tabPurchase Receipt`.`date` as \"GateEntryDate:Date:100\",\n `tabPurchase Receipt`.supplier_delivery_note as \"BillNo:Data:100\",\n    `tabPurchase Receipt`.`name` as \"GINo:Link/Purchase Receipt:150\",\n  \t`tabPurchase Receipt`.`posting_date` as \"GINDate:Date:100\",\n  \t`tabPurchase Receipt Item`.`purchase_order` as \"PO:data:100\",\n   \t`tabPurchase Receipt Item`.`quality_inspection` as \"MRN Inspection:data:100\",\n   \t\"\" as \"MRN Inspection Date:data:100\",\n\t`tabPurchase Receipt`.`supplier` as \"Vendor:Link/Supplier:200\",\n\t`tabPurchase Receipt Item`.`item_group` as \"Group:data:100\",\n\t`tabPurchase Receipt Item`.`item_group` as \"Category:data:100\",\n\t`tabPurchase Receipt Item`.`item_name` as \"Item:data:200\",\n\t`tabPurchase Receipt Item`.item_code as \"Part No:data:100\",\n\t\"INR\" as \"Currency:50\",\n\t`tabPurchase Receipt Item`.rate as \"Rate:Data:50\",\n\t`tabPurchase Receipt Item`.received_qty as \"Qty:Float:100\", \n\t`tabPurchase Receipt Item`.qty as \"Approved Qty:Float:100\", \n    `tabPurchase Receipt Item`.stock_uom as \"Unit:Data:50\",\n    `tabPurchase Receipt Item`.amount as \"Grand Total:Float:100\",\n    `tabPurchase Receipt Item`.net_amount as \"Net Total:Float:100\"\n   \nfrom\n\t`tabPurchase Receipt`, `tabPurchase Receipt Item`\nwhere\n\t`tabPurchase Receipt Item`.`parent` = `tabPurchase Receipt`.`name`\n\tand `tabPurchase Receipt`.docstatus = 1\nand `tabPurchase Receipt`.posting_date>=%(from_date)s and `tabPurchase Receipt`.posting_date<=%(to_date)s\nOrder by `tabPurchase Receipt`.posting_date asc",
+  "ref_doctype": "Purchase Receipt",
+  "reference_report": null,
+  "report_name": "GIN Register",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "GIN Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "GIN Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "GIN Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "GIN Register",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:18:50.922279",
+  "module": "Core ERP",
+  "name": "Supplier List DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\n  s.supplier_code as \"Code:100\",\n  s.supplier_name as\"Vendor Name:Link/Supplier:100\" ,\n  s.category as \"Nature of Party:100\",\n  a.address_line1 as \"Address:200\",\n  c.first_name as \"Contact Name:100\",\n cp.phone as \"Contact Phone:100\",\n  a.city as \"City:100\",\n  a.state as \"State:100\",\n  a.country as \"Country:100\",\n  a.pincode as \"PIN Code:100\",\n  a.phone as \"Phone:100\",\n  a.email_id as \"Email ID:100\",\n  s.pan as \"PAN No:100\",\n  s.excise_registration_no as \"Excise Registration No\",\n  s.iso_registration_no as \"ISO Registration No\",\n  s.iso_registration_date as \"ISO Registration Date\",\n  a.gstin as \"GSTIN NO\",\n  a.gstin_registration_date as \"GSTIN Reg. Date:Date\",\n  s.msme_registration_no as \"MSME Registration No\",\n  s.fssai_license_no as \"FSSAI Licence No\",\n  s.fssai_valid_from as \"Valid From\",\n  s.fssai_valid_to_ as \"Valid To\",\n  s.bank_name as \"Bank Name\",\n  s.bank_account_no as \"Bank Account\"\n  \n  \n \nfrom `tabSupplier` s\nleft join `tabAddress` a \non\n   s.supplier_name = a.address_title \nleft join `tabDynamic Link` dl on dl.link_name=s.name\nleft join `tabContact` c on c.name=dl.parent\nleft join `tabContact Phone` cp on cp.parent = c.name \n\n  \n\n",
+  "ref_doctype": "Supplier",
+  "reference_report": null,
+  "report_name": "Supplier List DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Supplier List DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Supplier List DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Supplier List DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Master Manager"
+   },
+   {
+    "parent": "Supplier List DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Supplier List DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Supplier List DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Supplier List DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 18:15:07.343805",
+  "module": "Core ERP",
+  "name": "Unauthorized PO DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select \npo.workflow_state as \"Status\",\npo.name as \"Purchase Order No\",\npo.po_type as \"Purchase Order Type\",\npo.transaction_date as \"Purchase Order Date:Date:100\",\npo.supplier as \"Supplier/Vendor Name\",\npi.item_name as \"Item Name\",\nitem.category as \"Item Category\",\nitem.item_sub_group as \"Item Sub Group\",\nitem.item_group as \"Item Group\",\npi.item_code as \"Item Code\",\npi.po_qty as \"PO Qty:Float:100\",\npi.rate as \"Rate:Float:100\",\npi.amount as \"Gross Total:Float:100\"\n\n\nfrom `tabPurchase Order` po , `tabPurchase Order Item` pi , `tabItem` item\nWhere pi.parent=po.name  and \nitem.item_name=pi.item_name and \nworkflow_state= \"Pending For Approval\" ;\n\n ",
+  "ref_doctype": "Purchase Order",
+  "reference_report": null,
+  "report_name": "Unauthorized PO DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Unauthorized PO DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Unauthorized PO DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Unauthorized PO DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Unauthorized PO DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Unauthorized PO DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Unauthorized PO DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Unauthorized PO DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 15:12:51.317041",
+  "module": "Core ERP",
+  "name": "Material Issue DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\n  se.posting_date as \"Date:Date:100\",\n  se.name as \"No:Link/Stock Entry:100\",\n  se.company as \"Company\",\n  sd.item_code as \"Item Code:100\",\n  sd.item_name as \"Item Name:100\",\n  i.item_sub_group as \"Item sub Group:100\",\n  i.item_group as \"Item Group:100\",\n  i.stock_uom as \"UOM:100\",\n  i.category as \"Category:100\",\n  sd.qty as \"QTY:100\",\n  sd.basic_rate as \"Rate:Currency:100\",\n  sd.batch_no as \"Batch No:100\",\n  bat.expiry_date as \"Batch Expiry Date:100\",\n  sd.s_warehouse as \"Warehouse:100\",\n bat.reference_name as \"MRN NO:100\",\n pr.posting_date as \"MRN Date:100\"\n \n \n\nfrom `tabStock Entry` se , `tabStock Entry Detail` sd , `tabItem` i, `tabBatch` bat, `tabPurchase Receipt` pr\n\nwhere\n  sd.batch_no=bat.name and\n  bat.reference_doctype=\"Purchase Receipt\" and\n  bat.reference_name=pr.name and\n  sd.parent= se.name and\n  stock_entry_type=\"Material Issue\" and\n  sd.item_code = i.item_code and\n  se.company=%(company)s  and se.posting_date>=%(from_date)s and  se.posting_date<=%(to_date)s\norder by  se.posting_date desc;\n  \n\n",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Material Issue DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Material Issue DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Material Issue DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Material Issue DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Material Issue DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Material Issue DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 16:40:49.773515",
+  "module": "Core ERP",
+  "name": "Material Transfer DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\n\n  se.name as \"MT No:Link/Stock Entry\",\n  se.stock_entry_type as \"Stock Entry Type\",\n  se.posting_date as \"Posting Date:Date\",\n  sd.item_code as \"Item Code\",\n  sd.item_name as \"Item Name\",\n  i.item_sub_group as \"Item sub Group\",\n  i.item_group as \"Item Group\",\n  i.category as \"Category\",\n  sd.qty as \"QTY\",\n  sd.batch_no as \"Batch No\",\n  bat.expiry_date as \"Batch Expiry Date:100\",\n  se.company as \"Company\",\n  sd.s_warehouse as \"Source Warehouse\",\n  sd.t_warehouse as \"Target Warehouse\",\n  bat.reference_name as \"MRN NO:100\",\n  pr.posting_date as \"MRN Date:100\"\n  \n \nfrom `tabStock Entry` se , `tabStock Entry Detail` sd , `tabItem` i, `tabBatch` bat,`tabPurchase Receipt` pr\n\nwhere\n  sd.batch_no=bat.name and\n  bat.reference_doctype=\"Purchase Receipt\" and\n  bat.reference_name=pr.name and\n  sd.parent= se.name and\n  stock_entry_type=\"Material Transfer\" and\n  sd.item_code = i.item_code and se.posting_date>=%(from_date)s and se.posting_date<=%(to_date)s\norder by se.posting_date desc;",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Material Transfer DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Material Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Material Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Material Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Material Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2022-08-26 11:08:00.335483",
+  "module": "Core ERP",
+  "name": "MRN Register DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select \r\n    pr.name as \"MRN No:Link/Purchase Receipt:150\",\r\n    pr.posting_date as \"MRN Date:Date:100\",\r\n    pr.supplier as \"Party Name:Supplier:100\",\r\n    pr.gate_entry_no as \"Gate Entry No:100\",\r\n    pr.date as \"Date:Date:100\",\r\n    pr.mrn_type as \"MRN Type\",\r\n    pr.company as \"Company\",\r\n    pr.supplier_bill_no as \"Bill No:100\",\r\n    pr.supplier_invoice_date as \"Bill Date:Date:100\",\r\n    pr.vehicle_no as \"Vehicle No:100\",\r\n    pi.purchase_order as \"PO:100\",\r\n    pi.po_qty as \"PO QTY:Float:100\",\r\n    pi.invoice_quantity as \"Invoice Qty:Float:100\",\r\n    pi.received_qty as \"Received QTY:Float:100\",\r\n    pi.qty as \"Approved Qty:Float:100\",\r\n     pi.short_quantity as \"Short Qty:Float:100\",\r\n   pi.rejected_qty as \"Rejected Qty:Float:100\",\r\n    pi.item_name as \"Item:Data:200\",\r\n\tpi.item_code as \"Item Code:Data:100\",\r\n\tpi.vendor_batch_no as \"Vendor Batch No:Data:100\",\r\n\tpi.batch_no as \"Batch No:Data:100\",\r\n\tpi.manufacturing_date as \"Manufacturing Date:Date\",\r\n\tpi.expiry_date as \"Expiry Date:Date\",\r\n\tpi.item_group as \"Group Name:data:100\",\r\n\titem.item_sub_group as \"Item sub Group:100\",\r\n    item.category as \"Category:data:100\",\r\n\tpi.rate as \"Rate:Data:50\",\r\n    pi.stock_uom as \"Unit:Data:50\",\r\n    pi.amount as \"Grand Total:Float:100\",\r\n    pi.net_amount as \"Net Total:Float:100\",\r\n    pi.transfer_lot_no as \"Transfer Lot No:100\",\r\n    item.product_line as \"Product Line:100\",\r\n    item.product_category as \"Product Category:100\",\r\n    item.price_category as \"Price Category:100\",\r\n    item.product_Variant as \"Product Variant:100\",\r\n    item.promo_code as \"Promo Code:100\",\r\n    pi.warehouse as \"Store:100\"\r\nfrom\r\n\t`tabPurchase Receipt` pr\r\n\tleft join `tabPurchase Receipt Item` pi on pr.name = pi.parent\r\n\tleft join `tabQuality Inspection` qi on  pi.quality_inspection=qi.name\r\n\tleft join `tabItem` item on item.item_code=pi.item_code\r\nwhere\r\n   pr.docstatus=1 and\r\npr.posting_date >=%(from_date)s and pr.posting_date <=%(to_date)s and pr.company = %(company)s\r\norder by pr.posting_date desc ;\r\n\t",
+  "ref_doctype": "Purchase Receipt",
+  "reference_report": null,
+  "report_name": "MRN Register DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User-Quality"
+   },
+   {
+    "parent": "MRN Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-26 17:39:53.629421",
+  "module": "Core ERP",
+  "name": "Quality Inspection DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "Select \r\n  pi.quality_inspection as \"QC No\",\r\n  pr.posting_date as \"QC:Date\",\r\n  pr.name as \"MRN No\",\r\n  pr.posting_date as \"MRN Date:Date\",\r\n  pr.gate_entry_no as \"Gate Entry  no\",\r\n  pr.date as \"Gate Entry Date:Date:100\",\r\n  pr.supplier as \"Party Name\",\r\n  pr.supplier_bill_no as \"Party Bill/Challan No\",\r\n  pr.date as \"Party Bill/Challan Date:Date\",\r\n  pi.item_name as \"Item Name\",\r\n  pi.item_code as \"Item Code\",\r\n  pi.item_group as \"Item Group\",\r\n  pi.batch_no as \"Batch No\",\r\n  qi.acc_qty as \"MRN Base Qty:Float:100\",\r\n  qi.approved_quantity as \"Approved Qty:Float:100\",\r\n  qi.rejected_qty as \"Rejected Qty:Float:100\",\r\n  qi.inspected_by as \"Inspected By\",\r\n  qr.specification  as \"Parameter\",\r\n  qr.status as \"Grade\",\r\n  qr.value as \"Observed Result\",\r\n  qi.remarks as \"Remarks\"\r\n  \r\n  \r\n \r\nfrom `tabPurchase Receipt` pr,`tabPurchase Receipt Item` pi , `tabQuality Inspection` qi , `tabQuality Inspection Reading`qr\r\n WHERE\r\n   pi.parent=pr.name and\r\n   pi.quality_inspection = qi.name and\r\n   qr.parent= qi.name\r\n   \r\n   \r\n  \r\n \r\n \r\n   \r\n ",
+  "ref_doctype": "Quality Inspection",
+  "reference_report": null,
+  "report_name": "Quality Inspection DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Quality Inspection DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Quality Manager"
+   },
+   {
+    "parent": "Quality Inspection DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Quality Inspection DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "QC Approver"
+   },
+   {
+    "parent": "Quality Inspection DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 18:12:26.258140",
+  "module": "Core ERP",
+  "name": "Item Batch Expiry Within 7 Days DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\r\n b.batch_id as \"Batch No\",\r\n b.item as \"Item Code\",\r\n i.item_name as \"Item Name\",\r\n b.manufacturing_date as \"Manufacturing Date:Date\",\r\n b.expiry_date as \"Expiry Date:Date\",\r\n DATEDIFF(b.expiry_date,Now()) as \"Expiry(In Days)\"\r\n\r\nFrom \r\n  `tabBatch` b , `tabItem` i\r\nwhere  \r\n b.item = i.item_code and\r\n  DATEDIFF(b.expiry_date,Now())<8 and DATEDIFF(b.expiry_date,Now())>-1 ",
+  "ref_doctype": "Batch",
+  "reference_report": null,
+  "report_name": "Item Batch Expiry Within 7 Days DFM",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Item Batch Expiry Within 7 Days DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Item Batch Expiry Within 7 Days DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Item Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 18:16:23.565615",
+  "module": "Core ERP",
+  "name": "Purchase Return",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT\n`tabPurchase Receipt`.`name` as \"Purchase Receipt:Link/Purchase Receipt:150\",\nCASE WHEN `tabPurchase Receipt`.`docstatus` = 0 THEN \"Pending\"\n    WHEN `tabPurchase Receipt`.`docstatus` = 1 THEN \"Approved\"\n    ELSE \"Cancelled\"\n    END AS \"Status:150\",\n`tabPurchase Receipt`.`supplier` as \"Supplier:Link/Supplier:150\",\n`tabPurchase Receipt`.`posting_date` as \"Date:Date:150\",\n`tabPurchase Receipt`.`company` as \"Company:Link/Company:200\",\n`tabPurchase Receipt Item`.`item_name` as \"Item Name:Data:100\",\n`tabPurchase Receipt Item`.`item_code` as \"Item Code:Link/Item:150\",\n`tabItem`.item_sub_group as \"Item sub Group\",\n`tabItem`.item_group as \"Item Group\",\n`tabItem`.category as \"Category\",\n`tabPurchase Receipt Item`.`invoice_quantity` as \"Invoice Quantity:Data:100\"\n\nFROM\n`tabPurchase Receipt`, `tabPurchase Receipt Item`,`tabItem` \nWHERE\n`tabPurchase Receipt`.`is_return` = true and \n`tabPurchase Receipt Item`.`parent`=`tabPurchase Receipt`.`name` and `tabItem`.item_code=`tabPurchase Receipt Item`.item_code\n",
+  "ref_doctype": "Purchase Receipt",
+  "reference_report": null,
+  "report_name": "Purchase Return ",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   },
+   {
+    "parent": "Purchase Return",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User-Quality"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 18:10:19.840880",
+  "module": "Core ERP",
+  "name": "Plant Transfer",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT\n`tabDelivery Note`.name as \"Delivery Note:Link/Delivery Note:150\",\n`tabDelivery Note`.posting_date as \"Date:Date:100\",\n`tabDelivery Note`.company as \"Company:Link/Company:180\",\n`tabDelivery Note`.customer as \"Customer:Link/Customer:180\",\n`tabDelivery Note Item`.item_code as \"Item Code:Link/Item:220\",\n`tabDelivery Note Item`.item_name as \"Item Name:Data:100\",\n`tabItem`.item_sub_group as \"Item Sub Group\",\n`tabItem`.category as \"Item Category\",\n`tabItem`.item_group as \"Item Group\",\n`tabDelivery Note Item`.qty as \"Item Qty:Float:80\",\n`tabDelivery Note Item`.uom as \"UOM :Data:80\",\n`tabDelivery Note Item`.rate as \"Rate :Currency:80\",\n`tabDelivery Note Item`.amount as \"Amount :Currency:100\",\n`tabDelivery Note Item`.batch_no as \"Batch No :Data:100\",\n`tabDelivery Note`.mode_of_transport as \"Mode Of Transport :Data:100\"\n\n\n\n\nFROM\n`tabDelivery Note`, `tabDelivery Note Item` , `tabItem` \n\nWHERE\n`tabDelivery Note Item`.parent = `tabDelivery Note`.name\nand `tabDelivery Note`.customer not like \"Scrap-Out\" and\n`tabItem`.item_code= `tabDelivery Note Item`.item_code\n",
+  "ref_doctype": "Delivery Note",
+  "reference_report": null,
+  "report_name": "Plant Transfer",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Plant Transfer",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 16:47:28.000973",
+  "module": "Core ERP",
+  "name": "Plant Transfer DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT\n`tabDelivery Note`.name as \"Delivery Note:Link/Delivery Note:150\",\n`tabDelivery Note`.posting_date as \"Date:Date:100\",\n`tabDelivery Note`.company as \"Company:Link/Company:180\",\n`tabDelivery Note`.customer as \"Customer:Link/Customer:180\",\n`tabDelivery Note Item`.item_code as \"Item Code:Link/Item:220\",\n`tabDelivery Note Item`.item_name as \"Item Name:Data:100\",\n`tabItem`.item_sub_group as \"Item Sub Group\",\n`tabItem`.category as \"Item Category\",\n`tabItem`.item_group as \"Item Group\",\n`tabDelivery Note Item`.qty as \"Item Qty:Float:80\",\n`tabDelivery Note Item`.uom as \"UOM :Data:80\",\n`tabDelivery Note Item`.rate as \"Rate :Currency:80\",\n`tabDelivery Note Item`.amount as \"Amount :Currency:100\",\n`tabDelivery Note Item`.batch_no as \"Batch No :Data:100\",\n`tabDelivery Note`.mode_of_transport as \"Mode Of Transport :Data:100\"\n\nFROM\n`tabDelivery Note`, `tabDelivery Note Item` , `tabItem` \n\nWHERE\n`tabDelivery Note Item`.parent = `tabDelivery Note`.name\nand `tabDelivery Note`.customer not like \"Scrap-Out\" and\n`tabItem`.item_code= `tabDelivery Note Item`.item_code and\n`tabDelivery Note`.company=%(company)s and\n`tabDelivery Note`.posting_date >=%(from_date)s and `tabDelivery Note`.posting_date <=%(to_date)s\norder by `tabDelivery Note`.posting_date desc ;",
+  "ref_doctype": "Delivery Note",
+  "reference_report": null,
+  "report_name": "Plant Transfer DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Sales User"
+   },
+   {
+    "parent": "Plant Transfer DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 18:01:35.314542",
+  "module": "Core ERP",
+  "name": "Quotation Comparison",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT\nsq.supplier as \"Supplier:Link/Supplier:150\",\nsq.name as \"Supplier Quatation:Link/Supplier Quotation:100\",\nsq.transaction_date as \"Date:Date:100\",\nsqi.item_name as \"Item:Data:150\",\nsqi.item_code as \"Item Code\",\ni.item_group as \"Item Group\",\ni.category as \"Category\",\ni.item_sub_group as \"Item Sub Group\",\nsqi.uom as \"UOM:Link/UOM:50\",\nsqi.qty as \"Quantity:Float:100\",\nsqi.amount as \"Price:Currency:100\",\nsqi.stock_uom as \"Stock UOM:Link/UOM:50\",\nsqi.rate as \"Price Per Unit:Currency:100\",\nsqi.warehouse as \"Warehouse\",\nsq.payment_term as \"Payment Terms:200\"\n\n\nFROM\n`tabSupplier Quotation` sq, `tabSupplier Quotation Item` sqi , `tabItem` i\n\nWHERE\nsqi.parent=sq.name and \ni.item_code = sqi.item_code and\ni.item_code=%(item)s",
+  "ref_doctype": "Supplier Quotation",
+  "reference_report": null,
+  "report_name": "Quotation Comparison",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": "{}",
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 18:03:42.384030",
+  "module": "Core ERP",
+  "name": "Item Batch Expiry Within 15 days",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\r\n b.batch_id as \"Batch No\",\r\n b.item as \"Item Code\",\r\n i.item_name as \"Item Name\",\r\n b.manufacturing_date as \"Manufacturing Date:Date\",\r\n b.expiry_date as \"Expiry Date:Date\",\r\n DATEDIFF(b.expiry_date,Now()) as \"Expiry(In Days)\"\r\n\r\nFrom \r\n  `tabBatch` b , `tabItem` i\r\nwhere  \r\n b.item = i.item_code and\r\n  DATEDIFF(b.expiry_date,Now())<16 and DATEDIFF(b.expiry_date,Now())>-1 ",
+  "ref_doctype": "Batch",
+  "reference_report": null,
+  "report_name": "Item Batch Expiry Within 15 days",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Item Batch Expiry Within 15 days",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Item Batch Expiry Within 15 days",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Item Manager"
+   },
+   {
+    "parent": "Item Batch Expiry Within 15 days",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User-Quality"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:59:56.080149",
+  "module": "Core ERP",
+  "name": "Quotation Comparison DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT\nsq.supplier as \"Supplier:Link/Supplier:150\",\nsq.name as \"Supplier Quatation:Link/Supplier Quotation:100\",\nsq.transaction_date as \"Date:Date:100\",\nsqi.item_name as \"Item:Data:150\",\nsqi.item_code as \"Item Code\",\ni.item_group as \"Item Group\",\ni.category as \"Category\",\ni.item_sub_group as \"Item Sub Group\",\nsqi.uom as \"UOM:Link/UOM:50\",\nsqi.qty as \"Quantity:Float:100\",\nsqi.amount as \"Price:Currency:100\",\nsqi.stock_uom as \"Stock UOM:Link/UOM:50\",\nsqi.rate as \"Price Per Unit:Currency:100\",\nsqi.warehouse as \"Warehouse\",\nsq.payment_term as \"Payment Terms:200\"\n\n\nFROM\n`tabSupplier Quotation` sq, `tabSupplier Quotation Item` sqi , `tabItem` i\n\nWHERE\nsqi.parent=sq.name and \ni.item_code = sqi.item_code and\ni.item_code=%(item)s",
+  "ref_doctype": "Supplier Quotation",
+  "reference_report": null,
+  "report_name": "Quotation Comparison DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Quotation Comparison DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:44:04.287344",
+  "module": "Core ERP",
+  "name": "Purchase Invoice Register DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Purchase Invoice",
+  "reference_report": null,
+  "report_name": "Purchase Invoice Register DFM",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Purchase Invoice Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Auditor"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Acc User"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "PI Approver"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": "frappe.query_reports['Consumption Report'] = {\n    \"filters\": [\n\t\t{\n\t\t\t\"fieldname\":\"from_date\",\n\t\t\t\"label\": __(\"From Date\"),\n\t\t\t\"fieldtype\": \"Date\",\n\t\t\t\"width\": \"80\",\n\t\t\t\"default\": frappe.sys_defaults.year_start_date,\n\t\t},\n\t\t{\n\t\t\t\"fieldname\":\"to_date\",\n\t\t\t\"label\": __(\"To Date\"),\n\t\t\t\"fieldtype\": \"Date\",\n\t\t\t\"width\": \"80\",\n\t\t\t\"default\": frappe.datetime.get_today()\n\t\t}\n\t]\n}",
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:23:25.130082",
+  "module": "Core ERP",
+  "name": "Consumption Report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Consumption Report",
+  "report_script": "# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors\n# License: GNU General Public License v3. See license.txt\n\nfrom __future__ import unicode_literals\nimport frappe\nfrom frappe import _\nfrom frappe.utils import flt, cint, getdate\n\ndef execute(filters=None):\n    if not filters: filters = {}\n\n    if filters.from_date > filters.to_date:\n        frappe.throw(_(\"From Date must be before To Date\"))\n\n    float_precision = cint(frappe.db.get_default(\"float_precision\")) or 3\n\n    columns = get_columns(filters)\n    item_map = get_item_details(filters)\n    iwb_map = get_item_warehouse_batch_map(filters, float_precision)\n\n    data = []\n    for item in sorted(iwb_map):\n        for wh in sorted(iwb_map[item]):\n            for batch in sorted(iwb_map[item][wh]):\n                qty_dict = iwb_map[item][wh][batch]\n                if qty_dict.opening_qty or qty_dict.in_qty or qty_dict.out_qty or qty_dict.bal_qty:\n                    data.append([item, item_map[item][\"item_name\"], item_map[item][\"description\"], wh, batch,\n                        flt(qty_dict.opening_qty, float_precision), flt(qty_dict.in_qty, float_precision),\n                        flt(qty_dict.out_qty, float_precision), flt(qty_dict.bal_qty, float_precision),\n                         item_map[item][\"stock_uom\"]\n                    ])\n\n    return columns, data\n\ndef get_columns(filters):\n    \"\"\"return columns based on filters\"\"\"\n\n    columns = [_(\"Item\") + \":Link/Item:100\"] + [_(\"Item Name\") + \"::150\"] + [_(\"Description\") + \"::150\"] + \\\n    [_(\"Warehouse\") + \":Link/Warehouse:100\"] + [_(\"Batch\") + \":Link/Batch:100\"] + [_(\"Opening Qty\") + \":Float:90\"] + \\\n    [_(\"In Qty\") + \":Float:80\"] + [_(\"Out Qty\") + \":Float:80\"] + [_(\"Balance Qty\") + \":Float:90\"] + \\\n    [_(\"UOM\") + \"::90\"]\n\n\n    return columns\n\ndef get_conditions(filters):\n    conditions = \"\"\n    if not filters.get(\"from_date\"):\n        frappe.throw(_(\"'From Date' is required\"))\n\n    if filters.get(\"to_date\"):\n        conditions += \" and posting_date <= '%s'\" % filters[\"to_date\"]\n    else:\n        frappe.throw(_(\"'To Date' is required\"))\n\n    for field in [\"item_code\", \"warehouse\", \"batch_no\", \"company\"]:\n        if filters.get(field):\n            conditions += \" and {0} = {1}\".format(field, frappe.db.escape(filters.get(field)))\n\n    return conditions\n\n#get all details\ndef get_stock_ledger_entries(filters):\n    conditions = get_conditions(filters)\n    return frappe.db.sql(\"\"\"\n        select item_code, batch_no, warehouse, posting_date, sum(actual_qty) as actual_qty\n        from `tabStock Ledger Entry`\n        where docstatus < 2 and ifnull(batch_no, '') != '' %s\n        group by voucher_no, batch_no, item_code, warehouse\n        order by item_code, warehouse\"\"\" %\n        conditions, as_dict=1)\n\ndef get_item_warehouse_batch_map(filters, float_precision):\n    sle = get_stock_ledger_entries(filters)\n    iwb_map = {}\n\n    from_date = getdate(filters[\"from_date\"])\n    to_date = getdate(filters[\"to_date\"])\n\n    for d in sle:\n        iwb_map.setdefault(d.item_code, {}).setdefault(d.warehouse, {})\\\n            .setdefault(d.batch_no, frappe._dict({\n                \"opening_qty\": 0.0, \"in_qty\": 0.0, \"out_qty\": 0.0, \"bal_qty\": 0.0\n            }))\n        qty_dict = iwb_map[d.item_code][d.warehouse][d.batch_no]\n        if d.posting_date < from_date:\n            qty_dict.opening_qty = flt(qty_dict.opening_qty, float_precision) \\\n                + flt(d.actual_qty, float_precision)\n        elif d.posting_date >= from_date and d.posting_date <= to_date:\n            if flt(d.actual_qty) > 0:\n                qty_dict.in_qty = flt(qty_dict.in_qty, float_precision) + flt(d.actual_qty, float_precision)\n            else:\n                qty_dict.out_qty = flt(qty_dict.out_qty, float_precision) \\\n                    + abs(flt(d.actual_qty, float_precision))\n\n        qty_dict.bal_qty = flt(qty_dict.bal_qty, float_precision) + flt(d.actual_qty, float_precision)\n\n    return iwb_map\n\ndef get_item_details(filters):\n    item_map = {}\n    for d in frappe.db.sql(\"select name, item_name, description, stock_uom from tabItem\", as_dict=1):\n        item_map.setdefault(d.name, d)\n\n    return item_map\n",
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Consumption Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Consumption Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Consumption Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Consumption Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Consumption Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:22:26.559496",
+  "module": "Core ERP",
+  "name": "Material Request DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT\nmr.name as \"ID:Link/Material Request:150\",\nmr.schedule_date as \"Required Date:Date:100\",\nmr.material_request_type as \"Type:Data:100\",\nmr.company as \"Company:Link/Company:120\",\nmri.item_code as \"Item Code:Link/Item:100\",\nmri.item_name as \"Item Name:Data:150\",\nmri.qty as \"Quantity:Float:80\",\nmri.uom as \"UOM:Data:50\",\nmri.schedule_date as \"Item Required Date:Date:100\",\nmri.warehouse as \"For Warehouse:Data:180\"\nFROM\n`tabMaterial Request` mr, `tabMaterial Request Item` mri\nWHERE\nmri.parent = mr.name and mr.schedule_date>=%(from_date)s and mr.schedule_date<=%(to_date)s\norder by mr.schedule_date desc;",
+  "ref_doctype": "Material Request",
+  "reference_report": null,
+  "report_name": "Material Request DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Material Request DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Material Request DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Material Request DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Material Request DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Material Request DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:16:51.742084",
+  "module": "Core ERP",
+  "name": "Material Transfer for MFG",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\n  se.posting_date as \"Date:Date:100\",\n  se.name as \"No:Link/Stock Entry:100\",\n  sd.item_code as \"Item Code:100\",\n  sd.item_name as \"Item Name:100\",\n  i.item_sub_group as \"Item sub Group:100\",\n  i.item_group as \"Item Group:100\",\n  i.category as \"Category:100\",\n  sd.qty as \"QTY:100\",\n  sd.conversion_factor as \"Conversion Factor\",\n  sd.basic_rate as \"Rate:Currency:100\",\n  sd.batch_no as \"Batch No:100\",\n    se.company as \"Company:100\",\n  sd.s_warehouse as \"Warehouse:100\",\n id.expense_account as \"Default Expense Account:100\"\n \n\nfrom `tabStock Entry` se , `tabStock Entry Detail` sd , `tabItem` i,`tabItem Default` id\n\nwhere\n  sd.parent= se.name and\n  stock_entry_type=\"Material Transfer for Manufacture\" and\n  sd.item_code = i.item_code and\n  id.parent=i.name and \n  id.company=se.company\n\n",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Material Transfer for MFG",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Material Transfer for MFG",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Material Transfer for MFG",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Material Transfer for MFG",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Material Transfer for MFG",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Material Transfer for MFG",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:14:48.837996",
+  "module": "Core ERP",
+  "name": "Stock Balance without WIP",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Stock Balance without WIP",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Stock Balance without WIP",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Stock Balance without WIP",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Stock Balance without WIP",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Stock Balance without WIP",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Stock Balance without WIP",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 16:52:05.855256",
+  "module": "Core ERP",
+  "name": "Material Transfer for MFG DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\n \n  se.name as \"No:Link/Stock Entry:100\",\n   se.posting_date as \"Date:Date:100\",\n   se.company as \"Company:100\",\n  sd.item_code as \"Item Code:100\",\n  sd.item_name as \"Item Name:100\",\n  i.item_sub_group as \"Item sub Group:100\",\n  i.item_group as \"Item Group:100\",\n  i.category as \"Category:100\",\n  sd.qty as \"QTY:100\",\n  sd.basic_rate as \"Rate:Currency:100\",\n  sd.batch_no as \"Batch No:100\",\n   \n  sd.s_warehouse as \"Warehouse:100\"\n \n\nfrom `tabStock Entry` se , `tabStock Entry Detail` sd , `tabItem` i,`tabItem Default` id\n\nwhere\n  sd.parent= se.name and se.docstatus=1 and\n  stock_entry_type=\"Material Transfer for Manufacture\" and\n  sd.item_code = i.item_code and\n  id.parent=i.name and \n  id.company=se.company and\n  se.company =%(company)s  and se.posting_date>=%(from_date)s and  se.posting_date<=%(to_date)s\norder by  se.posting_date desc;\n\n",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Material Transfer for MFG DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Material Transfer for MFG DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Material Transfer for MFG DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Material Transfer for MFG DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Material Transfer for MFG DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Material Transfer for MFG DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   },
+   {
+    "parent": "Material Transfer for MFG DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:05:00.723814",
+  "module": "Core ERP",
+  "name": "Production Consumption Report -DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\nse.name  as \"No\",\nse.company as \"Company\",\nse.posting_date as \"Date:Date\",\nse.posting_time as \"Time:TIME\",\nse.work_order as \"Work Order\",\nse.bom_no as \"Bom No\",\nse.fg_completed_qty as \"Quantity:Float\",\nse.to_warehouse as \"Default Target Warehouse\",\nsed.s_warehouse as \"Source Warehouse\",\nsed.item_code as \"Item Code\",\nsed.item_name as \"Item Name\",\nsed.item_group as \"Item Group\",\nsed.qty as \"Quantity:Float\",\nsed.basic_rate as \"Basic Rate:Float\",\nsed.basic_amount as \"Basic Amount:Float\",\nsed.additional_cost as \"Additional Cost:Float\",\nsed.amount as \"Amount:Float\",\nsed.uom as \"UOM\",\nsed.batch_no as \"Batch No\",\nsed.expense_account as \"Expense Account:Float\",\nsed.actual_qty as \"Actual QTY:Float\",\nse.total_incoming_value as \"Total Imcoming Value:Float\",\nse.total_outgoing_value as \"Total Outgoing Value:Float\",\nse.value_difference as \"Value Diffrence:Float\"\n\n\nfrom `tabStock Entry` se , `tabStock Entry Detail` sed\nwhere \nsed.parent=se.name and\nse.stock_entry_type=\"Manufacture\"and \nse.docstatus=1 ",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Production Consumption Report -DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Production Consumption Report -DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Production Consumption Report -DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Production Consumption Report -DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Production Consumption Report -DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Production Consumption Report -DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2022-08-24 16:46:39.230345",
+  "module": "Core ERP",
+  "name": "Production Consumption Report DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\nse.name  as \"No:Link/Stock Entry\",\nse.company as \"Company\",\nse.stock_entry_type as \"Stock Entry Type\",\nse.posting_date as \"Date:Date\",\nse.posting_time as \"Time:TIME\",\nse.work_order as \"Work Order\",\nse.bom_no as \"Bom No\",\nse.bom_item as \"Bom Item:200\",\nse.fg_completed_qty as \"Fg Quantity:Float\",\nse.to_warehouse as \"Default Target Warehouse\",\nsed.s_warehouse as \"Source Warehouse\",\nsed.item_code as \"Item Code\",\nsed.item_name as \"Item Name\",\nsed.item_group as \"Item Group\",\nsed.qty as \"Quantity:Float\",\nsed.basic_rate as \"Basic Rate:Float\",\nsed.basic_amount as \"Basic Amount:Float\",\nsed.additional_cost as \"Additional Cost:Float\",\nsed.amount as \"Amount:Float\",\nsed.uom as \"UOM\",\nsed.batch_no as \"Batch No\",\nsed.expense_account as \"Expense Account:Float\",\nsed.actual_qty as \"Actual QTY:Float\",\nse.total_incoming_value as \"Total Imcoming Value:Float\",\nse.total_outgoing_value as \"Total Outgoing Value:Float\",\nse.value_difference as \"Value Difference:Float\"\n\nfrom `tabStock Entry` se , `tabStock Entry Detail` sed\nwhere \nsed.parent=se.name and \nse.stock_entry_type=\"Manufacture\" and \nse.docstatus=1 and\nsed.item_group != 'Finished Goods' and\nse.company=%(company)s and\nse.posting_date>=%(from_date)s and se.posting_date<=%(to_date)s\norder by se.posting_date desc;",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Production Consumption Report DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Production Consumption Report DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Production Consumption Report DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Production Consumption Report DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Production Consumption Report DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Production Consumption Report DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   },
+   {
+    "parent": "Production Consumption Report DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 17:00:23.422373",
+  "module": "Core ERP",
+  "name": "Item Batch Expiry Within 15 days DFM-2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 1,
+  "query": "",
+  "ref_doctype": "Batch",
+  "reference_report": null,
+  "report_name": "Item Batch Expiry Within 15 days DFM-2",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Item Batch Expiry Within 15 days DFM-2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Item Batch Expiry Within 15 days DFM-2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Item Manager"
+   },
+   {
+    "parent": "Item Batch Expiry Within 15 days DFM-2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Item Batch Expiry Within 15 days DFM-2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Item Batch Expiry Within 15 days DFM-2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Maintenance User"
+   },
+   {
+    "parent": "Item Batch Expiry Within 15 days DFM-2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 16:56:30.131937",
+  "module": "Core ERP",
+  "name": "Purchase Invoice Register Without GST",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\n\npi.name as \"No\",\npi.supplier as \"Supplier\",\npi.company as \"Company\",\npi.posting_date as \"Posting Date:Date\",\npi.due_Date as \"Due Date:Date\",\npi.bill_no as \"Supplier Invoice No\",\npi.bill_date as \"Supplier Invoice Date:Date\",\npii.item_code as \"Item Code\",\npii.item_name as \"Item Name\",\npi.purchase_order as \"PO No\",\npi.transaction_date as \"Po Date:Date\",\npi.mrn_number as \"MRN No\",\npi.mrn_date as \"MRN Date:Date\",\npii.rate as \"Rate:Currency\",\npii.rate_s as \"Bill Rate:Currency\",\npii.invoice_quantity as \"Bill Qty:Float\",\npii.qty as \"Acc Qty:Float\",\npii.received_qty as \"Received QTY:Float\",\npii.rejected_qty as \"Rejected Qty:Float\",\npii.short_quantity as \"Short QTY:Float\",\npii.stock_uom as \"UOM\",\npii.amount as \"Amount:Currency\"\n\n\n from `tabPurchase Invoice` pi , `tabPurchase Invoice Item` pii\n where\n pii.parent = pi.name and\n is_return=0 and\n pi.company=%(company)s and\npi.posting_date>=%(from_date)s and pi.posting_date<=%(to_date)s\norder by pi.posting_date desc;",
+  "ref_doctype": "Purchase Invoice",
+  "reference_report": null,
+  "report_name": "Purchase Invoice Register Without GST",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Purchase Invoice Register Without GST",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Purchase Invoice Register Without GST",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Purchase Invoice Register Without GST",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Purchase Invoice Register Without GST",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Auditor"
+   },
+   {
+    "parent": "Purchase Invoice Register Without GST",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Acc User"
+   },
+   {
+    "parent": "Purchase Invoice Register Without GST",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Purchase Invoice Register Without GST",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "PI Approver"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 16:53:19.994127",
+  "module": "Core ERP",
+  "name": "Production Report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Production Plan",
+  "reference_report": null,
+  "report_name": "Production Report",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Production Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "Production Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:56:15.900452",
+  "module": "Core ERP",
+  "name": "Issues Action Tracker",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\ni.name as \"Serial No:Link/Issue\",\nc.content as \"Comment\",\ni.opening_date as \"Date:Date\",\ni.source_of_input as \"Source Of Input\",\ni.issue_type as \"Nature of Concern\",\ni.category_of_concern as \"Category of Concern\",\ni.subject as \"Type of Issue\",\ni.send_gift_hamper as \"Required Gift\",\ni.description as \"Initial remarks on customer call\",\ni.phone_no as \"Caller Contact No\",\ni.no_of_calls_by_customer as \"No of Calls By Customer\",\ni.status as \"Status\",\ni.no_of_call_back_attempted as \"No of Call back Attempted\",\ni.call_back_date as \"Call Back Date:Date\",\ni.caller_name as \"Verified Caller Name\",\ni.state as \"Verified Caller State\",\ni.address as \"Verified Caller Address\",\nt.assigned_by_full_name as \"Assigned By\",\nt.date as \"Assigned Date:Date\",\nt.owner as \"Allocated To:100\"\nfrom `tabIssue` i left join `tabToDo` t on i.name = t.reference_name \nleft join `tabComment` c on i.name = c.reference_name and c.comment_type=\"Comment\"\norder by i.name asc;\n\n\n",
+  "ref_doctype": "Issue",
+  "reference_report": null,
+  "report_name": "Issues Action Tracker",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Issues Action Tracker",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Support Team"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-26 16:19:50.335396",
+  "module": "Core ERP",
+  "name": "User Activity Log Report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select \n\nfull_name as \"User Name\",\nuser as \"User Mail Id\",\nsubject as \"Subject\",\nCAST(communication_date as date) as \"Date:Date\",\nCAST(communication_date as time) as \"Time:Time\",\noperation as \"Operation\",\nstatus as \"Status\",\nreference_doctype as \"Reference Document\",\nreference_name as \"Reference Name\",\ntimeline_doctype as \"Time Line Doctype\",\ntimeline_name as \"Timeline Name\"\n\n\nfrom `tabActivity Log`\nwhere date(communication_date)>=%(from_date)s and date(communication_date)<=%(to_date)s\nORDER BY DATE(communication_date) DESC, Time(communication_date) DESC",
+  "ref_doctype": "Activity Log",
+  "reference_report": null,
+  "report_name": "User Activity Log Report",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "User Activity Log Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Website Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2022-08-24 12:57:27.130178",
+  "module": "Core ERP",
+  "name": "FG Production",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT\nse.name  as \"No:Link/Stock Entry\",\nse.company as \"Company\",\nse.stock_entry_type as \"Stock Entry Type\",\nse.posting_date as \"Date:Date\",\nse.work_order as \"Work Order\",\nse.line as \"Line\",\nsed.s_warehouse as \"Source Warehouse\",\nsed.t_warehouse as \"Target Warehouse\",\nse.bom_no as \"Bom No\",\nsed.item_code as \"Item Code\",\nsed.item_name as \"Item Name\",\nsed.item_group as \"Item Group\",\nit.product_category as \"Product Category\",\nit.price_category as \"Price Category\",\nit.product_variant as \"Product Varient\",\nsed.qty as \"Quantity:Float\",\nsed.basic_rate as \"Basic Rate:Float\",\nsed.basic_amount as \"Basic Amount:Float\",\nsed.amount as \"Amount:Float\",\nsed.uom as \"UOM\",\nsed.qty * it.weight_per_unit as \"Net Weight\",\nsed.batch_no as \"Batch No\",\nsed.expense_account as \"Expense Account:Float\",\nsed.actual_qty as \"Actual QTY:Float\",\nse.total_incoming_value as \"Total Imcoming Value:Float\",\nse.total_outgoing_value as \"Total Outgoing Value:Float\",\nse.value_difference as \"Value Difference:Float\",\n/*se.fg_completed_qty as \"Total Box:Int\",\nuo.conversion_factor as \"Conversion Factor:Int\",*/\nuo.conversion_factor * se.fg_completed_qty as \"Total Packets\"\n\n\n\nFROM \n`tabStock Entry Detail` sed LEFT JOIN `tabItem` it ON sed.item_code = it.name, `tabStock Entry` se, `tabUOM Conversion Detail` uo\n\nWHERE\nuo.parent = it.name and\nsed.parent = se.name and\nse.docstatus=1 and\nsed.item_group = 'Finished Goods'and\nse.stock_entry_type = 'Manufacture' and\ndate(se.posting_date) %(from_date)s and\n",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "FG Production",
+  "report_script": "",
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "FG Production",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "FG Production",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "FG Production",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "FG Production",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "FG Production",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   },
+   {
+    "parent": "FG Production",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 16:45:35.118251",
+  "module": "Core ERP",
+  "name": "Manufacture report for DFM",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "SELECT \nname as \"NAME::200\",\nposting_date AS \"POSTING DATE::200\",\nstock_entry_type AS \"STOCK ENTRY TYPE::200 \",\ncompany AS \"COMPANY ::200\",\nposting_time AS \"POSTING TIME::200\",\nwork_order AS \"WORK ORDER::200\",\nline AS \"LINE::200\",\nbom_no AS \"BOM NUMBER::200\",\nbom_item AS \"BOM ITEM::200\",\nfg_completed_qty AS \"For Quantity::200\"\nFROM `tabStock Entry`",
+  "ref_doctype": "Manufacturer",
+  "reference_report": null,
+  "report_name": "Manufacture report for DFM",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Manufacture report for DFM",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 1,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 15:10:19.122356",
+  "module": "Core ERP",
+  "name": "Production Consumption 2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\nse.name  as \"No:Link/Stock Entry\",\nse.company as \"Company\",\nse.stock_entry_type as \"Stock Entry Type\",\nse.posting_date as \"Date:Date\",\nse.posting_time as \"Time:TIME\",\nse.work_order as \"Work Order\",\nse.bom_no as \"Bom No\",\nse.bom_item as \"Bom Item:200\",\nse.fg_completed_qty as \"Fg Quantity:Float\",\nsed.s_warehouse as \"Source Warehouse\",\nsed.t_warehouse as \"Target Warehouse\",\nsed.item_code as \"Item Code\",\nsed.item_name as \"Item Name\",\nsed.item_group as \"Item Group\",\ncase\n    when sed.s_warehouse is NULL then -1*sed.qty else sed.qty end as \"Quantity:Float\",\nsed.basic_rate as \"Basic Rate:Float\",\ncase\n    when sed.s_warehouse is NULL then -1*sed.basic_amount else sed.basic_amount end as \"Basic Amount:Float\",\nsed.additional_cost as \"Additional Cost:Float\",\ncase\n    when sed.s_warehouse is NULL then -1*sed.amount  else sed.amount end as \"Amount:Float\",\nsed.uom as \"UOM\",\nsed.batch_no as \"Batch No\",\nsed.expense_account as \"Expense Account:Float\",\nsed.actual_qty as \"Actual QTY:Float\",\nse.total_incoming_value as \"Total Imcoming Value:Float\",\nse.total_outgoing_value as \"Total Outgoing Value:Float\",\nse.value_difference as \"Value Difference:Float\"\n\nfrom `tabStock Entry` se , `tabStock Entry Detail` sed\nwhere \nsed.parent=se.name and \nse.stock_entry_type=\"Manufacture\" and \nse.docstatus=1 and\nsed.item_group != 'Finished Goods' and\nse.company=%(company)s and\nse.posting_date>=%(from_date)s and se.posting_date<=%(to_date)s\norder by se.posting_date desc;",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Production Consumption 2",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Production Consumption 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Production Consumption 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Production Consumption 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Production Consumption 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:27:54.720779",
+  "module": "Core ERP",
+  "name": "Production Consumption 3",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\nse.name  as \"No:Link/Stock Entry\",\nse.company as \"Company\",\nse.stock_entry_type as \"Stock Entry Type\",\nse.reason as \"Reason\",\nse.posting_date as \"Date:Date\",\nse.posting_time as \"Time:TIME\",\nse.work_order as \"Work Order\",\nse.bom_no as \"Bom No\",\nse.bom_item as \"Bom Item:200\",\nse.fg_completed_qty as \"Fg Quantity:Float\",\nsed.s_warehouse as \"Source Warehouse\",\nsed.t_warehouse as \"Target Warehouse\",\nsed.item_code as \"Item Code\",\nsed.item_name as \"Item Name\",\nsed.item_group as \"Item Group\",\ncase\n    when sed.s_warehouse is NULL then -1*sed.qty else sed.qty end as \"Quantity:Float\",\nsed.basic_rate as \"Basic Rate:Float\",\ncase\n    when sed.s_warehouse is NULL then -1*sed.basic_amount else sed.basic_amount end as \"Basic Amount:Float\",\nsed.additional_cost as \"Additional Cost:Float\",\ncase\n    when sed.s_warehouse is NULL then -1*sed.amount  else sed.amount end as \"Amount:Float\",\nsed.uom as \"UOM\",\nsed.batch_no as \"Batch No\",\nsed.expense_account as \"Expense Account:Float\",\nsed.actual_qty as \"Actual QTY:Float\",\nse.total_incoming_value as \"Total Imcoming Value:Float\",\nse.total_outgoing_value as \"Total Outgoing Value:Float\",\nse.value_difference as \"Value Difference:Float\"\n\nfrom `tabStock Entry` se , `tabStock Entry Detail` sed\n\nwhere \nsed.parent=se.name and \n(se.stock_entry_type = \"Manufacture\" or\n(se.stock_entry_type = \"Material Issue\" and se.reason = \"Consumption\") or \n(se.stock_entry_type = \"Material Receipt\" and se.reason = \"Consumption\")) and\nse.docstatus=1 and\nsed.item_group != 'Finished Goods' and\nse.company=%(company)s and\nse.posting_date>=%(from_date)s and se.posting_date<=%(to_date)s\norder by se.posting_date desc;",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Production Consumption 3",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Production Consumption 3",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Production Consumption 3",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Production Consumption 3",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   },
+   {
+    "parent": "Production Consumption 3",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 15:03:11.671807",
+  "module": "Core ERP",
+  "name": "Sample Format",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select se.stock_entry_type,sed.s_warehouse,sed.t_warehouse,sed.item_code,sed.qty from `tabStock Entry` se,\r\n`tabStock Entry Detail` sed where\r\nsed.parent=se.name and se.posting_date between %(from_date)s and %(to_date)s",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Sample Format",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Sample Format",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Support Team"
+   },
+   {
+    "parent": "Sample Format",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Support Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 15:05:16.421616",
+  "module": "Core ERP",
+  "name": "Warehouse Linewise Report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select sle.item_code as \"Item:Link/Item:120\",\nsed1.item_name as \"Item Name:200\",\nsed1.item_group as \"Item Group:Link/Item Group:200\",\nsed1.stock_uom as \"Stock UOM:200\",\nsum(sle.actual_qty) as \"Opening Qty:120\",\nsle.posting_date as \"Posting Date:Date:200\",\nsed1.warehouse as \"Warehouse:Link/Warehouse:200\"\nfrom \n(select sed.item_code,\nsed.item_name,\nsed.item_group,\nif(sed.s_warehouse is not null,sed.s_warehouse,sed.t_warehouse)  as warehouse,\nsed.stock_uom,\nsed.parent as entry_name\nfrom `tabStock Entry Detail` sed group by warehouse,sed.item_code) as sed1 left join\n`tabStock Ledger Entry` sle on sed1.item_code=sle.item_code \nwhere sle.docstatus < 2 and sle.posting_date <= %(from_date)s\ngroup by sed1.warehouse,sle.item_code",
+  "ref_doctype": "Stock Entry",
+  "reference_report": null,
+  "report_name": "Warehouse Linewise Report",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Warehouse Linewise Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Support Team"
+   },
+   {
+    "parent": "Warehouse Linewise Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Support Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:45:47.856627",
+  "module": "Core ERP",
+  "name": "Python_Test_01",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Purchase Invoice",
+  "reference_report": null,
+  "report_name": "Python_Test_01",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Auditor"
+   },
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Acc User"
+   },
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "PI Approver"
+   },
+   {
+    "parent": "Python_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:40:49.579309",
+  "module": "Core ERP",
+  "name": "Debit_Note_Test_01",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "",
+  "ref_doctype": "Purchase Receipt",
+  "reference_report": null,
+  "report_name": "Debit_Note_Test_01",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "teststore"
+   },
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User-Quality"
+   },
+   {
+    "parent": "Debit_Note_Test_01",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:26:20.991366",
+  "module": "Core ERP",
+  "name": "Issue Test",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\ni.name as \"Ticket ID:Link/Issue:120\",\ni.ticket_type as \"Ticket Type::100\",\nu.first_name as \"Closed By:100\",\ni.status as \"Status\",\nt.assigned_by as \"Assigned By\",\nt.owner as \"Assigned To\",\ni.source_of_input as \"Source of Input:150\",\ni.priority as \"Priority\",\ni.sub_status as \"Sub Status\",\ni.subject as \"Subject::200\",\ni.issue_type as \"Issue Type\",\ni.priority as \"Priority\",\ni.category_of_concern as \"Category of Concern\",\ni.creation as \"Issue Date/Time:Datetime:200\",\nt.creation as \"Ticket Assigned Datetime:Datetime:200\",\ni.issue_closing_date as \"Ticket Closing Date/Time:Datetime:200\",\n/*i.classification_for_sla_priority as \"Classification For SLA Priority\",\ni.dfm_team_effort_min as \"DFM Team Effort Min\",\ni.vendor_involved as \"Vendor Involved\",\ni.complexity as \"Complexity\",*/\ni.description as \"Description\",\ni.issue_reported_by as \"Issue Reported By\",\ni.department as \"Department\",\ni.email_id_of_user as \"Email Id of User\",\ni.contact_no as \"Contact No.\",\nt.description as \"Comment\",\ni.resolution_details as \"Internal Team Remarks\"\nfrom `tabIssue` i left join `tabToDo` t on i.name = t.reference_name inner join `tabUser` u on i.modified_by = u.name\nwhere i.opening_date between %(from)s and %(to)s and i.ticket_type = %(ticket_type)s",
+  "ref_doctype": "Issue",
+  "reference_report": null,
+  "report_name": "Issue Test",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Issue Test",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Support Team"
+   },
+   {
+    "parent": "Issue Test",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Support Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:20:29.089608",
+  "module": "Core ERP",
+  "name": "Purchase Invoice Register DFM 2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "",
+  "ref_doctype": "Purchase Invoice",
+  "reference_report": null,
+  "report_name": "Purchase Invoice Register DFM 2",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Auditor"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Acc User"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "PI Approver"
+   },
+   {
+    "parent": "Purchase Invoice Register DFM 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 14:02:01.861924",
+  "module": "Core ERP",
+  "name": "BOM vs Actual",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Production Plan",
+  "reference_report": null,
+  "report_name": "BOM vs Actual",
+  "report_script": "\r\n\r\n\t\r\n\r\ndef get_exploded_items(bom,raw = {},s_q=0,n_q=0):\r\n\tbom_q = frappe.db.get_value('BOM',bom,'quantity')\r\n\t\"\"\" Get all raw materials including items from child bom\"\"\"\r\n\titems = frappe.db.sql(\"\"\"select bi.item_code, bi.item_name, bi.bom_no, bi.stock_uom, bi.stock_qty, bi.net_qty, \r\n\t\t\t\tbi.stock_qty / ifnull(%s, 1) AS stock_qty_consumed_per_unit, bi.net_qty / ifnull(%s, 1) AS net_qty_consumed_per_unit,\r\n\t\t\t\t bi.include_item_in_manufacturing from `tabBOM Item` bi where bi.parent = %s\"\"\"%(bom_q,bom_q,frappe.db.escape(bom)), as_dict=1 )\r\n\tfor d in items:\r\n\t\tif d['bom_no']:\r\n\t\t\traw = get_exploded_items(d['bom_no'],raw,(s_q*d['stock_qty_consumed_per_unit']),(n_q*d['net_qty_consumed_per_unit']))\r\n\t\t\t#frappe.msgprint(str(raw))\r\n\t\telse:\r\n\t\t\tif d['item_code'] in raw:\r\n\t\t\t\t#frappe.msgprint(str(d['item_code']))\r\n\t\t\t\traw[d['item_code']] = {\r\n\t\t\t\t\t'stock_entry'\t\t\t\t: '',\r\n\t\t\t\t\t'item_name'\t\t\t\t: d['item_name'],\r\n\t\t\t\t\t'stock_uom'\t\t\t\t: d['stock_uom'],\r\n\t\t\t\t\t'stock_qty'\t\t\t\t: raw[d['item_code']]['stock_qty'] + d['stock_qty_consumed_per_unit'] * s_q,\r\n\t\t\t\t\t'net_qty'\t\t\t\t: raw[d['item_code']]['net_qty']  + d['net_qty_consumed_per_unit'] * n_q,\r\n\t\t\t\t\t'consumed_qty'                          : 0,\r\n\t\t\t\t\t'yield'\t\t\t\t\t: 0,\r\n\t\t\t\t\t'include_item_in_manufacturing': d.get('include_item_in_manufacturing', 0)\r\n\t\t\t\t}\r\n\t\t\t\t#frappe.msgprint(str(raw[d['item_code']]))\r\n\r\n\t\t\telse:\r\n\t\t\t\traw[d['item_code']] = {\r\n\t\t\t\t\t'stock_entry'\t\t\t\t: '',\r\n\t\t\t\t\t'item_name'\t\t\t\t: d['item_name'],\r\n\t\t\t\t\t'stock_uom'\t\t\t\t: d['stock_uom'],\r\n\t\t\t\t\t'stock_qty'\t\t\t\t: d['stock_qty_consumed_per_unit'] * s_q,\r\n\t\t\t\t\t'net_qty'\t\t\t\t: d['net_qty_consumed_per_unit'] * n_q,\r\n\t\t\t\t\t'consumed_qty'\t\t\t\t: 0,\r\n\t\t\t\t\t'yield'\t\t\t\t\t: 0,\r\n\t\t\t\t\t'include_item_in_manufacturing': d.get('include_item_in_manufacturing', 0)\r\n                                }\r\n\t\t\t\t#frappe.msgprint(str(raw[d['item_code']]))\r\n\r\n\treturn raw\r\n\t\r\n\r\n\r\n\t\r\ndef get_data(filters):\r\n    conditions = \"\"\r\n    if filters.get(\"from_date\"):\r\n\t    conditions += \" and date >= '%s'\" % filters[\"from_date\"]\r\n\r\n    if filters.get(\"to_date\"):\r\n\t    conditions += \" and date <= '%s'\" % filters[\"to_date\"]\r\n\r\n    if filters.get(\"company\"):\r\n\t    conditions += \" and company = '%s'\" % filters[\"company\"]\r\n    else:\r\n\t    frappe.throw('Please Select company first')\r\n\t    \r\n    d=frappe.db.sql(\"\"\"SELECT company, production_plan ,name as work_order ,qty as fg_qty, produced_qty,\r\n\tproduction_item as fg_item, item_name as fg_name, bom_no FROM `tabWork Order` where docstatus = 1 and produced_qty > 0 %s \"\"\"%conditions,as_dict=1)\r\n\t\r\n    for r in d:\r\n        r[r['work_order']]=get_exploded_items(r['bom_no'],{},r['fg_qty'],r['fg_qty'])\r\n        se_name=frappe.get_list('Stock Entry',{'work_order': r['work_order']},'name')\r\n        for se in se_name:\r\n            temp=frappe.db.sql(\"\"\"select item_code,sum(qty) as qty from `tabStock Entry Detail` sed, `tabStock Entry` se where sed.parent=%s and sed.parent = se.name and se.docstatus=1 and item_group!='Finished Goods' group by item_code\"\"\",se['name'],as_dict=1)\r\n            for t in temp:\r\n                try:\r\n                    r[r['work_order']][t['item_code']]['stock_entry'] = se['name']\r\n                    r[r['work_order']][t['item_code']]['consumed_qty'] = t['qty']\r\n                    r[r['work_order']][t['item_code']]['yield'] = (t['qty']/r[r['work_order']][t['item_code']]['stock_qty'])*100 \r\n                except:\r\n                    pass\r\n    return d\r\n\r\n\r\n\r\ndef get_columns(filters):\r\n\t\"\"\"return columns\"\"\"\r\n\tcolumns = [\r\n\t\t{\"label\": \"Company\", \"fieldname\": \"company\", \"fieldtype\": \"Link\", \"options\": \"Company\", \"width\": 150},\r\n\t\t{\"label\": \"Production Plan\", \"fieldname\": \"production_plan\", \"fieldtype\": \"Link\", \"options\": \"Production Plan\", \"width\": 150},\r\n\t\t{\"label\": \"Work Order\", \"fieldname\": \"work_order\", \"fieldtype\": \"Link\", \"options\": \"Work Order\", \"width\": 150},\r\n\t\t{\"label\": \"BOM No.\", \"fieldname\": \"bom_no\", \"fieldtype\": \"Link\", \"options\": \"BOM\", \"width\": 150},\r\n\t\t{\"label\": \"FG Item\", \"fieldname\": \"fg_item\", \"fieldtype\": \"Data\", \"width\": 120},\r\n\t\t{\"label\": \"FG Name\", \"fieldname\": \"fg_name\", \"fieldtype\": \"Data\", \"width\": 180},\r\n\t\t{\"label\": \"FG Item Qty\", \"fieldname\": \"fg_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"FG Produced Qty\", \"fieldname\": \"produced_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"Consumed Items\", \"fieldname\": \"item_code\", \"fieldtype\": \"Link\", \"options\": \"Item\", \"width\": 100},\r\n\t\t{\"label\": \"Item Name\", \"fieldname\": \"item_name\", \"fieldtype\": \"Data\", \"width\": 100},\r\n\t\t{\"label\": \"Stock Entry\", \"fieldname\": \"stock_entry\", \"fieldtype\": \"Link\", \"options\": \"Stock Entry\", \"width\": 150},\r\n\t\t{\"label\": \"Net Qty\", \"fieldname\": \"net_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"Gross Qty\", \"fieldname\": \"stock_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"Consumed Qty\", \"fieldname\": \"consumed_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"% Yield\", \"fieldname\": \"yield\", \"fieldtype\": \"Float\", \"width\": 100}\r\n\t]\r\n\r\n\treturn columns\r\n\t\r\n\r\n\t\r\ncolumns = get_columns(filters)\r\ntemp_data = get_data(filters)\r\n#print(temp_data[0])\r\nlist = []\r\nfor d in temp_data:\r\n\t#print(d)\r\n\tfor item in d[d['work_order']]:\r\n\t\tlist.append([d['company'], d['production_plan'], d['work_order'], d['bom_no'], d['fg_item'],d['fg_name'], d['fg_qty'], d['produced_qty'], item, d[d['work_order']][item]['item_name'],\r\n\t\td[d['work_order']][item]['stock_entry'],d[d['work_order']][item]['net_qty'], d[d['work_order']][item]['stock_qty'], d[d['work_order']][item]['consumed_qty'], d[d['work_order']][item]['yield']  \r\n\t\t])\r\n\r\ndata = [columns, list]\r\n\r\n",
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "BOM vs Actual",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "BOM vs Actual",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 13:54:39.413577",
+  "module": "Core ERP",
+  "name": "BOM vs Actual duplicate",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "",
+  "ref_doctype": "Production Plan",
+  "reference_report": null,
+  "report_name": "BOM vs Actual duplicate",
+  "report_script": "\r\n\r\n\t\r\n\r\ndef get_exploded_items(bom,raw = {},s_q=0,n_q=0):\r\n\tbom_q = frappe.db.get_value('BOM',bom,'quantity')\r\n\t\"\"\" Get all raw materials including items from child bom\"\"\"\r\n\titems = frappe.db.sql(\"\"\"select bi.item_code, bi.item_name, bi.bom_no, bi.stock_uom, bi.stock_qty, bi.net_qty, \r\n\t\t\t\tbi.stock_qty / ifnull(%s, 1) AS stock_qty_consumed_per_unit, bi.net_qty / ifnull(%s, 1) AS net_qty_consumed_per_unit,\r\n\t\t\t\t bi.include_item_in_manufacturing from `tabBOM Item` bi where bi.parent = %s\"\"\"%(bom_q,bom_q,frappe.db.escape(bom)), as_dict=1 )\r\n\tfor d in items:\r\n\t\tif d['bom_no']:\r\n\t\t\traw = get_exploded_items(d['bom_no'],raw,(s_q*d['stock_qty_consumed_per_unit']),(n_q*d['net_qty_consumed_per_unit']))\r\n\t\t\t#frappe.msgprint(str(raw))\r\n\t\telse:\r\n\t\t\tif d['item_code'] in raw:\r\n\t\t\t\t#frappe.msgprint(str(d['item_code']))\r\n\t\t\t\traw[d['item_code']] = {\r\n\t\t\t\t\t'stock_entry'\t\t\t\t: '',\r\n\t\t\t\t\t'item_name'\t\t\t\t: d['item_name'],\r\n\t\t\t\t\t'stock_uom'\t\t\t\t: d['stock_uom'],\r\n\t\t\t\t\t'stock_qty'\t\t\t\t: raw[d['item_code']]['stock_qty'] + d['stock_qty_consumed_per_unit'] * s_q,\r\n\t\t\t\t\t'net_qty'\t\t\t\t: raw[d['item_code']]['net_qty']  + d['net_qty_consumed_per_unit'] * n_q,\r\n\t\t\t\t\t'consumed_qty'                          : 0,\r\n\t\t\t\t\t'yield'\t\t\t\t\t: 0,\r\n\t\t\t\t\t'include_item_in_manufacturing': d.get('include_item_in_manufacturing', 0)\r\n\t\t\t\t}\r\n\t\t\t\t#frappe.msgprint(str(raw[d['item_code']]))\r\n\r\n\t\t\telse:\r\n\t\t\t\traw[d['item_code']] = {\r\n\t\t\t\t\t'stock_entry'\t\t\t\t: '',\r\n\t\t\t\t\t'item_name'\t\t\t\t: d['item_name'],\r\n\t\t\t\t\t'stock_uom'\t\t\t\t: d['stock_uom'],\r\n\t\t\t\t\t'stock_qty'\t\t\t\t: d['stock_qty_consumed_per_unit'] * s_q,\r\n\t\t\t\t\t'net_qty'\t\t\t\t: d['net_qty_consumed_per_unit'] * n_q,\r\n\t\t\t\t\t'consumed_qty'\t\t\t\t: 0,\r\n\t\t\t\t\t'yield'\t\t\t\t\t: 0,\r\n\t\t\t\t\t'include_item_in_manufacturing': d.get('include_item_in_manufacturing', 0)\r\n                                }\r\n\t\t\t\t#frappe.msgprint(str(raw[d['item_code']]))\r\n\r\n\treturn raw\r\n\t\r\n\r\n\r\n\t\r\ndef get_data(filters):\r\n    conditions = \"\"\r\n    if filters.get(\"from_date\"):\r\n\t    conditions += \" and date >= '%s'\" % filters[\"from_date\"]\r\n\r\n    if filters.get(\"to_date\"):\r\n\t    conditions += \" and date <= '%s'\" % filters[\"to_date\"]\r\n\r\n    if filters.get(\"company\"):\r\n\t    conditions += \" and company = '%s'\" % filters[\"company\"]\r\n    else:\r\n\t    frappe.throw('Please Select company first')\r\n\t    \r\n    d=frappe.db.sql(\"\"\"SELECT company, production_plan ,name as work_order ,qty as fg_qty, produced_qty,\r\n\tproduction_item as fg_item, item_name as fg_name, bom_no FROM `tabWork Order` where docstatus = 1 and produced_qty > 0 %s \"\"\"%conditions,as_dict=1)\r\n\t\r\n    for r in d:\r\n        r[r['work_order']]=get_exploded_items(r['bom_no'],{},r['fg_qty'],r['fg_qty'])\r\n        se_name=frappe.get_list('Stock Entry',{'work_order': r['work_order']},'name')\r\n        for se in se_name:\r\n            temp=frappe.db.sql(\"\"\"select item_code,sum(qty) as qty from `tabStock Entry Detail` sed, `tabStock Entry` se where sed.parent=%s and sed.parent = se.name and se.docstatus=1 and item_group!='Finished Goods' group by item_code\"\"\",se['name'],as_dict=1)\r\n            for t in temp:\r\n                try:\r\n                    r[r['work_order']][t['item_code']]['stock_entry'] = se['name']\r\n                    r[r['work_order']][t['item_code']]['consumed_qty'] = t['qty']\r\n                    r[r['work_order']][t['item_code']]['yield'] = (t['qty']/r[r['work_order']][t['item_code']]['stock_qty'])*100 \r\n                except:\r\n                    pass\r\n    return d\r\n\r\n\r\n\r\ndef get_columns(filters):\r\n\t\"\"\"return columns\"\"\"\r\n\tcolumns = [\r\n\t\t{\"label\": \"Company\", \"fieldname\": \"company\", \"fieldtype\": \"Link\", \"options\": \"Company\", \"width\": 150},\r\n\t\t{\"label\": \"Production Plan\", \"fieldname\": \"production_plan\", \"fieldtype\": \"Link\", \"options\": \"Production Plan\", \"width\": 150},\r\n\t\t{\"label\": \"Work Order\", \"fieldname\": \"work_order\", \"fieldtype\": \"Link\", \"options\": \"Work Order\", \"width\": 150},\r\n\t\t{\"label\": \"BOM No.\", \"fieldname\": \"bom_no\", \"fieldtype\": \"Link\", \"options\": \"BOM\", \"width\": 150},\r\n\t\t{\"label\": \"FG Item\", \"fieldname\": \"fg_item\", \"fieldtype\": \"Data\", \"width\": 120},\r\n\t\t{\"label\": \"FG Name\", \"fieldname\": \"fg_name\", \"fieldtype\": \"Data\", \"width\": 180},\r\n\t\t{\"label\": \"FG Item Qty\", \"fieldname\": \"fg_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"FG Produced Qty\", \"fieldname\": \"produced_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"Consumed Items\", \"fieldname\": \"item_code\", \"fieldtype\": \"Link\", \"options\": \"Item\", \"width\": 100},\r\n\t\t{\"label\": \"Item Name\", \"fieldname\": \"item_name\", \"fieldtype\": \"Data\", \"width\": 100},\r\n\t\t{\"label\": \"Stock Entry\", \"fieldname\": \"stock_entry\", \"fieldtype\": \"Link\", \"options\": \"Stock Entry\", \"width\": 150},\r\n\t\t{\"label\": \"Net Qty\", \"fieldname\": \"net_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"Gross Qty\", \"fieldname\": \"stock_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"Consumed Qty\", \"fieldname\": \"consumed_qty\", \"fieldtype\": \"Float\", \"width\": 100},\r\n\t\t{\"label\": \"% Yield\", \"fieldname\": \"yield\", \"fieldtype\": \"Float\", \"width\": 100}\r\n\t]\r\n\r\n\treturn columns\r\n\t\r\n\r\n\t\r\ncolumns = get_columns(filters)\r\ntemp_data = get_data(filters)\r\n#print(temp_data[0])\r\nlist = []\r\nfor d in temp_data:\r\n\t#print(d)\r\n\tfor item in d[d['work_order']]:\r\n\t\tlist.append([d['company'], d['production_plan'], d['work_order'], d['bom_no'], d['fg_item'],d['fg_name'], d['fg_qty'], d['produced_qty'], item, d[d['work_order']][item]['item_name'],\r\n\t\td[d['work_order']][item]['stock_entry'],d[d['work_order']][item]['net_qty'], d[d['work_order']][item]['stock_qty'], d[d['work_order']][item]['consumed_qty'], d[d['work_order']][item]['yield']  \r\n\t\t])\r\n\r\ndata = [columns, list]\r\n\r\n",
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "BOM vs Actual duplicate",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "BOM vs Actual duplicate",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 13:51:43.365564",
+  "module": "Core ERP",
+  "name": "Production Consumption",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\nse.name1,\nsed.items_name,\nsed.item_code,\nsed.opening_qty,\nsed.closing_qty,\nsed.total_qty,\nse.posting_date as \"Date:Date\",\nse.posting_time as \"Time:TIME\"\n\n\n\nfrom `tabconsumption` se , `tabconsumption table` sed\nwhere\nsed.parent=se.name1 and\nse.posting_date>=%(from_date)s and se.posting_date<=%(to_date)s\norder by se.posting_date desc;",
+  "ref_doctype": "consumption",
+  "reference_report": null,
+  "report_name": "Production Consumption",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Production Consumption",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Production Consumption",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Administrator"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 13:34:48.835079",
+  "module": "Core ERP",
+  "name": "consumtion report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 1,
+  "query": "SELECT\r\nsle.name,\r\nsle.item_code,\r\n(case when sle.posting_date < Date(%(from_date)s) then qty_after_transaction else 0 end) as \"Before Transaction Qty\",\r\n/*(case when sle.posting_date < Date(%(from_date)s) then valuation_rate else 0 end) as \"Before Transaction Rate\",\r\n(case when sle.posting_date < Date(%(from_date)s) then valuation_rate else 0 end) as \"Stock value\",*/\r\n(case when sle.voucher_type = \"Purchase Receipt\" then sum(sle.actual_qty) else 0  end) as \"Purchase Qty\",\r\n/*(case when sle.posting_date < Date(%(from_date)s) then valuation_rate else 0 end) as \"Before Transaction Rate\",\r\n(case when sle.posting_date < Date(%(from_date)s) then valuation_rate else 0 end) as \"Stock value\",*/\r\n(case when sle.posting_date >= Date(%(from_date)s) then qty_after_transaction else 0 end) as \"Balance Transaction Qty\",\r\n\r\nsle.posting_date as \"Posting Date\",\r\nsle.voucher_type,\r\nsle.warehouse,\r\nsle.company\r\n\r\nFROM\r\n  `tabStock Ledger Entry` sle group by item_code\r\n  ",
+  "ref_doctype": "Stock Ledger Entry",
+  "reference_report": null,
+  "report_name": "consumtion report",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "consumtion report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "consumtion report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 13:23:30.807402",
+  "module": "Core ERP",
+  "name": "cunsumption report new",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 1,
+  "query": "",
+  "ref_doctype": "Stock Ledger Entry",
+  "reference_report": null,
+  "report_name": "cunsumption report new",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "cunsumption report new",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "cunsumption report new",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 1,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-24 13:19:14.529495",
+  "module": "Core ERP",
+  "name": "Stock Balance 2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "",
+  "ref_doctype": "Stock Ledger Entry",
+  "reference_report": null,
+  "report_name": "Stock Balance 2",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Stock Balance 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Stock Balance 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-23 17:34:40.423048",
+  "module": "Core ERP",
+  "name": "BOM VS ACTUAL 2",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select *\r\n\r\nfrom\r\n\r\n(select \r\nwo.company as company,\r\nwo.name,\r\nwo.bom_no,\r\nwo.production_item as fg_item,\r\nwo.item_name as fg_item_name,\r\nwo.qty as fg_qty,\r\nwo.produced_qty as Produced_qty,\r\nwoi.parent,\r\nwoi.item_code,\r\nwoi.item_name as \"itm\",\r\nwoi.required_qty as \"Gross QTY\"\r\nfrom `tabWork Order` as wo left join `tabWork Order Item` as woi\r\non wo.name=woi.parent\r\nwhere wo.status!=\"Not Started\" and wo.docstatus!=0) as ww left join\r\n\r\n(select \r\nse.name,\r\nse.work_order,\r\nsed.item_code,\r\nsed.item_name,\r\nsed.parent,\r\nsum(sed.qty) as consumed_qty\r\nfrom `tabStock Entry` as se left join `tabStock Entry Detail` as sed \r\non se.name=sed.parent\r\ngroup by sed.item_code,se.work_order) as ss\r\non ss.work_order=ww.parent and ss.item_name=ww.itm\r\n\r\n",
+  "ref_doctype": "Work Order",
+  "reference_report": null,
+  "report_name": "BOM VS ACTUAL 2",
+  "report_script": "",
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "BOM VS ACTUAL 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "BOM VS ACTUAL 2",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": "",
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-23 17:32:03.931928",
+  "module": "Core ERP",
+  "name": "B vs A",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "columns = [ \r\n            {\"label\":\"Company\",\"fieldname\": \"Company\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Work Order\",\"fieldname\": \"Work Order\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Bom No\",\"fieldname\": \"Bom No\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Fg Item\",\"fieldname\": \"Fg Item\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Fg Name\",\"fieldname\": \"Fg Name\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Fg Qty\",\"fieldname\": \"Fg Qty\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Produced Qty\",\"fieldname\": \"Produced Qty\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Consumed Item\",\"fieldname\": \"Consumed Item\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Item Name\",\"fieldname\": \"Item Name\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Stock Entry\",\"fieldname\": \"Stock Entry\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Gross Qty\",\"fieldname\": \"Gross Qty\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Consumed Qty\",\"fieldname\": \"Consumed Qty\",\"fieldtype\": \"data\",\"width\":120}\r\n                             \r\n               \r\n            \r\n        ]\r\n\r\n\r\n\r\nres = frappe.db.sql(f\"\"\"select \r\nw.company as Company,\r\nw.parent as \"Work Order\",\r\nw.bom_no as \"Bom No\",\r\nw.fg_item as \"Fg Item\",\r\nw.fg_item_name as \"Fg Name\",\r\nw.fg_qty as \"Fg Qty\",\r\nw.Produced_qty as \"Produced Qty\",\r\nw.item_code as \"Consumed Item\",\r\nw.Item_Name as \"Item Name\",\r\ns.name as \"Stock Entry\",\r\nw.Gross_QTY as \"Gross Qty\",\r\ns.consumed_qty as \"Consumed Qty\"\r\n\r\n\r\n\r\nfrom\r\n\r\n(select \r\nse.name,\r\nse.work_order,\r\nsed.item_code,\r\nsed.item_name,\r\nsed.parent,\r\nsum(sed.qty) as consumed_qty\r\nfrom `tabStock Entry` as se left join `tabStock Entry Detail` as sed \r\non se.name=sed.parent\r\ngroup by sed.item_code,se.work_order,se.name) as s right join \r\n\r\n(select \r\nwo.company as company,\r\nwo.name,\r\nwo.bom_no,\r\nwo.production_item as fg_item,\r\nwo.item_name as fg_item_name,\r\nwo.qty as fg_qty,\r\nwo.produced_qty as Produced_qty,\r\nwoi.parent,\r\nwoi.item_code,\r\nwoi.item_name as \"Item_Name\",\r\nwoi.required_qty as \"Gross_QTY\"\r\nfrom `tabWork Order` as wo left join `tabWork Order Item` as woi\r\non wo.name=woi.parent\r\nwhere wo.status!=\"Not Started\" and wo.docstatus!=0) as w\r\non w.parent=s.work_order and w.item_code=s.item_code\r\n\r\ngroup by s.work_order,s.item_code,s.name\r\norder by s.name\r\n\"\"\",as_dict = 1)\r\n\r\ndata = columns, res",
+  "ref_doctype": "Work Order",
+  "reference_report": null,
+  "report_name": "B vs A",
+  "report_script": "columns = [ \r\n            {\"label\":\"Company\",\"fieldname\": \"Company\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Work Order\",\"fieldname\": \"Work Order\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Bom No\",\"fieldname\": \"Bom No\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Fg Item\",\"fieldname\": \"Fg Item\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Fg Name\",\"fieldname\": \"Fg Name\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Fg Qty\",\"fieldname\": \"Fg Qty\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Produced Qty\",\"fieldname\": \"Produced Qty\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Consumed Item\",\"fieldname\": \"Consumed Item\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Item Name\",\"fieldname\": \"Item Name\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Stock Entry\",\"fieldname\": \"Stock Entry\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Gross Qty\",\"fieldname\": \"Gross Qty\",\"fieldtype\": \"data\",\"width\":120},\r\n            {\"label\":\"Consumed Qty\",\"fieldname\": \"Consumed Qty\",\"fieldtype\": \"data\",\"width\":120}\r\n           \r\n            \r\n        ]\r\n\r\ndef condition(filters):\r\n    cond = ''\r\n    if filters.get(\"from_date\"):\r\n        cond = cond + f\"\"\"where l.creation >= \"{filters.get('from_date')}\" \"\"\"\r\n\r\n    if filters.get(\"to_date\"):\r\n        cond = cond + f\"\"\"where l.creation <= \"{filters.get('to_date')}\" \"\"\"\r\n\r\n    return cond\r\n\r\n\r\ncond = condition(filters)\r\n\r\nres = frappe.db.sql(f\"\"\"select \r\nw.company as Company,\r\nw.parent as \"Work Order\",\r\nw.bom_no as \"Bom No\",\r\nw.fg_item as \"Fg Item\",\r\nw.fg_item_name as \"Fg Name\",\r\nw.fg_qty as \"Fg Qty\",\r\nw.Produced_qty as \"Produced Qty\",\r\nw.item_code as \"Consumed Item\",\r\nw.Item_Name as \"Item Name\",\r\ns.name as \"Stock Entry\",\r\nw.Gross_QTY as \"Gross Qty\",\r\ns.consumed_qty as \"Consumed Qty\"\r\n\r\n\r\n\r\nfrom\r\n\r\n(select \r\nse.name,\r\nse.work_order,\r\nsed.item_code,\r\nsed.item_name,\r\nsed.parent,\r\nsum(sed.qty) as consumed_qty\r\nfrom `tabStock Entry` as se left join `tabStock Entry Detail` as sed \r\non se.name=sed.parent\r\ngroup by sed.item_code,se.work_order,se.name) as s right join \r\n\r\n(select \r\nwo.company as company,\r\nwo.name,\r\nwo.bom_no,\r\nwo.production_item as fg_item,\r\nwo.item_name as fg_item_name,\r\nwo.qty as fg_qty,\r\nwo.produced_qty as Produced_qty,\r\nwoi.parent,\r\nwoi.item_code,\r\nwoi.item_name as \"Item_Name\",\r\nwoi.required_qty as \"Gross_QTY\"\r\nfrom `tabWork Order` as wo left join `tabWork Order Item` as woi\r\non wo.name=woi.parent\r\nwhere wo.status!=\"Not Started\" and wo.docstatus!=0) as w\r\non w.parent=s.work_order and w.item_code=s.item_code\r\ngroup by s.work_order,s.item_code,s.name\r\norder by s.name\r\n\"\"\",as_dict = 1)\r\n\r\ndata = columns, res",
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "B vs A",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing User"
+   },
+   {
+    "parent": "B vs A",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Manufacturing Manager"
+   }
+  ]
+ },
+ {
+  "add_total_row": 0,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": "DFM Foods Ltd- G.Noida",
+  "modified": "2022-08-23 17:31:17.749057",
+  "module": "Core ERP",
+  "name": "Supplier Report",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": "select\ns.supplier_name as \"Supplier:Link/Supplier:500\",\ns.category as \"Nature of Party:100\",\ndate(s.modified) as \"Modified Date\",\na.city as \"\na.state as \"State::200\",\na.email_id as \"Email::200\"\nfrom `tabSupplier` s\njoin `tabDynamic Link` dl on  s.name = dl.link_name \njoin `tabAddress` a on dl.parent= a.name \ngroup by s.name",
+  "ref_doctype": "Supplier",
+  "reference_report": null,
+  "report_name": "Supplier Report",
+  "report_script": null,
+  "report_type": "Query Report",
+  "roles": [
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock User"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Master Manager"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase User"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Purchase Manager"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Stock Manager"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "System Manager"
+   },
+   {
+    "parent": "Supplier Report",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Reports-View"
+   }
+  ]
+ },
+ {
+  "add_total_row": 1,
+  "disable_prepared_report": 0,
+  "disabled": 0,
+  "docstatus": 0,
+  "doctype": "Report",
+  "is_standard": "Yes",
+  "javascript": null,
+  "json": null,
+  "letter_head": null,
+  "modified": "2022-08-24 14:50:03.468901",
+  "module": "Core ERP",
+  "name": "Gross Profit",
+  "parent": null,
+  "parentfield": null,
+  "parenttype": null,
+  "prepared_report": 0,
+  "query": null,
+  "ref_doctype": "Sales Invoice",
+  "reference_report": null,
+  "report_name": "Gross Profit",
+  "report_script": null,
+  "report_type": "Script Report",
+  "roles": [
+   {
+    "parent": "Gross Profit",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts Manager"
+   },
+   {
+    "parent": "Gross Profit",
+    "parentfield": "roles",
+    "parenttype": "Report",
+    "role": "Accounts User"
+   }
+  ]
+ }
+]

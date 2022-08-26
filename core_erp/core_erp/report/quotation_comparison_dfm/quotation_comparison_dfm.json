@@ -1,0 +1,71 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-04-06 17:05:16.003983",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-24 17:59:56.080149",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Quotation Comparison DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "SELECT\nsq.supplier as \"Supplier:Link/Supplier:150\",\nsq.name as \"Supplier Quatation:Link/Supplier Quotation:100\",\nsq.transaction_date as \"Date:Date:100\",\nsqi.item_name as \"Item:Data:150\",\nsqi.item_code as \"Item Code\",\ni.item_group as \"Item Group\",\ni.category as \"Category\",\ni.item_sub_group as \"Item Sub Group\",\nsqi.uom as \"UOM:Link/UOM:50\",\nsqi.qty as \"Quantity:Float:100\",\nsqi.amount as \"Price:Currency:100\",\nsqi.stock_uom as \"Stock UOM:Link/UOM:50\",\nsqi.rate as \"Price Per Unit:Currency:100\",\nsqi.warehouse as \"Warehouse\",\nsq.payment_term as \"Payment Terms:200\"\n\n\nFROM\n`tabSupplier Quotation` sq, `tabSupplier Quotation Item` sqi , `tabItem` i\n\nWHERE\nsqi.parent=sq.name and \ni.item_code = sqi.item_code and\ni.item_code=%(item)s",
+ "ref_doctype": "Supplier Quotation",
+ "report_name": "Quotation Comparison DFM",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "Reports-View"
+  }
+ ]
+}

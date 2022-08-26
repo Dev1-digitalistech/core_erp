@@ -1,7 +1,7 @@
 frappe.ui.form.on("Purchase Receipt", {
 	refresh(frm) {
-		if (this.frm.doc.docstatus == 0) {
-			this.frm.add_custom_button(__('Delivery Note'),
+		if (frm.doc.docstatus == 0) {
+			frm.add_custom_button(__('Delivery Note'),
 				function () {
 					erpnext.utils.map_current_doc({
 						method: "core_erp.customizations.delivery_note.delivery_note.make_purchase_receipt",

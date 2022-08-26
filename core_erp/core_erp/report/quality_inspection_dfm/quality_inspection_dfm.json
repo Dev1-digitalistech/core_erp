@@ -1,0 +1,35 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-03-11 23:47:43.023313",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-26 17:39:53.629421",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Quality Inspection DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "Select \r\n  pi.quality_inspection as \"QC No\",\r\n  pr.posting_date as \"QC:Date\",\r\n  pr.name as \"MRN No\",\r\n  pr.posting_date as \"MRN Date:Date\",\r\n  pr.gate_entry_no as \"Gate Entry  no\",\r\n  pr.date as \"Gate Entry Date:Date:100\",\r\n  pr.supplier as \"Party Name\",\r\n  pr.supplier_bill_no as \"Party Bill/Challan No\",\r\n  pr.date as \"Party Bill/Challan Date:Date\",\r\n  pi.item_name as \"Item Name\",\r\n  pi.item_code as \"Item Code\",\r\n  pi.item_group as \"Item Group\",\r\n  pi.batch_no as \"Batch No\",\r\n  qi.acc_qty as \"MRN Base Qty:Float:100\",\r\n  qi.approved_quantity as \"Approved Qty:Float:100\",\r\n  qi.rejected_qty as \"Rejected Qty:Float:100\",\r\n  qi.inspected_by as \"Inspected By\",\r\n  qr.specification  as \"Parameter\",\r\n  qr.status as \"Grade\",\r\n  qr.value as \"Observed Result\",\r\n  qi.remarks as \"Remarks\"\r\n  \r\n  \r\n \r\nfrom `tabPurchase Receipt` pr,`tabPurchase Receipt Item` pi , `tabQuality Inspection` qi , `tabQuality Inspection Reading`qr\r\n WHERE\r\n   pi.parent=pr.name and\r\n   pi.quality_inspection = qi.name and\r\n   qr.parent= qi.name\r\n   \r\n   \r\n  \r\n \r\n \r\n   \r\n ",
+ "ref_doctype": "Quality Inspection",
+ "report_name": "Quality Inspection DFM",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Quality Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "QC Approver"
+  },
+  {
+   "role": "Reports-View"
+  }
+ ]
+}

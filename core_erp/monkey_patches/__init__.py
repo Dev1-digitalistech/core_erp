@@ -1,8 +1,8 @@
 from frappe.email.doctype.email_account.email_account import EmailAccount
 from core_erp.customizations.frappe.frappe import create_new_parent
 
-# from erpnext.manufacturing.doctype.bom.bom import BOM
-# from core_erp.customizations.bom.bom import get_exploded_items
+from erpnext.manufacturing.doctype.bom.bom import BOM
+from core_erp.customizations.bom.bom import get_exploded_items
 
 from erpnext.stock.doctype.batch.batch import Batch
 from core_erp.customizations.batch.batch import autoname
@@ -48,7 +48,7 @@ Budget.validate_accounts = validate_accounts
 
 EmailAccount.create_new_parent = create_new_parent
 
-# BOM.get_exploded_items = get_exploded_items
+BOM.get_exploded_items = get_exploded_items
 
 Batch.autoname = autoname
 

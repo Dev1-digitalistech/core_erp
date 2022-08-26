@@ -1,0 +1,47 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-03-18 18:20:48.992253",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-24 18:16:23.565615",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Purchase Return",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n`tabPurchase Receipt`.`name` as \"Purchase Receipt:Link/Purchase Receipt:150\",\nCASE WHEN `tabPurchase Receipt`.`docstatus` = 0 THEN \"Pending\"\n    WHEN `tabPurchase Receipt`.`docstatus` = 1 THEN \"Approved\"\n    ELSE \"Cancelled\"\n    END AS \"Status:150\",\n`tabPurchase Receipt`.`supplier` as \"Supplier:Link/Supplier:150\",\n`tabPurchase Receipt`.`posting_date` as \"Date:Date:150\",\n`tabPurchase Receipt`.`company` as \"Company:Link/Company:200\",\n`tabPurchase Receipt Item`.`item_name` as \"Item Name:Data:100\",\n`tabPurchase Receipt Item`.`item_code` as \"Item Code:Link/Item:150\",\n`tabItem`.item_sub_group as \"Item sub Group\",\n`tabItem`.item_group as \"Item Group\",\n`tabItem`.category as \"Category\",\n`tabPurchase Receipt Item`.`invoice_quantity` as \"Invoice Quantity:Data:100\"\n\nFROM\n`tabPurchase Receipt`, `tabPurchase Receipt Item`,`tabItem` \nWHERE\n`tabPurchase Receipt`.`is_return` = true and \n`tabPurchase Receipt Item`.`parent`=`tabPurchase Receipt`.`name` and `tabItem`.item_code=`tabPurchase Receipt Item`.item_code\n",
+ "ref_doctype": "Purchase Receipt",
+ "report_name": "Purchase Return ",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "teststore"
+  },
+  {
+   "role": "Stock User-Quality"
+  }
+ ]
+}

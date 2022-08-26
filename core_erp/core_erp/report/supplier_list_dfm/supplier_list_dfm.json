@@ -1,0 +1,44 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-03-03 18:04:47.240702",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-24 14:18:50.922279",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Supplier List DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "select\n  s.supplier_code as \"Code:100\",\n  s.supplier_name as\"Vendor Name:Link/Supplier:100\" ,\n  s.category as \"Nature of Party:100\",\n  a.address_line1 as \"Address:200\",\n  c.first_name as \"Contact Name:100\",\n cp.phone as \"Contact Phone:100\",\n  a.city as \"City:100\",\n  a.state as \"State:100\",\n  a.country as \"Country:100\",\n  a.pincode as \"PIN Code:100\",\n  a.phone as \"Phone:100\",\n  a.email_id as \"Email ID:100\",\n  s.pan as \"PAN No:100\",\n  s.excise_registration_no as \"Excise Registration No\",\n  s.iso_registration_no as \"ISO Registration No\",\n  s.iso_registration_date as \"ISO Registration Date\",\n  a.gstin as \"GSTIN NO\",\n  a.gstin_registration_date as \"GSTIN Reg. Date:Date\",\n  s.msme_registration_no as \"MSME Registration No\",\n  s.fssai_license_no as \"FSSAI Licence No\",\n  s.fssai_valid_from as \"Valid From\",\n  s.fssai_valid_to_ as \"Valid To\",\n  s.bank_name as \"Bank Name\",\n  s.bank_account_no as \"Bank Account\"\n  \n  \n \nfrom `tabSupplier` s\nleft join `tabAddress` a \non\n   s.supplier_name = a.address_title \nleft join `tabDynamic Link` dl on dl.link_name=s.name\nleft join `tabContact` c on c.name=dl.parent\nleft join `tabContact Phone` cp on cp.parent = c.name \n\n  \n\n",
+ "ref_doctype": "Supplier",
+ "report_name": "Supplier List DFM",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase Master Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  }
+ ]
+}

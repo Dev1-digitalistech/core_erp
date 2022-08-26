@@ -52,7 +52,7 @@ permission_query_conditions = {
 
 doctype_js = {
 	"Budget": "customizations/budget/budget.js",
-    "Workstation": "customizations/workstation/workstation.js",
+	"Workstation": "customizations/workstation/workstation.js",
 	"Work Order": "customizations/work_order/work_order.js",
 	"BOM": "customizations/bom/bom.js",
 	"Quality Inspection": "customizations/quality_inspection/quality_inspection.js",
@@ -101,4 +101,4 @@ user_data_fields = [
 	}
 ]
 
-fixtures = ["Custom Field","Property Setter"]
+fixtures = ["Custom Field","Property Setter",{"dt":"Report", "filters": {"module":"Core ERP"}}]

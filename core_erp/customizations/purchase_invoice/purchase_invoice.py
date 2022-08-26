@@ -2,7 +2,8 @@ import frappe, erpnext,datetime
 from core_erp.utils import get_fiscal_abbr
 from frappe import _
 from frappe.model.meta import get_field_precision
-from frappe.utils import flt, get_datetime, format_datetime
+from erpnext.accounts.utils import get_fiscal_year
+from frappe.utils import flt, get_datetime, format_datetime, get_link_to_form
 from frappe.model.naming import make_autoname
 
 def on_submit(self,method=None):
@@ -45,7 +46,7 @@ def pr_required(self):
 
 		for d in self.get('items'):
 			if not d.purchase_receipt and d.item_code in stock_items and not self.po_type == "Normal":
-				throw(_("""Purchase Receipt Required for item {0}
+				frappe.throw(_("""Purchase Receipt Required for item {0}
 					To submit the invoice without purchase receipt please set
 					{1} as {2} in {3}""").format(frappe.bold(d.item_code), frappe.bold(_('Purchase Receipt Required')),
 					frappe.bold('No'), get_link_to_form('Buying Settings', 'Buying Settings', 'Buying Settings')))

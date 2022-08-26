@@ -1,0 +1,44 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-05-04 14:57:45.825934",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-24 16:56:30.131937",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Purchase Invoice Register Without GST",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select\n\npi.name as \"No\",\npi.supplier as \"Supplier\",\npi.company as \"Company\",\npi.posting_date as \"Posting Date:Date\",\npi.due_Date as \"Due Date:Date\",\npi.bill_no as \"Supplier Invoice No\",\npi.bill_date as \"Supplier Invoice Date:Date\",\npii.item_code as \"Item Code\",\npii.item_name as \"Item Name\",\npi.purchase_order as \"PO No\",\npi.transaction_date as \"Po Date:Date\",\npi.mrn_number as \"MRN No\",\npi.mrn_date as \"MRN Date:Date\",\npii.rate as \"Rate:Currency\",\npii.rate_s as \"Bill Rate:Currency\",\npii.invoice_quantity as \"Bill Qty:Float\",\npii.qty as \"Acc Qty:Float\",\npii.received_qty as \"Received QTY:Float\",\npii.rejected_qty as \"Rejected Qty:Float\",\npii.short_quantity as \"Short QTY:Float\",\npii.stock_uom as \"UOM\",\npii.amount as \"Amount:Currency\"\n\n\n from `tabPurchase Invoice` pi , `tabPurchase Invoice Item` pii\n where\n pii.parent = pi.name and\n is_return=0 and\n pi.company=%(company)s and\npi.posting_date>=%(from_date)s and pi.posting_date<=%(to_date)s\norder by pi.posting_date desc;",
+ "ref_doctype": "Purchase Invoice",
+ "report_name": "Purchase Invoice Register Without GST",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Acc User"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "PI Approver"
+  }
+ ]
+}

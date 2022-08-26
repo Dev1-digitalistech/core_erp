@@ -1,0 +1,39 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-04-22 11:00:43.991303",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "javascript": "frappe.query_reports['Consumption Report'] = {\n    \"filters\": [\n\t\t{\n\t\t\t\"fieldname\":\"from_date\",\n\t\t\t\"label\": __(\"From Date\"),\n\t\t\t\"fieldtype\": \"Date\",\n\t\t\t\"width\": \"80\",\n\t\t\t\"default\": frappe.sys_defaults.year_start_date,\n\t\t},\n\t\t{\n\t\t\t\"fieldname\":\"to_date\",\n\t\t\t\"label\": __(\"To Date\"),\n\t\t\t\"fieldtype\": \"Date\",\n\t\t\t\"width\": \"80\",\n\t\t\t\"default\": frappe.datetime.get_today()\n\t\t}\n\t]\n}",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-24 17:23:25.130082",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Consumption Report",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "ref_doctype": "Stock Entry",
+ "report_name": "Consumption Report",
+ "report_script": "# Copyright (c) 2015, Frappe Technologies Pvt. Ltd. and Contributors\n# License: GNU General Public License v3. See license.txt\n\nfrom __future__ import unicode_literals\nimport frappe\nfrom frappe import _\nfrom frappe.utils import flt, cint, getdate\n\ndef execute(filters=None):\n    if not filters: filters = {}\n\n    if filters.from_date > filters.to_date:\n        frappe.throw(_(\"From Date must be before To Date\"))\n\n    float_precision = cint(frappe.db.get_default(\"float_precision\")) or 3\n\n    columns = get_columns(filters)\n    item_map = get_item_details(filters)\n    iwb_map = get_item_warehouse_batch_map(filters, float_precision)\n\n    data = []\n    for item in sorted(iwb_map):\n        for wh in sorted(iwb_map[item]):\n            for batch in sorted(iwb_map[item][wh]):\n                qty_dict = iwb_map[item][wh][batch]\n                if qty_dict.opening_qty or qty_dict.in_qty or qty_dict.out_qty or qty_dict.bal_qty:\n                    data.append([item, item_map[item][\"item_name\"], item_map[item][\"description\"], wh, batch,\n                        flt(qty_dict.opening_qty, float_precision), flt(qty_dict.in_qty, float_precision),\n                        flt(qty_dict.out_qty, float_precision), flt(qty_dict.bal_qty, float_precision),\n                         item_map[item][\"stock_uom\"]\n                    ])\n\n    return columns, data\n\ndef get_columns(filters):\n    \"\"\"return columns based on filters\"\"\"\n\n    columns = [_(\"Item\") + \":Link/Item:100\"] + [_(\"Item Name\") + \"::150\"] + [_(\"Description\") + \"::150\"] + \\\n    [_(\"Warehouse\") + \":Link/Warehouse:100\"] + [_(\"Batch\") + \":Link/Batch:100\"] + [_(\"Opening Qty\") + \":Float:90\"] + \\\n    [_(\"In Qty\") + \":Float:80\"] + [_(\"Out Qty\") + \":Float:80\"] + [_(\"Balance Qty\") + \":Float:90\"] + \\\n    [_(\"UOM\") + \"::90\"]\n\n\n    return columns\n\ndef get_conditions(filters):\n    conditions = \"\"\n    if not filters.get(\"from_date\"):\n        frappe.throw(_(\"'From Date' is required\"))\n\n    if filters.get(\"to_date\"):\n        conditions += \" and posting_date <= '%s'\" % filters[\"to_date\"]\n    else:\n        frappe.throw(_(\"'To Date' is required\"))\n\n    for field in [\"item_code\", \"warehouse\", \"batch_no\", \"company\"]:\n        if filters.get(field):\n            conditions += \" and {0} = {1}\".format(field, frappe.db.escape(filters.get(field)))\n\n    return conditions\n\n#get all details\ndef get_stock_ledger_entries(filters):\n    conditions = get_conditions(filters)\n    return frappe.db.sql(\"\"\"\n        select item_code, batch_no, warehouse, posting_date, sum(actual_qty) as actual_qty\n        from `tabStock Ledger Entry`\n        where docstatus < 2 and ifnull(batch_no, '') != '' %s\n        group by voucher_no, batch_no, item_code, warehouse\n        order by item_code, warehouse\"\"\" %\n        conditions, as_dict=1)\n\ndef get_item_warehouse_batch_map(filters, float_precision):\n    sle = get_stock_ledger_entries(filters)\n    iwb_map = {}\n\n    from_date = getdate(filters[\"from_date\"])\n    to_date = getdate(filters[\"to_date\"])\n\n    for d in sle:\n        iwb_map.setdefault(d.item_code, {}).setdefault(d.warehouse, {})\\\n            .setdefault(d.batch_no, frappe._dict({\n                \"opening_qty\": 0.0, \"in_qty\": 0.0, \"out_qty\": 0.0, \"bal_qty\": 0.0\n            }))\n        qty_dict = iwb_map[d.item_code][d.warehouse][d.batch_no]\n        if d.posting_date < from_date:\n            qty_dict.opening_qty = flt(qty_dict.opening_qty, float_precision) \\\n                + flt(d.actual_qty, float_precision)\n        elif d.posting_date >= from_date and d.posting_date <= to_date:\n            if flt(d.actual_qty) > 0:\n                qty_dict.in_qty = flt(qty_dict.in_qty, float_precision) + flt(d.actual_qty, float_precision)\n            else:\n                qty_dict.out_qty = flt(qty_dict.out_qty, float_precision) \\\n                    + abs(flt(d.actual_qty, float_precision))\n\n        qty_dict.bal_qty = flt(qty_dict.bal_qty, float_precision) + flt(d.actual_qty, float_precision)\n\n    return iwb_map\n\ndef get_item_details(filters):\n    item_map = {}\n    for d in frappe.db.sql(\"select name, item_name, description, stock_uom from tabItem\", as_dict=1):\n        item_map.setdefault(d.name, d)\n\n    return item_map\n",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "teststore"
+  }
+ ]
+}
