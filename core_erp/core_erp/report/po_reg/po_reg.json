@@ -1,0 +1,47 @@
+{
+ "add_total_row": 1,
+ "creation": "2021-03-10 12:19:10.157833",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-29 17:43:46.544490",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "PO Reg",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "select\r\n   po.name as \"PO Number:Link/Purchase Order:110\",\r\n   date(po.creation) as \"Creation Date\", \r\n   time(po.creation) as \"Creation Time\",\r\n   date(po.modified) as \"Modified Date\",\r\n   time(po.modified) as \"Modified Time\",\r\n   po.po_type as \"PO Type:Data:100\",\r\n   po.po_sub_type as \"PO Sub Type:Data:100\",\r\n   po.transaction_date as \"PO Date:Date\",\r\n   po.workflow_state as \"Auth.Status\",\r\n   po.company as \"Company\",\r\n   po.schedule_date as \"Valid Upto Date:Date\",\r\n   po.status as \"PO Status:Data:120\",\r\n   po.supplier as \"Vendor Name::170\",\r\n   pi.item_name as \"Item Name::200\",\r\n   pi.item_code as \"Item Code::100\",\r\n   pi.item_group as \"Group Name::120\",\r\n   item.item_sub_group as \"Item sub Group\",\r\n   pi.qty as \"Qty:Float:100\",\r\n   pi.stock_qty-pi.received_qty as \"Pending Qty:Float:100\",\r\n   pi.rate as \"Rate:Float:70\",\r\n   pi.uom as \"Base Unit\",\r\n   pi.price_list_rate as \"Before Discount Rate\",\r\n   pi.discount_percentage as \"Discount on Price List Rate\",\r\n   po.additional_discount_percentage as \"Additional Discount Percentage\",\r\n   po.discount_amount as \"Additional Discount Amount\",\r\n   pi.cost_center as \"Cost Center:Link/Cost Center:110\"\r\nfrom `tabPurchase Order` po ,`tabPurchase Order Item` pi  ,`tabItem` item\r\n\r\nwhere pi.parent=po.name and\r\nitem.item_code=pi.item_code and po.transaction_date>=%(from_date)s and  po.transaction_date<=%(to_date)s\r\nand po.company=%(company)s\r\nand po.po_type=%(po_type)s\r\norder by  po.transaction_date desc;",
+ "ref_doctype": "Purchase Order",
+ "report_name": "PO Reg",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Reports-View"
+  }
+ ]
+}

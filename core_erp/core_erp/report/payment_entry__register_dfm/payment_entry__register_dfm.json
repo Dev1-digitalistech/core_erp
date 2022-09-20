@@ -1,0 +1,35 @@
+{
+ "add_total_row": 1,
+ "creation": "2021-07-21 19:07:54.986642",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"filters\":[],\"fields\":[[\"name\",\"Payment Entry\"],[\"payment_type\",\"Payment Entry\"],[\"posting_date\",\"Payment Entry\"],[\"mode_of_payment\",\"Payment Entry\"],[\"party_type\",\"Payment Entry\"],[\"party\",\"Payment Entry\"],[\"paid_from_account_currency\",\"Payment Entry\"],[\"paid_amount\",\"Payment Entry\"],[\"naming_series\",\"Payment Entry\"],[\"party_name\",\"Payment Entry\"],[\"company\",\"Payment Entry\"],[\"party_balance\",\"Payment Entry\"],[\"bank_account\",\"Payment Entry\"],[\"party_bank_account\",\"Payment Entry\"],[\"paid_to\",\"Payment Entry\"],[\"paid_to_account_balance\",\"Payment Entry\"],[\"paid_from_account_balance\",\"Payment Entry\"],[\"paid_from\",\"Payment Entry\"],[\"total_allocated_amount\",\"Payment Entry\"],[\"unallocated_amount\",\"Payment Entry\"],[\"reference_no\",\"Payment Entry\"],[\"clearance_date\",\"Payment Entry\"],[\"reference_date\",\"Payment Entry\"],[\"reference_doctype\",\"Payment Entry Reference\"],[\"due_date\",\"Payment Entry Reference\"],[\"bill_no\",\"Payment Entry Reference\"],[\"reference_name\",\"Payment Entry Reference\"],[\"payment_term\",\"Payment Entry Reference\"],[\"total_amount\",\"Payment Entry Reference\"],[\"paid_to_account_currency\",\"Payment Entry\"]],\"order_by\":\"`tabPayment Entry`.`modified` desc\",\"add_totals_row\":0,\"page_length\":20,\"column_widths\":{\"name\":120,\"payment_type\":120,\"posting_date\":120,\"mode_of_payment\":120,\"party_type\":120,\"party\":120,\"paid_from_account_currency\":120,\"paid_amount\":120,\"naming_series\":120,\"party_name\":120,\"company\":120,\"party_balance\":120,\"bank_account\":120,\"party_bank_account\":120,\"paid_to\":120,\"paid_to_account_balance\":120,\"paid_from_account_balance\":120,\"paid_from\":120,\"total_allocated_amount\":120,\"unallocated_amount\":120,\"reference_no\":120,\"clearance_date\":120,\"reference_date\":120,\"Payment Entry Reference:reference_doctype\":120,\"Payment Entry Reference:due_date\":120,\"Payment Entry Reference:bill_no\":120,\"Payment Entry Reference:reference_name\":120,\"Payment Entry Reference:payment_term\":120,\"Payment Entry Reference:total_amount\":120,\"paid_to_account_currency\":120},\"group_by\":null}",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-29 18:05:30.086185",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Payment Entry- Register DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "ref_doctype": "Payment Entry",
+ "report_name": "Payment Entry- Register DFM",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Payment Entry Approver"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}

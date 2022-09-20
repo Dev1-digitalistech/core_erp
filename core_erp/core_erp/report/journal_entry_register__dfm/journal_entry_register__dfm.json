@@ -1,0 +1,41 @@
+{
+ "add_total_row": 1,
+ "creation": "2021-07-21 19:02:35.847501",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"filters\":[],\"fields\":[[\"name\",\"Journal Entry\"],[\"docstatus\",\"Journal Entry\"],[\"voucher_type\",\"Journal Entry\"],[\"posting_date\",\"Journal Entry\"],[\"company\",\"Journal Entry\"],[\"cheque_no\",\"Journal Entry\"],[\"user_remark\",\"Journal Entry\"],[\"total_debit\",\"Journal Entry\"],[\"total_credit\",\"Journal Entry\"],[\"naming_series\",\"Journal Entry\"],[\"finance_book\",\"Journal Entry\"],[\"clearance_date\",\"Journal Entry\"],[\"bill_no\",\"Journal Entry\"],[\"bill_date\",\"Journal Entry\"],[\"account\",\"Journal Entry Account\"],[\"balance\",\"Journal Entry Account\"],[\"party\",\"Journal Entry Account\"],[\"party_type\",\"Journal Entry Account\"],[\"reference_name\",\"Journal Entry Account\"],[\"reference_due_date\",\"Journal Entry Account\"],[\"debit_in_account_currency\",\"Journal Entry Account\"],[\"credit_in_account_currency\",\"Journal Entry Account\"],[\"user_remark\",\"Journal Entry Account\"],[\"account_currency\",\"Journal Entry Account\"]],\"order_by\":\"`tabJournal Entry`.`modified` desc\",\"add_totals_row\":0,\"page_length\":20,\"column_widths\":{\"name\":120,\"docstatus\":120,\"voucher_type\":120,\"posting_date\":120,\"company\":120,\"cheque_no\":120,\"user_remark\":120,\"total_debit\":120,\"total_credit\":120,\"naming_series\":120,\"finance_book\":120,\"clearance_date\":120,\"bill_no\":120,\"bill_date\":120,\"Journal Entry Account:account\":250,\"Journal Entry Account:balance\":120,\"Journal Entry Account:party\":120,\"Journal Entry Account:party_type\":120,\"Journal Entry Account:reference_name\":120,\"Journal Entry Account:reference_due_date\":120,\"Journal Entry Account:debit_in_account_currency\":120,\"Journal Entry Account:credit_in_account_currency\":120,\"Journal Entry Account:user_remark\":120,\"Journal Entry Account:account_currency\":120},\"group_by\":null}",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-29 18:05:53.956793",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Journal Entry Register -DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "ref_doctype": "Journal Entry",
+ "report_name": "Journal Entry Register -DFM",
+ "report_type": "Report Builder",
+ "roles": [
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Journal Entry Approver"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}

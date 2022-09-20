@@ -1,0 +1,47 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-03-11 10:39:32.867023",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-29 17:46:17.811949",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "QC Pending DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "Select \r\n  qi.name as \"QC No\",\r\n  qi.workflow_state,\r\n  qi.reference_name as \"MRN No\",\r\n  qi.report_date as \"Date\",\r\n  qi.company as \"Company\",\r\n  qi.item_name as \"Item Name\",\r\n  qi.item_code as \"Item Code\",\r\n i.category as \"Category\",\r\n  i.item_sub_group as \"Item Sub Group\",\r\n  i.item_group as \"Item Group\",\r\n  qi.acc_qty as \"MRN Base Qty:Float:100\",\r\n  qi.batch_no as \"Batch No\",\r\n   qi.status as \"Status\",\r\n  qi.approved_quantity as \"Approved Qty:Float:100\",\r\n  qi.rejected_qty as \"Rejected Qty:Float:100\",\r\n  qi.inspected_by as \"Inspected By\",\r\n  qi.remarks as \"Remarks\"\r\n  from  `tabQuality Inspection` qi  ,`tabItem` i\r\n WHERE\r\n \r\n    qi.workflow_state=\"Pending For Quality\" and i.item_code = qi.item_code \r\n    and  qi.report_date >= %(from_date)s and  qi.report_date <= %(to_date)s and qi.company = %(company)s\r\n\r\n\r\n   \r\n   \r\n  \r\n \r\n \r\n   \r\n ",
+ "ref_doctype": "Purchase Receipt",
+ "report_name": "QC Pending DFM",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "teststore"
+  },
+  {
+   "role": "Stock User-Quality"
+  }
+ ]
+}

@@ -12,6 +12,7 @@ from core_erp.custom_integrations.snd.snd_integration import push_data_to_snd
 import json
 from six import string_types
 from core_erp.utils import get_fiscal_abbr
+from erpnext.stock.doctype.stock_entry.stock_entry import get_item_defaults
 from frappe.model.naming import make_autoname
 
 def autoname(doc, method = None):
@@ -28,10 +29,11 @@ def after_insert(doc, method = None):
 			wo = frappe.get_doc("Work Order",doc.work_order)
 			item = wo.production_item
 			itm = frappe.get_doc("Item",item)
-			if itm.item_group == 'Finished Goods':
+			if itm.item_group in ["Finished Goods","Semi-Finished Goods"] :
 				auto_batch(doc)
 				doc.save()
 
+#not in use anymore
 def on_submit(doc, method = None):
 	if doc.stock_entry_type == "Material Transfer" and doc.reason=="SND Transfer":
 		send_to_snd(doc)
@@ -111,32 +113,30 @@ def auto_batch(doc):
 	ln = re.findall("[-+]?[.]?[\d]+(?:,\d\d\d)*[\.]?\d*(?:[eE][-+]?\d+)?", doc.line)
 	line = ln[0]
 	item = wo.production_item
-	itm = frappe.get_doc("Item",item)
-	company = frappe.get_doc("Company",doc.company)
+	itm_shelf_life = frappe.db.get_value("Item",item, "shelf_life_in_days")
+	#company = frappe.get_doc("Company",doc.company)
+	company_abbr = frappe.db.get_value('Company',doc.company, "auto_batch")
 	frappe.msgprint(str(doc.posting_date) +  ' - date')
 	d = frappe.utils.formatdate(doc.posting_date, 'ddMMyy')
-	batchid = str(item) + company.auto_batch + str(line) + str(d)
+	batchid = str(item) + company_abbr + str(line) + str(d)
 	btch = frappe.db.sql("""select name from `tabBatch` where name = %s""",batchid,as_dict=1)
 	if not btch:
 		batch = frappe.new_doc("Batch")
 		batch.manufacturing_date = datetime.date.today()
-		batch.expiry_date = frappe.utils.add_days(datetime.date.today(),itm.shelf_life_in_days)
+		batch.expiry_date = frappe.utils.add_days(datetime.date.today(),itm_shelf_life)
 		batch.reference_doctype = 'Stock Entry'
 		batch.reference_name = doc.name
 		batch.item = item
 		batch.batch_id = batchid
 		batch.save()
-		cnt = 0
 		for i in doc.items:
 			if i.item_code == item:
-				doc.items[cnt].batch_no = batch.name
-			cnt = cnt + 1
+				i.batch_no = batch.name
 	else:
-		cnt = 0
 		for i in doc.items:
 			if i.item_code == item:
-				doc.items[cnt].batch_no = btch[0].name
-			cnt = cnt + 1
+				i.batch_no = btch[0].name
+
 	return ''
 
 @frappe.whitelist()
@@ -175,3 +175,37 @@ def get_warehouse_details(args):
 			"basic_rate" : get_incoming_rate(args)
 		}
 	return ret
+
+def get_unconsumed_raw_materials(self):
+	wo = frappe.get_doc("Work Order", self.work_order)
+	wo_items = frappe.get_all('Work Order Item',
+		filters={'parent': self.work_order},
+		fields=["item_code", "item_name", "required_qty", "consumed_qty", "transferred_qty"]
+		)
+
+	work_order_qty = wo.material_transferred_for_manufacturing or wo.qty
+	for item in wo_items:
+		item_account_details = get_item_defaults(item.item_code, self.company)
+		# Take into account consumption if there are any.
+
+		wo_item_qty = item.transferred_qty or item.required_qty
+
+		req_qty_each = (
+			(flt(wo_item_qty) - flt(item.consumed_qty)) /
+				(flt(work_order_qty) - flt(wo.produced_qty))
+		)
+
+		qty = req_qty_each * flt(self.fg_completed_qty)
+		if qty > 0:
+			self.add_to_stock_entry_detail({
+				item.item_code: {
+					"from_warehouse": wo.wip_wh,
+					"to_warehouse": "",
+					"qty": qty,
+					"item_name": item.item_name,
+					"description": item.description,
+					"stock_uom": item_account_details.stock_uom,
+					"expense_account": item_account_details.get("expense_account"),
+					"cost_center": item_account_details.get("buying_cost_center"),
+				}
+			})

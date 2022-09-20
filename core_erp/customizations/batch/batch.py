@@ -1,5 +1,7 @@
 import frappe
+from frappe import _
 from frappe.model.naming import make_autoname
+from frappe.utils import cint
 
 def get_name_from_hash():
 	"""

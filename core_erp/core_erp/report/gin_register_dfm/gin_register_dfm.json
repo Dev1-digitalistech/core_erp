@@ -1,0 +1,42 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-03-03 17:55:04.196947",
+ "disable_prepared_report": 0,
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{}",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-09-01 15:42:17.491028",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "GIN Register DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "select \r\n    pr.gate_entry_no as \"GateEntryNo:Link/Gate Entry\",\r\n    pr.date as \"GateEntryDate:Date:100\",\r\n    pr.supplier_delivery_note as \"BillNo:Data:100\",\r\n    pr.supplier_bill_no  as \"Party Bill No\",\r\n    pr.supplier_invoice_date as \"Party Bill Date:Date\",\r\n    pr.name as \"GIN No:Link/Purchase Receipt:150\",\r\n  \tpr.posting_date as \"GIN Date:Date:100\",\r\n  \tpi.purchase_order as \"PO:data:100\",\r\n   \tqi.report_date as \"MRN Inspection Date:Date\",\r\n    pi.item_name as \"Item:data:200\",\r\n\tpi.item_code as \"Part No:data:100\",\r\n\tpi.item_group as \"Group Name:data:100\",\r\n    item.category as \"Category:data:100\",\r\n\tpi.received_qty as \"Recieved Quantity:Float:100\",\r\n\t\"INR\" as \"Currency:50\",\r\n\tpi.rate as \"Rate:Data:50\",\r\n    pi.stock_uom as \"Unit:Data:50\",\r\n    pi.amount as \"Grand Total:Float:100\",\r\n    pi.net_amount as \"Net Total:Float:100\",\r\n    item.product_line as \"Product Line\",\r\n    item.product_category as \"Product Category\",\r\n    item.price_category as \"Price Category\",\r\n    item.product_Variant as \"Product Variant\",\r\n    item.promo_code as \"Promo Code\",\r\n    item.item_sub_group as \"Item sub Group\"\r\nfrom\r\n\t`tabPurchase Receipt` pr, `tabPurchase Receipt Item` pi ,`tabQuality Inspection` qi,`tabQuality Inspection Reading` qr,`tabItem` item\r\nwhere\r\n\tpi.parent=pr.name and \r\n   qr.parent=qi.name and\r\n   qi.reference_name=pr.name and\r\n   item.item_name=pi.item_name \r\n\t",
+ "ref_doctype": "Purchase Receipt",
+ "report_name": "GIN Register DFM",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  }
+ ]
+}

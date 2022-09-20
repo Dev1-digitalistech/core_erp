@@ -1,0 +1,29 @@
+{
+ "add_total_row": 1,
+ "creation": "2022-08-29 14:22:45.047175",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd-KP",
+ "modified": "2022-08-29 14:24:13.542468",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Completed Work Orders Dup",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "SELECT\n /* wo.name as \"Work Order:Link/Work Order:200\",\n  wo.creation as \"Date:Date:120\",\n  wo.item_name as \"Item Name:120\",\n  wo.work_station as \"Work Station:100\",\n  wo.production_item as \"Item:Link/Item:150\",\n  \n  wo.qty as \"To Produce:Int:100\",*/\n   wo.produced_qty,\n   len(wo.produced_qty)\n /* wo.default_unit_of_measure as \"UOM\",\n  wo.company as \"Company:Link/Company:100\"*/\nFROM\n  `tabWork Order` wo\nWHERE\n  wo.docstatus=1 and ifnull(wo.produced_qty,0) = wo.qty \n  and wo.company=%(company)s and\n  wo.creation>=%(from_date)s and wo.creation<=%(to_date)s",
+ "ref_doctype": "Work Order",
+ "report_name": "Completed Work Orders Dup",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "Stock User"
+  }
+ ]
+}

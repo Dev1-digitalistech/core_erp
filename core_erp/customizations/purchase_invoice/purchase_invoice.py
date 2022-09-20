@@ -1,10 +1,12 @@
 import frappe, erpnext,datetime
 from core_erp.utils import get_fiscal_abbr
 from frappe import _
-from frappe.model.meta import get_field_precision
 from erpnext.accounts.utils import get_fiscal_year
-from frappe.utils import flt, get_datetime, format_datetime, get_link_to_form
+from frappe.utils import flt, get_link_to_form
 from frappe.model.naming import make_autoname
+from erpnext.accounts.doctype.tax_withholding_category.tax_withholding_category \
+    import get_tax_withholding_details, get_tax_row, get_advance_vouchers, is_valid_certificate, \
+        get_ltds_amount, get_debit_note_amount
 
 def on_submit(self,method=None):
 	if self.rejected_qty:
@@ -324,7 +326,7 @@ def tally_integration():
 					except:
 						tax_ledger3['gl_name']=row.tally_ledger_head
 						tax_ledger3['amount']=float(row.tax_amount)
-					tax_ledger3['has_debit']=True if row.add_deduct_tax=="Add" and not data.is_return==1else False
+					tax_ledger3['has_debit']=True if row.add_deduct_tax=="Add" and not data.is_return==1 else False
 				elif "TCS" in row.account_head:
 					try:
 						if tax_ledger4['gl_name']:

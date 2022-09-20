@@ -1,0 +1,35 @@
+{
+ "add_total_row": 1,
+ "creation": "2020-12-08 10:03:54.866017",
+ "disable_prepared_report": 1,
+ "disabled": 1,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM",
+ "modified": "2022-08-29 18:33:37.972234",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Purchase Order Register",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select \n    `tabPurchase Order`.`name` as \"PO:Link/Purchase Order:150\",\n  \t`tabPurchase Order`.`transaction_date` as \"Date:Date:100\",\n  \t\"PO\" as \"PO Type:20\",\n\t`tabPurchase Order`.`supplier` as \"Supplier:Link/Supplier:200\",\n\t`tabPurchase Order`.`status` as \"Status:Data:100\",\n\t`tabPurchase Order Item`.`item_group` as \"Group:data:100\",\n\t`tabPurchase Order Item`.`item_group` as \"Category:data:100\",\n\t`tabPurchase Order Item`.`item_name` as \"Item:data:200\",\n\t`tabPurchase Order Item`.item_code as \"Item Code:data:100\",\n\t\"INR\" as \"Currency:50\",\n\t`tabPurchase Order Item`.rate as \"Rate:Data:50\",\n\t`tabPurchase Order Item`.received_qty as \"Recd. Qty:Float:100\", \n    `tabPurchase Order Item`.stock_uom as \"Unit:Data:50\",\n    `tabPurchase Order Item`.amount as \"Grand Total:Float:100\",\n    `tabPurchase Order Item`.net_amount as \"Net Total:Float:100\",\n    `tabPurchase Order`.order_confirmation_no as \"Purchase Quotation:Data:100\"\nfrom\n\t`tabPurchase Order`, `tabPurchase Order Item`\nwhere\n\t`tabPurchase Order Item`.`parent` = `tabPurchase Order`.`name`\n\tand `tabPurchase Order`.docstatus = 1\n\tand ifnull(`tabPurchase Order Item`.received_qty, 0) < ifnull(`tabPurchase Order Item`.qty, 0)\n\tand `tabPurchase Order`.transaction_date>=%(from_date)s and `tabPurchase Order`.transaction_date<=%(to_date)s\norder by `tabPurchase Order`.transaction_date asc",
+ "ref_doctype": "Purchase Order",
+ "report_name": "Purchase Order Register",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Accounts User"
+  }
+ ]
+}

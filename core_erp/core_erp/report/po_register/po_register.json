@@ -1,0 +1,44 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-02-22 12:26:40.665984",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-09-01 15:41:41.657470",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "PO Register",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "select\r\n   po.name as \"PO Number:Link/Purchase Order:150\",\r\n   po.transaction_date as \"PO Date:Date\",\r\n   po.workflow_state as \"Auth.Status\",\r\n   po.schedule_date as \"Valid Upto Date:Date\",\r\n   po.supplier as \"Vendor Name\",\r\n   pi.item_name as \"Item Name\",\r\n   pi.item_code as \"Item Code\",\r\n   pi.item_group as \"Group Name\",\r\n   pi.qty as \"Qty\",\r\n   pi.stock_qty-pi.received_qty as \"Pending Qty\",\r\n   pi.rate as \"Rate\",\r\n   pi.uom as \"Base Unit\"\r\n   \r\nfrom `tabPurchase Order` po ,`tabPurchase Order Item` pi\r\n\r\nwhere pi.parent=po.name \r\n\r\n\r\n\r\n",
+ "ref_doctype": "Purchase Order",
+ "report_name": "PO Register",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Stock User"
+  }
+ ]
+}

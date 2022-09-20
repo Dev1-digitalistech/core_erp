@@ -1,0 +1,56 @@
+{
+ "add_total_row": 0,
+ "creation": "2022-04-05 11:09:16.980375",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd-GZB",
+ "modified": "2022-08-29 17:31:03.135748",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Purchase Order Register Report",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "select \n    `tabPurchase Order`.company as \"Company:Link/Company:200\",\n    `tabPurchase Order`.name as \"PO:Link/Purchase Order:150\",\n    `tabPurchase Order`.po_type as \"PO Type:Link/PO Type:70\",\n  \t`tabPurchase Order`.transaction_date as \"PO Date:Date:100\",\n  \t\n\t`tabPurchase Order`.supplier as \"Supplier:Link/Supplier:200\",\n    `tabPurchase Order`.creation as \"PO Created on:Date:70\",\n    `tabPurchase Order`.workflow_state as \"Status:Data:100\",\n    `tabPurchase Order Item`.item_code as \"Part No:data:100\",\n    `tabPurchase Order Item`.item_name as \"Item:data:200\",\n\t`tabPurchase Order Item`.item_group as \"Group:data:100\",\n\n\t`tabPurchase Order Item`.qty as \"Total PO Qty:Float:100\",\n\t `tabPurchase Order Item`.stock_uom as \"Unit:Data:50\",\n\t`tabPurchase Order Item`.rate as \"Rate:Data:50\",\n\t\n   \n    `tabPurchase Order`.l1_approval_date as \"L1 Approval Date:Date:50\",\n    `tabPurchase Order`.l1_approved_by as \"L1 Approved By:Data:50\",\n    `tabPurchase Order`.l2_approval_date as \"L2 Approval Date:Date:50\",\n    `tabPurchase Order`.l2_approved_by as \"L2 Approved By:Data:50\",\n    `tabPurchase Order`.l3_approval_date as \"L3 Approval Date:Date:50\",\n    `tabPurchase Order`.l3_approved_by as \"L3 Approved By:Data:50\",\n    `tabPurchase Receipt`.name as \"MRN Number:Link/Purchase Receipt:200\",\n    `tabPurchase Receipt`.status as \"MRN Status:Data:200\",\n    `tabPurchase Receipt`.posting_date as \"MRN Date:Date:200\",\n    `tabPurchase Receipt`.creation as \"MRN Created on:Date:200\",\n    `tabPurchase Receipt`.owner as \"MRN Created By:Data:200\",\n    `tabPurchase Receipt`.mrn_approval_date as \"MRN Approval Date:Data:200\",\n    `tabPurchase Receipt Item`.item_code as \"MRN Item code:Data:200\",\n    `tabPurchase Receipt Item`.item_name as \"MRN Item Name:Data:200\",\n    `tabPurchase Receipt Item`.received_qty as \"MRN Received Quantity:Data:200\",\n    `tabPurchase Receipt Item`.qty as \"MRN Accepted Quantity:Data:200\",\n    `tabPurchase Receipt Item`.rejected_qty as \"MRN Rejected Quantity:Data:200\",\n    `tabPurchase Receipt Item`.received_qty as \"MRN Received Quantity:Data:200\",\n    `tabPurchase Receipt Item`.stock_uom as \"MRN UOM:Data:200\",\n    `tabPurchase Receipt Item`.rate as \"MRN Rate:Data:200\",\n    `tabPurchase Invoice`.name as \"Purchase Invoice:Link/Purchase Invoice:200\",\n    `tabPurchase Invoice`.creation as \"PI Created on:Date:200\",\n    `tabPurchase Invoice`.posting_date as \"PI Posting Date:Data:200\",\n    \n    `tabPurchase Invoice`.pi_approval_date as \"PI Approval Date:Date:200\",\n    `tabPurchase Invoice Item`.item_code as \"PI Item Code:Data:200\",\n    `tabPurchase Invoice Item`.item_name as \"PI Item Name:Data:200\",\n    `tabPurchase Invoice Item`.uom as \"PI UOM:Data:200\",\n    `tabPurchase Invoice Item`.rate as \"PI Rate:Data:200\",\n    `tabPurchase Invoice Item`.amount as \"PI Amount:Data:200\",\n    pe.name as \"Payment Entry:Link/Payment Entry:200\",\n    pe.posting_date as \"Payment Entry Date:Date:200\"\n    \n\n    \n\nfrom `tabPurchase Order`\n   left join `tabPurchase Order Item` on `tabPurchase Order Item`.parent =  `tabPurchase Order`.name \n   left join `tabPurchase Receipt Item` on `tabPurchase Order`.name = `tabPurchase Receipt Item`.purchase_order\n   left join `tabPurchase Receipt` on `tabPurchase Receipt Item`.parent= `tabPurchase Receipt`.name\n   left join `tabPurchase Invoice` on `tabPurchase Receipt`.name = `tabPurchase Invoice`.mrn_number\n   left join `tabPurchase Invoice Item` on `tabPurchase Invoice Item`.parent = `tabPurchase Invoice`.name\n   left join  `tabPayment Entry Reference`p on `tabPurchase Invoice`.name = p.reference_name\n   left join   `tabPayment Entry` pe on p.parent = pe.name\n   \n  \n   where `tabPurchase Order`.transaction_date between %(from_date)s and %(to_date)s and \n   `tabPurchase Order`.company = %(company)s",
+ "ref_doctype": "Purchase Order",
+ "report_name": "Purchase Order Register Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Purchase Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "teststore"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Reports-View"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "IT -Pre Approval"
+  },
+  {
+   "role": "IT-PO Creator"
+  }
+ ]
+}

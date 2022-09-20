@@ -16,7 +16,7 @@ from core_erp.customizations.quality_inspection.quality_inspection import get_it
 
 from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
 from core_erp.customizations.stock_entry.stock_entry import update_default_batch_in_item, validate_work_order, \
-				set_basic_rate_for_finished_goods
+				set_basic_rate_for_finished_goods, get_unconsumed_raw_materials
 				
 from erpnext.accounts.doctype.budget.budget import Budget
 from core_erp.customizations.budget.budget import autoname,validate_accounts
@@ -62,3 +62,4 @@ QualityInspection.update_qc_reference = update_qc_reference
 StockEntry.update_default_batch_in_item = update_default_batch_in_item
 StockEntry.validate_work_order = validate_work_order
 StockEntry.set_basic_rate_for_finished_goods = set_basic_rate_for_finished_goods
+StockEntry.get_unconsumed_raw_materials = get_unconsumed_raw_materials

@@ -1,0 +1,47 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-03-24 18:17:34.660848",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-29 17:46:56.276200",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "MRN Against Delivery Note DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "SELECT\n`tabPurchase Receipt`.`name` as \"Purchase Receipt:Link/Purchase Receipt:150\",\nCASE WHEN `tabPurchase Receipt`.`docstatus` = 0 THEN \"Pending\"\n    WHEN `tabPurchase Receipt`.`docstatus` = 1 THEN \"Approved\"\n    ELSE \"Cancelled\"\n    END AS \"Status:150\",\n`tabPurchase Receipt`.`supplier` as \"Supplier:Link/Supplier:150\",\n`tabPurchase Receipt`.`posting_date` as \"Date:Date:100\",\n`tabPurchase Receipt`.`company` as \"Company:Link/Company:200\",\n`tabPurchase Receipt Item`.`item_name` as \"Item Name:Data:100\",\n`tabPurchase Receipt Item`.`item_code` as \"Item Code:Link/Item:150\",\n`tabPurchase Receipt Item`.`invoice_quantity` as \"Invoice Quantity:Data:100\",\n`tabPurchase Receipt Item`.`manufacturing_date` as \"Manufacturing Date:Date100\",\n`tabPurchase Receipt Item`.`expiry_date` as \"Expiry Date:Date100\"\nFROM\n`tabPurchase Receipt`, `tabPurchase Receipt Item`\nWHERE\n`tabPurchase Receipt`.`supplier` LIKE '%%DFM Food Ltd%%' AND `tabPurchase Receipt Item`.`parent`=`tabPurchase Receipt`.`name`\nand `tabPurchase Receipt`.`posting_date` >= %(from_date)s and `tabPurchase Receipt`.`posting_date` <= %(to_date)s and `tabPurchase Receipt`.`company` = %(company)s",
+ "ref_doctype": "Purchase Receipt",
+ "report_name": "MRN Against Delivery Note DFM",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "teststore"
+  },
+  {
+   "role": "Stock User-Quality"
+  }
+ ]
+}

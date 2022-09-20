@@ -1,0 +1,41 @@
+{
+ "add_total_row": 0,
+ "creation": "2021-03-15 11:36:59.063787",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd- G.Noida",
+ "modified": "2022-08-29 18:14:28.959231",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Gate Entry Register DFM",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "select\r\n    ge.name as \"Gate Entry NO.\",\r\n    ge.date as \"Entry Date:Date\",\r\n    ge.gate_entry_type as \"Gate Entry Type\",\r\n    ge.supplier as \"Party Name\",\r\n    ge.party_contact_person as \"Person Name\",\r\n    ge.vehicle_no as \"Vehical No.\",\r\n    ge.in_time as \"Incoming Time\",\r\n    ge.supplier_invoice_date as \"Supplier Invoice Date:Date\",\r\n    ge.supplier_bill_no as \"Supplier Bill No\",\r\n    ge.company as \"Company\",\r\n    ge.purchase_order as \"PO No\"\r\n \r\nfrom \r\n    `tabGate Entry`ge  \r\n    \r\nwhere ge.company=%(company)s and\r\nge.date >=%(from_date)s and ge.date<=%(to_date)s\r\norder by ge.date  desc ;\r\n\r\n",
+ "ref_doctype": "Gate Entry",
+ "report_name": "Gate Entry Register DFM",
+ "report_type": "Script Report",
+ "roles": [
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Purchase User"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "System Manager"
+  }
+ ]
+}

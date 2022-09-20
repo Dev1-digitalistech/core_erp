@@ -37,7 +37,7 @@ doc_events = {
 	},
 	"Stock Entry": {
 		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
-		"on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
+		# "on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
 		"autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
 	},
 	"Issue":{
@@ -50,21 +50,21 @@ permission_query_conditions = {
     "Issue":"core_erp.customizations.issue.issue.get_permission_query_condition"
 }
 
-doctype_js = {
-	"Budget": "customizations/budget/budget.js",
-	"Workstation": "customizations/workstation/workstation.js",
-	"Work Order": "customizations/work_order/work_order.js",
-	"BOM": "customizations/bom/bom.js",
-	"Quality Inspection": "customizations/quality_inspection/quality_inspection.js",
-	"Material Request": "customizations/material_request/material_request.js",
-	"Stock Entry": "customizations/stock_entry/stock_entry.js",
-	"Item": "customizations/item/item.js",
-	"Purchase Order": "customizations/purchase_order/purchase_order.js",
-	"Payment Entry": "customizations/payment_entry/payment_entry.js",
-	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice.js",
-	"Purchase Receipt": "customizations/purchase_receipt/purchase_receipt.js",
-	"Delivery Note": "customizations/delivery_note/delivery_note.js",
-}
+# doctype_js = {
+# 	"Budget": "customizations/budget/budget.js",
+# 	"Workstation": "customizations/workstation/workstation.js",
+# 	"Work Order": "customizations/work_order/work_order.js",
+# 	"BOM": "customizations/bom/bom.js",
+# 	"Quality Inspection": "customizations/quality_inspection/quality_inspection.js",
+# 	"Material Request": "customizations/material_request/material_request.js",
+# 	"Stock Entry": "customizations/stock_entry/stock_entry.js",
+# 	"Item": "customizations/item/item.js",
+# 	"Purchase Order": "customizations/purchase_order/purchase_order.js",
+# 	"Payment Entry": "customizations/payment_entry/payment_entry.js",
+# 	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice.js",
+# 	"Purchase Receipt": "customizations/purchase_receipt/purchase_receipt.js",
+# 	"Delivery Note": "customizations/delivery_note/delivery_note.js",
+# }
 
 override_whitelisted_methods = {
     "erpnext.stock.doctype.material_request.material_request.make_stock_entry": "core_erp.customizations.material_request.material_request.make_stock_entry",
