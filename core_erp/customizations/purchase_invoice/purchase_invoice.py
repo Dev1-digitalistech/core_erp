@@ -41,7 +41,7 @@ def validate(self,method):
 
 def pr_required(self):
 	stock_items = self.get_stock_items()
-	if frappe.db.get_value("Buying Settings", None, "pr_required") == 'Yes':
+	if frappe.db.get_value("Buying Settings", None, "pr_required") == 'Yes' and not self.direct_pi:
 
 		if frappe.get_value('Supplier', self.supplier, 'allow_purchase_invoice_creation_without_purchase_receipt'):
 			return

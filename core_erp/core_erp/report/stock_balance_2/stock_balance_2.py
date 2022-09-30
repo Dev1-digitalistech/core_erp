@@ -12,8 +12,6 @@ from six import iteritems
 def execute(filters=None):
 	if not filters: filters = {}
 
-	validate_filters(filters)
-
 	from_date = filters.get('from_date')
 	to_date = filters.get('to_date')
 
@@ -219,10 +217,3 @@ def get_item_details(items, sle, filters):
 		item_details.setdefault(item.name, item)
 
 	return item_details
-
-
-def validate_filters(filters):
-	if not (filters.get("item_code")):
-		sle_count = flt(frappe.db.sql("""select count(name) from `tabStock Ledger Entry`""")[0][0])
-		if sle_count > 500000:
-			frappe.throw(_("Please set filter based on Item due to a large amount of entries."))

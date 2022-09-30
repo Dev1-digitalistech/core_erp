@@ -12,14 +12,14 @@ from core_erp.customizations.purchase_receipt.purchase_receipt import po_require
 
 from erpnext.stock.doctype.quality_inspection.quality_inspection import QualityInspection
 from core_erp.customizations.quality_inspection.quality_inspection import get_item_specification_details, \
-				get_quality_inspection_template, update_qc_reference
+				get_quality_inspection_template, update_qc_reference, on_submit
 
 from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
 from core_erp.customizations.stock_entry.stock_entry import update_default_batch_in_item, validate_work_order, \
 				set_basic_rate_for_finished_goods, get_unconsumed_raw_materials
 				
 from erpnext.accounts.doctype.budget.budget import Budget
-from core_erp.customizations.budget.budget import autoname,validate_accounts
+from core_erp.customizations.budget.budget import budget_autoname,validate_accounts
 
 from erpnext.controllers.buying_controller import BuyingController
 from core_erp.customizations.controllers.buying_controller import validate_budget
@@ -43,7 +43,7 @@ PurchaseInvoice.set_tax_withholding = set_tax_withholding
 
 BuyingController.validate_budget = validate_budget
 
-Budget.autoname = autoname
+Budget.autoname = budget_autoname
 Budget.validate_accounts = validate_accounts
 
 EmailAccount.create_new_parent = create_new_parent
@@ -58,6 +58,7 @@ PurchaseReceipt.get_gl_entries = get_gl_entries
 QualityInspection.get_item_specification_details = get_item_specification_details
 QualityInspection.get_quality_inspection_template = get_quality_inspection_template
 QualityInspection.update_qc_reference = update_qc_reference
+QualityInspection.on_submit = on_submit
 
 StockEntry.update_default_batch_in_item = update_default_batch_in_item
 StockEntry.validate_work_order = validate_work_order

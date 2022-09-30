@@ -1,1 +1,2 @@
 core_erp.patches.move_custom_doctypes
+core_erp.patches.move_custom_reports

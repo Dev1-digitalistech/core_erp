@@ -13,9 +13,9 @@ doc_events = {
 	"Purchase Order": {
 		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"
 	},
-	"Quality Inspection": {
-		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.on_submit"
-	},
+	# "Quality Inspection": {
+	# 	"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.on_submit"
+	# },
 	"Purchase Invoice":{
 		"on_submit": "core_erp.customizations.purchase_invoice.purchase_invoice.on_submit",
 		"autoname": "core_erp.customizations.purchase_invoice.purchase_invoice.autoname",
@@ -100,5 +100,3 @@ user_data_fields = [
 		"doctype": "{doctype_4}"
 	}
 ]
-
-fixtures = ["Custom Field","Property Setter",{"dt":"Report", "filters": {"module":"Core ERP"}}]
