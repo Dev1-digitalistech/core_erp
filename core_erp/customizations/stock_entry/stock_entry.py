@@ -1,7 +1,9 @@
 from __future__ import unicode_literals
+from unicodedata import category
 import frappe
 import frappe.defaults
 import re
+from frappe.utils import now
 import datetime
 from frappe import _
 from frappe.utils import flt
@@ -209,3 +211,37 @@ def get_unconsumed_raw_materials(self):
 					"cost_center": item_account_details.get("buying_cost_center"),
 				}
 			})
+   
+   
+
+@frappe.whitelist()
+def new_function(doc,company,date,bom):
+    com = company
+    subject = frappe.db.get_value('BOM', bom, 'item')
+    data = frappe.db.get_value('Item',subject,['item_group','item_sub_group','product_category','category','price_category','mrp'])
+    var = data[0]
+    var2= data[1]
+    var3 = data[2]
+    var4 = data[3]
+    var5 = data[4]
+    var6 = data[5]
+
+    data2 = frappe.db.sql(f""" select rate,expense_account,from_date,to_date,company
+                        	from `tabAdditional Cost` where item_group = '{var}' and
+                         	item_sub_group = '{var2}' and product_category = '{var3}' and
+                          	category = '{var4}' and price_category = '{var5}' and 
+                           	mrp = '{var6}' """,as_dict=1)
+  
+    from_date = frappe.utils.formatdate(data2[0].from_date, 'dd/MM/yy')
+    to_date = frappe.utils.formatdate(data2[0].to_date, 'dd/MM/yy')
+    today = frappe.utils.formatdate(now(), 'dd/MM/yy')
+    frm_comp = data2[0].company
+    
+    if com==frm_comp:
+        if from_date < today < to_date:
+            return data2
+        else:
+            frappe.throw("Date Have Been Expired")
+    else:
+        frappe.throw("Companies Are Not Same")
+   

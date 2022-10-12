@@ -18,6 +18,24 @@ def get_data():
 					"name": "Support Ticket Report",
 					"doctype": "Issue"
 				}
+			],
+   "label": _("Setup"),
+			"items": [
+				{
+					"type": "doctype",
+					"name": "Product For Ticket",
+					
+				},
+                {
+					"type": "doctype",
+					"name": "Product Variants For Ticket",
+					
+				},
+                {
+					"type": "doctype",
+					"name": "Ticket Type",
+					
+				}
 			]
 		}
 	]

@@ -71,6 +71,18 @@ def get_data():
 					"is_query_report": True,
 					"name": "SND Transfer",
 					"doctype": "Stock Entry"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Production Planning Report",
+					"doctype": "Production Plan"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Production Consumption Report DFM",
+					"doctype": "Stock Entry"
 				}
 			
 			]

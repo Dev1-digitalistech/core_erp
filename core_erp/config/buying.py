@@ -35,6 +35,60 @@ def get_data():
 					"is_query_report": True,
 					"name": "Address And Contacts",
 					"doctype": "Address"
+				},
+                {
+					"type": "report",
+					"is_query_report": True,
+					"name": "Purchase Order Register Report",
+					"doctype": "Purchase Order"
+				},
+                {
+					"type": "report",
+					"is_query_report": True,
+					"name": "Pending PO Quantity",
+					"doctype": "Purchase Order"
+				},
+                {
+					"type": "report",
+					"is_query_report": True,
+					"name": "Address And Contacts",
+					"doctype": "Address"
+				}
+            ],
+			"label": _("Other Reports"),
+			"items": [
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "Supplier List DFM",
+					"doctype": "Supplier"
+				},
+                {
+					"type": "report",
+					"is_query_report": True,
+					"name": "PO Reg",
+					"doctype": "Purchase Order"
+				}
+			],
+				"label": _("Custom Reports"),
+			"items": [
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "PO Re",
+					"doctype": "Purchase Order"
+				},
+                {
+					"type": "report",
+					"is_query_report": True,
+					"name": "Test1",
+					"doctype": "Purchase Order"
+				},
+                {
+					"type": "report",
+					"is_query_report": True,
+					"name": "Vendor FSSAI Expiry within 30 days",
+					"doctype": "Supplier"
 				}
 			]
 		}
