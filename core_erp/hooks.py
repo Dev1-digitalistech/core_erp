@@ -100,3 +100,13 @@ user_data_fields = [
 		"doctype": "{doctype_4}"
 	}
 ]
+
+
+fixtures=[
+	{"dt": "Report", "filters": [
+				[
+					"name", "=","Monthly TDS Payable"
+				]
+			]}
+
+]
