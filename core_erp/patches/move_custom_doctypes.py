@@ -18,5 +18,7 @@ def execute():
         "product_variant",
         "promo_code",
         "sub_category",
+        "quality_inspection_reading_template_wip",
+        "gate_entry_details"
     ]:
         frappe.delete_doc('Doctype', dt, ignore_missing=True, force=True)
