@@ -1,0 +1,38 @@
+{
+ "add_total_row": 0,
+ "creation": "2022-11-01 19:21:28.327774",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd-KP",
+ "modified": "2022-12-08 16:24:25.535740",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Monthly TDS Payable",
+ "owner": "Administrator",
+ "prepared_report": 1,
+ "query": "select \na.posting_date as \"Posting Date\",\na.account as \"Account:Link/Account:100\",\na.parent_account,\na.debit as \"Debit\",\na.credit as \"Credit\",\na.total_invoice_amount as \"Total Invocie Amount\",\na.company as \"Company:Link/Company:100\",\nb.voucher_type as \"Vourche Type\",\nb.voucher_no as \"Voucher No\",\nb.party_type as \"Party type\",\nb.Party_Name as \"Party Name\",\nb.Pan \"Pan No.\",\na.JV as \"User Remark\"\n\nfrom\n\n\n(select \ngl.voucher_type,\ngl.voucher_no,\ngl.party_type,\n(CASE WHEN gl.party_type='Supplier' or gl.party_type='Customer' THEN gl.party END) as \"Party_Name\",\n(CASE\n    WHEN gl.party_type='Supplier' THEN s.pan\n    WHEN gl.party_type='Customer' THEN c.pan_no END) as \"Pan\"\nfrom `tabGL Entry` as gl left join `tabSupplier` as s\non gl.party=s.name\nleft join `tabCustomer` as c\non gl.party=c.name\nwhere (gl.party_type=\"Supplier\" or gl.party_type=\"Customer\" or gl.party_type=\"\")) as b\n\nleft join\n\n\n\n(select \ngl.posting_date,\ngl.account,\nb.parent_account,\ngl.debit,\ngl.credit,\ngl.voucher_type,\ngl.voucher_no,\npi.total_invoice_amount,\ngl.party_type,\ngl.company,\n(CASE WHEN gl.party_type='Supplier' or gl.party_type='Customer' or gl.party_type='' THEN gl.party END) as \"Party\",\n(CASE\n    WHEN gl.party_type='Supplier' THEN s.pan\n    WHEN gl.party_type='Customer' THEN c.pan_no END) as \"pan\",\n(CASE\n    WHEN gl.voucher_type='Journal Entry' THEN j.user_remark END) as \"JV\"\nfrom `tabGL Entry` as gl left join `tabSupplier` as s\non gl.party=s.name\nleft join `tabCustomer` as c\non gl.party=c.name \nleft join `tabAccount` as b\non gl.account=b.name\nleft join `tabPurchase Invoice` as pi\non gl.voucher_no=pi.name\nleft join `tabJournal Entry` as j\non gl.voucher_no=j.name) as a \non a.voucher_no=b.voucher_no\n\n\nwhere (date(a.posting_date) between %(from_date)s and %(to_date)s) and a.parent_account=%(parent_account)s and  a.company=%(company)s\n\n\ngroup by a.account,a.parent_account,a.company,a.voucher_type,a.voucher_no\n\n\n\n\n",
+ "ref_doctype": "GL Entry",
+ "report_name": "Monthly TDS Payable",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Sales Dispatch"
+  },
+  {
+   "role": "Reports-View"
+  }
+ ]
+}
