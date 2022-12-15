@@ -1,7 +1,7 @@
 import frappe
 
 def on_submit(self):
-	update_qc_reference()
+	self.update_qc_reference()
 	if not self.inspection_for_wip:
 		doc = frappe.get_doc(self.reference_type,self.reference_name)
 		qc = 1
