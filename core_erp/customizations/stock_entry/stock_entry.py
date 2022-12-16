@@ -17,13 +17,13 @@ from core_erp.utils import get_fiscal_abbr
 from erpnext.stock.doctype.stock_entry.stock_entry import get_item_defaults
 from frappe.model.naming import make_autoname
 
-def autoname(doc, method = None):
-	yr_abbr = get_fiscal_abbr(doc.posting_date)
-	entry_type = frappe.db.get_value('Stock Entry Type',doc.stock_entry_type,'abbreviation')
-	if not entry_type:
-		frappe.throw('Kindly fill Abbreviation in Stock Entry Type')
+# def autoname(doc, method = None):
+# 	yr_abbr = get_fiscal_abbr(doc.posting_date)
+# 	entry_type = frappe.db.get_value('Stock Entry Type',doc.stock_entry_type,'abbreviation')
+# 	if not entry_type:
+# 		frappe.throw('Kindly fill Abbreviation in Stock Entry Type')
 
-	doc.name = make_autoname(f"{entry_type}/{doc.abbr}/{yr_abbr}/.#####")
+# 	doc.name = make_autoname(f"{entry_type}/{doc.abbr}/{yr_abbr}/.#####")
 
 def after_insert(doc, method = None):
 	if doc.stock_entry_type == 'Manufacture':
