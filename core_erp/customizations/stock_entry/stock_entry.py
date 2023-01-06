@@ -19,7 +19,8 @@ from frappe.model.naming import make_autoname
 
 # def autoname(doc, method = None):
 # 	yr_abbr = get_fiscal_abbr(doc.posting_date)
-# 	entry_type = frappe.db.get_value('Stock Entry Type',doc.stock_entry_type,'abbreviation')
+# 	entry_type = frappe.db.get_value('Stock Entry Type',doc.stock_entry_type,doc.abbr)
+# 	frappe.msgprint(str(entry_type))
 # 	if not entry_type:
 # 		frappe.throw('Kindly fill Abbreviation in Stock Entry Type')
 

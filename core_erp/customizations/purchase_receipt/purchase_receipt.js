@@ -66,18 +66,13 @@ frappe.ui.form.on("Purchase Receipt", {
 			})
 		})
 	},
-	// onload(frm){
-	//     $.each(frm.doc.items || [], function(i, d) {
-	//         frappe.db.get_value('Purchase Order',d.purchase_order,'po_type').then(({ message }) => {
-	//             if(message.po_type == 'Normal'){
-	//                 //console.log("normalll")
-	//                 frm.set_df_property('gate_entry_no','reqd',1)
-	//                 frm.fields_dict.items.grid.toggle_reqd("manufacturing_date",1)
-	//                 frm.fields_dict.items.grid.toggle_reqd("expiry_date",1);
-	//             }
-	//         })
-	//     })    
-	// },
+	before_save(frm){
+	    $.each(frm.doc.items || [], function(i, d) {
+	        frappe.db.get_value('Purchase Order',d.purchase_order,'po_type').then(({ message }) => {
+	            frm.set_value('mrn_type',message.po_type)
+	        })
+	    })    
+	},
 	transaction_type(frm) {
 		if (frm.doc.transfer_type == 'Normal') {
 			frm.set_df_property('gate_entry_no', 'reqd', 1)

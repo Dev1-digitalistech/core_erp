@@ -15,7 +15,7 @@ def make_mr(source_name,purpose,target_doc=None):
 		if qty:
 			target.qty = qty
 			target.stock_qty = qty
-			target.warehouse= source_parent.wip_warehouse
+			target.warehouse= source_parent.wip_wh
 			target.uom = frappe.get_value('Item', source.item_code, 'stock_uom')
 			target.stock_uom = target.uom
 			target.conversion_factor = 1
