@@ -70,7 +70,7 @@ doctype_js = {
 }
 
 override_whitelisted_methods = {
-    "erpnext.stock.doctype.material_request.material_request.make_stock_entry":"core_erp.customizations.material_request.material_request.make_stock_entry",
+    # "erpnext.stock.doctype.material_request.material_request.make_stock_entry":"core_erp.customizations.material_request.material_request.make_stock_entry",
 	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice"
 
 }

@@ -16,7 +16,7 @@ frappe.ui.form.on('Stock Entry', {
 		frm.remove_custom_button('Material Request', "Get items from")
 		frm.add_custom_button(__('Material Requests'), function () {
 			erpnext.utils.map_current_doc({
-				method: "erpnext.stock.doctype.material_request.material_request.make_stock_entry",
+				method: "core_erp.customizations.material_request.material_request.make_stock_entry",
 				source_doctype: "Material Request",
 				target: frm,
 				date_field: "schedule_date",
