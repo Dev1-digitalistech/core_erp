@@ -1,0 +1,210 @@
+{
+ "autoname": "hash",
+ "creation": "2021-08-10 11:16:30.506634",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "specification",
+  "reading_type",
+  "acceptance_criteria",
+  "test_result",
+  "section_break_4",
+  "value",
+  "exp_range",
+  "exp_low",
+  "exp_high",
+  "reading_1",
+  "reading_2",
+  "reading_3",
+  "reading_4",
+  "reading_5",
+  "reading_6",
+  "reading_7",
+  "reading_8",
+  "reading_9",
+  "reading_10",
+  "status"
+ ],
+ "fields": [
+  {
+   "columns": 2,
+   "fieldname": "specification",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Parameter",
+   "oldfieldname": "specification",
+   "oldfieldtype": "Data",
+   "print_width": "100px",
+   "reqd": 1,
+   "width": "100px"
+  },
+  {
+   "fieldname": "reading_type",
+   "fieldtype": "Select",
+   "label": "Reading Type",
+   "options": "Qualitative\nQuantitative"
+  },
+  {
+   "columns": 2,
+   "fieldname": "acceptance_criteria",
+   "fieldtype": "Text",
+   "in_list_view": 1,
+   "label": "Specification",
+   "print_width": "100px",
+   "read_only": 1,
+   "width": "100px"
+  },
+  {
+   "depends_on": "eval:doc.reading_type == 'Qualitative'",
+   "fieldname": "test_result",
+   "fieldtype": "Text Editor",
+   "label": "Result"
+  },
+  {
+   "fieldname": "section_break_4",
+   "fieldtype": "Section Break"
+  },
+  {
+   "columns": 2,
+   "depends_on": "eval:doc.reading_type == 'Quantitative'",
+   "fieldname": "value",
+   "fieldtype": "Data",
+   "label": "Value",
+   "oldfieldname": "value",
+   "oldfieldtype": "Data",
+   "print_width": "100px",
+   "width": "100px"
+  },
+  {
+   "fieldname": "exp_range",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "expected range"
+  },
+  {
+   "fieldname": "exp_low",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "expected low"
+  },
+  {
+   "fieldname": "exp_high",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "expected high"
+  },
+  {
+   "columns": 1,
+   "fieldname": "reading_1",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reading 1",
+   "oldfieldname": "reading_1",
+   "oldfieldtype": "Data",
+   "print_width": "100px",
+   "width": "100px"
+  },
+  {
+   "columns": 1,
+   "fieldname": "reading_2",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reading 2",
+   "oldfieldname": "reading_2",
+   "oldfieldtype": "Data",
+   "print_width": "100px",
+   "width": "100px"
+  },
+  {
+   "columns": 1,
+   "fieldname": "reading_3",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reading 3",
+   "oldfieldname": "reading_3",
+   "oldfieldtype": "Data"
+  },
+  {
+   "columns": 1,
+   "fieldname": "reading_4",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "Reading 4",
+   "oldfieldname": "reading_4",
+   "oldfieldtype": "Data"
+  },
+  {
+   "columns": 1,
+   "fieldname": "reading_5",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reading 5",
+   "oldfieldname": "reading_5",
+   "oldfieldtype": "Data"
+  },
+  {
+   "fieldname": "reading_6",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reading 6",
+   "oldfieldname": "reading_6",
+   "oldfieldtype": "Data"
+  },
+  {
+   "fieldname": "reading_7",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reading 7",
+   "oldfieldname": "reading_7",
+   "oldfieldtype": "Data"
+  },
+  {
+   "fieldname": "reading_8",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reading 8",
+   "oldfieldname": "reading_8",
+   "oldfieldtype": "Data"
+  },
+  {
+   "fieldname": "reading_9",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reading 9",
+   "oldfieldname": "reading_9",
+   "oldfieldtype": "Data"
+  },
+  {
+   "fieldname": "reading_10",
+   "fieldtype": "Data",
+   "hidden": 1,
+   "label": "Reading 10",
+   "oldfieldname": "reading_10",
+   "oldfieldtype": "Data"
+  },
+  {
+   "columns": 1,
+   "default": "Accepted",
+   "fieldname": "status",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "label": "Status",
+   "oldfieldname": "status",
+   "oldfieldtype": "Select",
+   "options": "Accepted\nRejected",
+   "print_width": "100px",
+   "width": "100px"
+  }
+ ],
+ "istable": 1,
+ "modified": "2022-12-14 13:29:02.856246",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "Quality Inspection Reading Template WIP",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "track_changes": 1
+}

@@ -14,7 +14,7 @@ def execute(filters=None):
 		perms = get_all_perms(usr.role)
 		for p in perms:
 			data.append([
-				usr['username'],usr['creation'],usr['created_time'],usr['status'],usr['email'], usr['full_name'], usr['role'],
+				usr['department'],usr['username'],usr['creation'],usr['created_time'],usr['status'],usr['email'], usr['full_name'], usr['role'],
 				p['parent'], p['read'], p['write'], p['create'], p['submit'], p['cancel'], p['delete'], p['amend'], p['report'], p['export'],
 				p['import'], p['share'], p['print'], p['email'], p['if_owner'], p['set_user_permissions']
 			])
@@ -26,6 +26,7 @@ def get_columns(filters):
 	"""return columns based on filters"""
 	columns = [
 		{"label": _("UserName"), "fieldname": "username", "fieldtype": "Data", "width": 100},
+		{"label": _("department"), "fieldname": "department", "fieldtype": "Data", "width": 100},
 		{"label":_("Creation Date"),"fieldname":"creation","fieldtype":"Date","width":100},
 		{"label":_("Created Time"),"fieldname":"created_time","fieldtype":"Data","width":100},
 		{"label":_("Status"),"fieldname":"status","fieldtype":"Data","width":100},
@@ -64,7 +65,7 @@ def get_conditions(filters):
 	
 def get_data(filters):
 	conditions = get_conditions(filters)
-	return frappe.db.sql("""select tu.email,date(tu.creation) as "creation",time(tu.creation) as "created_time",case when tu.enabled = 1 then "Active" else "InActive" end as "status",
+	return frappe.db.sql("""select tu.department,tu.email,date(tu.creation) as "creation",time(tu.creation) as "created_time",case when tu.enabled = 1 then "Active" else "InActive" end as "status",
 	tu.full_name,tu.username,
 		hs.role from `tabUser` tu,`tabHas Role` hs
 		where hs.parent=tu.name %s"""

@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["Monthly TDS Payable"] = {
+frappe.query_reports["tds report test"] = {
 	"filters": [
 		{
             "fieldname":"from_date",

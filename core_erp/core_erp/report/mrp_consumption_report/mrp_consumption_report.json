@@ -1,0 +1,53 @@
+{
+ "add_total_row": 0,
+ "creation": "2022-11-07 12:31:50.826031",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd-KP",
+ "modified": "2022-11-07 12:51:24.035866",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "MRP Consumption Report",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select \ncon.itm_nm as \"Item Name\",\ncon.itm_cd as \"Item Code\",\ncon.product_category as \"Product Category\",\ncon.item_group as \"Item Group\",\ncon.item_sub_group as \"Item Sub Group\",\ncon.company as \"Company\",\ncon.s_warehouse as \"Warehouse\",\ncon.stock_uom as \"UOM\",\ncon.AQ as \"Available Qty\",\ncon.sd as \"Current Month Consumption\",\ncon.ds as \"Previous Month Consumption\",\nifnull(pur.pending,0) as \"Open PO Qty\"\n\nfrom\n\n\n(select \nss.item_name as \"itm_nm\",\nss.item_code as \"itm_cd\",\nss.product_category,\nss.item_group,\nss.item_sub_group,\nss.company,\nss.s_warehouse,\nss.stock_uom,\nss.AQ,\n(ifnull(ss.s_CM,0) + ifnull(dd.d_CM,0)) as \"sd\",\n(ifnull(ss.s_PM,0) + ifnull(dd.d_PM,0)) as \"ds\"\n\n\nfrom\n\n(select \nse.posting_date,\nsed.item_code,\nsed.item_name,\nitm.product_category,\nitm.item_group,\nitm.item_sub_group,\nitm.stock_uom,\nsed.s_warehouse,\nsum(sed.qty),\nse.company,\nb.actual_qty as \"AQ\",\nsum(case when (MONTH(se.posting_date) = MONTH(CURDATE()) and Year(se.posting_date) = Year(CURDATE())) THEN (sed.qty) else '0' end) as \"s_CM\",\nsum(case when (MONTH(se.posting_date) = MONTH(CURDATE() - INTERVAL 1 MONTH) and Year(se.posting_date) = Year(CURDATE())) THEN (sed.qty) else '0' end) as \"s_PM\"\n\nfrom `tabStock Entry` as se left join `tabStock Entry Detail` as sed\non se.name=sed.parent\nleft join `tabBin` as b\non sed.item_code=b.item_code and sed.s_warehouse=b.warehouse\nleft join `tabItem` as itm\non itm.item_code=sed.item_code and itm.item_name=sed.item_name\nwhere (se.stock_entry_type=\"Material Transfer\" or se.stock_entry_type=\"Material Issue\" or se.stock_entry_type=\"Material Transfer for Manufacture\") and se.docstatus=1\ngroup by sed.item_name,sed.s_warehouse,sed.item_code) as ss\n\nleft join\n\n(select \ndn.posting_date,\ndn.company,\ndni.warehouse,\ndni.item_name,\ndni.item_code,\nsum(dni.qty),\nsum(case when (MONTH(dn.posting_date) = MONTH(CURDATE()) and Year(dn.posting_date) = Year(CURDATE())) THEN (dni.qty) else 0 end) as \"d_CM\",\nsum(case when (MONTH(dn.posting_date) = MONTH(CURDATE() - INTERVAL 1 MONTH) and Year(dn.posting_date) = Year(CURDATE())) THEN (dni.qty)  else '0' end) as \"d_PM\"\nfrom `tabDelivery Note` as dn left join `tabDelivery Note Item` as dni\non dn.name=dni.parent\nwhere dn.status=\"Completed\" \ngroup by dni.item_code,dn.company) as dd\non dd.item_code=ss.item_code and dd.item_name=ss.item_name and dd.warehouse=ss.s_warehouse) as con\n\nleft join\n\n(select po.name as \"Purchase Order\",\n\t\t\t\tpo.status as \"Status\",\n\t\t\t\tpo.transaction_date as \"Date\",\n\t\t\t\tpo.supplier as \"Supplier\",\n\t\t\t\tpo.company as \"Company\",\n\t\t\t\tpoi.warehouse,\n\t\t\t\tpoi.item_name as \"item_name\",\n\t\t\t\tpoi.item_code as \"item_code\",\n\t\t\t\tsum(poi.qty) as \"Ordered Qty\",\n\t\t\t\tsum(poi.received_qty) as \"Received Qty\",\n\t\t\t\t(sum(poi.qty)-sum(poi.received_qty)) as \"pending\"\n\t\t\t\tfrom `tabPurchase Order` as po left join `tabPurchase Order Item` as poi\n\t\t\t\ton po.name=poi.parent\n\t\t\t\twhere po.docstatus = 1 and po.status not in (\"Stopped\", \"Closed\") and ifnull(poi.received_qty, 0) < ifnull(poi.qty,0)\n\t\t\t\tgroup by po.company,poi.warehouse,poi.item_code) as pur\n\non pur.item_code=con.itm_cd and pur.item_name=con.itm_nm and pur.warehouse=con.s_warehouse and pur.company=con.company\nwhere con.item_group=%(item_group)s and con.item_sub_group=%(item_sub_group)s or con.company=%(company)s\n\n",
+ "ref_doctype": "Stock Entry",
+ "report_name": "MRP Consumption Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "teststore"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Reports-View"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Sales Dispatch"
+  }
+ ]
+}
