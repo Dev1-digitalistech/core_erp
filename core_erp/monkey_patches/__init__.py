@@ -51,7 +51,7 @@ EmailAccount.create_new_parent = create_new_parent
 BOM.get_exploded_items = get_exploded_items
 
 Batch.autoname = autoname
-Batch.before_save= before_save
+Batch.before_save=  before_save
 
 PurchaseReceipt.po_required = po_required
 PurchaseReceipt.get_gl_entries = get_gl_entries

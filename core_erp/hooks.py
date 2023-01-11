@@ -37,13 +37,13 @@ doc_events = {
 	},
 	"Stock Entry": {
 		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
-		# "on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
-		# "autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
+		"on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
+		"autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
 	},
 	"Issue":{
 		"validate": "core_erp.customizations.issue.issue.validate"
 	},
-	"Stock":{
+		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
 	}
 }
@@ -70,10 +70,11 @@ doctype_js = {
 }
 
 override_whitelisted_methods = {
-    "erpnext.stock.doctype.material_request.material_request.make_stock_entry": "core_erp.customizations.material_request.material_request.make_stock_entry",
-	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice",
-	# "erpnext.config.stock.get_data":"core_erp.config.stock.get_data"
+    "erpnext.stock.doctype.material_request.material_request.make_stock_entry":"core_erp.customizations.material_request.material_request.make_stock_entry",
+	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice"
+
 }
+
 
 
 scheduler_events = {
@@ -105,6 +106,7 @@ user_data_fields = [
 ]
 
 
+
 fixtures = [
-    {"dt": "Property Setter", "filters": [["doc_type", "=", "Gate Entry"]]},
+    {"dt": "Property Setter", "filters": [["doc_type", "=", "Gate Entry"]]}
 ]
