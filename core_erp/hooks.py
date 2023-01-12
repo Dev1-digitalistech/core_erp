@@ -38,7 +38,7 @@ doc_events = {
 	"Stock Entry": {
 		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
 		"on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
-		"autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
+		# "autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
 	},
 	"Issue":{
 		"validate": "core_erp.customizations.issue.issue.validate"
