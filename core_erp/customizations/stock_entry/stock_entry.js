@@ -40,11 +40,12 @@ frappe.ui.form.on('Stock Entry', {
 			})
 		}
 	},
-	clean_up: function () {
+	clean_up: function() {
 		// Clear Work Order record from locals, because it is updated via Stock Entry
-		if (this.frm.doc.work_order &&
-			in_list(["Manufacture", "Material Transfer for Manufacture", "Material Consumption for Manufacture", "Material Issue"],
+		if(this.frm.doc.work_order &&
+			in_list(["Manufacture", "Material Transfer for Manufacture", "Material Consumption for Manufacture","Material Issue"],
 				this.frm.doc.purpose)) {
+			// console.log(this.frm.doc.work_order)
 			frappe.model.remove_from_locals("Work Order",
 				this.frm.doc.work_order);
 		}

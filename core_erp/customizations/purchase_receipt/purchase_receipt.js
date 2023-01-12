@@ -1,5 +1,39 @@
+frappe.ui.form.off("Purchase Receipt", "clean_up")
 frappe.ui.form.on("Purchase Receipt", {
 	refresh(frm) {
+		setTimeout(() => {
+			frm.remove_custom_button('Purchase Order','Get items from');
+			}, 10);
+		// frm.remove_custom_button('Purchase Order', "Get items from")
+				frm.add_custom_button(__('PO'),
+					function () {
+						if (!frm.doc.supplier) {
+							frappe.throw({
+								title: __("Mandatory"),
+								message: __("Please Select a Supplier")
+							});
+						}
+
+						frm.doc.taxes = [];
+						erpnext.utils.map_current_doc({
+							method: "core_erp.customizations.purchase_order.purchase_order.make_purchase_receipt",
+							source_doctype: "Purchase Order",
+							target: frm,
+							setters: {
+								supplier: frm.doc.supplier,
+							},
+							get_query_filters: {
+								docstatus: 1,
+								status: ["not in", ["Closed", "On Hold"]],
+								per_received: ["<", 99.99],
+								company: frm.doc.company
+							}
+						})
+					}, __("Get items from"));
+			// 	}
+			// }
+				
+			
 		if (frm.doc.docstatus == 0) {
 			frm.add_custom_button(__('Delivery Note'),
 				function () {
