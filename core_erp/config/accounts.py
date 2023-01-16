@@ -4,31 +4,15 @@ from frappe import _
 def get_data():
 	return [
 		{
-			"label": _("Accounts Payable"),
+			
+			"label": _("Custom Reports"),
 			"items": [
 				{
 					"type": "report",
 					"is_query_report": True,
-					"name": "GST Purchase Register Dup",
-					"doctype": "Purchase Invoice"
+					"name": "Budget Report",
+					"doctype": "Budget"
 				},
-                {
-					"type": "report",
-					"is_query_report": True,
-					"name": "TDS Payable Monthly",
-					"doctype": "Purchase Invoice"
-				},
-                {
-					"type": "report",
-					"is_query_report": True,
-					"name": "TDS Computation Summaryadmin",
-					"doctype": "Purchase Invoice"
-				}
-               
-			],
-			
-			"label": _("Reports"),
-			"items": [
 				{
 					"type": "report",
 					"is_query_report": True,
@@ -76,17 +60,6 @@ def get_data():
 					"is_query_report": True,
 					"name": "Journal Entry Register -DFM",
 					"doctype": "Journal Entry"
-				}
-               
-			],
-			
-			"label": _("Custom Reports"),
-			"items": [
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Budget Report",
-					"doctype": "Budget"
 				},
                 {
 					"type": "report",
@@ -112,6 +85,12 @@ def get_data():
 					"name": "Testing 2",
 					"doctype": "Account"
 				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "FG Costing",
+					"doctype": "Stock Ledger Entry"
+				},
                 {
 					"type": "report",
 					"is_query_report": True,
@@ -119,7 +98,17 @@ def get_data():
 					"doctype": "GL Entry"
 				}
                
-			]
+			],
+			"label": _("Accounts Payable"),
+			"items": [
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "TDS Payable Monthly",
+					"doctype": "Purchase Invoice"
+				},
+
+			],
 	
 		}
 	]
