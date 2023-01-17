@@ -37,17 +37,23 @@ def get_data():
 			"icon": "fa fa-list",
 			"items": [
 				{
-                                        "type": "report",
-                                        "is_query_report": True,
-                                        "name": "Supplier List DFM",
-                                        "reference_doctype": "Supplier"
-                                },
+					"type": "report",
+					"is_query_report": True,
+					"name": "Supplier List DFM",
+					"reference_doctype": "Supplier"
+				},
 				{
-                                        "type": "report",
-                                        "is_query_report": True,
-                                        "name": "PO Reg",
-                                        "reference_doctype": "Purchase Order"
-                                },
+					"type": "report",
+					"is_query_report": True,
+					"name": "PO Reg",
+					"reference_doctype": "Purchase Order"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "MRP Consumption Report",
+					"reference_doctype": "Stock Entry"
+				},
 
 
 			]
