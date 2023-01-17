@@ -5,18 +5,19 @@ def get_data():
 	return [
 		{
 			"label": _("Reports"),
+			"icon": "fa fa-list",
 			"items": [
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "FG Production",
+					"reference_doctype": "Stock Entry"
+				},
 				{
 					"type": "report",
 					"is_query_report": True,
 					"name": "Pending PO Quatity",
 					"doctype": "Purchase Order"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "BOM List",
-					"doctype": "BOM"
 				},
 				{
 					"type": "report",
@@ -29,12 +30,6 @@ def get_data():
 					"is_query_report": True,
 					"name": "Stock Balance 2",
 					"doctype": "Stock Ledger Entry"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "BOM Vs Actual",
-					"doctype": "Production Plan"
 				},
 				{
 					"type": "report",
@@ -83,8 +78,19 @@ def get_data():
 					"is_query_report": True,
 					"name": "Production Consumption Report DFM",
 					"doctype": "Stock Entry"
-				}
-			
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "BOM Vs Actual",
+					"doctype": "Production Plan"
+				},
+				
+
+
 			]
-		}
+		},
+
+		
+
 	]
