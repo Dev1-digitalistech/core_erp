@@ -30,9 +30,10 @@ from erpnext.stock.doctype.item.item import get_item_defaults
 from erpnext.manufacturing.doctype.bom.bom import validate_bom_no, add_additional_cost
 from erpnext.stock.utils import get_bin
 from frappe.model.mapper import get_mapped_doc
+from frappe.utils import getdate,add_days
 from erpnext.stock.doctype.serial_no.serial_no import update_serial_nos_after_submit, get_serial_nos
 from erpnext.stock.doctype.stock_reconciliation.stock_reconciliation import OpeningEntryAccountError
-
+from frappe.model.naming import make_autoname
 import json
 
 from six import string_types, itervalues, iteritems
