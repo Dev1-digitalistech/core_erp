@@ -205,56 +205,6 @@ def get_data():
 			"items": [
 				{
 					"type": "report",
-					"is_query_report": False,
-					"name": "Item-wise Price List Rate",
-					"doctype": "Item Price",
-					"onboard": 1,
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Stock Analytics",
-					"doctype": "Stock Entry",
-					"onboard": 1,
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Delivery Note Trends",
-					"doctype": "Delivery Note"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Purchase Receipt Trends",
-					"doctype": "Purchase Receipt"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Ordered Items To Be Delivered",
-					"doctype": "Delivery Note"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Purchase Order Items To Be Received",
-					"doctype": "Purchase Receipt"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Item Shortage Report",
-					"doctype": "Bin"
-				},
-				{
-					"type": "report",
-					"is_query_report": True,
-					"name": "Batch-Wise Balance History",
-					"doctype": "Batch"
-				},
-				{
-					"type": "report",
 					"is_query_report": True,
 					"name": "Batch Status",
 					"doctype": "Stock Ledger Entry"
