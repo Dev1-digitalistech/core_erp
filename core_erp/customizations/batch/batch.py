@@ -1,7 +1,14 @@
 import frappe
-from frappe import _
-from frappe.model.naming import make_autoname
 from frappe.utils import cint
+from six import text_type
+from frappe import _
+from frappe.model.document import Document
+from frappe.model.naming import make_autoname, revert_series_if_last
+from frappe.utils import flt, cint, get_link_to_form
+from frappe.utils.jinja import render_template
+from frappe.utils.data import add_days
+from six import string_types
+
 
 def get_name_from_hash():
 	"""
