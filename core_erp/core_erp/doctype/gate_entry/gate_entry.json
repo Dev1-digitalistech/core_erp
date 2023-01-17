@@ -8,8 +8,11 @@
  "field_order": [
   "naming_series",
   "date",
+  "out_date",
+  "out_time",
   "supplier",
   "customer",
+  "warehouse",
   "abbr",
   "purchase_order",
   "delivery_note",
@@ -18,16 +21,22 @@
   "supplier_bill_no",
   "party_contact_person",
   "status",
+  "gate_out",
+  "gate_out_done",
+  "gate_entry_can_be_closed",
   "column_break_4",
   "gate_entry_type",
   "outward_for",
-  "company",
   "in_time",
+  "company",
+  "transporter_supplier",
   "transporter",
   "vehicle_no",
   "supplier_invoice_date",
   "party_person_mobile",
-  "amended_from"
+  "amended_from",
+  "mobile_no",
+  "destination"
  ],
  "fields": [
   {
@@ -93,7 +102,7 @@
    "bold": 1,
    "fieldname": "transporter",
    "fieldtype": "Data",
-   "label": "Transporter"
+   "label": "Transporter Name"
   },
   {
    "bold": 1,
@@ -152,7 +161,7 @@
    "fieldname": "gate_entry_type",
    "fieldtype": "Select",
    "label": "Gate Entry Type",
-   "options": "\nInward\nOutward\nStock Transfer",
+   "options": "\nInward\nOutward\nSales Inward",
    "reqd": 1
   },
   {
@@ -174,10 +183,77 @@
    "fieldname": "supplier_invoice_date",
    "fieldtype": "Date",
    "label": "Supplier Invoice Date"
+  },
+  {
+   "default": "eval:(doc.gate_entry_type==\"Stock Transfer\")",
+   "depends_on": "eval:(doc.gate_entry_type==\"Stock Transfer\")",
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "label": "Warehouse",
+   "options": "Warehouse"
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "out_date",
+   "fieldtype": "Date",
+   "label": "Out Date",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "out_time",
+   "fieldtype": "Time",
+   "label": "Out Time",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "depends_on": "eval:(doc.docstatus == 1 && doc.gate_out_done == 0)",
+   "fieldname": "gate_out",
+   "fieldtype": "Check",
+   "label": "Gate Out"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "depends_on": "eval:(doc.gate_out_done == 1)",
+   "fieldname": "gate_out_done",
+   "fieldtype": "Check",
+   "label": "Gate Out Done"
+  },
+  {
+   "allow_on_submit": 1,
+   "default": "0",
+   "fieldname": "gate_entry_can_be_closed",
+   "fieldtype": "Check",
+   "hidden": 1,
+   "label": "Gate Entry Can be Closed",
+   "read_only": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "transporter_supplier",
+   "fieldtype": "Link",
+   "label": "Transporter",
+   "options": "Supplier",
+   "reqd": 1
+  },
+  {
+   "fieldname": "mobile_no",
+   "fieldtype": "Data",
+   "label": "Mobile No",
+   "translatable": 1
+  },
+  {
+   "allow_on_submit": 1,
+   "fieldname": "destination",
+   "fieldtype": "Data",
+   "label": "Destination"
   }
  ],
  "is_submittable": 1,
- "modified": "2022-08-23 17:30:58.930447",
+ "modified": "2023-01-17 17:45:09.237633",
  "modified_by": "Administrator",
  "module": "Core ERP",
  "name": "Gate Entry",
