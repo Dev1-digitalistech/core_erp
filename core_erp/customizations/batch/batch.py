@@ -23,6 +23,7 @@ def get_name_from_hash():
 
 	return temp
 
+
 def batch_autoname(doc,method):
 	frappe.msgprint(str(doc))
 	frappe.msgprint(str(method))
