@@ -35,7 +35,6 @@ from erpnext.stock.doctype.serial_no.serial_no import update_serial_nos_after_su
 from erpnext.stock.doctype.stock_reconciliation.stock_reconciliation import OpeningEntryAccountError
 from frappe.model.naming import make_autoname
 import json
-
 from six import string_types, itervalues, iteritems
 
 # def autoname(doc, method = None):
@@ -62,7 +61,7 @@ def after_insert(doc, method = None):
 # 	if doc.stock_entry_type == "Material Transfer" and doc.reason=="SND Transfer":
 # 		send_to_snd(doc)
 
-def on_submit(self):
+def on_submit_dup(self):
 
 	self.update_stock_ledger()
 
@@ -581,3 +580,39 @@ def set_basic_rate_for_finished_goods(self, raw_material_cost=0, scrap_material_
 					d.basic_rate = flt(raw_material_cost) / flt(total_fg_qty)
 					d.basic_amount = d.basic_rate * flt(d.qty)
 
+
+
+def update_stock_ledger(self):
+	sl_entries = []
+
+	# make sl entries for source warehouse first, then do for target warehouse
+	for d in self.get('items'):
+		if cstr(d.s_warehouse):
+			sl_entries.append(self.get_sl_entries(d, {
+				"warehouse": cstr(d.s_warehouse),
+				"actual_qty": -flt(d.transfer_qty),
+				"incoming_rate": 0
+			}))
+
+	for d in self.get('items'):
+		if cstr(d.t_warehouse):
+			sl_entries.append(self.get_sl_entries(d, {
+				"warehouse": cstr(d.t_warehouse),
+				"actual_qty": flt(d.transfer_qty),
+				"incoming_rate": flt(d.valuation_rate)
+			}))
+
+	# On cancellation, make stock ledger entry for
+	# target warehouse first, to update serial no values properly
+
+		# if cstr(d.s_warehouse) and self.docstatus == 2:
+		# 	sl_entries.append(self.get_sl_entries(d, {
+		# 		"warehouse": cstr(d.s_warehouse),
+		# 		"actual_qty": -flt(d.transfer_qty),
+		# 		"incoming_rate": 0
+		# 	}))
+
+	if self.docstatus == 2:
+		sl_entries.reverse()
+
+	self.make_sl_entries(sl_entries, self.amended_from and 'Yes' or 'No')

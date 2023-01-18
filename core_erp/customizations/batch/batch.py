@@ -23,6 +23,32 @@ def get_name_from_hash():
 
 	return temp
 
+def batch_autoname(doc,method):
+	frappe.msgprint(str(doc))
+	frappe.msgprint(str(method))
+	cc=str(frappe.db.get_value("Supplier",{"name":doc.supplier},"supplier_name"))
+	b_name = cc
+	substring_so = make_autoname(b_name)
+	doc.abbr=str(substring_so)
+	frappe.msgprint(str(doc.name))
+	doc.supp=cc[0:4]
+
+def get_batch_naming_series():
+	"""
+	Get naming series key for a Batch.
+
+	Naming series key is in the format [prefix].[#####]
+	:return: The naming series or empty string if not available
+	"""
+	series = ''
+	if batch_uses_naming_series():
+		prefix = _get_batch_prefix()
+		key = _make_naming_series_key(prefix)
+		series = key
+
+	return series
+
+
 def batch_uses_naming_series():
 	"""
 	Verify if the Batch is to be named using a naming series
@@ -58,9 +84,9 @@ def before_save(self):
 	has_expiry_date, shelf_life_in_days = frappe.db.get_value('Item', self.item, ['has_expiry_date', 'shelf_life_in_days'])
 	if not self.expiry_date and has_expiry_date and shelf_life_in_days:
 		self.expiry_date = add_days(self.manufacturing_date, shelf_life_in_days)
-	# if has_expiry_date and not self.expiry_date:
-	# 	frappe.throw(msg=_("Please set {0} for Batched Item {1}, which is used to set {2} on Submit.") \
-	# 		.format(frappe.bold("Shelf Life in Days"),
-	# 			get_link_to_form("Item", self.item),
-	# 			frappe.bold("Batch Expiry Date")),
-	# 		title=_("Expiry Date Mandatory"))
+	if has_expiry_date and not self.expiry_date:
+		frappe.throw(msg=_("Please set {0} for Batched Item {1}, which is used to set {2} on Submit.") \
+			.format(frappe.bold("Shelf Life in Days"),
+				get_link_to_form("Item", self.item),
+				frappe.bold("Batch Expiry Date")),
+			title=_("Expiry Date Mandatory"))
