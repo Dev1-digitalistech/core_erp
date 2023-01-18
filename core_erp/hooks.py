@@ -109,7 +109,3 @@ user_data_fields = [
 	}
 ]
 
-
-fixtures=[ 'Property Setter'
-
-]
