@@ -14,6 +14,7 @@ def get_data():
 					"name": "Issues Action Tracker",
 					"doctype": "Issue"
 				},
+				
 				{
 					"type": "report",
 					"is_query_report": True,
