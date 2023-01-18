@@ -77,8 +77,8 @@ def on_submit_dup(self):
 	self.update_quality_inspection()
 	if self.work_order and self.purpose == "Manufacture":
 		self.update_so_in_serial_number()
-	if self.stock_entry_type == "Material Transfer" and self.reason=="SND Transfer":
-		self.send_to_snd()
+	# if self.stock_entry_type == "Material Transfer" and self.reason=="SND Transfer":
+	# 	self.send_to_snd()
 
 
 def validate(self):
@@ -122,9 +122,9 @@ def validate(self):
 
 
 
-def send_to_snd(doc):
-	doc.data_push=1
-	push_data_to_snd(doc)
+# def send_to_snd(doc):
+# 	doc.data_push=1
+# 	push_data_to_snd(doc)
 
 def update_default_batch_in_item(self):
 	for item in self.items:
@@ -582,37 +582,37 @@ def set_basic_rate_for_finished_goods(self, raw_material_cost=0, scrap_material_
 
 
 
-def update_stock_ledger(self):
-	sl_entries = []
+# def update_stock_ledger(self):
+# 	sl_entries = []
 
-	# make sl entries for source warehouse first, then do for target warehouse
-	for d in self.get('items'):
-		if cstr(d.s_warehouse):
-			sl_entries.append(self.get_sl_entries(d, {
-				"warehouse": cstr(d.s_warehouse),
-				"actual_qty": -flt(d.transfer_qty),
-				"incoming_rate": 0
-			}))
+# 	# make sl entries for source warehouse first, then do for target warehouse
+# 	for d in self.get('items'):
+# 		if cstr(d.s_warehouse):
+# 			sl_entries.append(self.get_sl_entries(d, {
+# 				"warehouse": cstr(d.s_warehouse),
+# 				"actual_qty": -flt(d.transfer_qty),
+# 				"incoming_rate": 0
+# 			}))
 
-	for d in self.get('items'):
-		if cstr(d.t_warehouse):
-			sl_entries.append(self.get_sl_entries(d, {
-				"warehouse": cstr(d.t_warehouse),
-				"actual_qty": flt(d.transfer_qty),
-				"incoming_rate": flt(d.valuation_rate)
-			}))
+# 	for d in self.get('items'):
+# 		if cstr(d.t_warehouse):
+# 			sl_entries.append(self.get_sl_entries(d, {
+# 				"warehouse": cstr(d.t_warehouse),
+# 				"actual_qty": flt(d.transfer_qty),
+# 				"incoming_rate": flt(d.valuation_rate)
+# 			}))
 
-	# On cancellation, make stock ledger entry for
-	# target warehouse first, to update serial no values properly
+# 	# On cancellation, make stock ledger entry for
+# 	# target warehouse first, to update serial no values properly
 
-		# if cstr(d.s_warehouse) and self.docstatus == 2:
-		# 	sl_entries.append(self.get_sl_entries(d, {
-		# 		"warehouse": cstr(d.s_warehouse),
-		# 		"actual_qty": -flt(d.transfer_qty),
-		# 		"incoming_rate": 0
-		# 	}))
+# 		# if cstr(d.s_warehouse) and self.docstatus == 2:
+# 		# 	sl_entries.append(self.get_sl_entries(d, {
+# 		# 		"warehouse": cstr(d.s_warehouse),
+# 		# 		"actual_qty": -flt(d.transfer_qty),
+# 		# 		"incoming_rate": 0
+# 		# 	}))
 
-	if self.docstatus == 2:
-		sl_entries.reverse()
+# 	if self.docstatus == 2:
+# 		sl_entries.reverse()
 
-	self.make_sl_entries(sl_entries, self.amended_from and 'Yes' or 'No')
+# 	self.make_sl_entries(sl_entries, self.amended_from and 'Yes' or 'No')
