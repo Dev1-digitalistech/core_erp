@@ -32,7 +32,7 @@ def batch_autoname(doc,method):
 	substring_so = make_autoname(b_name)
 	doc.abbr=str(substring_so)
 	frappe.msgprint(str(doc.name))
-	doc.supp=cc[0:4]
+	doc.supp=cc[0:5]
 
 def get_batch_naming_series():
 	"""
