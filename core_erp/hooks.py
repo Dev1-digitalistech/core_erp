@@ -13,6 +13,9 @@ doc_events = {
 	"Purchase Order": {
 		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"
 	},
+	"Batch": {
+                "after_insert": "core_erp.customizations.batch.batch.batch_autoname",
+        },
 	"Quality Inspection": {
 		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.on_submit"
 	},
@@ -37,7 +40,7 @@ doc_events = {
 	},
 	"Stock Entry": {
 		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
-		"on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
+		# "on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
 		# "autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
 	},
 	"Issue":{

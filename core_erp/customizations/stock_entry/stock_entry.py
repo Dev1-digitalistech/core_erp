@@ -58,9 +58,9 @@ def after_insert(doc, method = None):
 				doc.save()
 
 #not in use anymore
-def on_submit(doc, method = None):
-	if doc.stock_entry_type == "Material Transfer" and doc.reason=="SND Transfer":
-		send_to_snd(doc)
+# def on_submit(doc, method = None):
+# 	if doc.stock_entry_type == "Material Transfer" and doc.reason=="SND Transfer":
+# 		send_to_snd(doc)
 
 def on_submit(self):
 
