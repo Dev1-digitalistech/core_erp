@@ -14,7 +14,7 @@ doc_events = {
 		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"
 	},
 	"Batch": {
-                "autoname": "core_erp.customizations.batch.batch.batch_autoname",
+        "autoname": "core_erp.customizations.batch.batch.before_naming",
         },
 	"Quality Inspection": {
 		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.on_submit"

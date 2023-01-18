@@ -24,15 +24,12 @@ def get_name_from_hash():
 	return temp
 
 
-def batch_autoname(doc,method):
-	frappe.msgprint(str(doc))
-	frappe.msgprint(str(method))
-	cc=str(frappe.db.get_value("Supplier",{"name":doc.supplier},"supplier_name"))
-	b_name = cc
-	substring_so = make_autoname(b_name)
-	doc.abbr=str(substring_so)
-	frappe.msgprint(str(doc.name))
-	doc.supp=cc[0:5]
+def before_naming(self,method=None):
+	# frappe.msgprint(str(self))
+	# frappe.msgprint(str(method))
+	cc=str(frappe.db.get_value("Supplier",{"name":self.supplier},"supplier_name"))
+	frappe.msgprint(f'not working: {cc}')
+	self.supp=cc[0:5]
 
 def get_batch_naming_series():
 	"""
