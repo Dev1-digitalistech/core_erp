@@ -29,7 +29,7 @@ def validate(self, method = None):
 	if getdate(self.posting_date) > getdate(nowdate()):
 		throw(_("Posting Date cannot be future date"))
 	gate_entry_type = frappe.db.get_value("Gate Entry", self.gate_entry_no, "gate_entry_type")
-	if gate_entry_type != "Sales Inward":
+	if gate_entry_type == "Sales Inward":
 		return True
 	else:
 		frappe.db.set_value("Gate Entry",self.gate_entry_no,"status","Closed")
