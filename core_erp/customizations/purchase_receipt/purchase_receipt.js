@@ -68,19 +68,20 @@ frappe.ui.form.on("Purchase Receipt", {
 					}
 				}
 			}
-		}
-			else {
-				return {
-					filters: {
-						supplier: doc.supplier,
-						company: doc.company,
-						docstatus: 1,
-						gate_entry_type: "Inward",
-						status: "Open"
-					}
+		
+		else {
+			return {
+				filters: {
+					supplier: doc.supplier,
+					company: doc.company,
+					docstatus: 1,
+					gate_entry_type: "Inward",
+					status: "Open"
+				}
 				}
 			}
 		}
+	}
 	},
 	after_workflow_action(frm) {
 		if (frm.doc.workflow_state == "Approved") {
