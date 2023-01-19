@@ -57,23 +57,25 @@ frappe.ui.form.on("Purchase Receipt", {
 	setup(frm) {
 		cur_frm.fields_dict.gate_entry_no.get_query = function (doc) {
 			if (!doc.is_return) {
+				if(doc.transaction_type == "Stock Transfer"){
 				return {
 					filters: {
 						supplier: doc.supplier,
 						company: doc.company,
 						docstatus: 1,
-						gate_entry_type: "Inward",
+						gate_entry_type: "Sales Inward",
 						status: "Open"
 					}
 				}
 			}
+		}
 			else {
 				return {
 					filters: {
 						supplier: doc.supplier,
 						company: doc.company,
 						docstatus: 1,
-						gate_entry_type: "Outward",
+						gate_entry_type: "Inward",
 						status: "Open"
 					}
 				}
