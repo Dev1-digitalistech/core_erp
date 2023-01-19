@@ -2,7 +2,7 @@
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["Material Request DFM"] = {
+frappe.query_reports["Material Issue DFM"] = {
 	"filters": [
 		{
 				"fieldname":"from_date",
@@ -17,6 +17,14 @@ frappe.query_reports["Material Request DFM"] = {
 				"fieldtype": "Date",
 				"width": "80",
 				"default": frappe.datetime.get_today()
+		},
+		{
+				"fieldname":"company",
+				"label": __("Company"),
+				"fieldtype":"Link",
+				"options":"Company",
+				"width":"80",
+				"default":frappe.defaults.get_user_default("company")
 		},
 ],
 };

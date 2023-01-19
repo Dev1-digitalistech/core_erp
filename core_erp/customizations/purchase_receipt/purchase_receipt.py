@@ -26,11 +26,11 @@ def autoname(doc, method = None):
 		doc.name = make_autoname("MRN/"+doc.abbr+"/"+fiscal_yr_abbr+"/.#####")
 
 def validate(self, method = None):
-	frappe.msgprint("outer")
 	if getdate(self.posting_date) > getdate(nowdate()):
-		frappe.msgprint("inner")
 		throw(_("Posting Date cannot be future date"))
-	frappe.db.set_value("Gate Entry",self.gate_entry_no,"status","Closed")
+	gate_entry_type = frappe.db.get_value("Gate Entry", self.get_entry_no, "gate_entry_type")
+	if gate_entry_type != "Sales Inward":
+		frappe.db.set_value("Gate Entry",self.gate_entry_no,"status","Closed")
 
 def on_update(self, method = None):
 	if self.workflow_state == "Pending For Quality":

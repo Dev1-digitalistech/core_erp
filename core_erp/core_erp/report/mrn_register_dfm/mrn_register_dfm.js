@@ -13,7 +13,15 @@ frappe.query_reports["MRN Register DFM"] = {
 					"fieldtype": "Date",
 					"width": "80",
 					"default": frappe.datetime.get_today()
-			}
+			},
+			{
+					"fieldname":"company",
+					"label": __("Company"),
+					"fieldtype":"Link",
+					"options":"Company",
+					"width":"80",
+					"default": frappe.defaults.get_default("company")
+			},
 ],
 };
 
