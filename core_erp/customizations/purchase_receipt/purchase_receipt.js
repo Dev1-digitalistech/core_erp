@@ -206,6 +206,7 @@ frappe.ui.form.on("Purchase Receipt Item", {
 		frm.set_value("total_invoice_amount", total);
 	},
 	invoice_quantity(frm, cdt, cdn) {
+		frappe.message('test')
 		var total = 0;
 		var total1 = 0
 		var total2 = 0
