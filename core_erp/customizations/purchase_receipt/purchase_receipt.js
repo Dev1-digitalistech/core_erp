@@ -206,11 +206,12 @@ frappe.ui.form.on("Purchase Receipt Item", {
 		frm.set_value("total_invoice_amount", total);
 	},
 	invoice_quantity(frm, cdt, cdn) {
-		frappe.message('test')
+		// frappe.msgprint('ashish')
+		var d = locals[cdt][cdn]
 		var total = 0;
 		var total1 = 0
 		var total2 = 0
-		$.each(frm.doc.items || [], function (i, d) {
+		// $.each(frm.doc.items || [], function (i, d) {
 			total += flt(d.invoice_quantity);
 			d.received_qty = d.invoice_quantity
 			d.qty = d.invoice_quantity
@@ -218,7 +219,7 @@ frappe.ui.form.on("Purchase Receipt Item", {
 			total1 += d.invoice_quantity
 			total2 += flt(d.amount_s);
 			frm.refresh_fields();
-		});
+		// });
 		frm.set_value("total_qty", total1);
 		frm.set_value("total_invoice_qty", total);
 		frm.set_value("total_invoice_amount", total2);
@@ -256,3 +257,4 @@ frappe.ui.form.on("Purchase Receipt Item", {
 		}
 	}
 })
+
