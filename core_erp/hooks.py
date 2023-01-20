@@ -9,6 +9,8 @@ app_color = "grey"
 app_email = "support@extensionerp.com"
 app_license = "MIT"
 
+app_include_js = "assets/core_erp/js/batch_selector_overide.js"
+
 doc_events = {
 	"Purchase Order": {
 		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"

@@ -35,7 +35,7 @@ def get_data():
 					"type": "report",
 					"is_query_report": True,
 					"name": "BOM Vs Actual",
-					"doctype": "Production Plan"
+					"reference_doctype": "Production Plan"
 				},
 				{
 					"type": "report",
@@ -82,15 +82,22 @@ def get_data():
 				{
 					"type": "report",
 					"is_query_report": True,
-					"name": "BOM Vs Actual",
+					"name": "User Role & Permission DFM",
+					"doctype": "User"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "User Activity Log Report",
+					"doctype": "Activity Log"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "BOM vs Actual Duplicate",
 					"doctype": "Production Plan"
 				},
 				
-
-
 			]
 		},
-
-		
-
 	]
