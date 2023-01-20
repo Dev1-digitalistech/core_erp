@@ -13,7 +13,20 @@ frappe.ui.form.on('Material Request', {
 	}
 })
 
+frappe.ui.form.off('Material Request Item', 'qty')
 frappe.ui.form.on('Material Request Item', {
+	qty: function (frm, doctype, name) {
+		var d = locals[doctype][name];
+		if (flt(d.qty) < flt(d.min_order_qty)) {
+			frappe.msgprint(__("Warning: Material Requested Qty is less than Minimum Order Qty"));
+		}
+
+		const item = locals[doctype][name];
+		if (!frm.doc.material_request_type == "Material Transfer" ){
+			frm.events.get_item_data(frm, item);
+		}
+	},
+
 	item_code(frm, cdt, cdn) {
 		if (frm.doc.material_request_type == "Material Transfer for Manufacture") {
 			var warehouse;
