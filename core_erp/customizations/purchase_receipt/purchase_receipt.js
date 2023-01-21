@@ -1,35 +1,35 @@
 frappe.ui.form.off("Purchase Receipt", "clean_up")
 frappe.ui.form.on("Purchase Receipt", {
 	refresh(frm) {
-		setTimeout(() => {
-			frm.remove_custom_button('Purchase Order','Get items from');
-			}, 10);
-		// frm.remove_custom_button('Purchase Order', "Get items from")
-				frm.add_custom_button(__('PO'),
-					function () {
-						if (!frm.doc.supplier) {
-							frappe.throw({
-								title: __("Mandatory"),
-								message: __("Please Select a Supplier")
-							});
-						}
+		// setTimeout(() => {
+		// 	frm.remove_custom_button('Purchase Order','Get items from');
+		// 	}, 10);
+		// // frm.remove_custom_button('Purchase Order', "Get items from")
+		// 		frm.add_custom_button(__('PO'),
+		// 			function () {
+		// 				if (!frm.doc.supplier) {
+		// 					frappe.throw({
+		// 						title: __("Mandatory"),
+		// 						message: __("Please Select a Supplier")
+		// 					});
+		// 				}
 
-						frm.doc.taxes = [];
-						erpnext.utils.map_current_doc({
-							method: "core_erp.customizations.purchase_order.purchase_order.make_purchase_receipt",
-							source_doctype: "Purchase Order",
-							target: frm,
-							setters: {
-								supplier: frm.doc.supplier,
-							},
-							get_query_filters: {
-								docstatus: 1,
-								status: ["not in", ["Closed", "On Hold"]],
-								per_received: ["<", 99.99],
-								company: frm.doc.company
-							}
-						})
-					}, __("Get items from"));
+		// 				frm.doc.taxes = [];
+		// 				erpnext.utils.map_current_doc({
+		// 					method: "core_erp.customizations.purchase_order.purchase_order.make_purchase_receipt",
+		// 					source_doctype: "Purchase Order",
+		// 					target: frm,
+		// 					setters: {
+		// 						supplier: frm.doc.supplier,
+		// 					},
+		// 					get_query_filters: {
+		// 						docstatus: 1,
+		// 						status: ["not in", ["Closed", "On Hold"]],
+		// 						per_received: ["<", 99.99],
+		// 						company: frm.doc.company
+		// 					}
+		// 				})
+		// 			}, __("Get items from"));
 			// 	}
 			// }
 				
@@ -195,6 +195,7 @@ frappe.ui.form.on("Purchase Receipt", {
 	}
 });
 
+
 frappe.ui.form.on("Purchase Receipt Item", {
 	rate_s(frm, cdt, cdn) {
 		var total = 0;
@@ -206,23 +207,23 @@ frappe.ui.form.on("Purchase Receipt Item", {
 		frm.set_value("total_invoice_amount", total);
 	},
 	invoice_quantity(frm, cdt, cdn) {
-		// frappe.msgprint('ashish')
-		var d = locals[cdt][cdn]
+		var row = locals[cdt][cdn];
 		var total = 0;
 		var total1 = 0
 		var total2 = 0
-		// $.each(frm.doc.items || [], function (i, d) {
+			row.received_qty = row.invoice_quantity
+			row.qty = row.invoice_quantity
+			row.amount_s = row.invoice_quantity * row.rate_s;
+			frm.refresh_field("items");
+		$.each(frm.doc.items, function (i, d) {
 			total += flt(d.invoice_quantity);
-			d.received_qty = d.invoice_quantity
-			d.qty = d.invoice_quantity
-			d.amount_s = d.invoice_quantity * d.rate_s;
 			total1 += d.invoice_quantity
 			total2 += flt(d.amount_s);
-			frm.refresh_fields();
-		// });
+		})
 		frm.set_value("total_qty", total1);
 		frm.set_value("total_invoice_qty", total);
 		frm.set_value("total_invoice_amount", total2);
+		cur_frm.refresh_fields()
 	},
 	received_qty(frm, cdt, cdn) {
 		var total = 0;
@@ -257,4 +258,3 @@ frappe.ui.form.on("Purchase Receipt Item", {
 		}
 	}
 })
-

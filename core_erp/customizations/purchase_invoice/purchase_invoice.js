@@ -282,6 +282,27 @@ erpnext.accounts.PurchaseInvoice = erpnext.buying.BuyingController.extend({
 				me.frm.set_df_property("tax_withholding_category", "hidden", me.frm.supplier_tds ? 0 : 1);
 			})
 	},
+	// onload: function() {
+	// 	var me = this;
+	// 	if(this.frm.updating_party_details)
+	// 		return;
+	// 	if(this.frm.doc.is_return){
+	// 	erpnext.utils.get_party_details(this.frm, "erpnext.accounts.party.get_party_details",
+	// 		{
+	// 			posting_date: this.frm.doc.posting_date,
+	// 			bill_date: this.frm.doc.bill_date,
+	// 			party: this.frm.doc.supplier,
+	// 			party_type: "Supplier",
+	// 			account: this.frm.doc.credit_to,
+	// 			price_list: this.frm.doc.buying_price_list
+	// 		}, function() {
+	// 			me.apply_pricing_rule();
+	// 			me.frm.doc.apply_tds = me.frm.supplier_tds ? 1 : 0;
+	// 			me.frm.doc.tax_withholding_category = me.frm.supplier_tds;
+	// 			me.frm.set_df_property("apply_tds", "read_only", me.frm.supplier_tds ? 0 : 1);
+	// 			me.frm.set_df_property("tax_withholding_category", "hidden", me.frm.supplier_tds ? 0 : 1);
+	// 		})
+	// }},
 
 	apply_tds: function(frm) {
 		var me = this;
@@ -539,14 +560,24 @@ frappe.ui.form.on("Purchase Invoice", {
 	},
 
 	onload: function(frm) {
-		if(frm.doc.__onload) {
-			if(frm.doc.supplier) {
-				frm.doc.apply_tds = frm.doc.__onload.supplier_tds ? 1 : 0;
+		if(frm.updating_party_details)
+			return;
+			if(frm.doc.is_return || frm.doc.__islocal){
+				erpnext.utils.get_party_details(frm, "erpnext.accounts.party.get_party_details",
+						{
+							posting_date: frm.doc.posting_date,
+							bill_date: frm.doc.bill_date,
+							party: frm.doc.supplier,
+							party_type: "Supplier",
+							account: frm.doc.credit_to,
+							price_list: frm.doc.buying_price_list
+						}, function() {
+							frm.doc.apply_tds = frm.supplier_tds ? 1 : 0;
+							frm.doc.tax_withholding_category = frm.supplier_tds;
+							frm.set_df_property("apply_tds", "read_only", frm.supplier_tds ? 0 : 1);
+							frm.set_df_property("tax_withholding_category", "hidden", frm.supplier_tds ? 0 : 1);
+						})
 			}
-//			if(!frm.doc.__onload.supplier_tds) {
-//				frm.set_df_property("apply_tds", "read_only", 1);
-//			}
-		}
 
 		erpnext.queries.setup_queries(frm, "Warehouse", function() {
 			return erpnext.queries.warehouse(frm.doc);
