@@ -30,9 +30,6 @@ frappe.ui.form.on("Purchase Receipt", {
 							}
 						})
 					}, __("Get items from"));
-				}
-			}
-				
 			
 		if (frm.doc.docstatus == 0) {
 			frm.add_custom_button(__('Delivery Note'),
