@@ -24,7 +24,8 @@ frappe.query_reports["Material Transfer for MFG DFM"] = {
 				"fieldtype":"Link",
 				"options":"Company",
 				"width":"80",
-				"default": frappe.defaults.get_default("company")
+				"reqd":1
+				// "default": frappe.defaults.get_default("company")
 		},
 ],
 };
