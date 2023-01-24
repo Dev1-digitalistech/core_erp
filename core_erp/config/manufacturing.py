@@ -16,6 +16,18 @@ def get_data():
 				{
 					"type": "report",
 					"is_query_report": True,
+					"name": "BOM vs Actual",
+					"reference_doctype": "Production Plan"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
+					"name": "BOM List",
+					"reference_doctype": "BOM"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
 					"name": "Pending PO Quatity",
 					"doctype": "Purchase Order"
 				},
