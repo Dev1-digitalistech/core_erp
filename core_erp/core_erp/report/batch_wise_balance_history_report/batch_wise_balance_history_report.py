@@ -37,11 +37,11 @@ def execute(filters=None):
 				days_left=date_diff(expiry_date,cur_date)
 				bucket = ""
 				if (days_left < 0):
-					bucket="<0"
+					bucket="<0 Days"
 				elif(days_left <= 15):
-					bucket="0-15"
+					bucket="0-15 Days"
 				elif(days_left <= 30):
-					bucket="16-30"
+					bucket="16-30 Days"
 				elif(days_left <= 45):
 					bucket="30-45 Days"
 				else:
