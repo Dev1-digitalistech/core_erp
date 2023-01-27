@@ -44,6 +44,12 @@ def get_data():
 				{
 					"type": "report",
 					"is_query_report": True,
+					"name": "Item Batch Expiry Status DFM",
+					"doctype": "Stock Ledger Entry"
+				},
+				{
+					"type": "report",
+					"is_query_report": True,
 					"name": "MRN Register with Approval Date",
 					"doctype": "Purchase Receipt"
 				},
