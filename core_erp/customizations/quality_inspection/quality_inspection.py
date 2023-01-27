@@ -30,7 +30,7 @@ def get_quality_inspection_template(self):
 	if not self.inspection_for_wip:
 		self.get_item_specification_details()
 	else:
-		get_wip_reading_template(self)
+		self.get_wip_reading_template()
 
 def get_wip_reading_template(self):
 	if not self.quality_inspection_template:
