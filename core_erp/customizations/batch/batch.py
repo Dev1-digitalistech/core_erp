@@ -28,7 +28,7 @@ def before_naming(self,method=None):
 	# frappe.msgprint(str(self))
 	# frappe.msgprint(str(method))
 	cc=str(frappe.db.get_value("Supplier",{"name":self.supplier},"supplier_name"))
-	frappe.msgprint(f'not working: {cc}')
+	# frappe.msgprint(f'not working: {cc}')
 	self.supp=cc[0:5]
 
 def get_batch_naming_series():
@@ -88,3 +88,8 @@ def before_save(self):
 	# 			get_link_to_form("Item", self.item),
 	# 			frappe.bold("Batch Expiry Date")),
 	# 		title=_("Expiry Date Mandatory"))
+
+@frappe.whitelist(allow_guest=True)
+def expiry_date(name,mrn):
+	data = frappe.db.sql(f"""SELECT expiry_date from `tabPurchase Receipt Item` where batch_no='{name}' """,as_dict=0)
+	return data
