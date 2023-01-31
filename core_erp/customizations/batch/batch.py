@@ -10,6 +10,14 @@ from frappe.utils.data import add_days
 from six import string_types
 
 
+def validate(self, method=None):
+	frappe.msgprint(str(self.reference_name))
+	# frappe.msgprint(str(self.expiry_date))
+	frappe.msgprint(str(self.name))
+	data = frappe.db.sql(f"""SELECT expiry_date,item_code from `tabPurchase Receipt Item` where parent='{self.reference_name}' """,as_dict=1)
+	frappe.msgprint(str(data[0]['expiry_date']))
+	self.expiry_date=data[0]['expiry_date']
+
 def get_name_from_hash():
 	"""
 	Get a name for a Batch by generating a unique hash.
@@ -89,7 +97,7 @@ def before_save(self):
 	# 			frappe.bold("Batch Expiry Date")),
 	# 		title=_("Expiry Date Mandatory"))
 
-@frappe.whitelist(allow_guest=True)
-def expiry_date(name,mrn):
-	data = frappe.db.sql(f"""SELECT expiry_date from `tabPurchase Receipt Item` where batch_no='{name}' """,as_dict=0)
-	return data
+# @frappe.whitelist(allow_guest=True)
+# def expiry_date(name,mrn):
+# 	data = frappe.db.sql(f"""SELECT expiry_date from `tabPurchase Receipt Item` where batch_no='{name}' """,as_dict=0)
+# 	return data

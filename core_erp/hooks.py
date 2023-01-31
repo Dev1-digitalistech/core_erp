@@ -50,7 +50,10 @@ doc_events = {
 	},
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
-	}
+	},
+		"Batch":{
+			"validate":"core_erp.customizations.batch.batch.validate"
+		}
 }
 
 # Issue only assign view permissions
