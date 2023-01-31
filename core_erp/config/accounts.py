@@ -47,7 +47,7 @@ def get_data():
 				{
 					"type": "report",
 					"is_query_report": True,
-					"name": "Monthly TDS Payable",
+					"name": "Monthly TDS Payable DUP",
 					"doctype": "GL Entry"
 				},
 				{
