@@ -50,10 +50,10 @@ doc_events = {
 	},
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
-	},
-		"Batch":{
-			"validate":"core_erp.customizations.batch.batch.validate"
-		}
+	}
+		# "Batch":{
+		# 	"before_save":"core_erp.customizations.batch.batch.before_save"
+		# }
 }
 
 # Issue only assign view permissions
@@ -80,7 +80,7 @@ doctype_js = {
 override_whitelisted_methods = {
     "erpnext.stock.doctype.material_request.material_request.make_stock_entry":"core_erp.customizations.material_request.material_request.make_stock_entry",
 	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice",
-	"erpnext.buying.doctype.purchase_order.purchase_order.make_purchase_receipt":"core_erp.customizations.purchase_order.purchase_order.make_purchase_receipt"
+	"erpnext._co.doctype.purchase_order.purchase_order.make_purchase_receipt":"core_erp.customizations.purchase_order.purchase_order.make_purchase_receipt"
 
 }
 

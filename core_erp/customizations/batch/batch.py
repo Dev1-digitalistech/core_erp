@@ -10,16 +10,16 @@ from frappe.utils.data import add_days
 from six import string_types
 
 
-def validate(self, method=None):
-	# frappe.msgprint(str(self.reference_name))
-	# frappe.msgprint(str(self.expiry_date))
-	frappe.msgprint(str(self.name))
-	data = frappe.db.sql(f"""SELECT expiry_date,item_code from `tabPurchase Receipt Item` where parent='{self.reference_name}' """,as_dict=1)
-	# frappe.msgprint(str(data[0]['expiry_date']))
-	for items in data:
-		self.expiry_date=items['expiry_date']
+# def before_save(self, method=None):
+# 	# frappe.msgprint(str(self.reference_name))
+# 	# frappe.msgprint(str(self.expiry_date))
+# 	frappe.msgprint(str(self.name))
+# 	data = frappe.db.sql(f"""SELECT expiry_date,item_code from `tabPurchase Receipt Item` where parent='{self.reference_name}' """,as_dict=1)
+# 	# frappe.msgprint(str(data[0]['expiry_date']))
+# 	for items in data:
+# 		self.expiry_date=items['expiry_date']
 		
-	# self.expiry_date=data[0]['expiry_date']
+# 	# self.expiry_date=data[0]['expiry_date']
 
 def get_name_from_hash():
 	"""
