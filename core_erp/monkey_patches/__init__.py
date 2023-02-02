@@ -28,7 +28,7 @@ from erpnext.accounts.doctype.purchase_invoice.purchase_invoice import PurchaseI
 from core_erp.customizations.purchase_invoice.purchase_invoice import pr_required,set_tax_withholding
 
 from erpnext.controllers.accounts_controller import AccountsController
-from core_erp.customizations.controllers.accounts_controller import validate
+from core_erp.customizations.controllers.accounts_controller import validate_dup
 
 from erpnext.controllers.taxes_and_totals import calculate_taxes_and_totals
 from core_erp.customizations.controllers.taxes_and_totals import calculate_item_values,get_current_tax_amount
@@ -36,7 +36,7 @@ from core_erp.customizations.controllers.taxes_and_totals import calculate_item_
 calculate_taxes_and_totals.calculate_item_values = calculate_item_values
 calculate_taxes_and_totals.get_current_tax_amount = get_current_tax_amount
 
-AccountsController.validate = validate
+AccountsController.validate = validate_dup
 
 PurchaseInvoice.pr_required = pr_required
 PurchaseInvoice.set_tax_withholding = set_tax_withholding

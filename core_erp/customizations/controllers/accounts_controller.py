@@ -7,7 +7,7 @@ from erpnext.accounts.doctype.pricing_rule.utils import (apply_pricing_rule_on_t
 	apply_pricing_rule_for_free_items, get_applied_pricing_rules)
 from frappe import _, throw
 
-def validate(self):
+def validate_dup(self):
 	if not self.get('is_return'):
 		self.validate_qty_is_not_zero()
 

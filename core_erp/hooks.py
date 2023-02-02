@@ -17,6 +17,7 @@ doc_events = {
 	},
 	"Batch": {
         "autoname": "core_erp.customizations.batch.batch.before_naming",
+		# "before_insert":"core_erp.customizations.batch.batch.before_insert"
         },
 	"Quality Inspection": {
 		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.on_submit"
@@ -52,7 +53,8 @@ doc_events = {
 		"get_data":"core_erp.config.stock.get_data"
 	}
 		# "Batch":{
-		# 	"before_save":"core_erp.customizations.batch.batch.before_save"
+			
+			
 		# }
 }
 
