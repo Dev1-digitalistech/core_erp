@@ -9,6 +9,23 @@ from erpnext.accounts.doctype.tax_withholding_category.tax_withholding_category 
     import get_tax_withholding_details, get_tax_row, get_advance_vouchers, is_valid_certificate, \
         get_ltds_amount, get_debit_note_amount
 
+
+@frappe.whitelist(allow_guest=True)
+def tax_category_fun(name,supplier,mrn):
+	supplier_tax =  subject = frappe.db.get_value('Supplier', supplier, 'tax_category')
+	frappe.msgprint(str(supplier_tax))
+	if supplier_tax!=None:
+		frappe.msgprint('tax category of supplier')
+		return supplier_tax
+	elif supplier_tax==None:
+		mrn_tax = frappe.db.get_value('Purchase Receipt', mrn, 'tax_category')
+		return mrn_tax
+
+
+
+
+
+
 def on_submit(self,method=None):
 	if self.rejected_qty:
 		frappe.db.set_value("Purchase Invoice", self.return_against, "rejected_qty", 1)
@@ -276,7 +293,7 @@ def tally_integration():
 			payload['is_debit_note']=True
 		else:
 			payload['is_debit_note']=False
-		payload['tax_category']=data.tax_category
+		# payload['tax_category']=data.tax_category
 		payload['narration']=data.narration
 		doc=frappe.get_doc("Purchase Invoice",data.name)
 		item_ledger_list=[]
@@ -392,7 +409,7 @@ def tally_new_integration():
 			payload['is_debit_note']=True
 		else:
 			payload['is_debit_note']=False
-		payload['tax_category']=data.tax_category
+		# payload['tax_category']=data.tax_category
 		payload['narration']=data.narration
 		doc=frappe.get_doc("Purchase Invoice",data.name)
 		item_ledger_list=[]
