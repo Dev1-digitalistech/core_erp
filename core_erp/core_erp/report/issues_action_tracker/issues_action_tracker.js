@@ -19,10 +19,10 @@ frappe.query_reports["Issues Action Tracker"] = {
 			"default": frappe.datetime.get_today()
 	},
 	{
-		"fieldname":"issue_type",
-		"label": __("Issue Type"),
+		"fieldname":"ticket_type",
+		"label": __("Ticket Type"),
 		"fieldtype": "Link",
-		"options": "Issue Type",
+		"options": "Ticket Type",
 		"reqd":1
 	},
 
