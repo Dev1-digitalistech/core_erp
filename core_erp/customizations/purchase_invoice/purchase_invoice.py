@@ -10,16 +10,16 @@ from erpnext.accounts.doctype.tax_withholding_category.tax_withholding_category 
         get_ltds_amount, get_debit_note_amount
 
 
-@frappe.whitelist(allow_guest=True)
-def tax_category_fun(name,supplier,mrn):
-	supplier_tax =  subject = frappe.db.get_value('Supplier', supplier, 'tax_category')
-	frappe.msgprint(str(supplier_tax))
-	if supplier_tax!=None:
-		frappe.msgprint('tax category of supplier')
-		return supplier_tax
-	elif supplier_tax==None:
-		mrn_tax = frappe.db.get_value('Purchase Receipt', mrn, 'tax_category')
-		return mrn_tax
+# @frappe.whitelist(allow_guest=True)
+# def tax_category_fun(name,supplier,mrn):
+# 	supplier_tax =  subject = frappe.db.get_value('Supplier', supplier, 'tax_category')
+# 	frappe.msgprint(str(supplier_tax))
+# 	if supplier_tax!=None:
+# 		frappe.msgprint('tax category of supplier')
+# 		return supplier_tax
+# 	elif supplier_tax==None:
+# 		mrn_tax = frappe.db.get_value('Purchase Receipt', mrn, 'tax_category')
+# 		return mrn_tax
 
 
 
