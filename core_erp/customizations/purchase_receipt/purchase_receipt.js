@@ -1,6 +1,7 @@
 frappe.ui.form.off("Purchase Receipt", "clean_up")
 frappe.ui.form.on("Purchase Receipt", {
 	refresh(frm) {
+		
 		frm.add_custom_button(__('Purchase invoice'),
 					function () {
 						frappe.model.open_mapped_doc({
