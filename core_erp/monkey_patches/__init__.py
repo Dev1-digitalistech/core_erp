@@ -33,6 +33,12 @@ from core_erp.customizations.controllers.accounts_controller import validate_dup
 from erpnext.controllers.taxes_and_totals import calculate_taxes_and_totals
 from core_erp.customizations.controllers.taxes_and_totals import calculate_item_values,get_current_tax_amount
 
+
+from erpnext.controllers.status_updater import StatusUpdater
+from core_erp.customizations.controllers.status_updater import update_billing_status_dup
+
+StatusUpdater.update_billing_status = update_billing_status_dup
+
 calculate_taxes_and_totals.calculate_item_values = calculate_item_values
 calculate_taxes_and_totals.get_current_tax_amount = get_current_tax_amount
 
