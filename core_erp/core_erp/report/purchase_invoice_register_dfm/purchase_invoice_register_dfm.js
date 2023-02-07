@@ -26,5 +26,6 @@ frappe.query_reports["Purchase Invoice Register DFM"] = {
 			"reqd":1
 }
 
+
 	]
 };

@@ -10,6 +10,8 @@ def execute(filters):
         data = get_data(filters)
         return columns, data
 
+
+
 def get_column(filters):
 	column =  [
                 {"label": _("Purchase Invoice"), "fieldname": "name", "fieldtype": "Link", "options": "Purchase Invoice", "width": 140},
@@ -73,7 +75,7 @@ def get_data(filters):
 	left join `tabPurchase Invoice Item` pit on pit.parent=pi.name 
 	left join`tabItem Tax Template` iit on pit.item_tax_template=iit.name
 	left join `tabPurchase Receipt` as pr on pr.name=pi.mrn_number
-	where %s and pi.docstatus=1 and pi.is_return=0  """%cond,as_dict=1)
+	where %s and pi.docstatus=1 and pi.is_return=0 and pi.purchase_order=po.name  """%cond,as_dict=1)
 	if all_data:
 		for data in all_data:
 			if data['taxes_and_charges_added']:
