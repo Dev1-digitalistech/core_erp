@@ -10,6 +10,11 @@ frappe.query_reports["BOM List"] = {
 		"fieldname" : "active_only",
 		"label": __("Active Only"),
 		"fieldtype": "Check"
+	},
+	{
+		"fieldname" : "is_default",
+		"label": __("Is Default"),
+		"fieldtype": "Check"
 	}
 ],
 };

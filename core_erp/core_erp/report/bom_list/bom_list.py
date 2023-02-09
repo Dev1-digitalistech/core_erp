@@ -227,6 +227,8 @@ def get_conditions(filters):
 		conditions += " and b.company = '%s'" % filters["company"]
 	if filters.get("active_only") == 1:
 		conditions += " and b.is_active = 1"
+	if filters.get("is_default") == 1:
+		conditions += " and b.is_default = 1"
 
 	return conditions
 
