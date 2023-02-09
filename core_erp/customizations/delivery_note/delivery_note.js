@@ -65,9 +65,13 @@ frappe.ui.form.on('Delivery Note', {
 
 frappe.ui.form.on('Delivery Note Item', {
     qty: function(frm, cdt, cdn) {
+        // frappe.msgprint(str(frm.doc.name))
+        console.log(frm.doc.transaction_type)
+        if(frm.doc.transaction_type!='Normal'){
         let d = frappe.model.get_doc(cdt, cdn);
         if (d.item_code) {
             frm.events.set_basic_rate(frm, cdt, cdn);
         }
+    }
     }
 })
