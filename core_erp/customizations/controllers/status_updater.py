@@ -35,7 +35,7 @@ def update_billing_status_dup(self, zero_amount_refdoc, ref_dt, ref_fieldname):
                 from `tab%s Item` where %s=%s and docstatus=1""" %
                 (self.doctype, ref_fieldname, '%s'), (ref_dn))[0][0])
 
-            per_billed = (min(ref_doc_qty, billed_qty) / ref_doc_received_qty) * 100
+            per_billed = (min(ref_doc_qty, billed_qty) / ref_doc_qty) * 100
 
             ref_doc = frappe.get_doc(ref_dt, ref_dn)
 
