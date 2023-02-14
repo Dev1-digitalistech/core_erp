@@ -3,6 +3,8 @@ from frappe import _
 
 def get_data():
 	return [
+
+		
 		{
 			"label": _("Permissions"),
 			"icon": "fa fa-list",
