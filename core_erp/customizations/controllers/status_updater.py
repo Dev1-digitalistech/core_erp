@@ -28,8 +28,6 @@ def update_billing_status_dup(self, zero_amount_refdoc, ref_dt, ref_fieldname):
         for ref_dn in zero_amount_refdoc:
             ref_doc_qty = flt(frappe.db.sql("""select ifnull(sum(qty), 0) from `tab%s Item`
                 where parent=%s""" % (ref_dt, '%s'), (ref_dn))[0][0])
-            ref_doc_received_qty = flt(frappe.db.sql("""select ifnull(sum(received_qty), 0) from `tab%s Item`
-                where parent=%s""" % (ref_dt, '%s'), (ref_dn))[0][0])
 
             billed_qty = flt(frappe.db.sql("""select ifnull(sum(qty), 0)
                 from `tab%s Item` where %s=%s and docstatus=1""" %
