@@ -22,13 +22,15 @@ frappe.query_reports["Production Planning Report"] = {
 			"fieldname":"company",
 			"label": __("Company"),
 			"fieldtype": "Link",
-			"options":"Company",		
+			"options":"Company",	
+			"reqd":1	
 		},
 		{
 			"fieldname":"item_code",
 			"label": __("Item Code"),
 			"fieldtype": "Link",
 			"options":"Item",
+			"reqd":1
 		}
 	],
 };
