@@ -18,19 +18,5 @@ frappe.query_reports["Production Planning Report"] = {
 			"width": "80",
 			"default": frappe.datetime.get_today()
 		},
-		{
-			"fieldname":"company",
-			"label": __("Company"),
-			"fieldtype": "Link",
-			"options":"Company",	
-			"reqd":1	
-		},
-		{
-			"fieldname":"item_code",
-			"label": __("Item Code"),
-			"fieldtype": "Link",
-			"options":"Item",
-			"reqd":1
-		}
 	],
 };
