@@ -37,6 +37,12 @@ from core_erp.customizations.controllers.taxes_and_totals import calculate_item_
 from erpnext.controllers.status_updater import StatusUpdater
 from core_erp.customizations.controllers.status_updater import update_billing_status_dup
 
+from erpnext.controllers.stock_controller import StockController
+from core_erp.customizations.controllers.stock_controller import validate_inspection_dup
+
+
+StockController.validate_inspection = validate_inspection_dup
+
 StatusUpdater.update_billing_status = update_billing_status_dup
 
 calculate_taxes_and_totals.calculate_item_values = calculate_item_values
