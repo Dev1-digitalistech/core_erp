@@ -28,7 +28,7 @@ def get_quality_inspection_template(self):
 
 	self.quality_inspection_template = template
 	if not self.inspection_for_wip:
-		self.get_item_specification_details()
+		self.get_item_specification_details_dup()
 	else:
 		self.get_wip_reading_template()
 
@@ -48,7 +48,7 @@ def get_wip_reading_template(self):
 		child.exp_high=d.high
 		child.status="Accepted"
 
-def get_item_specification_details(self):
+def get_item_specification_details_dup(self):
 	if not self.quality_inspection_template:
 		self.quality_inspection_template = frappe.db.get_value('Item',
 			self.item_code, 'quality_inspection_template')

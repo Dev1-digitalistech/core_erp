@@ -6,8 +6,9 @@ from erpnext.accounts.utils import get_fiscal_year
 from frappe.utils import flt, get_link_to_form
 from frappe.model.naming import make_autoname
 from erpnext.accounts.doctype.tax_withholding_category.tax_withholding_category \
-    import get_tax_withholding_details, get_tax_row, get_advance_vouchers, is_valid_certificate, \
-        get_ltds_amount, get_debit_note_amount
+    import get_tax_withholding_details, get_tax_row_for_tds, get_advance_vouchers, is_valid_certificate, \
+        get_ltds_amount
+# get_debit_note_amount
 
 
 # @frappe.whitelist(allow_guest=True)
@@ -127,7 +128,7 @@ def get_party_tax_withholding_details(ref_doc, tax_withholding_category=None):
 	tds_amount = get_tds_amount(suppliers, ref_doc.net_total, ref_doc.company,
 		tax_details, fy,  ref_doc.posting_date, pan_no)
 
-	tax_row = get_tax_row(tax_details, tds_amount)
+	tax_row = get_tax_row_for_tds(tax_details, tds_amount)
 
 	return tax_row
 
@@ -228,8 +229,8 @@ def get_tds_amount(suppliers, net_total, company, tax_details, fiscal_year_detai
 
 		supplier_credit_amount += net_total
 
-		debit_note_amount = get_debit_note_amount(suppliers, year_start_date, year_end_date)
-		supplier_credit_amount -= debit_note_amount
+		#debit_note_amount = get_debit_note_amount(suppliers, year_start_date, year_end_date)
+		#supplier_credit_amount -= debit_note_amount
 		if ((tax_details.get('threshold', 0) and supplier_credit_amount >= tax_details.threshold)
 			or (tax_details.get('cumulative_threshold', 0) and supplier_credit_amount >= tax_details.cumulative_threshold)):
 
@@ -251,7 +252,7 @@ def make_debit_note(source_name, target_doc=None):
 
 
 @frappe.whitelist()
-def make_debit_note_for_reject(source_name, target_doc=None):
+def make_debit_note_for_reject_qty(source_name, target_doc=None):
 	#from erpnext.controllers.sales_and_purchase_return import make_return_doc_for_reject
 	return make_return_doc_for_reject("Purchase Invoice", source_name, target_doc)
 

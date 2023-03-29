@@ -31,7 +31,7 @@ def get_name_from_hash():
 
 
 def before_naming(self,method=None):
-	# frappe.msgprint(str(self))
+	frappe.msgprint(str(self))
 	# frappe.msgprint(str(method))
 	cc=str(frappe.db.get_value("Supplier",{"name":self.supplier},"supplier_name"))
 	# frappe.msgprint(f'not working: {cc}')
@@ -68,7 +68,7 @@ def batch_uses_naming_series():
 	return bool(use_naming_series)
 
 
-def autoname(self):
+def autoname(self, method=None):
 	"""Generate random ID for batch if not specified"""
 	if not self.batch_id:
 		create_new_batch, batch_number_series = frappe.db.get_value('Item', self.item,
@@ -105,3 +105,11 @@ def before_save(self):
 # def expiry_date(name,mrn):
 # 	data = frappe.db.sql(f"""SELECT expiry_date from `tabPurchase Receipt Item` where batch_no='{name}' """,as_dict=0)
 # 	return data
+
+
+def update_cost_center():
+	list = ['SA/HOG/22-23/00052',	'SA/HOG/22-23/00051',	'SA/HOG/22-23/00050',	'SA/HOG/22-23/00049',	'SA/HOG/22-23/00048',	'SA/HOG/22-23/00047',	'SA/HOG/22-23/00046']
+	
+	for items in list:
+		doc = frappe.db.get_value('Sales Order', items,'location_preference')
+		print(doc)

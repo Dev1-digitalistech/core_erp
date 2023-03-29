@@ -11,7 +11,7 @@ from erpnext.stock.doctype.purchase_receipt.purchase_receipt import PurchaseRece
 from core_erp.customizations.purchase_receipt.purchase_receipt import po_required, get_gl_entries
 
 from erpnext.stock.doctype.quality_inspection.quality_inspection import QualityInspection
-from core_erp.customizations.quality_inspection.quality_inspection import get_item_specification_details, \
+from core_erp.customizations.quality_inspection.quality_inspection import get_item_specification_details_dup, \
 				get_quality_inspection_template, update_qc_reference, on_submit
 
 from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
@@ -68,7 +68,7 @@ Batch.before_save=  before_save
 PurchaseReceipt.po_required = po_required
 PurchaseReceipt.get_gl_entries = get_gl_entries
 
-QualityInspection.get_item_specification_details = get_item_specification_details
+QualityInspection.get_item_specification_details = get_item_specification_details_dup
 QualityInspection.get_quality_inspection_template = get_quality_inspection_template
 QualityInspection.update_qc_reference = update_qc_reference
 QualityInspection.on_submit = on_submit

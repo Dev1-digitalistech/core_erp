@@ -13,5 +13,5 @@ $(document).ready( function() {
 			}, show_dialog);
 		});
 	};
-    console.log('custom batch selector running')
+    console.log('custom batch selector running 2')
 })

@@ -110,6 +110,7 @@ frappe.ui.form.on('Purchase Order', {
 
     },
     refresh(frm) {
+        console.log('hello ashish verma')
         frm.toggle_display("naming_series", false);
         //frm.set_df_property("company", "hidden", 0);
         if (cur_frm.doc.ship_gst_state == cur_frm.doc.supp_gst_state) {

@@ -11,12 +11,16 @@ app_license = "MIT"
 
 app_include_js = "assets/core_erp/js/batch_selector_overide.js"
 
+doctype_js = {
+	"Supplier": "customizations/purchase_invoice/purchase_invoice2.js"
+}
+
 doc_events = {
 	"Purchase Order": {
 		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"
 	},
 	"Batch": {
-        "autoname": "core_erp.customizations.batch.batch.before_naming",
+        "autoname": "core_erp.customizations.batch.batch.autoname",
 		# "before_insert":"core_erp.customizations.batch.batch.before_insert"
         },
 	"Quality Inspection": {
@@ -44,10 +48,11 @@ doc_events = {
 	"Stock Entry": {
 		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
 		# "on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
-		# "autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
+		"autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
 	},
 	"Issue":{
-		"validate": "core_erp.customizations.issue.issue.validate"
+		"validate": "core_erp.customizations.issue.issue.validate",
+		"autoname": "core_erp.customizations.issue.issue.autoname"
 	},
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
@@ -74,7 +79,7 @@ doctype_js = {
 	"Item": "customizations/item/item.js",
 	"Purchase Order": "customizations/purchase_order/purchase_order.js",
 	"Payment Entry": "customizations/payment_entry/payment_entry.js",
-	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice.js",
+	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice2.js",
 	"Purchase Receipt": "customizations/purchase_receipt/purchase_receipt.js",
 	"Delivery Note": "customizations/delivery_note/delivery_note.js",
 }

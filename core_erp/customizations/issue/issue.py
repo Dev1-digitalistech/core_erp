@@ -16,14 +16,14 @@ def validate(self,method):
 	elif self.to_email_account == "ERP SUPPORT":
 		self.ticket_type = "ERP SUPPORT"
 
-def autoname(self):
+def autoname(self,method=None):
 	if self.to_email_account=="IT Support":
 		self.name=make_autoname("ITST/22-23/.#####.")
 
-	elif self.ticket_type=="IT Support":
+	elif self.ticket_type=="ERP SUPPORT":
 		self.name = make_autoname("ITST/22-23/.#####.")
 
-	elif self.to_email_account=="BIZOM Support":
+	elif self.to_email_account=="BIZOM-Support":
 		self.name=make_autoname("BST/22-23/.#####.")
 
 	elif self.ticket_type=="BIZOM-Support":
@@ -40,6 +40,9 @@ def autoname(self):
 
 	elif self.ticket_type=="ERP SUPPORT":
 		self.name=make_autoname("ERP/22-23/.#####.")
+
+	elif self.ticket_type=="Distributor Feedback":
+		self.name=make_autoname("DF/22-23/.#####.")
 
 	elif self.to_email_account=="ERP SUPPORT":
 		self.name=make_autoname("ERP/22-23/.#####.")

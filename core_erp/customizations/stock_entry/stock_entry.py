@@ -37,14 +37,15 @@ from frappe.model.naming import make_autoname
 import json
 from six import string_types, itervalues, iteritems
 
-# def autoname(doc, method = None):
-# 	yr_abbr = get_fiscal_abbr(doc.posting_date)
-# 	entry_type = frappe.db.get_value('Stock Entry Type',doc.stock_entry_type,doc.abbr)
-# 	frappe.msgprint(str(entry_type))
-# 	if not entry_type:
-# 		frappe.throw('Kindly fill Abbreviation in Stock Entry Type')
+def autoname(doc, method = None):
+	yr_abbr = get_fiscal_abbr(doc.posting_date)
+	# entry_type = frappe.db.get_value('Stock Entry Type',doc.stock_entry_type,doc.abbr)
+	entry_type = frappe.db.get_value('Stock Entry Type',doc.stock_entry_type,'abbr')
+	# frappe.msgprint(str(entry_type))
+	if not entry_type:
+		frappe.throw('Kindly fill Abbreviation in Stock Entry Type')
 
-# 	doc.name = make_autoname(f"{entry_type}/{doc.abbr}/{yr_abbr}/.#####")
+	doc.name = make_autoname(f"{entry_type}/{doc.abbr}/{yr_abbr}/.#####")
 
 def after_insert(doc, method = None):
 	if doc.stock_entry_type == 'Manufacture':
@@ -125,7 +126,7 @@ def validate(self):
 # def send_to_snd(doc):
 # 	doc.data_push=1
 # 	push_data_to_snd(doc)
-
+@frappe.whitelist()
 def update_default_batch_in_item(self):
 	for item in self.items:
 		if item.s_warehouse:

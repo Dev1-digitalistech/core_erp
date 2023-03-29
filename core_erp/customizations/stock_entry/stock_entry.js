@@ -13,7 +13,7 @@ frappe.ui.form.on('Stock Entry', {
 		if (frm.doc.stock_entry_type == 'Manufacture' && frm.doc.items) frm.call('update_default_batch_in_item')
 	},
 	refresh(frm) {
-		frm.remove_custom_button('Material Request', "Get items from")
+		frm.remove_custom_button('Material Request', "Get Items From")
 		frm.add_custom_button(__('Material Requests'), function () {
 			erpnext.utils.map_current_doc({
 				method: "core_erp.customizations.material_request.material_request.make_stock_entry",
@@ -29,7 +29,7 @@ frappe.ui.form.on('Stock Entry', {
 					status: ["not in", ["Transferred", "Issued", "Stopped"]]
 				}
 			})
-		}, __("Get items from"));
+		}, __("Get Items From"));
 
 		if (cur_frm.doc.stock_entry_type == 'Manufacture') {
 			$.each(frm.doc.items || [], function (i, d) {
