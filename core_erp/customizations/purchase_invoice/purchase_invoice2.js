@@ -94,7 +94,14 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 			if(doc.outstanding_amount >= 0 || Math.abs(flt(doc.outstanding_amount)) < flt(doc.grand_total)) {
 				if (doc.total_rejected > 0 && !doc.rejected_qty){
 						cur_frm.add_custom_button(__('Debit Note for Rejected Qty'),
-								this.make_debit_note_for_reject, __('Create'));
+						frappe.call({
+							method: "core_erp.customizations.purchase_invoice.purchase_invoice.make_debit_note_for_reject_qty",
+							args: {
+								source_name: frm.doc.name
+							},
+						})
+						
+								, __('Create'));
 				}
 		 }
 

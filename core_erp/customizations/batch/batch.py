@@ -11,10 +11,10 @@ from six import string_types
 
 
 # def before_insert(self, method=None):
-# 	# frappe.msgprint(str(self.reference_name))
-# 	# frappe.msgprint(str(self.expiry_date))
+# 	frappe.msgprint(str(self.reference_name))
+# 	frappe.msgprint(str(self.expiry_date))
 	
-# 	# self.expiry_date=data[0]['expiry_date']
+# 	self.expiry_date=data[0]['expiry_date']
 
 def get_name_from_hash():
 	"""
@@ -31,7 +31,7 @@ def get_name_from_hash():
 
 
 def before_naming(self,method=None):
-	frappe.msgprint(str(self))
+	frappe.msgprint('naming function before naming')
 	# frappe.msgprint(str(method))
 	cc=str(frappe.db.get_value("Supplier",{"name":self.supplier},"supplier_name"))
 	# frappe.msgprint(f'not working: {cc}')
@@ -53,6 +53,7 @@ def get_batch_naming_series():
 	series = ''
 	if batch_uses_naming_series():
 		prefix = _get_batch_prefix()
+		frappe.msgprint(str(prefix))
 		key = _make_naming_series_key(prefix)
 		series = key
 
@@ -64,13 +65,16 @@ def batch_uses_naming_series():
 	Verify if the Batch is to be named using a naming series
 	:return: bool
 	"""
+	
 	use_naming_series = cint(frappe.db.get_single_value('Stock Settings', 'use_naming_series'))
+	# frappe.msgprint(str(use_naming_series))
 	return bool(use_naming_series)
 
 
 def autoname(self, method=None):
 	"""Generate random ID for batch if not specified"""
 	if not self.batch_id:
+		frappe.msgprint('helllo')
 		create_new_batch, batch_number_series = frappe.db.get_value('Item', self.item,
 			['create_new_batch', 'batch_number_series'])
 
@@ -105,11 +109,3 @@ def before_save(self):
 # def expiry_date(name,mrn):
 # 	data = frappe.db.sql(f"""SELECT expiry_date from `tabPurchase Receipt Item` where batch_no='{name}' """,as_dict=0)
 # 	return data
-
-
-def update_cost_center():
-	list = ['SA/HOG/22-23/00052',	'SA/HOG/22-23/00051',	'SA/HOG/22-23/00050',	'SA/HOG/22-23/00049',	'SA/HOG/22-23/00048',	'SA/HOG/22-23/00047',	'SA/HOG/22-23/00046']
-	
-	for items in list:
-		doc = frappe.db.get_value('Sales Order', items,'location_preference')
-		print(doc)

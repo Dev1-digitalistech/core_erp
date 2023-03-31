@@ -21,6 +21,8 @@ doc_events = {
 	},
 	"Batch": {
         "autoname": "core_erp.customizations.batch.batch.autoname",
+		"before_naming":"core_erp.customizations.batch.batch.before_naming",
+		# "before_insert":"core_erp.customizations.batch.batch.before_insert"
 		# "before_insert":"core_erp.customizations.batch.batch.before_insert"
         },
 	"Quality Inspection": {
@@ -56,11 +58,11 @@ doc_events = {
 	},
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
-	}
-		# "Batch":{
+	},
+		"Gate Entry":{
+			"validate":"core_erp.customizations.gate_entry.gate_entry.validate"
 			
-			
-		# }
+		}
 }
 
 # Issue only assign view permissions
