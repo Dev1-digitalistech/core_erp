@@ -48,6 +48,7 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 	}
 
 	refresh(doc) {
+		frappe.msgprint('working')
 		const me = this;
 		super.refresh();
 
@@ -94,21 +95,24 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 			if(doc.outstanding_amount >= 0 || Math.abs(flt(doc.outstanding_amount)) < flt(doc.grand_total)) {
 				if (doc.total_rejected > 0 && !doc.rejected_qty){
 						cur_frm.add_custom_button(__('Debit Note for Rejected Qty'),
-						frappe.call({
-							method: "core_erp.customizations.purchase_invoice.purchase_invoice.make_debit_note_for_reject_qty",
-							args: {
-								source_name: frm.doc.name
-							},
-						})
-						
-								, __('Create'));
+						() => {
+							frappe.model.open_mapped_doc({
+								method: "core_erp.customizations.purchase_invoice.purchase_invoice.make_debit_note_for_reject_qty",
+								frm: cur_frm
+							})
+						}, __('Create'));
 				}
 		 }
 
 		 if(doc.outstanding_amount >= 0 || Math.abs(flt(doc.outstanding_amount)) < flt(doc.grand_total)) {
 				if (doc.total_short_qty > 0 && !doc.short_qty){
 						cur_frm.add_custom_button(__('Debit Note for Short Qty'),
-								this.make_debit_note_for_shortqty, __('Create'));
+						() => {
+							frappe.model.open_mapped_doc({
+								method: "core_erp.customizations.purchase_invoice.purchase_invoice.make_debit_note_for_shortqty",
+								frm: cur_frm
+							})
+						}, __('Create'));
 				}
 		 }
 

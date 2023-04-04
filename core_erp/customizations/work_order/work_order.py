@@ -25,6 +25,9 @@ def make_mr(source_name,purpose,target_doc=None):
 	doc = get_mapped_doc('Work Order', source_name, {
                 'Work Order': {
                         'doctype': 'Material Request',
+						"field_map": {
+					"work_station": "line",
+				},
                         'validation': {
                                 'docstatus': ['=', 1]
                         }
