@@ -182,6 +182,7 @@ def set_basic_rate_for_finished_goods(self, raw_material_cost=0, scrap_material_
 							fg_item_qty=item.qty
 					#raw_material_cost = sum([flt(row.qty)*flt(row.rate) for row in bom_items.values()])
 
+
 				if raw_material_cost and self.purpose == "Manufacture":
 					d.basic_rate=flt(raw_material_cost/fg_item_qty)
 					d.basic_amount=flt(raw_material_cost)
