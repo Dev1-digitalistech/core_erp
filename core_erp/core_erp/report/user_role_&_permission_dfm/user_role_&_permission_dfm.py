@@ -16,7 +16,8 @@ def execute(filters=None):
 			data.append([
 				usr['modified'],usr['department'],usr['username'],usr['creation'],usr['created_time'],usr['status'],usr['email'], usr['full_name'], usr['role'],
 				p['parent'], p['read'], p['write'], p['create'], p['submit'], p['cancel'], p['delete'], p['amend'], p['report'], p['export'],
-				p['import'], p['share'], p['print'], p['email'], p['if_owner'], p['set_user_permissions']
+				p['import'], p['share'], p['print'], p['email'], p['if_owner'], p['set_user_permissions'],usr['last_working_day'],usr['department'],
+				usr['last_login'],usr['last_active']
 			])
 			
 	return columns, data
@@ -50,7 +51,10 @@ def get_columns(filters):
 		{"label": _("email"), "fieldname": "email", "fieldtype": "Check", "width": 80},
 		{"label": _("if_owner"), "fieldname": "if_owner", "fieldtype": "Check", "width": 80},
 		{"label": _("set_user_permissions"), "fieldname": "set_user_permissions", "fieldtype": "Check", "width": 80},
-		
+		{"label": _("Last Working Days"), "fieldname": "last_working_day", "fieldtype": "Data", "width": 80},
+		{"label": _("Department"), "fieldname": "department", "fieldtype": "Data", "width": 140},
+		{"label": _("Last Login"), "fieldname": "last_login", "fieldtype": "Data", "width": 140},
+		{"label": _("Last Acite"), "fieldname": "last_active", "fieldtype": "Data", "width": 140}
 	]
 
 	return columns
@@ -66,8 +70,24 @@ def get_conditions(filters):
 	
 def get_data(filters):
 	conditions = get_conditions(filters)
-	return frappe.db.sql("""select tu.modified,tu.department,tu.email,date(tu.creation) as "creation",time(tu.creation) as "created_time",case when tu.enabled = 1 then "Active" else "InActive" end as "status",
-	tu.full_name,tu.username,
-		hs.role from `tabUser` tu,`tabHas Role` hs
-		where hs.parent=tu.name %s"""
-		%conditions, as_dict=1)
+	return frappe.db.sql("""SELECT
+                                tu.modified,
+                                tu.department,
+                                tu.email,
+                                DATE(tu.creation) AS "creation",
+                                TIME(tu.creation) AS "created_time",
+                                tu.full_name,
+                                tu.username,
+								tu.last_login,
+								tu.last_active,
+                                hs.role,
+                                u.last_working_day,
+								u.department,
+                                CASE
+                                    WHEN tu.enabled = 1 THEN "Active"
+                                    ELSE "Inactive"
+                                END AS "status"
+                            FROM `tabUser` AS tu
+                            JOIN `tabHas Role` AS hs ON tu.name = hs.parent
+                            LEFT JOIN `tabUser Connection` AS u ON tu.username = u.user
+                            where hs.parent=tu.name %s""" % conditions, as_dict=1)
