@@ -1,9 +1,8 @@
-// Copyright (c) 2016, Extension Technologies and contributors
+// Copyright (c) 2023, Extension Technologies and contributors
 // For license information, please see license.txt
 /* eslint-disable */
 
-frappe.query_reports["Issues Action Tracker"] = {
-	
+frappe.query_reports["FG Costing with Additional Consumption"] = {
 	"filters": [
 		{
 			"fieldname":"from_date",
@@ -20,12 +19,12 @@ frappe.query_reports["Issues Action Tracker"] = {
 			"default": frappe.datetime.get_today()
 	},
 	{
-		"fieldname":"ticket_type",
-		"label": __("Ticket Type"),
-		"fieldtype": "Link",
-		"options": "Ticket Type",
-		"reqd":1
-	},
+			"fieldname":"company",
+			"label": __("Company"),
+			"fieldtype": "Link",
+			"options":"Company",
+			"reqd":1
+}
 
 	]
 };

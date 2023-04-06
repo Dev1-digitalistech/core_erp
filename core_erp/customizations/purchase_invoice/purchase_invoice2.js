@@ -48,7 +48,7 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 	}
 
 	refresh(doc) {
-		frappe.msgprint('working')
+		// frappe.msgprint('working')
 		const me = this;
 		super.refresh();
 
@@ -427,7 +427,8 @@ function hide_fields(doc) {
 
 	}
 
-	var item_fields_stock = ['warehouse_section', 'received_qty', 'rejected_qty'];
+	// var item_fields_stock = ['warehouse_section', 'received_qty', 'rejected_qty'];
+	var item_fields_stock = ['warehouse_section'];
 
 	cur_frm.fields_dict['items'].grid.set_column_disp(item_fields_stock,
 		(cint(doc.update_stock)==1 || cint(doc.is_return)==1 ? true : false));

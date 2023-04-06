@@ -1,0 +1,58 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2023-04-05 17:19:04.120124",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "letter_head": "DFM Foods Ltd-KP",
+ "modified": "2023-04-05 17:19:25.111693",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "FG Costing with Additional Consumption",
+ "owner": "Administrator",
+ "prepared_report": 0,
+ "query": "select\n/*f.posting_date,*/\nf.item_code as \"Item Code\",\nf.item_name as \"Item Name\",\nf.product_category as \"Product Category\",\nf.price_category as \"Price Category\",\nf.category as \"Category\",\nf.item_sub_group as \"Item Sub Group\",\nf.company as \"Company\",\nTRUNCATE(f.aq,2) as \"Produced Qty\",\nf.b as \"Produced Qty (In kg)\",\nf.c as \"Produced Qty RM Value\",\n/*f.oc,\nf.tq,*/\nifnull(f.svd,0) as \"Produced Qty New RM Value\",\n(ifnull(f.c,0) + ifnull(f.svd,0)) as 'Produced Qty RM Value with Adjusments',\nTRUNCATE(((f.oc*f.b)/f.tq),2) as \"Allocated Overhead Cost\",\nTRUNCATE(((ifnull(f.c,0) + ifnull(f.svd,0)) +((f.oc*f.b)/f.tq)),2) as \"Total Cost\",\nTRUNCATE((((ifnull(f.c,0) + ifnull(f.svd,0)) +((f.oc*f.b)/f.tq))/f.b),2) as \"Rate Per kg\",\nTRUNCATE(fg.g,2) as \"Closing Stock\",\nTRUNCATE(((((ifnull(f.c,0) + ifnull(f.svd,0)) +((f.oc*f.b)/f.tq))/f.b)*fg.g),2) as \"Closing Stock Value\"\nfrom\n\n\n(select \navk.item_name,\navk.product_category,\navk.price_category,\navk.category,\navk.item_sub_group,\navk.posting_date,\navk.item_code,\navk.aq,\navk.b,\navk.c,\navk.company,\navk.oc,\navk.tq,\ndf.svd\n\nfrom\n\n(select \nab.item_name,\nab.product_category,\nab.price_category,\nab.category,\nab.item_sub_group,\nab.posting_date,\nab.item_code,\nab.aq,\nab.kg as \"b\",\nab.sv as \"c\",\nab.company,\nab.oc,\nc.aqq as \"tq\"\nfrom\n\n\n(select\na.item_name,\na.product_category,\na.price_category,\na.category,\na.item_sub_group,\na.posting_date,\na.item_code,\na.aq,\na.sv,\na.kg,\na.company,\nb.oc\nfrom\n\n(select \nsle.posting_date,\nsle.item_code,\nsum(sle.actual_qty) as \"aq\",\nsum(se.total_outgoing_value) as \"sv\",\n((sum(sle.actual_qty))*itm.weight_per_box)/1000 as \"kg\",\nsle.company,\nsle.name,\nitm.item_name,\nitm.product_category,\nitm.price_category,\nitm.category,\nitm.item_sub_group\nfrom `tabStock Ledger Entry` as sle left join `tabStock Entry` as se \non se.name=sle.voucher_no\nleft join `tabItem` as itm\non itm.item_code=sle.item_code\nwhere se.stock_entry_type=\"Manufacture\" and sle.voucher_type=\"Stock Entry\"  and sle.incoming_rate>0 and itm.item_group=\"Finished Goods\"\nand (sle.posting_date between %(from_date)s and %(to_date)s)\ngroup by sle.company,sle.warehouse,itm.item_name) as a\n\nleft join\n\n(select\ngl.account,\ngl.company,\nsum(gl.debit-gl.credit) as \"oc\"\nfrom `tabGL Entry` as gl left join `tabAccount` as ac\non gl.account=ac.name\nwhere (ac.overhead_expense=1 or ac.is_pvc_ledger=1) and (gl.posting_date between %(from_date)s and %(to_date)s)\ngroup by gl.company) as b\non a.company=b.company) as ab \nleft join\n\n(select \nsle.item_code,\nsum((sle.actual_qty*itm.weight_per_box)/1000) as \"aqq\",\nsum(sle.stock_value),\nsle.company,\nsle.name\nfrom `tabStock Ledger Entry` as sle left join `tabStock Entry` as se \non se.name=sle.voucher_no\nleft join `tabItem` as itm\non itm.item_code=sle.item_code\nwhere se.stock_entry_type=\"Manufacture\" and sle.voucher_type=\"Stock Entry\"  and sle.incoming_rate>0 and itm.item_group=\"Finished Goods\"\nand (sle.posting_date between %(from_date)s and %(to_date)s)\ngroup by sle.company) as c \non ab.company=c.company) as avk\n\nleft join\n\n(SELECT \nse.fg_product,\nsle.item_code,\nsum(sle.stock_value_difference) \"svd\",\nse.company \"Company\"\n/*se.reason \"Reason\",\nse.stock_entry_type \"Stock Entry Type\"*/\nFROM `tabStock Ledger Entry` sle\nLeft Join `tabStock Entry` se ON sle.voucher_no = se.name\nwhere se.stock_entry_type IN ('Material Issue' , 'Material Receipt') and \nse.reason = 'Consumption' and NOT 'is_cancelled' \nand (sle.posting_date between %(from_date)s and %(to_date)s)\nGROUP BY se.fg_product, se.company) as df\non df.fg_product=avk.item_code and df.company=avk.company) as f\nleft join\n\n(select \nitem_code,\ncompany,\nsum(actual_qty) as \"g\"\nfrom `tabStock Ledger Entry`\ngroup by item_code,company) as fg\non fg.company=f.company and fg.item_code=f.item_code\nwhere (date(f.posting_date) between %(from_date)s and %(to_date)s) and f.company=%(company)s",
+ "ref_doctype": "Stock Entry",
+ "report_name": "FG Costing with Additional Consumption",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Manufacturing Manager"
+  },
+  {
+   "role": "Manufacturing User"
+  },
+  {
+   "role": "Stock Manager"
+  },
+  {
+   "role": "teststore"
+  },
+  {
+   "role": "System Manager"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Reports-View"
+  },
+  {
+   "role": "Stock User"
+  },
+  {
+   "role": "Sales Dispatch"
+  },
+  {
+   "role": "MRN"
+  }
+ ]
+}

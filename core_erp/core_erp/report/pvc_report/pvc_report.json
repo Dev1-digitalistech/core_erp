@@ -1,0 +1,42 @@
+{
+ "add_total_row": 0,
+ "columns": [],
+ "creation": "2022-11-19 13:24:41.667618",
+ "disable_prepared_report": 0,
+ "disabled": 0,
+ "docstatus": 0,
+ "doctype": "Report",
+ "filters": [],
+ "idx": 0,
+ "is_standard": "Yes",
+ "json": "{\"columns\":[{\"fieldname\":\"account\",\"label\":\"Account\",\"fieldtype\":\"Link\",\"options\":\"Account\",\"width\":300,\"id\":\"account\",\"name\":\"Account\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"is_group\",\"fieldtype\":\"Check\",\"label\":\"Is Group\",\"insert_after_index\":0,\"link_field\":\"account\",\"doctype\":\"Account\",\"width\":100,\"id\":\"is_group\",\"name\":\"Is Group\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"is_pvc_ledger\",\"fieldtype\":\"Check\",\"label\":\"Is PVC Ledger\",\"insert_after_index\":0,\"link_field\":\"account\",\"doctype\":\"Account\",\"width\":100,\"id\":\"is_pvc_ledger\",\"name\":\"Is PVC Ledger\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"apr_2022\",\"label\":\"Apr 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"apr_2022\",\"name\":\"Apr 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"may_2022\",\"label\":\"May 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"may_2022\",\"name\":\"May 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"jun_2022\",\"label\":\"Jun 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"jun_2022\",\"name\":\"Jun 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"jul_2022\",\"label\":\"Jul 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"jul_2022\",\"name\":\"Jul 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"aug_2022\",\"label\":\"Aug 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"aug_2022\",\"name\":\"Aug 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"sep_2022\",\"label\":\"Sep 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"sep_2022\",\"name\":\"Sep 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"oct_2022\",\"label\":\"Oct 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"oct_2022\",\"name\":\"Oct 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"nov_2022\",\"label\":\"Nov 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"nov_2022\",\"name\":\"Nov 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"dec_2022\",\"label\":\"Dec 2022\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"dec_2022\",\"name\":\"Dec 2022\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"jan_2023\",\"label\":\"Jan 2023\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"jan_2023\",\"name\":\"Jan 2023\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"feb_2023\",\"label\":\"Feb 2023\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"feb_2023\",\"name\":\"Feb 2023\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"mar_2023\",\"label\":\"Mar 2023\",\"fieldtype\":\"Currency\",\"options\":\"currency\",\"width\":150,\"id\":\"mar_2023\",\"name\":\"Mar 2023\",\"editable\":false,\"compareValue\":null},{\"fieldname\":\"total\",\"label\":\"Total\",\"fieldtype\":\"Currency\",\"width\":150,\"id\":\"total\",\"name\":\"Total\",\"editable\":false,\"compareValue\":null}]}",
+ "letter_head": "DFM Foods Ltd-KP",
+ "modified": "2023-04-05 17:01:29.419792",
+ "modified_by": "Administrator",
+ "module": "Core ERP",
+ "name": "PVC Report",
+ "owner": "support@extensionerp.com",
+ "prepared_report": 0,
+ "query": "select \nacc.name as \"Account Head\",\nsum(gl.debit - gl.credit) as Amount\nfrom `tabAccount` as acc\nleft join `tabGL Entry` as gl\non gl.account=acc.name\nwhere is_pvc_ledger=1 and\n(gl.posting_date between %(from_date)s and %(to_date)s) and gl.company=%(company)s\ngroup by acc.name",
+ "ref_doctype": "GL Entry",
+ "reference_report": "Profit and Loss Statement",
+ "report_name": "PVC Report",
+ "report_type": "Query Report",
+ "roles": [
+  {
+   "role": "Accounts User"
+  },
+  {
+   "role": "Accounts Manager"
+  },
+  {
+   "role": "Auditor"
+  },
+  {
+   "role": "Sales Dispatch"
+  },
+  {
+   "role": "Reports-View"
+  }
+ ]
+}

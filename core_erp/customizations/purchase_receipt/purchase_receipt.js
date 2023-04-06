@@ -1,8 +1,9 @@
 frappe.ui.form.off("Purchase Receipt", "clean_up")
+// frappe.ui.form.off("Purchase Receipt", "refresh")
 frappe.ui.form.on("Purchase Receipt", {
 	refresh(frm) {
-		
-		frm.add_custom_button(__('Purchase invoice'),
+		// frm.remove_custom_button('Purchase Invoice','Create');
+		frm.add_custom_button(__('PI'),
 					function () {
 						frappe.model.open_mapped_doc({
 							method: "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice",

@@ -18,6 +18,7 @@ frappe.query_reports["BOM vs Actual"] = {
 					"width": "80",
 					"default": frappe.datetime.get_today()
 			},
+			
 			{
 					"fieldname":"company",
 					"label": __("Company"),

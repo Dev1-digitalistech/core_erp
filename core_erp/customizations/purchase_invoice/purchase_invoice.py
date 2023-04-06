@@ -253,7 +253,7 @@ def make_debit_note(source_name, target_doc=None):
 
 @frappe.whitelist()
 def make_debit_note_for_reject_qty(source_name, target_doc=None):
-	frappe.msgprint('working')
+	# frappe.msgprint('working')
 	#from erpnext.controllers.sales_and_purchase_return import make_return_doc_for_reject
 	return make_return_doc_for_reject("Purchase Invoice", source_name, target_doc)
 
