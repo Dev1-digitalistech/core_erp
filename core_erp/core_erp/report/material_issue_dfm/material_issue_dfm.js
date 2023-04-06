@@ -23,8 +23,8 @@ frappe.query_reports["Material Issue DFM"] = {
 				"label": __("Company"),
 				"fieldtype":"Link",
 				"options":"Company",
+				"reqd":1,
 				"width":"80",
-				"default":frappe.defaults.get_user_default("company")
 		},
 ],
 };
