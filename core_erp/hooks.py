@@ -15,7 +15,15 @@ doctype_js = {
 	"Supplier": "customizations/purchase_invoice/purchase_invoice2.js"
 }
 
+
+doctype_tree_js = {
+    "Task": "customizations/task/task_tree.js",
+}
+
 doc_events = {
+	"Task":{
+        "validate":"core_erp.customizations.task.task.validate"
+        },
 	"Purchase Order": {
 		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"
 	},
