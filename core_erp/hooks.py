@@ -131,3 +131,8 @@ user_data_fields = [
 	}
 ]
 
+
+#class override
+from erpnext.controllers.status_updater import StatusUpdater
+from core_erp.customizations.controllers.status_updater import update_prevdoc_status
+StatusUpdater.update_prevdoc_status = update_prevdoc_status
