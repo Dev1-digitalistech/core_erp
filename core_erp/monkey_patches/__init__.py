@@ -41,6 +41,13 @@ from erpnext.controllers.stock_controller import StockController
 from core_erp.customizations.controllers.stock_controller import validate_inspection_dup
 
 
+from erpnext.projects.doctype.task.task import Task
+from core_erp.customizations.task.task import validate_parent_expected_end_date_dup, validate_parent_project_dates_dup
+
+Task.validate_parent_expected_end_date = validate_parent_expected_end_date_dup
+Task.validate_parent_project_dates = validate_parent_project_dates_dup
+
+
 StockController.validate_inspection = validate_inspection_dup
 
 StatusUpdater.update_billing_status = update_billing_status_dup

@@ -15,7 +15,15 @@ doctype_js = {
 	"Supplier": "customizations/purchase_invoice/purchase_invoice2.js"
 }
 
+
+doctype_tree_js = {
+    "Task": "customizations/task/task_tree.js",
+}
+
 doc_events = {
+	"Task":{
+        "validate":"core_erp.customizations.task.task.validate"
+        },
 	"Purchase Order": {
 		"autoname": "core_erp.customizations.purchase_order.purchase_order.autoname"
 	},
@@ -123,3 +131,8 @@ user_data_fields = [
 	}
 ]
 
+
+#class override
+from erpnext.controllers.status_updater import StatusUpdater
+from core_erp.customizations.controllers.status_updater import update_prevdoc_status
+StatusUpdater.update_prevdoc_status = update_prevdoc_status

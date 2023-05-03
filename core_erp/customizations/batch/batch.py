@@ -71,6 +71,7 @@ def batch_uses_naming_series():
 	return bool(use_naming_series)
 
 
+
 def autoname(self, method=None):
 	"""Generate random ID for batch if not specified"""
 	if not self.batch_id:
