@@ -136,3 +136,8 @@ user_data_fields = [
 from erpnext.controllers.status_updater import StatusUpdater
 from core_erp.customizations.controllers.status_updater import update_prevdoc_status
 StatusUpdater.update_prevdoc_status = update_prevdoc_status
+
+from erpnext.accounts.doctype.purchase_invoice.purchase_invoice import PurchaseInvoice
+from core_erp.customizations.purchase_invoice.purchase_invoice import set_tax_withholding_dup
+
+PurchaseInvoice.set_tax_withholding = set_tax_withholding_dup

@@ -582,12 +582,15 @@ frappe.ui.form.on("Purchase Invoice", {
 	},
 
 	onload: function(frm) {
+		// frappe.msgprint('working')
+		// frm.set_value('apply_tds',1)
 		if(frm.doc.__onload && frm.is_new()) {
 			if(frm.doc.supplier) {
-				frm.doc.apply_tds = frm.doc.__onload.supplier_tds ? 1 : 0;
+				frm.doc.apply_tds = 1
+				// frm.doc.__onload.supplier_tds ? 1 : 0;
 			}
 			if(!frm.doc.__onload.supplier_tds) {
-				frm.set_df_property("apply_tds", "read_only", 1);
+				// frm.set_df_property("apply_tds", "read_only", 1);
 			}
 		}
 
