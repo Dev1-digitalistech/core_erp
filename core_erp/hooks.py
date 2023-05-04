@@ -67,10 +67,10 @@ doc_events = {
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
 	},
-		"Gate Entry":{
-			"validate":"core_erp.customizations.gate_entry.gate_entry.validate"
-			
-		}
+#		"Gate Entry":{
+#			"validate":"core_erp.customizations.gate_entry.gate_entry.validate"
+#			
+#		}
 }
 
 # Issue only assign view permissions

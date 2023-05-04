@@ -47,7 +47,7 @@ def on_submit(self,method=None):
 					if not record:
 						frappe.throw("Kindly check Debit Note for short quantity is created or not")
 
-def autoname(self,method):	
+def autoname(self,method):
 	fiscal_yr_abbr = get_fiscal_abbr(self.posting_date)
 	if self.is_return:
 		self.name = make_autoname("DN/"+self.abbr+"/"+fiscal_yr_abbr+"/.#####")
