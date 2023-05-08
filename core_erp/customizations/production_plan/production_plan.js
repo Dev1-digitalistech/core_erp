@@ -1,6 +1,10 @@
-frappe.ui.form.off("Producton Plan", "get_items_for_mr")
-frappe.ui.form.on('Production Plan', {
+frappe.ui.form.off("Production Plan", "get_items_for_mr")
+frappe.ui.form.on("Production Plan", {
+	refresh(frm){
+		console.log('working refresh')
+	},
     get_items_for_mr(frm) {
+		console.log("working")
 		const set_fields = ['actual_qty', 'item_code','item_name', 'description', 'uom',
 			'min_order_qty', 'quantity', 'sales_order', 'warehouse', 'projected_qty', 'material_request_type'];
 		frappe.call({

@@ -11,9 +11,9 @@ app_license = "MIT"
 
 app_include_js = "assets/core_erp/js/batch_selector_overide.js"
 
-doctype_js = {
-	"Supplier": "customizations/purchase_invoice/purchase_invoice2.js"
-}
+# doctype_js = {
+# 	"Supplier": "customizations/purchase_invoice/purchase_invoice2.js"
+# }
 
 
 doctype_tree_js = {
@@ -79,6 +79,7 @@ permission_query_conditions = {
 }
 
 doctype_js = {
+    "Supplier": "customizations/purchase_invoice/purchase_invoice2.js",
 	"Budget": "customizations/budget/budget.js",
 	"Workstation": "customizations/workstation/workstation.js",
 	"Work Order": "customizations/work_order/work_order.js",
