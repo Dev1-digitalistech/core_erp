@@ -92,6 +92,7 @@ doctype_js = {
 	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice2.js",
 	"Purchase Receipt": "customizations/purchase_receipt/purchase_receipt.js",
 	"Delivery Note": "customizations/delivery_note/delivery_note.js",
+    "Production Plan":"customizations/production_plan/production_plan.js",
 }
 
 override_whitelisted_methods = {
