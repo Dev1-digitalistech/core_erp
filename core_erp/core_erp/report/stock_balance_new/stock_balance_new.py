@@ -390,7 +390,9 @@ def get_item_warehouse_map(filters: StockBalanceFilter, sle: List[SLEntry]):
 		qty_dict.val_rate = d.valuation_rate
 		qty_dict.bal_qty += qty_diff
 		qty_dict.bal_val += value_diff
-		qty_dict.cur_val = d.valuation_rate * d.qty_after_transaction
+		final_qty = flt(qty_dict.bal_qty,2)
+		final_val_rate = flt(d.valuation_rate,2)
+		qty_dict.cur_val = final_qty * final_val_rate
 
 	iwb_map = filter_items_with_no_transactions(iwb_map, float_precision, inventory_dimensions)
 
