@@ -65,6 +65,7 @@ def get_columns(filters):
 		{"label": _("Purchase Qty"), "fieldname": "pur_qty", "fieldtype": "Float", "width": 100, "convertible": "qty"},
 		{"label": _("Purchase Value"), "fieldname": "pur_amt", "fieldtype": "Currency", "width": 110, "options": "currency"},
 		{"label": _("Consumed Qty"), "fieldname": "cons_qty", "fieldtype": "Float", "width": 100, "convertible": "qty"},
+		{"label": _("Consumed Value"), "fieldname": "cons_amt", "fieldtype": "Currency", "width": 100, "options": "currency"},
 		{"label": _("Balance Qty"), "fieldname": "bal_qty", "fieldtype": "Float", "width": 100, "convertible": "qty"},
 		{"label": _("Balance Value"), "fieldname": "bal_val", "fieldtype": "Currency", "width": 100, "options": "currency"},
 		{"label": _("Valuation Rate"), "fieldname": "val_rate", "fieldtype": "Currency", "width": 90, "convertible": "rate", "options": "currency"},
@@ -157,7 +158,7 @@ def get_item_map(filters, sle):
 		
 		qty_dict.bal_val += value_diff
 		qty_dict.cons_qty = qty_dict.opening_qty + qty_dict.pur_qty - qty_dict.bal_qty
-		# qty_dict.cons_amt = qty_dict.opening_val + qty_dict.pur_amt - qty_dict.bal_val
+		qty_dict.cons_amt = qty_dict.opening_val + qty_dict.pur_amt - qty_dict.bal_val
 		qty_dict.bal_qty += qty_diff
 		final_qty = flt(qty_dict.bal_qty,2)
 		final_val_rate = flt(d.valuation_rate,2)
