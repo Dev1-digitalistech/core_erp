@@ -178,6 +178,13 @@ def get_columns(filters: StockBalanceFilter):
 				"options": "currency",
 			},
 			{
+				"label": _("Current Valuation"),
+				"fieldname": "cur_val",
+				"fieldtype": "Currency",
+				"width": 100,
+				"options": "currency"
+			},
+			{
 				"label": _("Opening Qty"),
 				"fieldname": "opening_qty",
 				"fieldtype": "Float",
@@ -342,6 +349,7 @@ def get_item_warehouse_map(filters: StockBalanceFilter, sle: List[SLEntry]):
 				{
 					"opening_qty": 0.0,
 					"opening_val": 0.0,
+					"cur_val":0.0,
 					"in_qty": 0.0,
 					"in_val": 0.0,
 					"out_qty": 0.0,
@@ -382,6 +390,7 @@ def get_item_warehouse_map(filters: StockBalanceFilter, sle: List[SLEntry]):
 		qty_dict.val_rate = d.valuation_rate
 		qty_dict.bal_qty += qty_diff
 		qty_dict.bal_val += value_diff
+		qty_dict.cur_val = d.valuation_rate * d.qty_after_transaction
 
 	iwb_map = filter_items_with_no_transactions(iwb_map, float_precision, inventory_dimensions)
 
