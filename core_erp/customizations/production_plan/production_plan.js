@@ -1,4 +1,5 @@
 frappe.ui.form.off("Production Plan", "get_items_for_mr")
+frappe.ui.form.off("Production Plan", "download_materials_required")
 frappe.ui.form.on("Production Plan", {
 	refresh(frm){
 		console.log('working refresh')
@@ -27,5 +28,11 @@ frappe.ui.form.on("Production Plan", {
 			}
 		});
 	},
+
+	download_materials_required: function(frm) {
+		let get_template_url = 'erpnext.manufacturing.doctype.production_plan.production_plan.download_raw_materials';
+		open_url_post(frappe.request.url, { cmd: get_template_url, doc: frm.doc });
+	},
+
 
 })
