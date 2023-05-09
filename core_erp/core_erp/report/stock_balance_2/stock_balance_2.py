@@ -154,10 +154,14 @@ def get_item_map(filters, sle):
 					qty_dict.pur_amt += value_diff
 
 		qty_dict.val_rate = d.valuation_rate
-		qty_dict.bal_qty += qty_diff
+		
 		qty_dict.bal_val += value_diff
 		qty_dict.cons_qty = qty_dict.opening_qty + qty_dict.pur_qty - qty_dict.bal_qty
 		# qty_dict.cons_amt = qty_dict.opening_val + qty_dict.pur_amt - qty_dict.bal_val
+		qty_dict.bal_qty += qty_diff
+		final_qty = flt(qty_dict.bal_qty,2)
+		final_val_rate = flt(d.valuation_rate,2)
+		qty_dict.bal_val = final_qty * final_val_rate
 
 	iwb_map = filter_items_with_no_transactions(iwb_map, float_precision)
 
