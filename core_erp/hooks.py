@@ -143,6 +143,6 @@ from core_erp.customizations.purchase_invoice.purchase_invoice import set_tax_wi
 PurchaseInvoice.set_tax_withholding = set_tax_withholding_dup
 
 from erpnext.controllers.stock_controller import StockController
-from core_erp.customizations.controllers.status_updater import validate_serialized_batch_dup
+from core_erp.customizations.controllers.stock_controller import validate_serialized_batch_dup
 StockController.validate_serialized_batch=validate_serialized_batch_dup
 
