@@ -85,15 +85,17 @@ def validate_serialized_batch_dup(self):
 
                 if self.get("stock_entry_type")=="Material Transfer" and expiry_date and getdate(expiry_date) < getdate(self.posting_date):
                     pass
-                else:
-                    #  expiry_date and getdate(expiry_date) < getdate(self.posting_date):
-                    # frappe.msgprint(str(self.stock_entry_type))
-                    frappe.throw(
-                        _("Row #{0}: The batch {1} has already expired.").format(
-                            d.idx, get_link_to_form("Batch", d.get("batch_no"))
-                        ),
-                        BatchExpiredError,
-                    )
+                elif self.get("stock_entry_type")=="Repack" and expiry_date and getdate(expiry_date) < getdate(self.posting_date):
+                    pass
+                # else:
+                #     #  expiry_date and getdate(expiry_date) < getdate(self.posting_date):
+                #     # frappe.msgprint(str(self.stock_entry_type))
+                #     frappe.throw(
+                #         _("Row #{0}: The batch {1} has already expired.").format(
+                #             d.idx, get_link_to_form("Batch", d.get("batch_no"))
+                #         ),
+                #         BatchExpiredError,
+                #     )
     else:
         from erpnext.stock.doctype.serial_no.serial_no import get_serial_nos
 
