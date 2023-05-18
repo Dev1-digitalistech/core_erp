@@ -67,10 +67,10 @@ doc_events = {
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
 	},
-		"Email Account":{
-			"before_save":"core_erp.customizations.frappe.frappe.before_save"
+		# "Email Account":{
+		# 	"before_save":"core_erp.customizations.frappe.frappe.before_save"
 			
-		}
+		# }
 }
 
 # Issue only assign view permissions
@@ -151,5 +151,11 @@ StockController.validate_serialized_batch=validate_serialized_batch_dup
 from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
 from core_erp.customizations.stock_entry.stock_entry import validate_batch_dup
 StockEntry.validate_batch= validate_batch_dup
+
+
+from frappe.email.doctype.email_account.email_account import EmailAccount
+from core_erp.customizations.frappe.frappe import receive_dup
+
+EmailAccount.receive=receive_dup
 
 
