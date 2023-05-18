@@ -153,9 +153,3 @@ from core_erp.customizations.stock_entry.stock_entry import validate_batch_dup
 StockEntry.validate_batch= validate_batch_dup
 
 
-from frappe.email.doctype.email_account.email_account import EmailAccount
-from core_erp.customizations.frappe.frappe import receive_dup
-
-EmailAccount.receive=receive_dup
-
-
