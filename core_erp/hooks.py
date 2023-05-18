@@ -146,3 +146,10 @@ from erpnext.controllers.stock_controller import StockController
 from core_erp.customizations.controllers.stock_controller import validate_serialized_batch_dup
 StockController.validate_serialized_batch=validate_serialized_batch_dup
 
+
+
+from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
+from core_erp.customizations.stock_entry.stock_entry import validate_batch_dup
+StockEntry.validate_batch= validate_batch_dup
+
+

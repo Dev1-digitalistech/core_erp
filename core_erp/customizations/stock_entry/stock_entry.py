@@ -618,3 +618,30 @@ def set_basic_rate_for_finished_goods(self, raw_material_cost=0, scrap_material_
 # 		sl_entries.reverse()
 
 # 	self.make_sl_entries(sl_entries, self.amended_from and 'Yes' or 'No')
+
+@frappe.whitelist()
+def validate_batch_dup(self):
+	if self.purpose in [
+		"Material Transfer for Manufacture",
+		"Manufacture",
+		"Repack",
+		"Send to Subcontractor",
+	]:
+		for item in self.get("items"):
+			if item.batch_no:
+				disabled = frappe.db.get_value("Batch", item.batch_no, "disabled")
+				if disabled == 0:
+					expiry_date = frappe.db.get_value("Batch", item.batch_no, "expiry_date")
+					if expiry_date:
+						if self.get("stock_entry_type")=='Repack' and getdate(self.posting_date) > getdate(expiry_date):
+							pass
+						elif self.get("stock_entry_type")=='Material Transfer for Manufacture' and getdate(self.posting_date) > getdate(expiry_date):
+							frappe.throw(_("Batch {0} of Item {1} has expired.").format(item.batch_no, item.item_code))
+
+						elif self.get("stock_entry_type")=='Manufacture' and getdate(self.posting_date) > getdate(expiry_date):
+							frappe.throw(_("Batch {0} of Item {1} has expired.").format(item.batch_no, item.item_code))
+
+						elif self.get("stock_entry_type")=='Send to Subcontractor' and getdate(self.posting_date) > getdate(expiry_date):
+							frappe.throw(_("Batch {0} of Item {1} has expired.").format(item.batch_no, item.item_code))
+				else:
+					frappe.throw(_("Batch {0} of Item {1} is disabled.").format(item.batch_no, item.item_code))
