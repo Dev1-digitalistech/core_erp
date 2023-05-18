@@ -10,8 +10,9 @@ def auto_disable_users():
 
 # TODO: add to doc event for ToDo
 # for todo.py 
-def before_save(self, method=None):
+def before_save(self, communication, email, method=None):
 	frappe.db.set_value('Issue', self.reference_name, 'assign_to', self.owner)
+	self.create_new_parent(self, communication, email)
 
 
 # EmailAccount email.py changes for issue 
@@ -21,9 +22,10 @@ def create_new_parent(self, communication, email):
 		# no parent found, but must be tagged
 		# insert parent type doc
 		parent = frappe.new_doc(self.append_to)
+		frappe.log_error(self.email_account,"issue_support")
 
 		#to email account set
-		parent.to_email_account=self.name
+		parent.to_email_account=self.email_account
 
 		if self.subject_field:
 			parent.set(self.subject_field, frappe.as_unicode(email.subject)[:140])
