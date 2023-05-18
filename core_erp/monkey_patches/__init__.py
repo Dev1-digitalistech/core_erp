@@ -1,6 +1,5 @@
-# from frappe.email.doctype.email_account.email_account import EmailAccount
-# from core_erp.customizations.frappe.frappe import receive_dup
-# EmailAccount.receive=receive_dup
+from frappe.email.doctype.email_account.email_account import EmailAccount
+from core_erp.customizations.frappe.frappe import create_new_parent
 
 
 from erpnext.manufacturing.doctype.bom.bom import BOM

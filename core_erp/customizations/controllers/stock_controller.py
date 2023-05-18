@@ -85,8 +85,8 @@ def validate_serialized_batch_dup(self):
 
                 if self.get("stock_entry_type")=="Material Transfer" and expiry_date and getdate(expiry_date) < getdate(self.posting_date):
                     pass
-                elif self.get("stock_entry_type")=="Repack" and expiry_date and getdate(expiry_date) < getdate(self.posting_date):
-                    pass
+                # elif self.get("stock_entry_type")=="Repack" and expiry_date and getdate(expiry_date) < getdate(self.posting_date):
+                #     pass
                 # else:
                 #     #  expiry_date and getdate(expiry_date) < getdate(self.posting_date):
                 #     # frappe.msgprint(str(self.stock_entry_type))

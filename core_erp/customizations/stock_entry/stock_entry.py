@@ -619,6 +619,7 @@ def set_basic_rate_for_finished_goods(self, raw_material_cost=0, scrap_material_
 
 # 	self.make_sl_entries(sl_entries, self.amended_from and 'Yes' or 'No')
 
+
 @frappe.whitelist()
 def validate_batch_dup(self):
 	if self.purpose in [

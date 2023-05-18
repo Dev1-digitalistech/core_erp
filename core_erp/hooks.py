@@ -67,10 +67,10 @@ doc_events = {
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
 	},
-		# "Email Account":{
-		# 	"before_save":"core_erp.customizations.frappe.frappe.before_save"
-			
-		# }
+#		"Gate Entry":{
+#			"validate":"core_erp.customizations.gate_entry.gate_entry.validate"
+#			
+#		}
 }
 
 # Issue only assign view permissions
