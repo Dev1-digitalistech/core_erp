@@ -18,34 +18,34 @@ def validate(self,method):
 
 def autoname(self,method=None):
 	if self.to_email_account=="IT Support":
-		self.name=make_autoname("ITST/22-23/.#####.")
+		self.name=make_autoname("ITST/23-24/.#####.")
 
 	elif self.ticket_type=="ERP SUPPORT":
-		self.name = make_autoname("ITST/22-23/.#####.")
+		self.name = make_autoname("ITST/23-24/.#####.")
 
 	elif self.to_email_account=="BIZOM-Support":
-		self.name=make_autoname("BST/22-23/.#####.")
+		self.name=make_autoname("BST/23-24/.#####.")
 
 	elif self.ticket_type=="BIZOM-Support":
-		self.name = make_autoname("BST/22-23/.#####.")
+		self.name = make_autoname("BST/23-24/.#####.")
 
 	elif self.to_email_account=="Care":
-		self.name=make_autoname("CCT/22-23/.#####.")
+		self.name=make_autoname("CCT/23-24/.#####.")
 
 	elif self.ticket_type=="Customer Care":
-		self.name=make_autoname("CCT/22-23/.#####.")
+		self.name=make_autoname("CCT/23-24/.#####.")
 
 	elif self.ticket_type=="CMS(Change Management System)":
-		self.name=make_autoname("CMS/22-23/.#####.")
+		self.name=make_autoname("CMS/23-24/.#####.")
 
 	elif self.ticket_type=="ERP SUPPORT":
-		self.name=make_autoname("ERP/22-23/.#####.")
+		self.name=make_autoname("ERP/23-24/.#####.")
 
 	elif self.ticket_type=="Distributor Feedback":
-		self.name=make_autoname("DF/22-23/.#####.")
+		self.name=make_autoname("DF/23-24/.#####.")
 
 	elif self.to_email_account=="ERP SUPPORT":
-		self.name=make_autoname("ERP/22-23/.#####.")
+		self.name=make_autoname("ERP/23-24/.#####.")
 
 # assignment permission
 def get_permission_query_condition(user):

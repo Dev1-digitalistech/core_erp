@@ -1,5 +1,6 @@
-from frappe.email.doctype.email_account.email_account import EmailAccount
-from core_erp.customizations.frappe.frappe import create_new_parent
+from frappe.email.receive import InboundMail
+from core_erp.customizations.frappe.frappe import _create_reference_document_dup
+InboundMail._create_reference_document=_create_reference_document_dup
 
 
 from erpnext.manufacturing.doctype.bom.bom import BOM
@@ -66,7 +67,7 @@ BuyingController.validate_budget = validate_budget
 Budget.autoname = budget_autoname
 Budget.validate_accounts = validate_accounts
 
-EmailAccount.create_new_parent = create_new_parent
+# EmailAccount.create_new_parent = create_new_parent
 
 BOM.get_exploded_items = get_exploded_items
 

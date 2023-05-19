@@ -21,9 +21,9 @@ doctype_tree_js = {
 }
 
 doc_events = {
-	"Communication": {
-		"before_insert": "core_erp.customizations.communications.communications.before_insert"
-	},
+	# "Communication": {
+	# 	"before_insert": "core_erp.customizations.communications.communications.before_insert"
+	# },
 	"Task":{
         "validate":"core_erp.customizations.task.task.validate"
         },
@@ -155,4 +155,9 @@ from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
 from core_erp.customizations.stock_entry.stock_entry import validate_batch_dup
 StockEntry.validate_batch= validate_batch_dup
 
+
+
+from frappe.email.receive import InboundMail
+from core_erp.customizations.frappe.frappe import _create_reference_document_dup
+InboundMail._create_reference_document==_create_reference_document_dup
 

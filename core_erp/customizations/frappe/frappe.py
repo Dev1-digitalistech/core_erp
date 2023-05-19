@@ -21,7 +21,7 @@ def create_new_parent(self, communication, email):
 		# no parent found, but must be tagged
 		# insert parent type doc
 		parent = frappe.new_doc(self.append_to)
-		frappe.log_error(self.email_account,"issue_support")
+		# frappe.log_error(self.email_account,"issue_support")
 
 		#to email account set
 		parent.to_email_account=self.email_account
@@ -53,4 +53,39 @@ def create_new_parent(self, communication, email):
 		# NOTE if parent isn't found and there's no subject match, it is likely that it is a new conversation thread and hence is_first = True
 		communication.is_first = True
 
+		return parent
+
+@frappe.whitelist()
+def _create_reference_document_dup(self, doctype):
+		"""Create reference document if it does not exist in the system."""
+		parent = frappe.new_doc(doctype)
+		email_fileds = self.get_email_fields(doctype)
+		# frappe.log_error("issue tickets",self)
+
+		if email_fileds.subject_field:
+			parent.set(email_fileds.subject_field, frappe.as_unicode(self.subject)[:140])
+
+		if email_fileds.sender_field:
+			parent.set(email_fileds.sender_field, frappe.as_unicode(self.from_email))
+		
+		string = str(self.email_account)
+		substring = string.split('(')[1].split(')')[0]
+
+		if(doctype == "Issue"):
+			parent.to_email_account = substring
+		# frappe.log_error(self,"issue tickets")
+
+		parent.flags.ignore_mandatory = True
+
+		try:
+			parent.insert(ignore_permissions=True)
+		except frappe.DuplicateEntryError:
+			# try and find matching parent
+			parent_name = frappe.db.get_value(
+				self.email_account.append_to, {email_fileds.sender_field: self.from_email}
+			)
+			if parent_name:
+				parent.name = parent_name
+			else:
+				parent = None
 		return parent
