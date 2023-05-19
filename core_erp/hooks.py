@@ -21,6 +21,9 @@ doctype_tree_js = {
 }
 
 doc_events = {
+	"Communication": {
+		"before_insert": "core_erp.customizations.communications.communications.before_insert"
+	},
 	"Task":{
         "validate":"core_erp.customizations.task.task.validate"
         },
