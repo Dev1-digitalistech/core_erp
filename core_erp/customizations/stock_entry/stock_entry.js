@@ -1,4 +1,5 @@
 frappe.ui.form.off("Stock Entry", "clean_up")
+frappe.ui.form.off("Stock Entry", "setup")
 frappe.ui.form.on('Stock Entry', {
 	onload_post_render(frm) {
 		frm.set_query('work_order', function () {
@@ -10,9 +11,14 @@ frappe.ui.form.on('Stock Entry', {
 				]
 			}
 		})
+		frm.trigger('new_function')
 		if (frm.doc.stock_entry_type == 'Manufacture' && frm.doc.items) frm.call('update_default_batch_in_item')
 	},
+	setup(frm){
+		frm.trigger('new_function')
+	},
 	refresh(frm) {
+		frm.trigger('new_function')
 		frm.remove_custom_button('Material Request', "Get Items From")
 		frm.add_custom_button(__('Material Requests'), function () {
 			erpnext.utils.map_current_doc({
@@ -82,7 +88,7 @@ frappe.ui.form.on('Stock Entry', {
 			})
 		}
 	},
-	setup(frm) {
+	new_function(frm) {
 		frm.set_query("line", function () {
 			return {
 				"filters": {
