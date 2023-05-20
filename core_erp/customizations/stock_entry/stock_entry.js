@@ -90,6 +90,116 @@ frappe.ui.form.on('Stock Entry', {
 				}
 			}
 		});
+		frm.set_indicator_formatter('item_code', function(doc) {
+			if (!doc.s_warehouse) {
+				return 'blue';
+			} else {
+				return (doc.qty<=doc.actual_qty) ? 'green' : 'orange';
+			}
+		});
+
+		frm.set_query('work_order', function() {
+			return {
+				filters: [
+					['Work Order', 'docstatus', '=', 1],
+					['Work Order', 'qty', '>','`tabWork Order`.produced_qty'],
+					['Work Order', 'company', '=', frm.doc.company]
+				]
+			}
+		});
+
+		frm.set_query('outgoing_stock_entry', function() {
+			return {
+				filters: [
+					['Stock Entry', 'docstatus', '=', 1],
+					['Stock Entry', 'per_transferred', '<','100'],
+				]
+			}
+		});
+
+		frm.set_query('source_warehouse_address', function() {
+			return {
+				filters: {
+					link_doctype: 'Warehouse',
+					link_name: frm.doc.from_warehouse
+				}
+			}
+		});
+
+		frm.set_query('target_warehouse_address', function() {
+			return {
+				filters: {
+					link_doctype: 'Warehouse',
+					link_name: frm.doc.to_warehouse
+				}
+			}
+		});
+
+		frappe.db.get_value('Stock Settings', {name: 'Stock Settings'}, 'sample_retention_warehouse', (r) => {
+			if (r.sample_retention_warehouse) {
+				var filters = [
+							["Warehouse", 'company', '=', frm.doc.company],
+							["Warehouse", "is_group", "=",0],
+							['Warehouse', 'name', '!=', r.sample_retention_warehouse]
+						]
+				frm.set_query("from_warehouse", function() {
+					return {
+						filters: filters
+					};
+				});
+				frm.set_query("s_warehouse", "items", function() {
+					return {
+						filters: filters
+					};
+				});
+			}
+		});
+
+		frm.set_query('batch_no', 'items', function(doc, cdt, cdn) {
+			var item = locals[cdt][cdn];
+			if(!item.item_code) {
+				frappe.throw(__("Please enter Item Code to get Batch Number"));
+			} else {
+				if (in_list(["Material Transfer for Manufacture", "Manufacture", "Send to Subcontractor"], doc.purpose)) {
+					var filters = {
+						'item_code': item.item_code,
+						'posting_date': frm.doc.posting_date || frappe.datetime.nowdate()
+					}
+				} else {
+					var filters = {
+						'item_code': item.item_code
+					}
+				}
+
+				// User could want to select a manually created empty batch (no warehouse)
+				// or a pre-existing batch
+				if (frm.doc.purpose != "Material Receipt") {
+					filters["warehouse"] = item.s_warehouse || item.t_warehouse;
+				}
+
+				return {
+					query : "erpnext.controllers.queries.get_batch_no",
+					filters: filters
+				}
+			}
+		});
+
+
+		frm.add_fetch("bom_no", "inspection_required", "inspection_required");
+		erpnext.accounts.dimensions.setup_dimension_filters(frm, frm.doctype);
+
+		frappe.db.get_single_value('Stock Settings', 'disable_serial_no_and_batch_selector')
+		.then((value) => {
+			if (value) {
+				frappe.flags.hide_serial_batch_dialog = true;
+			}
+		});
+		attach_bom_items(frm.doc.bom_no);
+
+		if(!check_should_not_attach_bom_items(frm.doc.bom_no)) {
+			erpnext.accounts.dimensions.update_dimension(frm, frm.doctype);
+		}
+	
 	}
 })
 
