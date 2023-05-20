@@ -157,7 +157,7 @@ StockEntry.validate_batch= validate_batch_dup
 
 
 
-from frappe.email.receive import InboundMail
-from core_erp.customizations.frappe.frappe import _create_reference_document_dup
-InboundMail._create_reference_document==_create_reference_document_dup
+# from frappe.email.receive import InboundMail
+# from core_erp.customizations.frappe.frappe import _create_reference_document_dup
+# InboundMail._create_reference_document=_create_reference_document_dup
 

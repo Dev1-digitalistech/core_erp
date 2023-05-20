@@ -60,7 +60,7 @@ def _create_reference_document_dup(self, doctype):
 		"""Create reference document if it does not exist in the system."""
 		parent = frappe.new_doc(doctype)
 		email_fileds = self.get_email_fields(doctype)
-		# frappe.log_error("issue tickets",self)
+		frappe.log_error("issue tickets",str(self))
 
 		if email_fileds.subject_field:
 			parent.set(email_fileds.subject_field, frappe.as_unicode(self.subject)[:140])
@@ -68,11 +68,12 @@ def _create_reference_document_dup(self, doctype):
 		if email_fileds.sender_field:
 			parent.set(email_fileds.sender_field, frappe.as_unicode(self.from_email))
 		
-		string = str(self.email_account)
-		substring = string.split('(')[1].split(')')[0]
+		
 
 		if(doctype == "Issue"):
-			parent.to_email_account = substring
+			string = str(self.email_account)
+			substring = string.split('(')[1].split(')')[0]
+			parent.set("to_email_account",substring)
 		# frappe.log_error(self,"issue tickets")
 
 		parent.flags.ignore_mandatory = True
