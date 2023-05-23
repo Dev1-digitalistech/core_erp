@@ -12,8 +12,8 @@ frappe.ui.form.on("Purchase Receipt", {
 
 					}, __("Create"));
 		setTimeout(() => {
-			frm.remove_custom_button('Purchase Order','Get items from');
-			}, 10);
+			frm.remove_custom_button('Purchase Order','Get Items From');
+			}, 500);
 		// frm.remove_custom_button('Purchase Order', "Get items from")
 				frm.add_custom_button(__('PO'),
 					function () {
