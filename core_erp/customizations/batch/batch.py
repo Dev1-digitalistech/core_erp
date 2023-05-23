@@ -31,12 +31,12 @@ def get_name_from_hash():
 
 
 def before_naming(self,method=None):
-	frappe.msgprint('naming function before naming')
+	# frappe.msgprint('naming function before naming')
 	# frappe.msgprint(str(method))
 	cc=str(frappe.db.get_value("Supplier",{"name":self.supplier},"supplier_name"))
 	# frappe.msgprint(f'not working: {cc}')
 	self.supp=cc[0:5]
-	frappe.msgprint(str(self.name))
+	# frappe.msgprint(str(self.name))
 	data = frappe.db.sql(f"""SELECT expiry_date,item_code from `tabPurchase Receipt Item` where parent='{self.reference_name}' """,as_dict=1)
 	# frappe.msgprint(str(data[0]['expiry_date']))
 	for items in data:
@@ -53,7 +53,7 @@ def get_batch_naming_series():
 	series = ''
 	if batch_uses_naming_series():
 		prefix = _get_batch_prefix()
-		frappe.msgprint(str(prefix))
+		# frappe.msgprint(str(prefix))
 		key = _make_naming_series_key(prefix)
 		series = key
 
@@ -75,7 +75,7 @@ def batch_uses_naming_series():
 def autoname(self, method=None):
 	"""Generate random ID for batch if not specified"""
 	if not self.batch_id:
-		frappe.msgprint('helllo')
+		# frappe.msgprint('helllo')
 		create_new_batch, batch_number_series = frappe.db.get_value('Item', self.item,
 			['create_new_batch', 'batch_number_series'])
 

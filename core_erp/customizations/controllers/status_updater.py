@@ -42,7 +42,7 @@ def update_billing_status_dup(self, zero_amount_refdoc, ref_dt, ref_fieldname):
 
 
 def update_prevdoc_status(self):
-	if self.doctype == "Purchase Receipt":
+	if self.doctype == "Purchase Receipt" and self.is_return==1:
 		return
 	self.update_qty()
 	self.validate_qty()
