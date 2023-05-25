@@ -55,6 +55,7 @@ def create_quality_inspection(self):
 			qi.mrn_type = frappe.db.get_value("Purchase Order",d.purchase_order,"po_type")
 			qi.abbr = self.abbr
 			qi.reference_name = self.name
+			qi.approved_quantity = d.qty
 			qi.acc_qty = d.qty
 			qi.row_name = d.name
 			qi.sample_size = 0
