@@ -54,11 +54,22 @@ def autoname(self,method=None):
 		self.name=make_autoname("ERP/22-23/.#####.")
 
 # assignment permission
-def get_permission_query_condition(user):
-	if "Support Manager" in frappe.get_roles(user):
-			return None
-	else:
-			return """tabIssue.owner={user} or
-					(tabIssue.name in (select i.name from `tabIssue` i ,tabToDo td where td.reference_type="Issue" and td.owner={user} and
-					td.reference_name=i.name and td.status="Open"))""".format(user=frappe.db.escape(user))
+# def get_permission_query_condition(user):
+# 	if "Support Manager" in frappe.get_roles(user):
+# 			return None
+# 	else:
+# 		return """ `tabIssue`._assign='{user}' """.format(user=user)
+	# else:
+	# 		return """tabIssue.owner={user} or
+	# 				(tabIssue.name in (select i.name from `tabIssue` i ,tabToDo td where td.reference_type="Issue" and td.owner={user} and
+	# 				td.reference_name=i.name and td.status="Open"))""".format(user=frappe.db.escape(user))
 
+def permission_query(user):
+    # frappe.msgprint(str(frappe.get_roles(user)))
+	if "Support Manager" in frappe.get_roles(user):
+		return None
+	# if "Website Manager" in frappe.get_roles(user):
+		# return """`tabLead`._assign is null""".format(user=user)
+	# if "Sales Manager" in frappe.get_roles(user):
+	else:
+		return """`tabIssue`.to_email_account='{user}' or `tabIssue`.owner='{user}' or `tabIssue`._assign like '%{user}%'""".format(user=user)

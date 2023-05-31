@@ -6,6 +6,26 @@ from datetime import date,timedelta,datetime
 # print(item['exp_end_date'] +  yesterday)
 @frappe.whitelist()
 def validate(doc, method=None):
+    parent_task_test = doc.name
+    def testing(parent_task_test):
+        get = frappe.db.get_value("Task",parent_task_test,'parent_task')
+        if get:
+            parent_task_test = get
+            testing(parent_task_test)
+        else:
+            variable = parent_task_test
+            task = frappe.db.sql(f"""select task from `tabTask Depends On` where parent = '{variable}' """,as_dict=1)
+            # frappe.msgprint(str(task))
+            list = []
+            for items in task:
+                main_group_date = frappe.db.get_value("Task",items['task'],['name','exp_end_date'],as_dict=1)
+                list.append(main_group_date)
+            latest_task = max(list, key=lambda x: x['exp_end_date'])
+            latest_updated_date = latest_task['exp_end_date']
+            frappe.msgprint(str(latest_updated_date))
+            frappe.db.sql(f"""update `tabTask` set exp_end_date = '{latest_updated_date}' where name= '{variable}' """)
+    
+
     if doc.exp_end_date:
         old_doc = doc.get_doc_before_save()
         if old_doc:
@@ -78,6 +98,7 @@ def validate(doc, method=None):
                     pass
         else:
             pass
+    testing(parent_task_test)
 
  
 def validate_parent_expected_end_date_dup(self):

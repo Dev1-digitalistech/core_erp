@@ -78,7 +78,7 @@ doc_events = {
 
 # Issue only assign view permissions
 permission_query_conditions = {
-    "Issue":"core_erp.customizations.issue.issue.get_permission_query_condition"
+    "Issue":"core_erp.customizations.issue.issue.permission_query"
 }
 
 doctype_js = {
