@@ -135,6 +135,7 @@ def get_items(filters):
 			.format(" and ".join(conditions)), filters)
 	return items
 
+
 def get_item_details(items, sl_entries, include_uom):
 	item_details = {}
 	if not items:
