@@ -11,6 +11,7 @@ def execute(filters=None):
 	columns = get_columns()
 	items = get_items(filters)
 	sl_entries = get_stock_ledger_entries(filters, items)
+	frappe.msgprint(str(sl_entries))
 	item_details = get_item_details(items, sl_entries, include_uom)
 	opening_row = get_opening_balance(filters, columns)
 	precision = cint(frappe.db.get_single_value("System Settings", "float_precision"))
@@ -79,6 +80,8 @@ def get_columns():
 		{"label": _("Item"), "fieldname": "item_code", "fieldtype": "Link", "options": "Item", "width": 130},
 		{"label": _("Item Name"), "fieldname": "item_name", "width": 100},
 		{"label": _("Item Group"), "fieldname": "item_group", "fieldtype": "Link", "options": "Item Group", "width": 100},
+		# {"label": _("Rate"), "fieldname": "rate", "fieldtype": "Data","width": 100},
+		
 		{"label": _("Description"), "fieldname": "description", "width": 200},
 		{"label": _("Warehouse"), "fieldname": "warehouse", "fieldtype": "Link", "options": "Warehouse", "width": 100},
 		{"label": _("Stock UOM"), "fieldname": "stock_uom", "fieldtype": "Link", "options": "UOM", "width": 100},
@@ -103,7 +106,7 @@ def get_stock_ledger_entries(filters, items):
 			item_code, warehouse, actual_qty, -1*actual_qty, qty_after_transaction, incoming_rate, valuation_rate,
 			stock_value, voucher_type, voucher_no, sle.batch_no, serial_no, company, project, stock_value_difference
 		from `tabStock Ledger Entry` sle
-		where company = %(company)s and
+		where is_cancelled=0 and company = %(company)s and
 			(warehouse Like "Raw%%" or warehouse Like "Pack%%") and
 			actual_qty < 0 and
 			sle.batch_no!='' and
