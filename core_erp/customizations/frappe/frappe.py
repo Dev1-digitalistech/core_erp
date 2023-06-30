@@ -1,12 +1,12 @@
 import frappe
 
 # for auto-disabling users 
-@frappe.whitelist()
-def auto_disable_users():
-	from datetime import date,timedelta
-	yesterday = date.today()+timedelta(days=-1)
-	print(yesterday)
-	frappe.db.sql("""update `tabUser` set enabled = 0 where last_working_day <= %s and enabled = 1""",yesterday)
+# @frappe.whitelist()
+# def auto_disable_users():
+# 	from datetime import date,timedelta
+# 	yesterday = date.today()+timedelta(days=-1)
+# 	print(yesterday)
+# 	frappe.db.sql("""update `tabUser` set enabled = 0 where last_working_day <= %s and enabled = 1""",yesterday)
 
 # TODO: add to doc event for ToDo
 # for todo.py 
@@ -74,6 +74,9 @@ def _create_reference_document_dup(self, doctype):
 			string = str(self.email_account)
 			substring = string.split('(')[1].split(')')[0]
 			parent.set("to_email_account",substring)
+			parent.source_of_input = "Email"
+			parent.set("description",self.content)
+			parent.email_id=str(self.from_email)			
 		# frappe.log_error(self,"issue tickets")
 
 		parent.flags.ignore_mandatory = True

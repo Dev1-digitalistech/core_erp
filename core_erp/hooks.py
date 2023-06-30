@@ -108,9 +108,9 @@ override_whitelisted_methods = {
 
 
 scheduler_events = {
- 	"daily": [
+ 	"Hourly": [
  		"core_erp.customizations.purchase_order.purchase_order.auto_close",
-		"core_erp.customizations.frappe.frappe.auto_disable_users",
+		# "core_erp.customizations.frappe.frappe.auto_disable_users",
 		"core_erp.customizations.user.user.auto_disable_users",
  	]
 }
