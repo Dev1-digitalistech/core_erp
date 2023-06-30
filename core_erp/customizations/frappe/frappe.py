@@ -75,7 +75,7 @@ def _create_reference_document_dup(self, doctype):
 			substring = string.split('(')[1].split(')')[0]
 			parent.set("to_email_account",substring)
 			parent.source_of_input = "Email"
-			parent.set("description",self.content)
+			parent.set("content",self.content)
 			parent.email_id=str(self.from_email)			
 		# frappe.log_error(self,"issue tickets")
 
