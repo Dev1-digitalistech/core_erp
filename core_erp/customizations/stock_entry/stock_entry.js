@@ -16,6 +16,14 @@ frappe.ui.form.on('Stock Entry', {
 	},
 	setup(frm){
 		frm.trigger('new_function')
+		
+		frm.set_query("fg_product", function() {
+			return {
+				"filters": {
+					"item_group": ['in',["Finished Goods","Semi-Finished Goods"]]
+				}
+			};
+		});
 	},
 	refresh(frm) {
 		frm.trigger('new_function')
