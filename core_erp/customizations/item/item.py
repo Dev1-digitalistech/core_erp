@@ -24,7 +24,7 @@ def custom_autoname(self, method = None):
         if self.product_category == "Rings" and not self.promo_abbr:
             frappe.throw("Kindly select Promo code")
         self.item_code = self.ig_code + self.sub_group_code + str(self.weight_per_unit)[0:5].replace('.', '_') \
-            + str(self.promo_abbr if self.product_category == "Rings" else "")
+            + str(self.promo_abbr)
     else:
         if not self.ig_code:
             frappe.throw("Kindly update the Group Code in Item Group")
