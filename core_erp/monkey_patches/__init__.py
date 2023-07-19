@@ -46,6 +46,11 @@ from core_erp.customizations.controllers.stock_controller import validate_inspec
 from erpnext.projects.doctype.task.task import Task
 from core_erp.customizations.task.task import validate_parent_expected_end_date_dup, validate_parent_project_dates_dup
 
+from erpnext.buying.doctype.supplier.supplier import Supplier
+from core_erp.customizations.supplier.supplier import autoname_dup
+
+Supplier.autoname=autoname_dup
+
 Task.validate_parent_expected_end_date = validate_parent_expected_end_date_dup
 Task.validate_parent_project_dates = validate_parent_project_dates_dup
 

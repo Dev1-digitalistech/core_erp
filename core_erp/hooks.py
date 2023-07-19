@@ -48,7 +48,8 @@ doc_events = {
 		"autoname": "core_erp.customizations.workstation.workstation.autoname"
 	},
 	"Item": {
-		"autoname": "core_erp.customizations.item.item.custom_autoname"
+		"autoname": "core_erp.customizations.item.item.custom_autoname",
+		"validate":"core_erp.customizations.item.item.validate"
 	},
 	"Purchase Receipt": {
 		"validate" : "core_erp.customizations.purchase_receipt.purchase_receipt.validate",
@@ -56,7 +57,7 @@ doc_events = {
 		"autoname" : "core_erp.customizations.purchase_receipt.purchase_receipt.autoname"
 	},
 	"Supplier":{
-		"autoname": "core_erp.customizations.supplier.supplier.autoname"
+		"autoname_dup": "core_erp.customizations.supplier.supplier.autoname_dup"
 	},
 	"Stock Entry": {
 		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
@@ -70,10 +71,10 @@ doc_events = {
 		"Stock":{
 		"get_data":"core_erp.config.stock.get_data"
 	},
-#		"Gate Entry":{
-#			"validate":"core_erp.customizations.gate_entry.gate_entry.validate"
-#			
-#		}
+		"Gate Entry":{
+			"validate":"core_erp.customizations.gate_entry.gate_entry.validate"
+			
+		}
 }
 
 # Issue only assign view permissions
