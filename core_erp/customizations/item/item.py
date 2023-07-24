@@ -39,6 +39,10 @@ def custom_autoname(self, method = None):
 
 def validate(self,method=None):
 
-    if frappe.db.exists("Item", {'item_name':self.item_name,'docstatus':0}):
-        
-        frappe.throw('Item Already Exist in Record.')
+    if self.is_new():
+
+        if frappe.db.exists("Item", {'item_name':self.item_name}):    
+            frappe.throw('Item name Already Exist in Record.')
+
+
+

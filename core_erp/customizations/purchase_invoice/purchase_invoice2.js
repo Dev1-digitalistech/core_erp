@@ -150,7 +150,7 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 
 			this.frm.add_custom_button(__('Purchase Receipt'), function() {
 				erpnext.utils.map_current_doc({
-					method: "erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice",
+					method: "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice",
 					source_doctype: "Purchase Receipt",
 					target: me.frm,
 					setters: {
