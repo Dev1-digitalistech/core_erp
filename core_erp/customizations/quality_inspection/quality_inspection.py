@@ -16,7 +16,7 @@ def on_submit(self, method=None):
 		if qc ==0:
 			doc.save()
 		else:
-			doc.submit()
+			doc.save("Submit")
 
 # def get_quality_inspection_template(self):
 # 	template = ''
