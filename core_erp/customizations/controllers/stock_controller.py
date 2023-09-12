@@ -36,7 +36,7 @@ def validate_inspection_dup(self):
             qa_required = True
         if self.docstatus == 1 and d.quality_inspection:
             qa_doc = frappe.get_doc("Quality Inspection", d.quality_inspection)
-            if qa_doc.docstatus == 0:
+            if qa_doc.docstatus != 1:
                 link = frappe.utils.get_link_to_form('Quality Inspection', d.quality_inspection)
                 frappe.throw(_("Quality Inspection: {0} is not submitted for the item: {1} in row {2}").format(link, d.item_code, d.idx), QualityInspectionNotSubmittedError)
 
@@ -46,6 +46,9 @@ def validate_inspection_dup(self):
             #         .format(d.idx, d.item_code), QualityInspectionRejectedError)
         elif qa_required :
             action = frappe.get_doc('Stock Settings').action_if_quality_inspection_is_not_submitted
+            if self.doctype == "Purchase Receipt" and self.docstatus == 1:
+                link = frappe.utils.get_link_to_form('Quality Inspection', d.quality_inspection)
+                frappe.throw(_("Quality Inspection not submitted for the item: {0} in row {1}").format(d.item_code, d.idx))
             if self.docstatus==1 and action == 'Stop':
                 frappe.throw(_("Quality Inspection required for Item {0} to submit").format(frappe.bold(d.item_code)),
                     exc=QualityInspectionRequiredError)
