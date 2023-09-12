@@ -1,4 +1,7 @@
 import frappe
+from erpnext.stock.doctype.quality_inspection_template.quality_inspection_template import (
+	get_template_details,
+)
 
 def on_submit(self, method=None):
 	self.update_qc_reference()
@@ -16,7 +19,8 @@ def on_submit(self, method=None):
 		if qc ==0:
 			doc.save()
 		else:
-			doc.save("Submit")
+			doc.save('Submit')
+			doc.submit()
 
 # def get_quality_inspection_template(self):
 # 	template = ''
