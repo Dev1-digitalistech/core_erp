@@ -3,7 +3,7 @@ from __future__ import unicode_literals
 import frappe, erpnext
 from frappe.utils import cint, flt, cstr,get_link_to_form,getdate
 from frappe import _
-import frappe.defaults
+# import frappe.defaults
 from erpnext.accounts.utils import get_fiscal_year
 from erpnext.accounts.general_ledger import make_gl_entries, process_gl_map
 from erpnext.controllers.accounts_controller import AccountsController
@@ -46,7 +46,7 @@ def validate_inspection_dup(self):
             #         .format(d.idx, d.item_code), QualityInspectionRejectedError)
         elif qa_required :
             action = frappe.get_doc('Stock Settings').action_if_quality_inspection_is_not_submitted
-            if self.doctype == "Purchase Receipt" and self.docstatus == 1:
+            if self.doctype == "Purchase Receipt" and self.docstatus == 1: 
                 link = frappe.utils.get_link_to_form('Quality Inspection', d.quality_inspection)
                 frappe.throw(_("Quality Inspection not submitted for the item: {0} in row {1}").format(d.item_code, d.idx))
             if self.docstatus==1 and action == 'Stop':
