@@ -5,9 +5,7 @@ from frappe.utils import flt, cint, nowdate
 from erpnext.accounts.utils import get_fiscal_year
 from frappe.utils import flt, get_link_to_form
 from frappe.model.naming import make_autoname
-from erpnext.accounts.doctype.tax_withholding_category.tax_withholding_category \
-    import get_tax_withholding_details, get_tax_row_for_tds, get_advance_vouchers, is_valid_certificate, \
-        get_ltds_amount
+from erpnext.accounts.doctype.tax_withholding_category.tax_withholding_category import get_tax_withholding_details, get_tax_row_for_tds, get_advance_vouchers, is_valid_certificate, get_ltds_amount
 # get_debit_note_amount
 
 

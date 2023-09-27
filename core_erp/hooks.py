@@ -54,13 +54,15 @@ doc_events = {
 	"Purchase Receipt": {
 		"validate" : "core_erp.customizations.purchase_receipt.purchase_receipt.validate",
 		"on_update" : "core_erp.customizations.purchase_receipt.purchase_receipt.on_update",
-		"autoname" : "core_erp.customizations.purchase_receipt.purchase_receipt.autoname"
+		"autoname" : "core_erp.customizations.purchase_receipt.purchase_receipt.autoname",
+		"on_submit" : "core_erp.customizations.purchase_receipt.purchase_receipt.on_submit"
 	},
 	"Supplier":{
 		"autoname_dup": "core_erp.customizations.supplier.supplier.autoname_dup"
 	},
 	"Stock Entry": {
 		"after_insert": "core_erp.customizations.stock_entry.stock_entry.after_insert",
+		"validate": "core_erp.customizations.stock_entry.stock_entry.validate",
 		# "on_submit": "core_erp.customizations.stock_entry.stock_entry.on_submit",
 		"autoname": "core_erp.customizations.stock_entry.stock_entry.autoname"
 	},

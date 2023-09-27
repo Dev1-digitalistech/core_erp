@@ -357,3 +357,10 @@ def get_returned_qty_map(purchase_receipt):
 	""", purchase_receipt))
 
 	return returned_qty_map
+
+
+def on_submit(doc, method=False):
+	for item in doc.items:
+		if (item.batch_no):
+			frappe.db.set_value("Batch", item.batch_no, "expiry_date", item.expiry_date)
+			frappe.db.set_value("Batch", item.batch_no, "manufacturing_date", item.manufacturing_date)

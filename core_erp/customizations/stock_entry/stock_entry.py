@@ -82,67 +82,82 @@ def on_submit_dup(self):
 	# 	self.send_to_snd()
 
 
-def validate(self):
-	self.pro_doc = frappe._dict()
-	if self.work_order:
-		self.pro_doc = frappe.get_doc('Work Order', self.work_order)
+# def validate(self):
+# 	self.pro_doc = frappe._dict()
+# 	if self.work_order:
+# 		self.pro_doc = frappe.get_doc('Work Order', self.work_order)
 
-	self.validate_posting_time()
-	self.validate_purpose()
-	self.validate_item()
-	self.validate_customer_provided_item()
-	self.set_transfer_qty()
-	self.validate_uom_is_integer("uom", "qty")
-	self.validate_uom_is_integer("stock_uom", "transfer_qty")
-	self.validate_warehouse()
-	self.validate_work_order()
-	self.validate_bom()
-	self.validate_finished_goods()
-	self.validate_with_material_request()
-	self.validate_batch()
-	self.validate_inspection()
-	self.validate_fg_completed_qty()
-	self.validate_difference_account()
-	self.set_job_card_data()
-	self.set_purpose_for_stock_entry()
+# 	self.validate_posting_time()
+# 	self.validate_purpose()
+# 	self.validate_item()
+# 	self.validate_customer_provided_item()
+# 	self.set_transfer_qty()
+# 	self.validate_uom_is_integer("uom", "qty")
+# 	self.validate_uom_is_integer("stock_uom", "transfer_qty")
+# 	self.validate_warehouse()
+# 	self.validate_work_order()
+# 	self.validate_bom()
+# 	self.validate_finished_goods()
+# 	self.validate_with_material_request()
+# 	self.validate_batch()
+# 	self.validate_inspection()
+# 	self.validate_fg_completed_qty()
+# 	self.validate_difference_account()
+# 	self.set_job_card_data()
+# 	self.set_purpose_for_stock_entry()
 
-	if not self.from_bom:
-		self.fg_completed_qty = 0.0
+# 	if not self.from_bom:
+# 		self.fg_completed_qty = 0.0
 
-	if self._action == 'submit':
-		self.make_batches('t_warehouse')
-	else:
-		set_batch_nos(self, 's_warehouse')
+# 	if self._action == 'submit':
+# 		self.make_batches('t_warehouse')
+# 	else:
+# 		set_batch_nos(self, 's_warehouse')
 
-	self.set_incoming_rate()
-	self.validate_serialized_batch()
-	self.set_actual_qty()
-	self.calculate_rate_and_amount(update_finished_item_rate=False)
-	if self.stock_entry_type=="Material Transfer" and self.reason=="SND Transfer":
-		self.data_push=1
+# 	self.set_incoming_rate()
+# 	self.validate_serialized_batch()
+# 	self.set_actual_qty()
+# 	self.calculate_rate_and_amount(update_finished_item_rate=False)
+# 	if self.stock_entry_type=="Material Transfer" and self.reason=="SND Transfer":
+# 		self.data_push=1
 
+
+def validate(self, method=None):
+	accounts = frappe.db.get_list("Account", {"company": self.company, "name": ["like", "%cost of goods sold%"]})
+	sa_accounts = frappe.db.get_list("Account", {"company": self.company, "name": ["like", "%stock adjustment%"]})
+	for item in self.items:
+		if (self.stock_entry_type== "Manufacture") and item.item_group == "Finished Goods":
+			if (len(accounts) > 0):
+				item.expense_account = accounts[0].name
+		elif item.item_group == "Finished Goods":
+			if (len(sa_accounts) > 0):
+				item.expense_account = sa_accounts[0].name
+		elif item.item_group in ["Raw Material", "Packaging Material"] and self.stock_entry_type == "Material Receipt" and self.reason == "Consumption":
+			if (len(sa_accounts) > 0):
+				item.expense_account = sa_accounts[0].name
 
 
 # def send_to_snd(doc):
 # 	doc.data_push=1
 # 	push_data_to_snd(doc)
-@frappe.whitelist()
-def update_default_batch_in_item(self):
-	for item in self.items:
-		if item.s_warehouse:
-			temp = frappe.db.sql(f"""select sle.batch_no, round(sum(sle.actual_qty),2)
-				from `tabStock Ledger Entry` sle
-				INNER JOIN `tabBatch` batch on sle.batch_no = batch.name
-				where batch.disabled = 0
-				and sle.item_code = '{item.item_code}'
-				and sle.warehouse like '%{item.s_warehouse}%'
-				and batch.docstatus < 2
-				and (batch.expiry_date is null or batch.expiry_date >= '{self.posting_date}')
-				group by batch_no having sum(sle.actual_qty) > {item.qty}
-				order by batch.expiry_date, sle.batch_no desc
-				limit 1""",as_dict = 1)
-			if temp:
-				item.batch_no = temp[0]['batch_no']
+
+# @frappe.whitelist()
+# def update_default_batch_in_item(self):
+# 	for item in self.items:
+# 		if item.s_warehouse:
+# 			temp = frappe.db.sql(f"""select sle.batch_no, round(sum(sle.actual_qty),2)
+# 				from `tabStock Ledger Entry` sle
+# 				INNER JOIN `tabBatch` batch on sle.batch_no = batch.name
+# 				where batch.disabled = 0
+# 				and sle.item_code = '{item.item_code}'
+# 				and sle.warehouse like '%{item.s_warehouse}%'
+# 				and batch.docstatus < 2
+# 				and (batch.expiry_date is null or batch.expiry_date >= '{self.posting_date}')
+# 				group by batch_no having sum(sle.actual_qty) > {item.qty}
+# 				order by batch.expiry_date, sle.batch_no desc
+# 				limit 1""",as_dict = 1)
+# 			if temp:
+# 				item.batch_no = temp[0]['batch_no']
 
 def validate_work_order(self):
 	if self.purpose in ("Manufacture", "Material Transfer for Manufacture", "Material Consumption for Manufacture"):
