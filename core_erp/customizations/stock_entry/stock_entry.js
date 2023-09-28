@@ -11,8 +11,7 @@ frappe.ui.form.on('Stock Entry', {
 				]
 			}
 		})
-		// frm.trigger('new_function')
-		// if (frm.doc.stock_entry_type == 'Manufacture' && frm.doc.items) frm.call('update_default_batch_in_item')
+		frm.trigger('new_function')
 	},
 	setup(frm) {
 		frm.trigger('new_function')
