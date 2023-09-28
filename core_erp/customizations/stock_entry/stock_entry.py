@@ -136,6 +136,9 @@ def validate(self, method=None):
 			if (len(sa_accounts) > 0):
 				item.expense_account = sa_accounts[0].name
 
+@frappe.whitelist()
+def update_default_batch_in_item(self):
+	pass
 
 # def send_to_snd(doc):
 # 	doc.data_push=1
