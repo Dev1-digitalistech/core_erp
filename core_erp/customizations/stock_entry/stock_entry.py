@@ -123,6 +123,7 @@ def on_submit_dup(self):
 
 
 def validate(self, method=None):
+	update_default_batch_in_item(self)
 	accounts = frappe.db.get_list("Account", {"company": self.company, "name": ["like", "%cost of goods sold%"]})
 	sa_accounts = frappe.db.get_list("Account", {"company": self.company, "name": ["like", "%stock adjustment%"]})
 	for item in self.items:
