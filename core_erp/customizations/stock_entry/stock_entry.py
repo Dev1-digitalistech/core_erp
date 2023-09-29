@@ -144,7 +144,7 @@ def validate(self, method=None):
 @frappe.whitelist()
 def update_default_batch_in_item(self):
 	for item in self.items:
-		if item.s_warehouse:
+		if item.s_warehouse and not item.batch_no:
 			temp = frappe.db.sql(f"""select sle.batch_no, round(sum(sle.actual_qty),2)
 				from `tabStock Ledger Entry` sle
 				INNER JOIN `tabBatch` batch on sle.batch_no = batch.name
