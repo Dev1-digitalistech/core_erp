@@ -136,31 +136,27 @@ def validate(self, method=None):
 			if (len(sa_accounts) > 0):
 				item.expense_account = sa_accounts[0].name
 
-@frappe.whitelist()
-def update_default_batch_in_item(self):
-	pass
-
 # def send_to_snd(doc):
 # 	doc.data_push=1
 # 	push_data_to_snd(doc)
 
-# @frappe.whitelist()
-# def update_default_batch_in_item(self):
-# 	for item in self.items:
-# 		if item.s_warehouse:
-# 			temp = frappe.db.sql(f"""select sle.batch_no, round(sum(sle.actual_qty),2)
-# 				from `tabStock Ledger Entry` sle
-# 				INNER JOIN `tabBatch` batch on sle.batch_no = batch.name
-# 				where batch.disabled = 0
-# 				and sle.item_code = '{item.item_code}'
-# 				and sle.warehouse like '%{item.s_warehouse}%'
-# 				and batch.docstatus < 2
-# 				and (batch.expiry_date is null or batch.expiry_date >= '{self.posting_date}')
-# 				group by batch_no having sum(sle.actual_qty) > {item.qty}
-# 				order by batch.expiry_date, sle.batch_no desc
-# 				limit 1""",as_dict = 1)
-# 			if temp:
-# 				item.batch_no = temp[0]['batch_no']
+@frappe.whitelist()
+def update_default_batch_in_item(self):
+	for item in self.items:
+		if item.s_warehouse:
+			temp = frappe.db.sql(f"""select sle.batch_no, round(sum(sle.actual_qty),2)
+				from `tabStock Ledger Entry` sle
+				INNER JOIN `tabBatch` batch on sle.batch_no = batch.name
+				where batch.disabled = 0
+				and sle.item_code = '{item.item_code}'
+				and sle.warehouse like '%{item.s_warehouse}%'
+				and batch.docstatus < 2
+				and (batch.expiry_date is null or batch.expiry_date >= '{self.posting_date}')
+				group by batch_no having sum(sle.actual_qty) > {item.qty}
+				order by batch.expiry_date, sle.batch_no desc
+				limit 1""",as_dict = 1)
+			if temp:
+				item.batch_no = temp[0]['batch_no']
 
 def validate_work_order(self):
 	if self.purpose in ("Manufacture", "Material Transfer for Manufacture", "Material Consumption for Manufacture"):
