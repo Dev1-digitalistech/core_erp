@@ -36,8 +36,8 @@
 //             })
 //         })
 //     },
-//     transaction_type(frm) {
-//         if (frm.doc.transaction_type == 'Normal') {
+//     custom_transaction_type(frm) {
+//         if (frm.doc.custom_transaction_type == 'Normal') {
 //             frm.set_df_property('gate_entry_no', 'reqd', 1)
 //         } else {
 //             frm.set_df_property('gate_entry_no', 'reqd', 0)
@@ -54,7 +54,7 @@
 //                 }
 //             })
 //         })
-//         if (frm.doc.transaction_type == 'Normal') {
+//         if (frm.doc.custom_transaction_type == 'Normal') {
 //             frm.set_df_property('gate_entry_no', 'reqd', 1)
 //         } else {
 //             frm.set_df_property('gate_entry_no', 'reqd', 0)
@@ -80,7 +80,7 @@
 //             d.amount_s = d.invoice_quantity * d.rate_s;
 //         });
 //         $.each(frm.doc.items || [], function(i, d) {
-//             if (frm.doc.transaction_type == "Internal Transfer" && d.item_code) {
+//             if (frm.doc.custom_transaction_type == "Internal Transfer" && d.item_code) {
 //                 d.expense_account = frm.doc.expense_account
 //             }
 //         })
@@ -100,7 +100,7 @@
 // });
 // cur_frm.fields_dict.gate_entry_no.get_query = function(doc) {
 //     if (!doc.is_return) {
-//         if(frm.doc.transaction_type == "Stock Transfer"){
+//         if(frm.doc.custom_transaction_type == "Stock Transfer"){
 //             return {
 //                 filters: {
 //                     supplier: doc.supplier,

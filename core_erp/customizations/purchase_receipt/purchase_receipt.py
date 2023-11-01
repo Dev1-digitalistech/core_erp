@@ -126,7 +126,7 @@ def get_gl_entries(self, warehouse_account=None):
 					and warehouse_account.get(self.supplier_warehouse) \
 					and warehouse_account[d.warehouse]["account"] == warehouse_account[self.supplier_warehouse]["account"]:
 						continue
-				if self.transaction_type == "Internal Transfer":
+				if self.custom_transaction_type == "Internal Transfer":
 					stock_rbnb = d.expense_account
 				gl_entries.append(self.get_gl_dict({
 					"account": warehouse_account[d.warehouse]["account"],
@@ -264,11 +264,12 @@ def make_purchase_invoice(source_name, target_doc=None):
 	from frappe.model.mapper import get_mapped_doc
 	from erpnext.accounts.party import get_payment_terms_template
 
-	doc = frappe.get_doc('Purchase Receipt', source_name)
+	doc = frappe.get_doc('Purchase Receipt', source_name)	
 	returned_qty_map = get_returned_qty_map(source_name)
 	invoiced_qty_map = get_invoiced_qty_map(source_name)
 	cost_center = frappe.db.get_value("Company", doc.company, "cost_center")
 	due_date = add_days(doc.posting_date, 30)
+	
 	def set_missing_values(source, target):
 		if len(target.get("items")) == 0:
 			frappe.throw(_("All items have already been Invoiced/Returned"))
