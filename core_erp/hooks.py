@@ -37,6 +37,7 @@ doc_events = {
 		# "before_insert":"core_erp.customizations.batch.batch.before_insert"
         },
 	"Quality Inspection": {
+		# "before_save": "core_erp.customizations.quality_inspection.quality_inspection.before_insert",
 		"on_submit": "core_erp.customizations.quality_inspection.quality_inspection.on_submit"
 	},
 	"Purchase Invoice":{
@@ -147,19 +148,18 @@ StatusUpdater.update_prevdoc_status = update_prevdoc_status
 
 from erpnext.accounts.doctype.purchase_invoice.purchase_invoice import PurchaseInvoice
 from core_erp.customizations.purchase_invoice.purchase_invoice import set_tax_withholding_dup
-PurchaseInvoice.set_tax_withholding = set_tax_withholding_dup
+# PurchaseInvoice.set_tax_withholding = set_tax_withholding_dup
 
 from erpnext.controllers.stock_controller import StockController
 from core_erp.customizations.controllers.stock_controller import validate_serialized_batch_dup
 StockController.validate_serialized_batch=validate_serialized_batch_dup
-
-
+# from erpnext.accounts.doctype.account import Account
 
 from erpnext.stock.doctype.stock_entry.stock_entry import StockEntry
 from core_erp.customizations.stock_entry.stock_entry import validate_batch_dup
 StockEntry.validate_batch= validate_batch_dup
 
-
+from core_erp.customizations.account.account import validate_root_company_and_sync_account_to_children
 
 # from frappe.email.receive import InboundMail
 # from core_erp.customizations.frappe.frappe import _create_reference_document_dup
