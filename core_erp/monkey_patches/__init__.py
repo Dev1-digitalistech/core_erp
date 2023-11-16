@@ -10,7 +10,8 @@ from erpnext.stock.doctype.batch.batch import Batch
 from core_erp.customizations.batch.batch import autoname, before_save
 
 from erpnext.stock.doctype.purchase_receipt.purchase_receipt import PurchaseReceipt
-from core_erp.customizations.purchase_receipt.purchase_receipt import po_required, get_gl_entries
+# from core_erp.customizations.purchase_receipt.purchase_receipt import po_required, get_gl_entries
+from core_erp.customizations.purchase_receipt.purchase_receipt import po_required
 
 from erpnext.stock.doctype.quality_inspection.quality_inspection import QualityInspection
 from core_erp.customizations.quality_inspection.quality_inspection import update_qc_reference, on_submit
@@ -80,7 +81,7 @@ Batch.autoname = autoname
 Batch.before_save=  before_save
 
 PurchaseReceipt.po_required = po_required
-PurchaseReceipt.get_gl_entries = get_gl_entries
+# PurchaseReceipt.get_gl_entries = get_gl_entries
 
 # QualityInspection.get_item_specification_details = get_item_specification_details_dup
 # QualityInspection.get_quality_inspection_template = get_quality_inspection_template
