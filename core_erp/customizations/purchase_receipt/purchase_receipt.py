@@ -57,9 +57,15 @@ def create_quality_inspection(self):
 			qi.reference_name = self.name
 			qi.approved_quantity = d.qty
 			qi.acc_qty = d.qty
+			qi.quality_inspection_template = frappe.db.get_value("Item", d.item_code, "quality_inspection_template")
 			qi.row_name = d.name
 			qi.sample_size = 0
 			qi.insert()
+			qi.reload()
+			for reading in qi.readings:
+				reading.manual_inspection = 1
+				reading.status = "Accepted"
+			qi.save()
 			frappe.msgprint("Quality Inspection Created for " + str(d.item_code))
 
 # patch

@@ -73,3 +73,24 @@ def permission_query(user):
 	# if "Sales Manager" in frappe.get_roles(user):
 	else:
 		return """`tabIssue`.to_email_account='{user}' or `tabIssue`.owner='{user}' or `tabIssue`._assign like '%{user}%'""".format(user=user)
+
+
+
+def make_issue_from_communication(communication, ignore_communication_links=False):
+	"""raise a issue from email"""
+
+	doc = frappe.get_doc("Communication", communication)
+	issue = frappe.get_doc(
+		{
+			"doctype": "Issue",
+			"subject": doc.subject,
+			"communication_medium": doc.communication_medium,
+			"raised_by": doc.sender or "",
+			"raised_by_phone": doc.phone_no or "",
+			"email_account": doc.to_email_account
+		}
+	).insert(ignore_permissions=True)
+
+	link_communication_to_document(doc, "Issue", issue.name, ignore_communication_links)
+
+	return issue.name

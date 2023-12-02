@@ -66,7 +66,7 @@ def get_columns(filters):
 	"""return columns based on filters"""
 
 	columns = [_("Item") + ":Link/Item:100"] + [_("Item Name") + "::150"] + [_("Description") + "::150"] + \
-        [_("Store/Stage Name") + ":Link/Warehouse:100"] + [_("Batch") + ":Link/Batch:100"] + [_("Vendor Batch No") + ":Data:100"] + [_("Manufacturing Date") + ":Date:100"] + [_("Expiry Date") + ":Date:100"]  + [_("Balance Qty") + ":Float:90"] + [_("UOM") + "::90"]+[_("Number Of Days Left") + "::90"]+[_("Bucket") + "::80"]
+        [_("Store/Stage Name") + ":Link/Warehouse:100"] + [_("MRP") + "::150"] + [_("Shelf Life In Days") + "::150"] + [_("Batch") + ":Link/Batch:100"] + [_("Vendor Batch No") + ":Data:100"] + [_("Manufacturing Date") + ":Date:100"] + [_("Expiry Date") + ":Date:100"]  + [_("Balance Qty") + ":Float:90"] + [_("UOM") + "::90"]+[_("Number Of Days Left") + "::90"]+[_("Bucket") + "::80"]
 
 
 	return columns
@@ -92,7 +92,7 @@ def get_stock_ledger_entries(filters):
 	conditions = get_conditions(filters)
 	return frappe.db.sql("""
                 select sle.item_code, sle.batch_no, sle.warehouse, sle.posting_date, sum(sle.actual_qty) as actual_qty, bat.vendor_batch_no
-                from `tabStock Ledger Entry` sle left join `tabPurchase Receipt Item` bat on sle.voucher_detail_no=bat.name 
+                from `tabStock Ledger Entry` sle left join `tabPurchase Receipt Item` bat on sle.voucher_detail_no=bat.name
                 where sle.docstatus < 2 and ifnull(sle.batch_no, '') != '' %s
                 group by sle.voucher_no, sle.batch_no, sle.item_code, sle.warehouse
                 order by sle.item_code, sle.warehouse""" %
@@ -127,7 +127,7 @@ def get_item_warehouse_batch_map(filters, float_precision):
 
 def get_item_details(filters):
 	item_map = {}
-	for d in frappe.db.sql("select name, item_name, description, stock_uom from tabItem", as_dict=1):
+	for d in frappe.db.sql("select name, item_name, mrp, shelf_life_in_days, description, stock_uom from tabItem", as_dict=1):
 		item_map.setdefault(d.name, d)
 
 	return item_map

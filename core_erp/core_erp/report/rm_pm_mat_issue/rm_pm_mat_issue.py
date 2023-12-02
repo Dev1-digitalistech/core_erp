@@ -11,7 +11,7 @@ def execute(filters=None):
 	columns = get_columns()
 	items = get_items(filters)
 	sl_entries = get_stock_ledger_entries(filters, items)
-	frappe.msgprint(str(sl_entries))
+	#frappe.msgprint(str(sl_entries))
 	item_details = get_item_details(items, sl_entries, include_uom)
 	opening_row = get_opening_balance(filters, columns)
 	precision = cint(frappe.db.get_single_value("System Settings", "float_precision"))
@@ -106,10 +106,12 @@ def get_stock_ledger_entries(filters, items):
 			item_code, warehouse, actual_qty, -1*actual_qty, qty_after_transaction, incoming_rate, valuation_rate,
 			stock_value, voucher_type, voucher_no, sle.batch_no, serial_no, company, project, stock_value_difference
 		from `tabStock Ledger Entry` sle
-		where is_cancelled=0 and company = %(company)s and
-			(warehouse Like "Raw%%" or warehouse Like "Pack%%") and
+		where is_cancelled = 0 and company = %(company)s and
+			(item_code like 'RM%%' or item_code like 'PM%%') and 
 			actual_qty < 0 and
 			sle.batch_no!='' and
+			voucher_no not like '%%MT/%%' and voucher_no not like '%%RP/%%' and voucher_no not like '%%DEN/%%' and 
+			voucher_no not like '%%PR/%%' and voucher_no not like '%%MTM/%%' and 
 			posting_date between %(from_date)s and %(to_date)s
 			{sle_conditions}
 			{item_conditions_sql}
