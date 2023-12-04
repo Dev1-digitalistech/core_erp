@@ -1,6 +1,6 @@
 
 import frappe
-from erpnext.accounts.doctype.account.account import Account, get_root_company
+from erpnext.accounts.doctype.account.account import Account, get_root_company, get_descendants_of
 
 class CustomAccount(Account):
     def validate_root_company_and_sync_account_to_children(self):
