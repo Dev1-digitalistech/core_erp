@@ -6,6 +6,61 @@ import frappe
 from frappe import _
 from frappe.utils import flt, cint, getdate
 from frappe.utils import *
+
+def execute(filters=None):
+	if not filters: filters = {}
+	if filters.from_date > filters.to_date:
+		frappe.throw(_("From Date must be before To Date"))
+
+	float_precision = cint(frappe.db.get_default("float_precision")) or 3
+
+	columns = get_columns(filters)
+	item_map = get_item_details(filters)
+	iwb_map = get_item_warehouse_batch_map(filters, float_precision)
+	data = []
+	for item in sorted(iwb_map):
+		for wh in sorted(iwb_map[item]):
+			for batch in sorted(iwb_map[item][wh]):
+				qty_dict = iwb_map[item][wh][batch]
+                            #   posting_date = frappe.db.sql("""Select * from `tabBatch` where name = %s""",(batch), as_dict=1)
+                            #   frappe.msgprint(str(posting_date))
+				mfg_date = frappe.db.get_value("Batch",batch,"manufacturing_date")
+				expiry_date = frappe.db.get_value("Batch",batch,"expiry_date")
+				ref_lot_number=frappe.db.get_value("Batch",batch,"ref_lot_number")
+				reference = frappe.db.get_value("Batch",batch,"reference_doctype")
+				reference_name = frappe.db.get_value("Batch",batch,"reference_name")
+
+				cur_date=frappe.utils.nowdate()
+				days_left=date_diff(expiry_date,cur_date)
+				bucket = ""
+				if (days_left < 0):
+					bucket="<0 Days"
+				elif(days_left <= 15):
+					bucket="0-15 Days"
+				elif(days_left <= 30):
+					bucket="16-30 Days"
+				elif(days_left <= 45):
+					bucket="30-45 Days"
+				else:
+					bucket=">45 Days"
+				
+
+				# frappe.msgprint(days_left)
+
+				if ((qty_dict.opening_qty or qty_dict.in_qty or qty_dict.out_qty or qty_dict.bal_qty) and qty_dict.bal_qty > 0):
+					# data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, batch,qty_dict.vendor_batch_no, mfg_date,expiry_date,ref_lot_number,
+                    #                             flt(qty_dict.opening_qty, float_precision), flt(qty_dict.in_qty, float_precision),
+                    #                             flt(qty_dict.out_qty, float_precision), flt(qty_dict.bal_qty, float_precision), reference,reference_name,
+                    #                              item_map[item]["stock_uom"]
+                    #                     ])
+					data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, batch,qty_dict.vendor_batch_no, mfg_date,expiry_date, flt(qty_dict.bal_qty, float_precision), 
+                                                 item_map[item]["stock_uom"],days_left,bucket
+                                        ])
+
+	return columns, data
+
+
+
 def execute(filters=None):
 	if not filters: filters = {}
 
@@ -56,7 +111,7 @@ def execute(filters=None):
                     #                             flt(qty_dict.out_qty, float_precision), flt(qty_dict.bal_qty, float_precision), reference,reference_name,
                     #                              item_map[item]["stock_uom"]
                     #                     ])
-					data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, batch,qty_dict.vendor_batch_no, mfg_date,expiry_date, flt(qty_dict.bal_qty, float_precision), 
+					data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, item_map[item]['mrp'], item_map[item]['shelf_life_in_days'], batch,qty_dict.vendor_batch_no, mfg_date,expiry_date, flt(qty_dict.bal_qty, float_precision), 
                                                  item_map[item]["stock_uom"],days_left,bucket
                                         ])
 
