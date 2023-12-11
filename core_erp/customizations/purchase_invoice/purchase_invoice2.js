@@ -387,7 +387,7 @@ erpnext.accounts.PurchaseInvoice = class PurchaseInvoice extends erpnext.buying.
 
 	allocated_amount() {
 		this.calculate_total_advance();
-		this.frm.refresh_fields();
+		this.frm.refresh_fieldsvali();
 	}
 
 	items_add(doc, cdt, cdn) {
@@ -474,12 +474,13 @@ cur_frm.fields_dict['select_print_heading'].get_query = function (doc, cdt, cdn)
 	}
 }
 
-cur_frm.set_query("expense_account", "items", function (doc) {
-	return {
-		query: "erpnext.controllers.queries.get_expense_account",
-		filters: { 'company': doc.company }
-	}
-});
+
+// cur_frm.set_query("expense_account", "items", function (doc) {
+// 	return {
+// 		query: "erpnext.controllers.queries.get_expense_account",
+// 		filters: { 'company': doc.company }
+// 	}
+// });
 
 cur_frm.cscript.expense_account = function (doc, cdt, cdn) {
 	var d = locals[cdt][cdn];
@@ -501,6 +502,8 @@ cur_frm.fields_dict["items"].grid.get_field("cost_center").get_query = function 
 
 	}
 }
+
+
 
 cur_frm.cscript.cost_center = function (doc, cdt, cdn) {
 	var d = locals[cdt][cdn];
@@ -561,6 +564,15 @@ frappe.ui.form.on("Purchase Invoice", {
 
 	refresh: function (frm) {
 		frm.events.add_custom_buttons(frm);
+		frm.fields_dict["items"].grid.get_field("expense_account").get_query = function (doc) {
+			return {
+				filters: {
+					'company': doc.company,
+					'is_group': 0
+				}
+
+			}
+		}
 	},
 
 	add_custom_buttons: function (frm) {
@@ -663,6 +675,14 @@ frappe.ui.form.on('Purchase Invoice', {
 					frm.set_value("bill_date", res.supplier_invoice_date)
 				} catch (e) { console.log(e) }
 			}
+		}
+	},
+	direct_pi(frm) {
+		console.log("DIRECT PI CLICKED!")
+		if (frm.doc.direct_pi == 1) {
+			frm.fields_dict["items"].grid.update_docfield_property("received_qty", "read_only", 0)
+		} else {
+			frm.fields_dict["items"].grid.update_docfield_property("received_qty", "read_only", 1)
 		}
 	}
 });
