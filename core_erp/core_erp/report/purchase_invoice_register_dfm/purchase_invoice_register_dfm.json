@@ -1,22 +1,25 @@
 {
- "add_total_row": 0,
+ "add_total_row": 1,
+ "columns": [],
  "creation": "2021-04-13 14:04:38.053910",
  "disable_prepared_report": 0,
  "disabled": 0,
  "docstatus": 0,
  "doctype": "Report",
+ "filters": [],
  "idx": 0,
  "is_standard": "Yes",
  "letter_head": "DFM Foods Ltd- G.Noida",
- "modified": "2022-08-24 17:44:04.287344",
+ "modified": "2023-12-05 15:57:02.720234",
  "modified_by": "Administrator",
  "module": "Core ERP",
  "name": "Purchase Invoice Register DFM",
  "owner": "Administrator",
  "prepared_report": 0,
+ "query": "select pi.name,\npi.company as Company,\npi.posting_date as 'Posting Date',\npi.purchase_order as 'Purchase Order',\npi.mrn_number as 'Purchase Receipt',\npi.mrn_date as 'Purchase Receipt Date',\npi.supplier as 'Supplier',\npi.shipping_address_display as 'Shipping Address',\npi.supplier_address as 'Supplier address',\npi.supplier_gstin as 'Supplier Gstin',\npi.place_of_supply as 'Place of Supply',\npr.supplier_bill_no as 'BIll no',\npi.taxes_and_charges_added as 'Taxes and Charges',\npr.supplier_invoice_date as 'Bill Date',\npit.item_code as 'Item Code',\npit.item_name as 'Item Name',\npit.gst_hsn_code as 'GST HSN Code',\npit.rate as 'Rate',\npit.weight_uom as 'Weight UOM',\npit.invoice_quantity as 'QTY',\npit.item_tax_template as 'Item Tax Template',\niit.tax_print as 'Tax Print',\npit.amount_s as Amount,\n\n(case when SUBSTRING(pi.supplier_gstin, 1, 2)=SUBSTRING(pi.company_gstin, 1, 2) then TRUNCATE(iit.tax_print/2,2) end) as CGST,\n(case when SUBSTRING(pi.supplier_gstin, 1, 2)=SUBSTRING(pi.company_gstin, 1, 2) then TRUNCATE(((iit.tax_print*pit.amount_s)/100)/2,2) end) as 'CGST_Amount',\n(case when SUBSTRING(pi.supplier_gstin, 1, 2)=SUBSTRING(pi.company_gstin, 1, 2) then TRUNCATE(iit.tax_print/2,2) end) as SGST,\n(case when SUBSTRING(pi.supplier_gstin, 1, 2)=SUBSTRING(pi.company_gstin, 1, 2) then TRUNCATE(((iit.tax_print*pit.amount_s)/100)/2,2) end) as 'SGST_Amount',\n(case when SUBSTRING(pi.supplier_gstin, 1, 2)=SUBSTRING(pi.company_gstin, 1, 2) then TRUNCATE(((iit.tax_print*pit.amount_s)/100),2) end) as 'Gross_Amount',\n\n(case when SUBSTRING(pi.supplier_gstin, 1, 2)!=SUBSTRING(pi.company_gstin, 1, 2) then TRUNCATE(iit.tax_print,2) end) as IGST,\n(case when SUBSTRING(pi.supplier_gstin, 1, 2)!=SUBSTRING(pi.company_gstin, 1, 2) then TRUNCATE(((iit.tax_print*pit.amount_s)/100),2) end) as 'IGST_Amount'\n\nfrom `tabPurchase Invoice` pi \nleft join `tabPurchase Invoice Item` pit on pit.parent=pi.name\nleft join `tabPurchase Order` po on po.name=pit.purchase_order\nleft join `tabItem Tax Template` iit on pit.item_tax_template=iit.name\nleft join `tabPurchase Receipt` as pr on pit.purchase_receipt=pr.name\n\nwhere pi.is_return=0 and (date(pi.posting_date) between %(from_date)s and %(to_date)s) and pi.company = %(company)s",
  "ref_doctype": "Purchase Invoice",
  "report_name": "Purchase Invoice Register DFM",
- "report_type": "Script Report",
+ "report_type": "Query Report",
  "roles": [
   {
    "role": "Accounts User"
@@ -38,6 +41,9 @@
   },
   {
    "role": "PI Approver"
+  },
+  {
+   "role": "Reports-View"
   }
  ]
 }
