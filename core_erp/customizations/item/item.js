@@ -1,4 +1,11 @@
 frappe.ui.form.on('Item', {
+	setup: function (frm) {
+		frm.set_query('quality_inspection_template', () => {
+			return {
+				filters: { 'custom_disable': 0 }
+			}
+		})
+	},
 	item_group(frm) {
 		if (frm.doc.item_group == 'Finished Goods') {
 			cur_frm.set_df_property("weight_per_unit", "reqd", 1);
