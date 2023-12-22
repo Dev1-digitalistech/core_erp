@@ -17,6 +17,7 @@ from erpnext.buying.utils import check_on_hold_or_closed_status
 from erpnext.assets.doctype.asset.asset import get_asset_account, is_cwip_accounting_enabled
 from erpnext.assets.doctype.asset_category.asset_category import get_asset_category_account
 from six import iteritems
+from erpnext.accounts.utils import get_fiscal_year
 
 def autoname(doc, method = None):
 	fiscal_yr_abbr = get_fiscal_abbr(doc.posting_date)
@@ -372,3 +373,70 @@ def on_submit(doc, method=False):
 		if (item.batch_no):
 			frappe.db.set_value("Batch", item.batch_no, "expiry_date", item.expiry_date)
 			frappe.db.set_value("Batch", item.batch_no, "manufacturing_date", item.manufacturing_date)
+	create_custom_gl_entries(doc)
+
+@frappe.whitelist()
+def create_custom_gl_entries(doc):
+	rejected_warehouse = None
+	total_amount = 0
+	print(rejected_warehouse)
+	
+	for item in doc.items:
+		rejected_warehouse = item.rejected_warehouse if rejected_warehouse is None else rejected_warehouse
+		total_amount = total_amount + (item.rejected_qty * item.rate)
+	account = frappe.db.get_value("Warehouse", rejected_warehouse, "account")
+	against_account = frappe.db.get_value("Warehouse", rejected_warehouse, "custom_against_account")
+	
+	if rejected_warehouse:
+		print(total_amount)
+	
+		gl_entry = {
+			"posting_date": doc.posting_date,
+			"docstatus": 1,
+			"account": account,
+			"cost_center": doc.cost_center,
+			"debit": total_amount,
+			"credit": 0,
+			"account_currency": "INR",
+			"debit_in_account_currency": total_amount,
+			"credit_in_account_currency": 0,
+			"against": against_account,
+			"voucher_type": "Purchase Receipt",
+			"voucher_no": doc.name,
+			"remarks": "Accounting Entry for Rejected Stock",
+			"fiscal_year": get_fiscal_year().name,
+			"company": doc.company,
+			"doctype": "GL Entry",
+			"custom_is_custom": 1
+		}
+
+		gl_entry2 = {
+			"posting_date": doc.posting_date,
+			"docstatus": 1,
+			"account": against_account,
+			"cost_center": doc.cost_center,
+			"debit": 0,
+			"credit": total_amount,
+			"account_currency": "INR",
+			"debit_in_account_currency": 0,
+			"credit_in_account_currency": total_amount,
+			"against": account,
+			"voucher_type": "Purchase Receipt",
+			"voucher_no": doc.name,
+			"remarks": "Accounting Entry for Rejected Stock",
+			"fiscal_year": get_fiscal_year().name,
+			"company": doc.company,
+			"doctype": "GL Entry",
+			"custom_is_custom": 1
+		}
+
+		existing_entries = frappe.db.get_list("GL Entry", {"custom_is_custom": 1, "voucher_no": doc.name,"voucher_type": "Purchase Receipt", "company": doc.company})
+		print(str(existing_entries))
+		if len(existing_entries) > 0:
+			for entry in existing_entries:
+				frappe.db.delete("GL Entry", entry.name)
+
+		res = frappe.get_doc(gl_entry).insert()
+		res1 = frappe.get_doc(gl_entry2).insert()
+		print(res)
+		print(res1)

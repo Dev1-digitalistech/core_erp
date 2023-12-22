@@ -80,6 +80,9 @@ doc_events = {
 	},
 	"Journal Entry":{
 		"validate" : "core_erp.customizations.journal_entry.journal_entry.validate"
+	},
+	"Repost Accounting Ledger": {
+		"on_submit": "core_erp.customizations.report_accounting_ledger.report_accounting_ledger.on_submit"
 	}
 }
 
