@@ -430,13 +430,13 @@ def create_custom_gl_entries(doc):
 			"custom_is_custom": 1
 		}
 
-		existing_entries = frappe.db.get_list("GL Entry", {"custom_is_custom": 1, "voucher_no": doc.name,"voucher_type": "Purchase Receipt", "company": doc.company})
+		existing_entries = frappe.db.get_all("GL Entry", {"custom_is_custom": 1, "voucher_no": doc.name,"voucher_type": "Purchase Receipt", "company": doc.company})
 		print(str(existing_entries))
 		if len(existing_entries) > 0:
 			for entry in existing_entries:
 				frappe.db.delete("GL Entry", entry.name)
 
-		res = frappe.get_doc(gl_entry).insert()
-		res1 = frappe.get_doc(gl_entry2).insert()
+		res = frappe.get_doc(gl_entry).insert(ignore_permissions=True)
+		res1 = frappe.get_doc(gl_entry2).insert(ignore_permissions=True)
 		print(res)
 		print(res1)
