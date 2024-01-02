@@ -387,9 +387,7 @@ def create_custom_gl_entries(doc):
 	account = frappe.db.get_value("Warehouse", rejected_warehouse, "account")
 	against_account = frappe.db.get_value("Warehouse", rejected_warehouse, "custom_against_account")
 	
-	if rejected_warehouse:
-		print(total_amount)
-	
+	if rejected_warehouse and total_amount > 0:
 		gl_entry = {
 			"posting_date": doc.posting_date,
 			"docstatus": 1,
