@@ -379,15 +379,15 @@ def on_submit(doc, method=False):
 def create_custom_gl_entries(doc):
 	rejected_warehouse = None
 	total_amount = 0
-	print(rejected_warehouse)
 	
 	for item in doc.items:
 		rejected_warehouse = item.rejected_warehouse if rejected_warehouse is None else rejected_warehouse
 		total_amount = total_amount + (item.rejected_qty * item.rate)
+
+	print(rejected_warehouse)
 	account = frappe.db.get_value("Warehouse", rejected_warehouse, "account")
 	against_account = frappe.db.get_value("Warehouse", rejected_warehouse, "custom_against_account")
-	
-	if rejected_warehouse and total_amount > 0:
+	if rejected_warehouse and total_amount != 0:
 		gl_entry = {
 			"posting_date": doc.posting_date,
 			"docstatus": 1,
