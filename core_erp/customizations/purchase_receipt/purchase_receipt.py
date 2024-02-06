@@ -64,8 +64,14 @@ def create_quality_inspection(self):
 			qi.insert()
 			qi.reload()
 			for reading in qi.readings:
-				reading.manual_inspection = 1
-				reading.status = "Accepted"
+				
+				if reading.min_value and reading.max_value:
+					reading.manual_inspection = 0
+					reading.status = "Accepted"
+				else:
+					reading.manual_inspection = 1
+					reading.status = "Accepted"
+				
 			qi.save()
 			frappe.msgprint("Quality Inspection Created for " + str(d.item_code))
 
