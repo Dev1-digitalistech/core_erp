@@ -9,6 +9,18 @@ app_color = "grey"
 app_email = "support@extensionerp.com"
 app_license = "MIT"
 
+
+
+from core_erp.customizations.controllers.taxes_and_totals import calculate_item_values,get_current_tax_amount
+from erpnext.controllers.taxes_and_totals import calculate_taxes_and_totals
+
+
+
+calculate_taxes_and_totals.calculate_item_values = calculate_item_values
+calculate_taxes_and_totals.get_current_tax_amount = get_current_tax_amount
+
+
+
 app_include_js = "assets/core_erp/js/batch_selector_overide.js"
 
 doctype_js = {
@@ -111,8 +123,8 @@ doctype_js = {
 override_whitelisted_methods = {
     "erpnext.stock.doctype.material_request.material_request.make_stock_entry":"core_erp.customizations.material_request.material_request.make_stock_entry",
 	"erpnext.stock.doctype.purchase_receipt.purchase_receipt.make_purchase_invoice" : "core_erp.customizations.purchase_receipt.purchase_receipt.make_purchase_invoice",
-	"erpnext._co.doctype.purchase_order.purchase_order.make_purchase_receipt":"core_erp.customizations.purchase_order.purchase_order.make_purchase_receipt"
-
+	"erpnext._co.doctype.purchase_order.purchase_order.make_purchase_receipt":"core_erp.customizations.purchase_order.purchase_order.make_purchase_receipt",
+	"erpnext.controllers.queries.get_expense_account" : "core_erp.customizations.purchase_invoice.purchase_invoice.get_expense_account"
 }
 
 
@@ -174,3 +186,4 @@ override_doctype_class = {
 	"Account": "core_erp.customizations.account.account.CustomAccount"
 	# 'ToDo': 'test_app.overrides.CustomToDo'
 }
+

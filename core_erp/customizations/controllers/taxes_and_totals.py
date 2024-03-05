@@ -1,7 +1,10 @@
 import frappe
 from frappe.utils import flt, cint, nowdate
 from frappe.utils import flt
+
+
 def calculate_item_values(self):
+	# frappe.throw("calculate_item_values")
 	if not self.discount_amount_applied:
 		for item in self.doc.get("items"):
 			self.doc.round_floats_in(item)
@@ -44,6 +47,7 @@ def calculate_item_values(self):
 			item.item_tax_amount = 0.0
 
 def get_current_tax_amount(self, item, tax, item_tax_map):
+	# frappe.throw("get_current_tax_amount")
 	tax_rate = self._get_tax_rate(tax, item_tax_map)
 	current_tax_amount = 0.0
 
