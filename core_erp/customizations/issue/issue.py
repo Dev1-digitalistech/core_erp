@@ -18,6 +18,9 @@ def validate(self,method):
 	
 	elif self.to_email_account == "extcrm":
 		self.ticket_type = "IT Support"
+	
+	elif self.to_email_account=="CFA SUPPORT":		#added this line
+		self.ticket_type="CFA Support"				#added this line
 
 def autoname(self,method=None):
 	if self.to_email_account=="IT Support":
@@ -42,7 +45,10 @@ def autoname(self,method=None):
 		self.name=make_autoname("CCT/22-23/.#####.")
 
 	elif self.ticket_type=="CMS(Change Management System)":
-		self.name=make_autoname("CMS/22-23/.#####.")
+		self.name=make_autoname("CMS/24-25/.#####.")		#changed this line
+	
+	elif self.ticket_type=="CFA Support":   				  #added this line
+		self.name=make_autoname("CCT/24-25/.#####.")		  #added this line
 
 	elif self.ticket_type=="ERP SUPPORT":
 		self.name=make_autoname("ERP/22-23/.#####.")
