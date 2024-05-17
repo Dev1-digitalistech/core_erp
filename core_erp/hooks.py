@@ -114,7 +114,7 @@ doctype_js = {
 	"Item": "customizations/item/item.js",
 	"Purchase Order": "customizations/purchase_order/purchase_order.js",
 	"Payment Entry": "customizations/payment_entry/payment_entry.js",
-	# "Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice2.js",
+	"Purchase Invoice" : "customizations/purchase_invoice/purchase_invoice2.js",
 	"Purchase Receipt": "customizations/purchase_receipt/purchase_receipt.js",
 	"Delivery Note": "customizations/delivery_note/delivery_note.js",
     "Production Plan":"customizations/production_plan/production_plan.js",
