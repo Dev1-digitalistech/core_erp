@@ -1,5 +1,5 @@
 
-__version__ = '0.0.2'
+__version__ = '0.0.1'
 
 app_name = "core_erp"
 
