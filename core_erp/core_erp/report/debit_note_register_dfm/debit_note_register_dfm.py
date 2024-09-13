@@ -285,7 +285,7 @@ def get_data(filters):
 
                         if data["short_qty"]<0:
 
-                                data["short_qty"]=data["short_qty"]*-1
+                                data["short_qty"]=data["short"]*-1
 
                         else:
 
