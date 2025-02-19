@@ -43,7 +43,6 @@ def execute(filters=None):
 					bucket="30-45 Days"
 				else:
 					bucket=">45 Days"
-				
 
 				# frappe.msgprint(days_left)
 
@@ -53,7 +52,7 @@ def execute(filters=None):
                     #                             flt(qty_dict.out_qty, float_precision), flt(qty_dict.bal_qty, float_precision), reference,reference_name,
                     #                              item_map[item]["stock_uom"]
                     #                     ])
-					data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, batch,qty_dict.vendor_batch_no, mfg_date,expiry_date, flt(qty_dict.bal_qty, float_precision), 
+					data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, batch,qty_dict.vendor_batch_no, mfg_date,expiry_date, flt(qty_dict.bal_qty, float_precision),
                                                  item_map[item]["stock_uom"],days_left,bucket
                                         ])
 
@@ -111,8 +110,8 @@ def execute(filters=None):
                     #                             flt(qty_dict.out_qty, float_precision), flt(qty_dict.bal_qty, float_precision), reference,reference_name,
                     #                              item_map[item]["stock_uom"]
                     #                     ])
-					data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, item_map[item]['mrp'], item_map[item]['shelf_life_in_days'], batch,qty_dict.vendor_batch_no, mfg_date,expiry_date, flt(qty_dict.bal_qty, float_precision), 
-                                                 item_map[item]["stock_uom"],days_left,bucket
+					data.append([item, item_map[item]["item_name"], item_map[item]["description"], wh, item_map[item]['mrp'], item_map[item]['shelf_life_in_days'], batch,qty_dict.vendor_batch_no, mfg_date,expiry_date, flt(qty_dict.bal_qty, float_precision),
+                                                 item_map[item]["stock_uom"],days_left,bucket,qty_dict.valuation_rate
                                         ])
 
 	return columns, data
@@ -121,7 +120,7 @@ def get_columns(filters):
 	"""return columns based on filters"""
 
 	columns = [_("Item") + ":Link/Item:100"] + [_("Item Name") + "::150"] + [_("Description") + "::150"] + \
-        [_("Store/Stage Name") + ":Link/Warehouse:100"] + [_("MRP") + "::150"] + [_("Shelf Life In Days") + "::150"] + [_("Batch") + ":Link/Batch:100"] + [_("Vendor Batch No") + ":Data:100"] + [_("Manufacturing Date") + ":Date:100"] + [_("Expiry Date") + ":Date:100"]  + [_("Balance Qty") + ":Float:90"] + [_("UOM") + "::90"]+[_("Number Of Days Left") + "::90"]+[_("Bucket") + "::80"]
+        [_("Store/Stage Name") + ":Link/Warehouse:100"] + [_("MRP") + "::150"] + [_("Shelf Life In Days") + "::150"] + [_("Batch") + ":Link/Batch:100"] + [_("Vendor Batch No") + ":Data:100"] + [_("Manufacturing Date") + ":Date:100"] + [_("Expiry Date") + ":Date:100"]  + [_("Balance Qty") + ":Float:90"] + [_("UOM") + "::90"]+[_("Number Of Days Left") + "::90"]+[_("Bucket") + "::80"] + [_("Valuation Rate") + "::150"]
 
 
 	return columns
@@ -146,7 +145,7 @@ def get_conditions(filters):
 def get_stock_ledger_entries(filters):
 	conditions = get_conditions(filters)
 	return frappe.db.sql("""
-                select sle.item_code, sle.batch_no, sle.warehouse, sle.posting_date, sum(sle.actual_qty) as actual_qty, bat.vendor_batch_no
+                select sle.item_code, sle.batch_no, sle.warehouse, sle.posting_date, sum(sle.actual_qty) as actual_qty, bat.vendor_batch_no, sle.valuation_rate
                 from `tabStock Ledger Entry` sle left join `tabPurchase Receipt Item` bat on sle.voucher_detail_no=bat.name
                 where sle.docstatus < 2 and ifnull(sle.batch_no, '') != '' %s
                 group by sle.voucher_no, sle.batch_no, sle.item_code, sle.warehouse
@@ -163,7 +162,7 @@ def get_item_warehouse_batch_map(filters, float_precision):
 	for d in sle:
 		iwb_map.setdefault(d.item_code, {}).setdefault(d.warehouse, {})\
 			.setdefault(d.batch_no, frappe._dict({
-                                "opening_qty": 0.0, "in_qty": 0.0, "out_qty": 0.0, "bal_qty": 0.0, "vendor_batch_no": d.vendor_batch_no
+                                "opening_qty": 0.0, "in_qty": 0.0, "out_qty": 0.0, "bal_qty": 0.0, "vendor_batch_no": d.vendor_batch_no, "valuation_rate":d.valuation_rate
                         }))
 		qty_dict = iwb_map[d.item_code][d.warehouse][d.batch_no]
 		if d.posting_date < from_date:
