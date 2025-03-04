@@ -14,6 +14,7 @@ frappe.ui.form.on('Stock Entry', {
 		frm.trigger('new_function')
 	},
 	setup(frm) {
+		frm.trigger('set_custom_fifo_based_batch')
 		frm.trigger('new_function')
 
 		frm.set_query("fg_product", function () {
@@ -213,7 +214,15 @@ frappe.ui.form.on('Stock Entry', {
 			erpnext.accounts.dimensions.update_dimension(frm, frm.doctype);
 		}
 
-	}
+	},
+
+	set_custom_fifo_based_batch(frm){
+        frappe.db.get_value('Company', frm.doc.company, 'custom_fifo_based_batch').then(r => {
+			console.log(r.message)
+            frm.set_value('custom_fifo_based_batch', r.message.custom_fifo_based_batch);
+        });
+    }
+
 })
 
 frappe.ui.form.on('Stock Entry Detail', {
